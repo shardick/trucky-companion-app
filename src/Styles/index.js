@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Animated} from 'react-native';
 import {COLOR} from 'react-native-material-ui';
 
 const styles = StyleSheet.create({
@@ -13,13 +13,9 @@ const styles = StyleSheet.create({
     top: 60,
     left: 0,
     bottom: 0,
-    shadowColor: "#000000",
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 0
-    }
+    borderColor: 'grey',
+    borderRightWidth: 1,
+    overflow: 'hidden'
   },
   bottomNavigationStyle: {
     position: 'absolute',
@@ -36,7 +32,7 @@ const styles = StyleSheet.create({
     color: 'red'
   },
   list: {
-    //marginBottom: 130
+    marginBottom: 130
   },
   loader: {
     alignItems: 'center',
@@ -163,25 +159,35 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 5
   },
-  meetupsRowContainer:
-  {
+  meetupsListList: {
+    marginBottom: 70
+  },
+  meetupsRowContainer: {
     padding: 5
   },
-  meetupsRowTitle:
-  {
-    fontSize: 18
-    
+  meetupsRowButtonContainer: {
+    alignSelf: 'flex-end',
+    flexDirection: 'row',
+    flex: 1
   },
-  meetupRowTitleTime:
-  {
+  meetupsRowTitle: {
+    fontSize: 18
+  },
+  meetupRowTitleTime: {
     marginTop: 7,
     fontSize: 12
+  },
+  meetupSearchFormContainer: {
+    padding: 10
+  },
+  meetupsSearchFormLabel: {
+    paddingBottom: 5
   }
 });
 
 styles.uiTheme = {
   palette: {
-    primaryColor: COLOR.green500,
+    primaryColor: "#A51745",
     accentColor: COLOR.pink500
   }
 };

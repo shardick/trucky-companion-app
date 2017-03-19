@@ -38,6 +38,37 @@ class EventsAPI
 
         return meetups;
     }
+
+    filterEvents(meetups, server, language)
+    {
+        var ret = new Array();
+
+        meetups.forEach(function (element) {
+
+            if (server != "") {
+                if (element.server.indexOf(server.replace(' ', '')) > -1) {
+                    ret.push(element);
+                }
+            }
+
+        }, this);
+
+        return ret;
+    }
+
+    distinctLanguages(meetups)
+    {
+        var ret = new Array();
+
+        meetups.forEach(function (element) {
+
+            if (ret.indexOf(element.language) == -1) {
+                ret.push(element.language);
+            }
+        }, this);
+
+        return ret;
+    }
 }
 
 module.exports = EventsAPI;

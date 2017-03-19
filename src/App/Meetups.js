@@ -9,13 +9,12 @@ var {
     AppState,
     RefreshControl,
     Picker,
-    Button,
     Linking
 } = ReactNative;
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
 var AppBottomNavigation = require('../Components/BottomNavigation');
-import {Toolbar, Card} from 'react-native-material-ui';
+import {Toolbar, Card, Button} from 'react-native-material-ui';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -24,7 +23,7 @@ var AppSettings = require('../AppSettings');
 import EventsAPI from '../Services/EventsAPI';
 import TruckersAPI from '../Services/TruckersMPAPI';
 
-class RulesScreen extends Component
+class MeetupsScreen extends Component
 {
     constructor()
     {
@@ -38,6 +37,7 @@ class RulesScreen extends Component
             dataSource: ds.cloneWithRows([]),
             api: new EventsAPI(),
             truckersApi: new TruckersAPI(),
+            meetups: [],
             loading: true,
             showDialog: false,
             showList: true,
@@ -46,7 +46,10 @@ class RulesScreen extends Component
                     name: 'Select a server',
                     shortname: 'xx'
                 }
-            ]
+            ],
+            /*languages: ['Doesn\'t matter'],*/
+            selectedServer: '',
+            selectedLanguage: ''
         };
     }
 
@@ -80,6 +83,8 @@ class RulesScreen extends Component
             .api
             .events();
 
+        this.setState({meetups: meetups});
+
         var servers = await this
             .state
             .truckersApi
@@ -93,6 +98,13 @@ class RulesScreen extends Component
                 .dataSource
                 .cloneWithRows(meetups)
         });
+
+        /*var languages = this
+            .state
+            .api
+            .distinctLanguages(meetups);
+
+        this.setState({languages: languages});*/
 
         this.setState({loading: false, showList: true});
     }
@@ -135,7 +147,7 @@ class RulesScreen extends Component
 
     renderRow(rowData, instance) {
         return (
-            <Card onPress={() => instance.navigateMeetup(rowData.url)}>
+            <Card>
                 <View style={styles.meetupsRowContainer}>
                     <View style={styles.serversListDescriptionRow}>
                         <Text style={styles.meetupsRowTitle}>{rowData.location}</Text>
@@ -154,6 +166,13 @@ class RulesScreen extends Component
                         <Icon name="user" style={styles.serversListGameTimeIcon}/>
                         <Text style={styles.serversListGameTimeText}>{rowData.author}</Text>
                     </View>
+                    <View style={styles.meetupsRowButtonContainer}>
+                        <Button
+                            primary
+                            text="Info"
+                            onPress={() => instance.navigateMeetup(rowData.url)}/>
+                        <Button primary text="Add to calendar"/>
+                    </View>
                 </View>
             </Card>
         );
@@ -166,13 +185,28 @@ class RulesScreen extends Component
             .servers
             .map((server) => {
                 return (< Picker.Item label = {
-                    server.name
+                    server.name + ' - ' + server.shortname + ' (' + server.game + ')'
                 }
-                label = {
+                value = {
                     server.shortname
                 } />);
             });
     }
+
+    /*languagesList()
+    {
+        return this
+            .state
+            .languages
+            .map((lang) => {
+                return (< Picker.Item label = {
+                    lang
+                }
+                value = {
+                    lang
+                } />);
+            });
+    }*/
 
     renderDialog()
     {
@@ -183,25 +217,60 @@ class RulesScreen extends Component
                 this.popupDialog = popupDialog;
             }}
                 width={0.9}
-                height={200}
+                height={180}
                 onDismissed={() => this.setState({showList: true})}>
-                <View>
-                    <Text>Server</Text>
-                    <Picker>
+                <View style={styles.meetupSearchFormContainer}>
+                    <Text style={styles.meetupsSearchFormLabel}>Server</Text>
+                    <Picker
+                        style={styles.meetupsSearchFormLabel}
+                        selectedValue={this.state.selectedServer}
+                        onValueChange={(value) => this.setState({selectedServer: value})}>
                         {this.serversList()}</Picker>
-                    <Text>Language</Text>
-                    <Button title="Search"/>
+                    {/*<Text style={styles.meetupsSearchFormLabel}>Language</Text>*/}
+                    {/*<Picker
+                        style={styles.meetupsSearchFormLabel}
+                        selectedValue={this.state.selectedLanguage}
+                        onValueChange={(value) => this.setState({selectedLanguage: value})}>
+                        {this.languagesList()}
+                    </Picker>*/}
+                    <Button
+                        text="Search"
+                        icon="search"
+                        raised
+                        primary
+                        onPress={() => this.filterSearch()}/>
                 </View>
             </PopupDialog>
         );
     }
+
+    filterSearch()
+    {
+        var searchResults = this
+            .state
+            .api
+            .filterEvents(this.state.meetups, this.state.selectedServer, this.state.selectedLanguage);
+
+        this.setState({
+            dataSource: this
+                .state
+                .dataSource
+                .cloneWithRows(searchResults)
+        });
+
+        this.setState({showList: true});
+        this
+            .popupDialog
+            .dismiss();
+    }
+
     render() {
         return (
             <Container>
                 {this.renderDialog()}
                 {this.renderToolbar()}
 
-                <View style={styles.serversListMainContainer}>
+                <View style={styles.meetupsListContainer}>
                     {this.state.loading && <ActivityIndicator
                         style={[
                         styles.loader, {
@@ -219,7 +288,7 @@ class RulesScreen extends Component
                         ? {}
                         : styles.hidden}>
                         <ListView
-                            style={styles.list}
+                            style={styles.meetupsListList}
                             dataSource={this.state.dataSource}
                             renderRow={(rowData) => this.renderRow(rowData, this)}
                             automaticallyAdjustContentInsets={false}
@@ -239,4 +308,4 @@ class RulesScreen extends Component
     }
 }
 
-module.exports = RulesScreen;
+module.exports = MeetupsScreen;

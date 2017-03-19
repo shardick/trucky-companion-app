@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import ReactNative from 'react-native';
-const {View, Text} = ReactNative;
+const {View, Text, Image} = ReactNative;
 import RouteManager from '../routes';
 import styles from '../Styles';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
@@ -39,6 +39,9 @@ class AppDrawerLayout extends Component
                 ? styles.hidden
                 : styles.appDrawerStyle}>
                 <Drawer>
+                    <View style={{alignItems: 'center', marginTop: 10}}>
+                    <Image source={require('../Assets/trucky_banner.png')} style={{width: 100, height: 100}}/>
+                    </View>
                     <Drawer.Section
                         items={[
                         {
@@ -47,13 +50,13 @@ class AppDrawerLayout extends Component
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.servers)
-                        }, , {
-                            icon: <FAIcon name="calendar" size={22} />,
+                        },, {
+                            icon: <FAIcon name="calendar" size={22}/>,
                             value: 'Meetups',
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.meetups)
-                        },{
+                        }, {
                             icon: 'search',
                             value: 'Search Player'
                         }, {

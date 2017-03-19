@@ -11,7 +11,6 @@ import {
     ActivityIndicator,
     AppState,
     Image,
-    Button,
     TouchableOpacity,
     Linking
 } from 'react-native';
@@ -32,7 +31,8 @@ import {
     Toolbar,
     BottomNavigation,
     Icon,
-    Drawer
+    Drawer,
+    Button
 } from 'react-native-material-ui';
 
 const UP = 1;
@@ -226,9 +226,9 @@ class Home extends Component {
                                 icon={{
                                 name: 'cloud'
                             }}
-                                title='Servers Status'
+                                text='Servers Status'
                                 onPress={() => this.props.navigator.push(RouteManager.routes.servers)}
-                                backgroundColor="red"/>
+                                />
 
                             <TouchableOpacity onPress={this.openTruckersMPWebSite}>
                                 <Text style={styles.marginTop20}>Visit TruckersMP Website</Text>
