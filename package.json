@@ -9,8 +9,6 @@
   "dependencies": {
     "react": "~15.4.1",
     "react-native": "0.42.2",
-    "react-native-drawer-layout": "^1.1.5",
-    "react-native-form-generator": "^0.9.9",
     "react-native-html-parser": "0.0.4",
     "react-native-material-ui": "^1.8.0",
     "react-native-popup-dialog": "^0.7.22",

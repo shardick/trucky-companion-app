@@ -18,6 +18,12 @@ react-native-progress for progress bar in Servers Screen
 
 react-native-material-ui for interface and theming (BottomNavigation, Drawer, Theme)
 
+react-native-html-parser for parsing html downloaded from http://ets2c.com
+
+react-native-popup-dialog for dialogs
+
+Run npm install to install all depencencies
+
 ## Anatomy
 
 index.android.js is entrypoint for Android App, it contains call to src/index.js that includes src/App/App.js . App.js contains main application logic, navigation container and theming.
@@ -44,11 +50,14 @@ Navigation are served by RN component Navigation using routes in RouteManager
         * Servers
         * Rules
         * Settings
+        * Events
     * Assets
     * src/Components
         * AppDrawerLayout
         * AppBottomNavigation
-    * src/Services/TruckersMPApi
+    * src/Services
+        * TruckersMPAPI
+        * EventsAPI
     * src/AppSettings
 
 ## Compiling and debugging
