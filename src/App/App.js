@@ -1,0 +1,68 @@
+import React, {Component} from 'react';
+import {
+    Navigator,
+    NativeModules,
+    StatusBar,
+    View,
+    BackAndroid,
+    Platform
+} from 'react-native';
+
+import styles from '../Styles';
+import {ThemeProvider} from 'react-native-material-ui';
+import RouteManager from '../routes';
+import Container from '../Container';
+var AppBottomNavigation = require('../Components/BottomNavigation');
+
+const UIManager = NativeModules.UIManager;
+
+var _navigator;
+
+if (Platform.OS == 'android') {
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+        if (_navigator && _navigator.getCurrentRoutes().length > 1) {
+            _navigator.pop();
+            return true;
+        }
+        return false;
+    });
+}
+
+class App extends Component {
+    static configureScene(route) {
+        return route.animationType || Navigator.SceneConfigs.FadeAndroid;
+    }
+    static renderScene(route, navigator) {
+        _navigator = navigator;
+
+        return (
+            <Container>
+                <route.Page route={route} navigator={navigator}/>
+                {/*<AppBottomNavigation navigator={navigator} active={route.navigationTab}/>*/}
+            </Container>
+        );
+    }
+    componentWillMount() {
+        if (UIManager.setLayoutAnimationEnabledExperimental) {
+            UIManager.setLayoutAnimationEnabledExperimental(true);
+        }
+    }
+
+    renderNavigator()
+    {
+        return (<Navigator
+            configureScene={App.configureScene}
+            initialRoute={RouteManager.routes.home}
+            ref={this.onNavigatorRef}
+            renderScene={App.renderScene}/>);
+    }
+    render() {
+        return (
+            <ThemeProvider uiTheme={styles.uiTheme}>
+                {this.renderNavigator()}
+            </ThemeProvider>
+        );
+    }
+}
+
+export default App;

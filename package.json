@@ -1,0 +1,29 @@
+{
+  "name": "Trucky",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "~15.4.1",
+    "react-native": "0.42.2",
+    "react-native-drawer-layout": "^1.1.5",
+    "react-native-form-generator": "^0.9.9",
+    "react-native-html-parser": "0.0.4",
+    "react-native-material-ui": "^1.8.0",
+    "react-native-popup-dialog": "^0.7.22",
+    "react-native-progress": "^3.2.0",
+    "react-native-simple-markdown": "^1.0.60-rc.3"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "~15.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
