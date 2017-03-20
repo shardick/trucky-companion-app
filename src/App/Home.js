@@ -8,7 +8,6 @@ import {
     View,
     StyleSheet,
     Text,
-    ActivityIndicator,
     AppState,
     Image,
     TouchableOpacity,
@@ -22,6 +21,8 @@ import Container from '../Container';
 import styles from '../Styles';
 var AppBottomNavigation = require('../Components/BottomNavigation');
 import AppDrawerLayout from '../Components/AppDrawerLayout';
+const SideMenu = require('react-native-side-menu');
+import ActivityIndicator from '../Components/CustomActivityIndicator';
 
 // components
 import {
@@ -60,15 +61,21 @@ class Home extends Component {
             loading: true,
             api: new TruckersMPApi(),
             refreshTimer: null,
-            drawerOpen: false
+            drawerOpen: false,
+            sideMenuIsOpen: false
         };
     }
 
     toggleDrawer()
     {
-        this.state.drawerOpen
+        /*this.state.drawerOpen
             ? this.setState({drawerOpen: false})
-            : this.setState({drawerOpen: true})
+            : this.setState({drawerOpen: true})*/
+
+        this.state.sideMenuIsOpen
+            ? this.setState({sideMenuIsOpen: false})
+            : this.setState({sideMenuIsOpen: true})
+
     }
 
     renderToolbar = () => {
@@ -183,61 +190,52 @@ class Home extends Component {
 
     renderDrawer()
     {
-        return (<AppDrawerLayout
-            drawerOpen={this.state.drawerOpen}
-            navigator={this.props.navigator}/>);
+        return (<AppDrawerLayout navigator={this.props.navigator}/>);
     }
+
     renderContentView() {
         return (
             <Container>
-                {this.renderToolbar()}
-                {this.renderDrawer()}
-                <ScrollView
-                    keyboardShouldPersistTaps="always"
-                    keyboardDismissMode="interactive">
+                <SideMenu style={styles.sideMenu}
+                    isOpen={this.state.sideMenuIsOpen}
+                    menu={this.renderDrawer()}
+                    onChange={(isOpen) => this.setState({sideMenuIsOpen: isOpen})}>
+                    {this.renderToolbar()}
+                    <ScrollView
+                        style={{
+                        backgroundColor: '#FAFAFA'
+                    }}
+                        keyboardShouldPersistTaps="always"
+                        keyboardDismissMode="interactive">
 
-                    {this.state.loading && <ActivityIndicator
-                        style={[
-                        styles.loader, {
-                            transform: [
-                                {
-                                    scale: 1.5
-                                }
-                            ]
-                        }
-                    ]}
-                        size="large"/>
-}
-                    {(!this.state.loading) && <View style={styles.gameVersionContainer}>
-                        <Image
-                            source={require('../Assets/avatar.png')}
-                            style={this.state.loading
-                            ? styles.hidden
-                            : styles.gameVersionMainImage}/>
-                        <Text style={styles.gameVersionRow}>Current version: {this.state.gameVersion.name}</Text>
-                        <Text style={styles.gameVersionRow}>Supported ETS game version: {this.state.gameVersion.supported_game_version}</Text>
-                        <Text style={styles.gameVersionRow}>Supported ATS game version: {this.state.gameVersion.supported_ats_game_version}</Text>
-                        <Text style={styles.gameVersionRow}>Last Release date: {this.state.gameVersion.time}</Text>
-                        <Text style={styles.gameVersionTotalPlayer}>{this.state.totalPlayers}&nbsp; players online</Text>
-                        <Text style={styles.gameVersionTotalPlayer}>Current game time: {this.state.gameTime}</Text>
-                        <View style={styles.marginTop20}>
-                            <Button
-                                raised
-                                icon={{
-                                name: 'cloud'
-                            }}
-                                text='Servers Status'
-                                onPress={() => this.props.navigator.push(RouteManager.routes.servers)}
-                                />
+                        {this.state.loading && <ActivityIndicator />}
+                        {(!this.state.loading) && <View style={styles.gameVersionContainer}>
+                            <Image
+                                source={require('../Assets/avatar.png')}
+                                style={this.state.loading
+                                ? styles.hidden
+                                : styles.gameVersionMainImage}/>
+                            <Text style={styles.gameVersionRow}>Current version: {this.state.gameVersion.name}</Text>
+                            <Text style={styles.gameVersionRow}>Supported ETS game version: {this.state.gameVersion.supported_game_version}</Text>
+                            <Text style={styles.gameVersionRow}>Supported ATS game version: {this.state.gameVersion.supported_ats_game_version}</Text>
+                            <Text style={styles.gameVersionRow}>Last Release date: {this.state.gameVersion.time}</Text>
+                            <Text style={styles.gameVersionTotalPlayer}>{this.state.totalPlayers}&nbsp; players online</Text>
+                            <Text style={styles.gameVersionTotalPlayer}>Current game time: {this.state.gameTime}</Text>
+                            <View style={styles.marginTop20}>
+                                <Button
+                                    raised
+                                    text='Servers Status'
+                                    onPress={() => this.props.navigator.push(RouteManager.routes.servers)}/>
 
-                            <TouchableOpacity onPress={this.openTruckersMPWebSite}>
-                                <Text style={styles.marginTop20}>Visit TruckersMP Website</Text>
-                            </TouchableOpacity>
+                                <TouchableOpacity onPress={this.openTruckersMPWebSite}>
+                                    <Text style={styles.marginTop20}>Visit TruckersMP Website</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                    </View>
 }
 
-                </ScrollView>
+                    </ScrollView>
+                </SideMenu>
             </Container>
 
         );

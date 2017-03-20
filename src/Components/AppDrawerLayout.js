@@ -34,10 +34,6 @@ class AppDrawerLayout extends Component
 
     render() {
         return (
-            <View
-                style={!this.props.drawerOpen
-                ? styles.hidden
-                : styles.appDrawerStyle}>
                 <Drawer>
                     <View style={{alignItems: 'center', marginTop: 10}}>
                     <Image source={require('../Assets/trucky_banner.png')} style={{width: 100, height: 100}}/>
@@ -73,11 +69,13 @@ class AppDrawerLayout extends Component
                                 .bind(this, RouteManager.routes.settings)
                         }, {
                             icon: 'info',
-                            value: 'About'
+                            value: 'About',
+                            onPress: this
+                                .onPress
+                                .bind(this, RouteManager.routes.about)
                         }
                     ]}/>
                 </Drawer>
-            </View>
         )
     }
 }

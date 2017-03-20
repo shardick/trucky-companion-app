@@ -3,17 +3,13 @@ var ReactNative = require('react-native');
 var {
     Text,
     View,
-    Button,
-    Alert,
-    Switch,
-    Picker,
     ScrollView,
-    RefreshControl
 } = ReactNative;
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
 
 import {Toolbar} from 'react-native-material-ui';
+import ActivityIndicator from '../Components/CustomActivityIndicator';
 
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
@@ -48,8 +44,6 @@ class RulesScreen extends Component
 
         this.setState({rules: rules});
 
-        
-
         this.setState({loading: false});
     }
 
@@ -64,11 +58,13 @@ class RulesScreen extends Component
         return (
             <Container>
                 {this.renderToolbar()}
-                <ScrollView style={styles.rulesMarkDownContainer}>
+                {this.state.loading && <ActivityIndicator/>}
+                {!this.state.loading && <ScrollView style={styles.rulesMarkDownContainer}>
                     <Markdown style={styles.rulesMarkDownSyles}>
                         {this.state.rules}
                     </Markdown>
                 </ScrollView>
+                }
             </Container>
         )
     }

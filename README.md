@@ -22,6 +22,8 @@ react-native-html-parser for parsing html downloaded from http://ets2c.com
 
 react-native-popup-dialog for dialogs
 
+react-native-side-menu for side menu wrapping the drawer
+
 Run npm install to install all depencencies
 
 ## Anatomy
@@ -51,10 +53,12 @@ Navigation are served by RN component Navigation using routes in RouteManager
         * Rules
         * Settings
         * Events
+        * About
     * Assets
     * src/Components
         * AppDrawerLayout
         * AppBottomNavigation
+        * CustomActivityIndicator
     * src/Services
         * TruckersMPAPI
         * EventsAPI

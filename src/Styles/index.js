@@ -5,14 +5,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
+  sideMenu: {
+    elevation: 2,
+    borderColor: 'grey',
+    borderRightWidth: 1
+  },
   appDrawerStyle: {
-    position: 'absolute',
+    /*    position: 'absolute',
     width: 300,
     zIndex: 10,
     flex: 1,
     top: 60,
     left: 0,
-    bottom: 0,
+    bottom: 0*/
     borderColor: 'grey',
     borderRightWidth: 1,
     overflow: 'hidden'
@@ -37,7 +42,13 @@ const styles = StyleSheet.create({
   loader: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 8
+    padding: 8,
+    marginTop: 10,
+    transform: [
+      {
+        scale: 1.5
+      }
+    ]
   },
   simpleRow: {
     flexDirection: 'row'
@@ -181,7 +192,23 @@ const styles = StyleSheet.create({
     padding: 10
   },
   meetupsSearchFormLabel: {
-    paddingBottom: 5
+    padding: 5,
+    marginBottom: 5
+  },
+  meetupsSearchFormField: {
+    padding: 5,
+    marginBottom: 10
+  },
+  aboutCenter: {
+    marginTop: 20,
+    alignItems: 'center'
+  },
+  aboutImage: {
+    width: 200,
+    height: 200
+  },
+  aboutText: {
+    marginTop: 10
   }
 });
 

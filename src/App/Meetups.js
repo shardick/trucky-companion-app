@@ -4,7 +4,6 @@ var {
     Text,
     View,
     ScrollView,
-    ActivityIndicator,
     ListView,
     AppState,
     RefreshControl,
@@ -17,6 +16,7 @@ var AppBottomNavigation = require('../Components/BottomNavigation');
 import {Toolbar, Card, Button} from 'react-native-material-ui';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ActivityIndicator from '../Components/CustomActivityIndicator';
 
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
@@ -212,17 +212,17 @@ class MeetupsScreen extends Component
     {
         return (
             <PopupDialog
-                dialogTitle={< DialogTitle title = "Filter events" />}
+               
                 ref={(popupDialog) => {
                 this.popupDialog = popupDialog;
             }}
                 width={0.9}
-                height={180}
+                height={155}
                 onDismissed={() => this.setState({showList: true})}>
                 <View style={styles.meetupSearchFormContainer}>
                     <Text style={styles.meetupsSearchFormLabel}>Server</Text>
                     <Picker
-                        style={styles.meetupsSearchFormLabel}
+                        style={styles.meetupsSearchFormField}
                         selectedValue={this.state.selectedServer}
                         onValueChange={(value) => this.setState({selectedServer: value})}>
                         {this.serversList()}</Picker>
@@ -271,18 +271,7 @@ class MeetupsScreen extends Component
                 {this.renderToolbar()}
 
                 <View style={styles.meetupsListContainer}>
-                    {this.state.loading && <ActivityIndicator
-                        style={[
-                        styles.loader, {
-                            transform: [
-                                {
-                                    scale: 1.5
-                                }
-                            ]
-                        }
-                    ]}
-                        size="large"/>
-}
+                    {this.state.loading && <ActivityIndicator />}
                     <View
                         style={!this.state.loading && this.state.showList
                         ? {}

@@ -11,13 +11,12 @@ var {
     View,
     StyleSheet,
     ScrollView,
-    ActivityIndicator,
     RefreshControl,
     AppState
 } = ReactNative;
 
 import {Toolbar, ActionButton, Card} from 'react-native-material-ui';
-
+import ActivityIndicator from '../Components/CustomActivityIndicator';
 import styles from '../Styles';
 import AppSettings from '../AppSettings';
 import TruckersMPApi from '../Services/TruckersMPAPI';
@@ -198,18 +197,7 @@ class ServersScreen extends Component
             <Container>
                 {this.renderToolbar()}
                 <View style={styles.serversListMainContainer}>
-                    {this.state.loading && <ActivityIndicator
-                        style={[
-                        styles.loader, {
-                            transform: [
-                                {
-                                    scale: 1.5
-                                }
-                            ]
-                        }
-                    ]}
-                        size="large"/>
-}
+                    {this.state.loading && <ActivityIndicator />}
                     <View
                         style={this.state.loading
                         ? styles.hidden

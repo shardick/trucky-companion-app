@@ -3,6 +3,7 @@ import ServersScreen from './App/Servers';
 import SettingsScreen from './App/Settings';
 import RulesScreen from './App/Rules';
 import MeetupsScreen from './App/Meetups';
+import AboutScreen from './App/About';
 
 class RouteManager
 {
@@ -32,6 +33,10 @@ class RouteManager
                 title: 'Meetups',
                 Page: MeetupsScreen,
                 navigationTab: 'meetups'
+            },
+            about: {
+                title: 'About this app',
+                Page: AboutScreen
             }
         });
     }
