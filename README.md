@@ -65,7 +65,7 @@ Navigation are served by RN component Navigation using routes in RouteManager
     * src/AppSettings
 
 ## Compiling and debugging
-Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root folder, in VS Code terminal, run "react-native run android". G
+Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root folder, in VS Code terminal, run "react-native run android".
 
 ## Build Release
 From VS Code terminal run "release-android.bat", release apk in .-\android\app\build\outputs\apk\app-release.apk
