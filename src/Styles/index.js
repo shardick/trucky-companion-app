@@ -8,7 +8,10 @@ const styles = StyleSheet.create({
   sideMenu: {
     elevation: 2,
     borderColor: 'grey',
-    borderRightWidth: 1
+    borderRightWidth: 1,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 0
   },
   appDrawerStyle: {
     /*    position: 'absolute',

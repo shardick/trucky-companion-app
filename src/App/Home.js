@@ -24,6 +24,8 @@ import AppDrawerLayout from '../Components/AppDrawerLayout';
 const SideMenu = require('react-native-side-menu');
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 
+import Drawer from 'react-native-drawer'
+
 // components
 import {
     ActionButton,
@@ -32,18 +34,27 @@ import {
     Toolbar,
     BottomNavigation,
     Icon,
-    Drawer,
     Button
 } from 'react-native-material-ui';
-
-const UP = 1;
-const DOWN = -1;
 
 const propTypes = {
     navigator: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired
 };
 
+const material = (ratio) => {
+    var drawerShadow = ratio < .2
+        ? ratio * 5 * 5
+        : 5
+    return {
+        drawer: {
+            shadowRadius: drawerShadow
+        },
+        main: {
+            opacity: (2 - ratio) / 2
+        }
+    }
+}
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -196,10 +207,17 @@ class Home extends Component {
     renderContentView() {
         return (
             <Container>
-                <SideMenu style={styles.sideMenu}
-                    isOpen={this.state.sideMenuIsOpen}
-                    menu={this.renderDrawer()}
-                    onChange={(isOpen) => this.setState({sideMenuIsOpen: isOpen})}>
+                <Drawer
+                    style={styles.sideMenu}
+                    open={this.state.sideMenuIsOpen}
+                    content={this.renderDrawer()}
+                    onClose={() => this.setState({sideMenuIsOpen: false})}
+                    onOpen={() => this.setState({sideMenuIsOpen: true})}
+                    acceptTap={true}
+                    tapToClose={true}
+                    elevation={10}
+                    type="overlay"
+                    openDrawerOffset={0.2}>
                     {this.renderToolbar()}
                     <ScrollView
                         style={{
@@ -208,7 +226,7 @@ class Home extends Component {
                         keyboardShouldPersistTaps="always"
                         keyboardDismissMode="interactive">
 
-                        {this.state.loading && <ActivityIndicator />}
+                        {this.state.loading && <ActivityIndicator/>}
                         {(!this.state.loading) && <View style={styles.gameVersionContainer}>
                             <Image
                                 source={require('../Assets/avatar.png')}
@@ -235,7 +253,7 @@ class Home extends Component {
 }
 
                     </ScrollView>
-                </SideMenu>
+                </Drawer>
             </Container>
 
         );

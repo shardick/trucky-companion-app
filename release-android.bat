@@ -1,0 +1,2 @@
+cd android
+gradlew assembleRelease
