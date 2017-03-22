@@ -4,6 +4,8 @@
 
 I'm learning React Native and i'm a trucker (i play Euro Truck Simulator on multiplayer via [TruckersMP mod](https://truckersmp.com/)) so i want to try and learn on a real case using a set of API already built from TruckersMP developers.
 
+Meetups are downloaded from [ETS2 Convoys](http://ets2c.com)
+
 I'm not affiliated in any way with SCS, Euro Truck Simulator 2 or TruckersMP.
 
 ## Dependencies
@@ -16,13 +18,13 @@ react-native-simple-markdown for parsing Rules markdown
 
 react-native-progress for progress bar in Servers Screen
 
-react-native-material-ui for interface and theming (BottomNavigation, Drawer, Theme)
+react-native-material-ui for interface and theming (BottomNavigation, Drawer Layout, Theme)
 
-react-native-html-parser for parsing html downloaded from http://ets2c.com
+react-native-html-parser for html parsing
 
 react-native-popup-dialog for dialogs
 
-react-native-side-menu for side menu wrapping the drawer
+react-native-drawer for app drawer
 
 Run npm install to install all depencencies
 

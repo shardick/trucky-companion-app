@@ -3,7 +3,8 @@ import {COLOR} from 'react-native-material-ui';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#FAFAFA'
   },
   sideMenu: {
     elevation: 2,
@@ -14,13 +15,6 @@ const styles = StyleSheet.create({
     shadowRadius: 0
   },
   appDrawerStyle: {
-    /*    position: 'absolute',
-    width: 300,
-    zIndex: 10,
-    flex: 1,
-    top: 60,
-    left: 0,
-    bottom: 0*/
     borderColor: 'grey',
     borderRightWidth: 1,
     overflow: 'hidden'
@@ -81,33 +75,49 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 20
   },
+  appSettingsHeader:
+  {
+    marginTop: 20,
+    marginRight: 10,
+    marginLeft: 10,
+  },
+  appSettingsHeaderText:
+  {
+    color:'#009688',
+    fontWeight:'500'
+  },
   appSettingsRow: {
     flexDirection: 'row',
     marginRight: 10,
     marginLeft: 10,
     marginTop: 10,
-    borderColor: 'grey',
+    paddingBottom: 15,
+    borderColor: '#d6d5d9',
     borderStyle: 'solid',
-    borderBottomWidth: 0.5,
-    paddingBottom: 5
+    borderBottomWidth: 1,
   },
   appSettingsRowColumns: {
     flexDirection: 'column',
     marginRight: 10,
     marginLeft: 10,
     marginTop: 10,
-    borderColor: 'grey',
+    borderColor: '#d6d5d9',
     borderStyle: 'solid',
-    borderBottomWidth: 0.5,
-    paddingBottom: 5
+    borderBottomWidth: 1,
+    paddingBottom: 15
   },
   appSettingsLabel: {
-    marginTop: 4
+    marginTop: 4,
+    color:'black',
   },
   appSettingsFieldBelow: {},
   appSettingsField: {
     flex: 1,
     justifyContent: 'flex-end'
+  },
+  appSettingsPicker:
+  {
+    fontSize: 14
   },
   rulesMarkDownContainer: {
     padding: 20

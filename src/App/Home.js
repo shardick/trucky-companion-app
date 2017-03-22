@@ -21,7 +21,6 @@ import Container from '../Container';
 import styles from '../Styles';
 var AppBottomNavigation = require('../Components/BottomNavigation');
 import AppDrawerLayout from '../Components/AppDrawerLayout';
-const SideMenu = require('react-native-side-menu');
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 
 import Drawer from 'react-native-drawer'
@@ -42,32 +41,15 @@ const propTypes = {
     route: PropTypes.object.isRequired
 };
 
-const material = (ratio) => {
-    var drawerShadow = ratio < .2
-        ? ratio * 5 * 5
-        : 5
-    return {
-        drawer: {
-            shadowRadius: drawerShadow
-        },
-        main: {
-            opacity: (2 - ratio) / 2
-        }
-    }
-}
 class Home extends Component {
     constructor(props) {
         super(props);
-
-        this.offset = 0;
-        this.scrollDirection = 0;
 
         this.state = {
             selected: [],
             searchText: '',
             toolbarHidden: false,
             active: 'people',
-            moveAnimated: new Animated.Value(0),
             gameVersion: {},
             loading: true,
             api: new TruckersMPApi(),
@@ -77,22 +59,10 @@ class Home extends Component {
         };
     }
 
-    toggleDrawer()
-    {
-        /*this.state.drawerOpen
-            ? this.setState({drawerOpen: false})
-            : this.setState({drawerOpen: true})*/
-
-        this.state.sideMenuIsOpen
-            ? this.setState({sideMenuIsOpen: false})
-            : this.setState({sideMenuIsOpen: true})
-
-    }
-
     renderToolbar = () => {
         return (<Toolbar
             leftElement="menu"
-            onLeftElementPress={() => this.toggleDrawer()}
+            onLeftElementPress={() => this.setState({sideMenuIsOpen: true})}
             centerElement={this.props.route.title}/>);
     }
 
@@ -179,14 +149,6 @@ class Home extends Component {
         this.setState({gameTime: gametime});
     }
 
-    navigateToServersScreen() {
-
-        this
-            .props
-            .navigator
-            .push(routes.servers);
-    }
-
     openTruckersMPWebSite = () => {
         Linking
             .canOpenURL('https://truckersmp.com')
@@ -199,30 +161,31 @@ class Home extends Component {
             });
     };
 
-    renderDrawer()
-    {
-        return (<AppDrawerLayout navigator={this.props.navigator}/>);
-    }
-
-    renderContentView() {
-        return (
+    render() {
+       return (
             <Container>
                 <Drawer
                     style={styles.sideMenu}
                     open={this.state.sideMenuIsOpen}
-                    content={this.renderDrawer()}
+                    content={<AppDrawerLayout navigator={this.props.navigator}/>}
                     onClose={() => this.setState({sideMenuIsOpen: false})}
                     onOpen={() => this.setState({sideMenuIsOpen: true})}
                     acceptTap={true}
                     tapToClose={true}
                     elevation={10}
                     type="overlay"
-                    openDrawerOffset={0.2}>
+                    openDrawerOffset={0.2}
+                    tweenHandler={ratio => ({
+                    main: {
+                        opacity: 1
+                    },
+                    mainOverlay: {
+                        opacity: ratio / 2,
+                        backgroundColor: 'black'
+                    }
+                })}>
                     {this.renderToolbar()}
                     <ScrollView
-                        style={{
-                        backgroundColor: '#FAFAFA'
-                    }}
                         keyboardShouldPersistTaps="always"
                         keyboardDismissMode="interactive">
 
@@ -251,17 +214,11 @@ class Home extends Component {
                             </View>
                         </View>
 }
-
                     </ScrollView>
                 </Drawer>
             </Container>
 
         );
-    }
-
-    render() {
-        return this.renderContentView();
-
     }
 }
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 var ReactNative = require('react-native');
 var {Text, View, ScrollView, Image, Linking, TouchableHighlight, TouchableOpacity} = ReactNative;
 import Container from '../Container';
@@ -7,6 +7,11 @@ import {Toolbar, Button} from 'react-native-material-ui';
 
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
+
+const propTypes = {
+    navigator: PropTypes.object.isRequired,
+    route: PropTypes.object.isRequired
+};
 
 class AboutScreen extends Component
 {

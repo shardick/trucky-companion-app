@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 var ReactNative = require('react-native');
 var {
     Text,
@@ -14,6 +14,11 @@ import ActivityIndicator from '../Components/CustomActivityIndicator';
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
 import TruckersMPApi from '../Services/TruckersMPAPI';
+
+const propTypes = {
+    navigator: PropTypes.object.isRequired,
+    route: PropTypes.object.isRequired
+};
 
 class RulesScreen extends Component
 {

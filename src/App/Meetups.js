@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 var ReactNative = require('react-native');
 var {
     Text,
@@ -8,7 +8,8 @@ var {
     AppState,
     RefreshControl,
     Picker,
-    Linking
+    Linking,
+    Alert
 } = ReactNative;
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
@@ -17,11 +18,18 @@ import {Toolbar, Card, Button} from 'react-native-material-ui';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
+import RNCalendarEvents from 'react-native-calendar-events';
+var moment = require('moment');
 
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
 import EventsAPI from '../Services/EventsAPI';
 import TruckersAPI from '../Services/TruckersMPAPI';
+
+const propTypes = {
+    navigator: PropTypes.object.isRequired,
+    route: PropTypes.object.isRequired
+};
 
 class MeetupsScreen extends Component
 {
@@ -145,6 +153,37 @@ class MeetupsScreen extends Component
             });
     }
 
+    addMeetupToCalendar(event)
+    {
+        RNCalendarEvents
+            .authorizeEventStore()
+            .then(status => {
+                if (status == 'authorized') {
+                    
+                    console.log(JSON.stringify(event));
+
+                    var eventSettings = {
+                        location: event.location,
+                        notes: 'Organized by ' + event.author + ' - server: ' + event.server,
+                        startDate: moment(event.eventDate).format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        endDate: moment(event.endDate).format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                    };
+
+                    console.log(JSON.stringify(eventSettings));
+
+                    RNCalendarEvents
+                        .saveEvent('TruckersMP Event - Meetup', eventSettings)
+                        .then(id => {
+                           Alert.alert('Event added to your calendar');
+                        })
+                        .catch(error => {
+                            Alert.alert(error);
+                        });
+                }
+            })
+            .catch(error => {});
+    }
+
     renderRow(rowData, instance) {
         return (
             <Card>
@@ -171,7 +210,10 @@ class MeetupsScreen extends Component
                             primary
                             text="Info"
                             onPress={() => instance.navigateMeetup(rowData.url)}/>
-                        <Button primary text="Add to calendar"/>
+                        <Button
+                            primary
+                            text="Add to calendar"
+                            onPress={() => instance.addMeetupToCalendar(rowData)}/>
                     </View>
                 </View>
             </Card>
@@ -212,7 +254,6 @@ class MeetupsScreen extends Component
     {
         return (
             <PopupDialog
-               
                 ref={(popupDialog) => {
                 this.popupDialog = popupDialog;
             }}
@@ -271,7 +312,7 @@ class MeetupsScreen extends Component
                 {this.renderToolbar()}
 
                 <View style={styles.meetupsListContainer}>
-                    {this.state.loading && <ActivityIndicator />}
+                    {this.state.loading && <ActivityIndicator/>}
                     <View
                         style={!this.state.loading && this.state.showList
                         ? {}
