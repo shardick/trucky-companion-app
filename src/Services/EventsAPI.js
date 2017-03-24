@@ -1,5 +1,30 @@
 var DomParser = require('react-native-html-parser').DOMParser
 var moment = require('moment');
+const Realm = require('realm');
+
+const realmName = "Meetup_2";
+
+const realm = new Realm({
+    schema: [
+        {
+            name: realmName,
+            primaryKey: 'eventID',
+            properties: {
+                eventID: 'int',
+                server: 'string',
+                time: 'string',
+                location: 'string',
+                author: 'string',
+                language: 'string',
+                participants: 'string',
+                url: 'string',
+                calendarEventID: 'string',
+                eventDate: 'date',
+                endDate: 'date'
+            }
+        }
+    ]
+});
 
 class EventsAPI
 {
@@ -8,6 +33,11 @@ class EventsAPI
 
     async events()
     {
+        //realm.write(() => {
+        //    var allMeetups = realm.objects(realmName);
+        //    realm.delete(allMeetups);
+        //});
+
         var response = await fetch('http://ets2c.com');
         var html = await response.text();
 
@@ -30,17 +60,34 @@ class EventsAPI
                 author: rowContent[4].textContent,
                 language: rowContent[5].textContent,
                 participants: rowContent[6].textContent,
-                url: rowContent[8].attributes[0].nodeValue
+                url: rowContent[8].attributes[0].nodeValue,
+                calendarEventID: ''
             };
 
-            m.eventDate = this.convertEventDate(m.time);
-            
-            if (m.eventDate && m.eventDate != undefined)
-            {
-                m.endDate = moment(m.eventDate).add(2, 'h');
-            }
+            m.eventID = parseInt(m.url.split('/')[1]);
 
-            meetups.push(m);
+            m.eventDate = this.convertEventDate(m.time);
+
+            if (m.eventDate != undefined) {
+
+                m.endDate = moment(m.eventDate)
+                    .add(2, 'h')
+                    .toDate();
+
+                //console.log(JSON.stringify(m));
+
+                realm.write(() => {
+                    var results = realm.objects(realmName);
+                    var storedM = results.filtered('eventID = $0', m.eventID);
+
+                    if (storedM)
+                        realm.create(realmName, m, true);
+                    else
+                        realm.create(realmName, m);
+                });
+
+                meetups.push(m);
+            }
 
         }, this);
 
@@ -76,9 +123,12 @@ class EventsAPI
                 break;
         }
 
-        return eventDate;
-    }
-
+        if (eventDate != undefined) 
+            return eventDate.toDate();
+        else 
+            return eventDate;
+        }
+    
     plusToDate(unit, howMuch) {
 
         var config = {

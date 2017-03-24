@@ -12,7 +12,6 @@ import styles from '../Styles';
 import {ThemeProvider} from 'react-native-material-ui';
 import RouteManager from '../routes';
 import Container from '../Container';
-var AppBottomNavigation = require('../Components/BottomNavigation');
 
 const UIManager = NativeModules.UIManager;
 
@@ -52,7 +51,7 @@ class App extends Component {
     {
         return (<Navigator
             configureScene={App.configureScene}
-            initialRoute={RouteManager.routes.home}
+            initialRoute={RouteManager.routes.splashScreen}
             ref={this.onNavigatorRef}
             renderScene={App.renderScene}/>);
     }

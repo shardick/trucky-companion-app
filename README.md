@@ -26,6 +26,10 @@ react-native-popup-dialog for dialogs
 
 react-native-drawer for app drawer
 
+moment for datetime manipulation
+
+realm-js as database engine
+
 Run npm install to install all depencencies
 
 ## Anatomy
@@ -56,6 +60,7 @@ Navigation are served by RN component Navigation using routes in RouteManager
         * Settings
         * Events
         * About
+        * SplashScreen
     * Assets
     * src/Components
         * AppDrawerLayout

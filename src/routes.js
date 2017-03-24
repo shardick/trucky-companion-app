@@ -4,6 +4,7 @@ import SettingsScreen from './App/Settings';
 import RulesScreen from './App/Rules';
 import MeetupsScreen from './App/Meetups';
 import AboutScreen from './App/About';
+import SplashScreen from './App/SplashScreen';
 
 class RouteManager
 {
@@ -37,6 +38,9 @@ class RouteManager
             about: {
                 title: 'About this app',
                 Page: AboutScreen
+            },
+            splashScreen: {
+                Page: SplashScreen
             }
         });
     }

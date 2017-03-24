@@ -21,8 +21,6 @@ import {
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
 
-import SettingsList from 'react-native-settings-list';
-
 const propTypes = {
     navigator: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired

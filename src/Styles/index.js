@@ -156,13 +156,13 @@ const styles = StyleSheet.create({
   },
   serversListRowHeaderText: {
     color: 'white',
-    fontSize: 25
+    fontSize: 20
   },
   serversListRowHeaderLittleText: {
     fontSize: 16
   },
   serversListOnlinePlayers: {
-    fontSize: 25
+    fontSize: 20
   },
   serversListServerSize: {
     fontSize: 12

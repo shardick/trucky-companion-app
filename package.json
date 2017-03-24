@@ -16,8 +16,8 @@
     "react-native-material-ui": "^1.8.0",
     "react-native-popup-dialog": "^0.7.22",
     "react-native-progress": "^3.2.0",
-    "react-native-settings-list": "^1.4.0",
-    "react-native-simple-markdown": "^1.0.60-rc.3"
+    "react-native-simple-markdown": "^1.0.60-rc.3",
+    "realm": "^1.1.1"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

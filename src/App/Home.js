@@ -19,10 +19,8 @@ import AppSettings from '../AppSettings';
 import TruckersMPApi from '../Services/TruckersMPAPI';
 import Container from '../Container';
 import styles from '../Styles';
-var AppBottomNavigation = require('../Components/BottomNavigation');
 import AppDrawerLayout from '../Components/AppDrawerLayout';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-
 import Drawer from 'react-native-drawer'
 
 // components

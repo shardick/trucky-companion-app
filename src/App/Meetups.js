@@ -160,20 +160,26 @@ class MeetupsScreen extends Component
             .then(status => {
                 if (status == 'authorized') {
                     
-                    console.log(JSON.stringify(event));
+                    //console.log(JSON.stringify(event));
 
                     var eventSettings = {
                         location: event.location,
                         notes: 'Organized by ' + event.author + ' - server: ' + event.server,
                         startDate: moment(event.eventDate).format('YYYY-MM-DDTHH:mm:00.000')+'Z',
                         endDate: moment(event.endDate).format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        alarms: [{
+                            date: moment(event.eventDate).add(-30, 'm').format('YYYY-MM-DDTHH:mm:00.000')+'Z'
+                        }]
                     };
 
-                    console.log(JSON.stringify(eventSettings));
+                    //onsole.log(JSON.stringify(eventSettings));
 
                     RNCalendarEvents
                         .saveEvent('TruckersMP Event - Meetup', eventSettings)
                         .then(id => {
+                            
+                           console.log('Event added to calendar: ' + id.toString());
+
                            Alert.alert('Event added to your calendar');
                         })
                         .catch(error => {

@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ProgressBar from 'react-native-progress/Bar';
 import Container from '../Container';
-var AppBottomNavigation = require('../Components/BottomNavigation');
 
 var ReactNative = require('react-native');
 var {
