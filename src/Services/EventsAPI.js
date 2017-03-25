@@ -31,12 +31,17 @@ class EventsAPI
     constructor()
     {}
 
+    /**
+     *
+     *
+     * @returns Array of meetups
+     *
+     * @memberOf EventsAPI
+     */
     async events()
     {
-        //realm.write(() => {
-        //    var allMeetups = realm.objects(realmName);
-        //    realm.delete(allMeetups);
-        //});
+        // realm.write(() => {    var allMeetups = realm.objects(realmName);
+        // realm.delete(allMeetups); });
 
         var response = await fetch('http://ets2c.com');
         var html = await response.text();
@@ -80,11 +85,12 @@ class EventsAPI
                     var results = realm.objects(realmName);
                     var storedM = results.filtered('eventID = $0', m.eventID);
 
-                    if (storedM)
+                    if (storedM) 
                         realm.create(realmName, m, true);
-                    else
+                    else 
                         realm.create(realmName, m);
-                });
+                    }
+                );
 
                 meetups.push(m);
             }
@@ -94,6 +100,14 @@ class EventsAPI
         return meetups;
     }
 
+    /**
+     *
+     *
+     * @param {string} timeFrame
+     * @returns Date or undefined
+     *
+     * @memberOf EventsAPI
+     */
     convertEventDate(timeFrame)
     {
         var segments = timeFrame.split(' ');
@@ -129,21 +143,16 @@ class EventsAPI
             return eventDate;
         }
     
-    plusToDate(unit, howMuch) {
-
-        var config = {
-            second: 1000, // 1000 miliseconds
-            minute: 60000,
-            hour: 3600000,
-            day: 86400000,
-            week: 604800000,
-            month: 2592000000, // Assuming 30 days in a month
-            year: 31536000000 // Assuming 365 days in year
-        };
-
-        return new Date(new Date().getTime() + (config[unit] * howMuch));
-    }
-
+    /**
+     *
+     *
+     * @param {Array} meetups
+     * @param {string} server
+     * @param {string} language
+     * @returns
+     *
+     * @memberOf EventsAPI
+     */
     filterEvents(meetups, server, language)
     {
         var ret = new Array();

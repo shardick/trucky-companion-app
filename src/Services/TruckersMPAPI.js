@@ -7,6 +7,15 @@ class TruckersMPApi
         };
     }
 
+
+    /**
+     * 
+     * 
+     * @param {string} serviceName 
+     * @returns 
+     * 
+     * @memberOf TruckersMPApi
+     */
     async executeRequest(serviceName)
     {
         var URL = this.config.api_base_url + serviceName;
@@ -16,18 +25,42 @@ class TruckersMPApi
         return json;
     }
 
+
+    /**
+     * 
+     * 
+     * @returns Array of servers
+     * 
+     * @memberOf TruckersMPApi
+     */
     async servers()
     {
         var json = await this.executeRequest('servers');
         return json.response;
     }
 
+
+    /**
+     * 
+     * 
+     * @returns game time object
+     * 
+     * @memberOf TruckersMPApi
+     */
     async game_time()
     {
         var json = await this.executeRequest('game_time');
         return json.game_time;
     }
 
+
+    /**
+     * 
+     * 
+     * @returns {string}
+     * 
+     * @memberOf TruckersMPApi
+     */
     async game_time_formatted()
     {
         var gametime = await this.game_time();
@@ -35,18 +68,43 @@ class TruckersMPApi
         return new Date(start.getTime() + ((gametime-3) * 60 * 1000)).customFormat('#DDD# #hhhh#:#mm#');
     }
 
+
+    /**
+     * 
+     * 
+     * @returns {string}
+     * 
+     * @memberOf TruckersMPApi
+     */
     async get_version()
     {
         var json = await this.executeRequest('version');
         return json;
     }
 
+
+    /**
+     * 
+     * 
+     * @returns rules markdown
+     * 
+     * @memberOf TruckersMPApi
+     */
     async rules()
     {
         var json = await this.executeRequest('rules');
         return json.rules;
     }
 
+
+    /**
+     * 
+     * 
+     * @param {string} id 
+     * @returns player object
+     * 
+     * @memberOf TruckersMPApi
+     */
     async player(id)
     {
         var json = await this.executeRequest('player/' + id);

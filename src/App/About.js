@@ -13,13 +13,32 @@ const propTypes = {
     route: PropTypes.object.isRequired
 };
 
+
+/**
+ * 
+ * 
+ * @class AboutScreen
+ * @extends {Component}
+ */
 class AboutScreen extends Component
 {
+
+    /**
+     * Creates an instance of AboutScreen.
+     * 
+     * @memberOf AboutScreen
+     */
     constructor()
     {
         super();
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @memberOf AboutScreen
+     */
     renderToolbar = () => {
         return (<Toolbar
             leftElement="arrow-back"
@@ -27,6 +46,13 @@ class AboutScreen extends Component
             centerElement={this.props.route.title}/>);
     }
 
+
+    /**
+     * 
+     * 
+     * 
+     * @memberOf AboutScreen
+     */
     viewOnGitHub = () => {
         Linking
             .canOpenURL('https://github.com/shardick/trucky-companion-app')
@@ -39,6 +65,14 @@ class AboutScreen extends Component
             });
     }
 
+
+    /**
+     * 
+     * 
+     * @returns 
+     * 
+     * @memberOf AboutScreen
+     */
     render() {
         return (
             <Container>
