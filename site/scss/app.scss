@@ -244,6 +244,11 @@ ul { list-style: none; }
 
 /*------------ Header & Hero Styles ------------*/
 
+#logo
+{
+	width: 200px;
+}
+
 .hero,
 .heroBlue { 
 	width: 100%;
@@ -267,7 +272,7 @@ ul { list-style: none; }
 	z-index: -1;
 }
 
-.heroBlue:after { background: rgba(21,129,238,0.7); }
+.heroBlue:after { background: #A51745; }
 
 .navWrapper { padding: 0 1rem; }
 
@@ -276,11 +281,17 @@ ul { list-style: none; }
 .navBar { 
 	line-height: 80px;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
+	padding: 10px;
 }
 
-.navBar .menuIcon [class^="icon-"] { 
+.navBar .menuIcon { 
 	font-size: 1.5rem;
 	line-height: 80px; 
+
+	.fa-bars:before
+	{
+		color: #FFFFFF;
+	}
 }
 
 .introWrapper { padding: 3rem 1rem; }
@@ -578,7 +589,7 @@ form :-ms-input-placeholder {
 
 	.hero { min-height: 680px; }
 
-	.introWrapper { padding: 5rem 1rem; }
+	.introWrapper { padding: 3rem 1rem; }
 
 	.navWrapper { height: 120px; }
 
@@ -611,7 +622,7 @@ form :-ms-input-placeholder {
 
 	.hero { min-height: 800px; }
 
-	.introWrapper { padding: 8rem 1rem; }
+	.introWrapper { padding: 3rem 1rem; }
 
 	.deviceShowcaseLeft,
 	.deviceShowcaseRight {
