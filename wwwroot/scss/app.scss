@@ -1,0 +1,627 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@include foundation-global-styles;
+@include foundation-grid;
+// @include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+// @include foundation-flex-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+@import 'font-awesome';
+/*------------------------------------------------------------------
+
+    Theme Name: Foundapp Free
+    Theme URI: http://pixelosaur.com
+    Description: App Landing Page Template
+    Author: Pixelosaur
+    Author URI: https://dribbble.com/Pixelosaur
+    Template Version: 1.0
+    Foundation Version: 6.2
+    License: CC BY 4.0
+   
+-------------------------------------------------------------------*/
+
+
+/* ==============================================================
+							BASIC COLORS
+================================================================= */
+
+::-moz-selection { /* Code for Firefox */
+    color: #f8f8f8;
+    background: rgba(21,129,238,1);
+}
+
+::selection {
+    color: #f8f8f8;
+    background: rgba(21,129,238,1);
+}
+
+.bgGray { background-color: rgba(244,247,248,1); }
+
+.bgDark { background-color: rgba(39,49,64,1); }
+
+.bgBlue { background-color: rgba(21,129,238,1); }
+
+.bgBlue a,
+.bgBlue p,
+.bgBlue h1,
+.bgBlue h2,
+.bgBlue h3,
+.bgBlue h4,
+.bgBlue h5,
+.bgBlue h6,
+.bgDark a,
+.bgDark p,
+.bgDark h1,
+.bgDark h2,
+.bgDark h3,
+.bgDark h4,
+.bgDark h5,
+.bgDark h6,
+.hero p,
+.hero h1,
+.hero h2,
+.heroBlue p,
+.heroBlue h1,
+.heroBlue h2,
+.navBar .menuIcon [class^="icon-"] { color: rgba(255,255,255,1); }
+
+
+/* ==============================================================
+							UTILITY CLASSES
+================================================================= */
+
+/* Text Specific
+-----------------------------------------------------------------*/
+
+.coloredText { color: rgba(21,129,238,1); }
+
+.smallText {
+	font-size: 0.875rem;
+	color: rgba(39,49,64,0.6);
+	font-weight: 400;
+}
+
+.bgDark .smallText,
+.bgBlue .smallText { color: rgba(255,255,255,0.6);}
+
+/* Spacing & Positioning
+-----------------------------------------------------------------*/
+
+.relPosition { position: relative; }
+
+.marginTop { margin-top: 2.5rem; }
+
+.marginBottom { margin-bottom: 2.5rem; }
+
+.noMargin { margin: 0!important; }
+
+/* Heading Dividers
+-----------------------------------------------------------------*/
+
+.divider,
+.dividerCenter,
+.dividerWhite,
+.dividerCenterWhite {
+	width: 60px;
+	height: 2px;
+	background-color: rgba(21,129,238,1);
+	margin: 1.5rem 0;
+}
+
+.dividerWhite,
+.dividerCenterWhite {
+	background-color: rgba(255,255,255,1);
+}
+
+.dividerCenter,
+.dividerCenterWhite { margin: 1.5rem auto; }
+
+
+/* ==============================================================
+							TYPOGRAPHY
+================================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a { -moz-osx-font-smoothing: greyscale; }
+
+h1,
+h2,
+h3,
+.clients .counters .timer { 
+	font-family: 'Asap', sans-serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
+h4,
+h5,
+h6,
+p,
+body { 
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+h5,
+h6,
+.clients .counters .timer { font-weight: 500;}
+
+h1 { font-size: 1.875rem; }
+
+h2 { font-size:  1.75rem; }
+
+h3 { font-size: 1.625rem; }
+
+h4 { font-size: 1.375rem; }
+
+h5 { font-size: 1.125rem; }
+
+h6 { font-size: 1rem; }
+
+
+/* ==============================================================
+							GENERAL STYLES
+================================================================= */
+
+body {
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+.container { padding: 7rem 1rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { margin-bottom: 1.5rem; }
+
+a,
+.socialIcons a [class^="icon-"] { transition: all .25s ease-out; }
+
+ul { list-style: none; }
+
+.sticky.is-stuck { min-width: 100%; }
+
+.reveal-overlay { background-color: rgba(255,255,255,0.95); }
+
+.reveal { 
+	border: none;
+	background-color: transparent; 
+}
+
+
+/*------------ Header & Hero Styles ------------*/
+
+.hero,
+.heroBlue { 
+	width: 100%;
+	min-height: 540px;
+	height: 100%;
+	background-size: cover;
+	position: relative;
+	display: block;
+	z-index: 0;
+}
+
+.hero:after,
+.heroBlue:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	display: block;
+	background: rgba(39,49,64,0.7);
+	z-index: -1;
+}
+
+.heroBlue:after { background: rgba(21,129,238,0.7); }
+
+.navWrapper { padding: 0 1rem; }
+
+.navWrapper { height: 80px; }
+
+.navBar { 
+	line-height: 80px;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.navBar .menuIcon [class^="icon-"] { 
+	font-size: 1.5rem;
+	line-height: 80px; 
+}
+
+.introWrapper { padding: 3rem 1rem; }
+
+
+/*------------ Off Canvas Menu Styles ------------*/
+
+.off-canvas {
+	min-height: 100%;
+	background: rgba(255,255,255,1);
+}
+
+.off-canvas-content { 
+	box-shadow: none;
+	border-right: 1px solid rgba(0,0,0,0.1); 
+}
+
+.menu.vertical { border-bottom: 1px solid rgba(0,0,0,0.1); }
+
+.menu.vertical > li { padding: 8px 0; }
+
+.menu.vertical > li:hover,
+.menu.vertical > li:focus,
+.menu.vertical > li.download { background-color: rgba(244,247,248,1); }
+
+.menu.vertical > li a { 
+	font-weight: 500;
+	color: rgba(39,49,64,1);
+}
+
+.menu.vertical > li:hover a,
+.menu.vertical > li:focus a,
+.menu.vertical > li.download a { color: rgba(21,129,238,1); }
+
+.off-canvas .socialIcons {
+	padding: 40px 0 40px 1rem;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.off-canvas .socialIcons a [class^="icon-"] { color: rgba(39,49,64,0.6); }
+
+.off-canvas .contacts { padding: 40px 1rem; }
+
+.off-canvas .contacts p { line-height: 1.8; }
+
+
+/*------------ Client Section Styles ------------*/
+
+.clients { padding: 2rem 1rem; }
+
+.clients img { 
+	margin-bottom: 0;
+	opacity: 0.6;
+}
+
+.clients .counters { margin-bottom: 2.5rem; }
+
+.clients .counters .timer { 
+	display: block;
+	font-size: 2.5rem;
+	line-height: 1.4;
+}
+
+
+/*------------ Icon Blocks ------------*/
+
+.featuresList,
+.benefitsList { 
+	margin-left: 1.75rem;
+}
+
+.featuresList li,
+.benefitsList li {
+    position: relative;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    z-index: 0;
+}
+
+.featuresList li span {
+	color: rgba(39,49,64,0.1);
+	display: block;
+	font-size: 5rem;
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	z-index: -1;
+}
+
+.bgDark .featuresList li span { color: rgba(0,0,0,0.15); }
+
+.benefitsList li { margin-top: 20px; }
+
+.benefitsList li:not(:last-child) { 
+	border-bottom: 1px solid rgba(39,49,64,0.1);
+}
+
+.benefitsList > li [class*="icon-"], 
+.benefitsList > li [class^=icon-] {
+	position: absolute;
+	left: -2rem;
+	text-align: center;
+	top: -8px;
+	padding: 5px;
+	font-size: 1.75rem;
+}
+
+.benefitsList > li h6 { margin-bottom: 10px; }
+
+.benefitsList > li p { margin-bottom: 0; }
+
+
+/*------------ Testimonials Grid ------------*/
+
+.testimonialsGrid { overflow: hidden; }
+
+.testimonialsGrid li {
+	position: relative;
+	padding: 20px 0;
+}
+
+.testimonialsGrid li:before, 
+.testimonialsGrid li:after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+
+.testimonialsGrid li:before {
+	height: 100%;
+	top: 0;
+	left: -1px;
+	border-left: 1px solid rgba(39,49,64,0.1);
+}
+
+.testimonialsGrid li:after {
+	width: 100%;
+	height: 0;
+	top: auto;
+	left: 0;
+	bottom: -1px;
+	border-bottom: 1px solid rgba(39,49,64,0.1);
+}
+
+.testimonialsGrid li { padding: 25px; }
+
+.testimonImg {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.testimonImg,  
+.testimonImg img {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.testimonContent {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonContent p {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.testimonContent p:before, 
+.testimonContent p:after { content: '"'; }
+
+.testimonMeta {
+	display: inline-block;
+  	font-size: 13px;
+  	font-weight: 700;
+  	text-transform: uppercase;
+  	vertical-align: middle;
+}
+
+.testimonMeta span {
+  display: block;
+  font-weight: normal;
+  color: rgba(39,49,64,0.7);
+  font-size: 12px;
+  text-transform: none;
+}
+
+
+/*------------ Footer Styles ------------*/
+
+footer input[type="email"] { background-color: rgba(255,255,255,0.8); }
+
+form ::-webkit-input-placeholder {
+   color: rgba(39,49,64,0.7);
+   font-weight: 400;
+   font-size: 0.75rem;
+   font-style: italic;
+}
+
+form ::-moz-placeholder {  
+   color: rgba(39,49,64,0.7);
+   font-weight: 400;
+   font-size: 0.75rem;
+   font-style: italic;
+}
+
+form :-ms-input-placeholder {  
+   color: rgba(39,49,64,0.7);
+   font-weight: 400;
+   font-size: 0.75rem;
+   font-style: italic;  
+}
+
+.socialIcons { float: none; }
+
+.socialIcons a [class^="icon-"], 
+.socialIcons a [class*=" icon-"] {
+	font-size: 1.125rem;
+	color: rgba(21,129,238,0.7);
+	display: inline-block;
+	width: 42px;
+	line-height: 40px;
+}
+
+.socialIcons a:hover [class^="icon-"], 
+.socialIcons a:hover [class*=" icon-"] {
+	color: rgba(21,129,238,1);
+}
+
+.copyrights { 
+	border-top: 1px solid rgba(0,0,0,0.2);
+	padding: 20px 1rem; 
+}
+
+.copyrights p { 
+	font-size: 0.75rem;
+	color: rgba(255,255,255,0.5);
+	font-weight: 700;
+	line-height: 1.8;
+}
+
+
+/* ==============================================================
+							BUTTONS
+================================================================= */
+
+.button.hollowWhite {
+	border: 1px solid rgba(255,255,255,1);
+    color: rgba(255,255,255,1);
+    background: transparent;
+}
+
+.button.hollowWhite:focus,
+.button.hollowWhite:hover {
+    background: rgba(255,255,255,1);
+    color: rgba(21,129,238,1);
+}
+
+.button.buttonWhite {
+	border: 1px solid rgba(255,255,255,1);
+	background: rgba(255,255,255,1);
+    color: rgba(21,129,238,1);
+}
+
+.button.buttonWhite:focus,
+.button.buttonWhite:hover {
+	border: 1px solid rgba(255,255,255,0.8);
+	background: rgba(255,255,255,0.8);
+}
+
+.button { font-weight: 600; }
+
+.button > [class^="icon-"] {
+	line-height: 1;
+	margin-right: 10px;
+	vertical-align: middle;
+	font-size: 1rem;
+}
+
+.ctaBtns .button { width: 100%; }
+
+
+/* ==============================================================
+							MEDIA QUERIES
+================================================================= */
+
+@media only screen and (min-width: 40.063em) {
+
+	h1 { font-size: 2.125rem; }
+
+	h2 { font-size:  2rem; }
+
+	h3 { font-size: 1.875rem; }
+
+	.hero { min-height: 680px; }
+
+	.introWrapper { padding: 5rem 1rem; }
+
+	.navWrapper { height: 120px; }
+
+	.navBar,
+	.navBar .menuIcon [class^="icon-"] { line-height: 120px; }
+
+	.button + .button,
+	.button + .button + .button { margin-left: 10px; }
+
+	.clients .counters { 
+		margin-bottom: 0;
+		border-right: 1px solid rgba(0, 0, 0, 0.1);
+	}
+
+	.deviceShowcaseLeft,
+	.deviceShowcaseRight {
+		position: initial;
+    	margin: 0 auto;
+	}
+
+	.deviceShowcaseLeft img,
+	.deviceShowcaseRight img { width: 100%; }
+}
+
+@media only screen and (min-width: 64.0625em) { 
+
+	h1 { font-size: 2.5rem; }
+
+	h2 { font-size:  2rem; }
+
+	.hero { min-height: 800px; }
+
+	.introWrapper { padding: 8rem 1rem; }
+
+	.deviceShowcaseLeft,
+	.deviceShowcaseRight {
+		position: absolute;
+    	top: 7rem;
+    	right: 50%;
+	}
+
+	.deviceShowcaseRight { 
+		left: 50%;
+		right: auto;
+	}
+}
