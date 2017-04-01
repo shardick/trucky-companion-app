@@ -13,28 +13,17 @@ var {
 } = ReactNative;
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
-var AppBottomNavigation = require('../Components/BottomNavigation');
 import {Toolbar, Card, Button, ActionButton } from 'react-native-material-ui';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import RNCalendarEvents from 'react-native-calendar-events';
-
-var styles = require('../Styles');
-var AppSettings = require('../AppSettings');
 import EventsAPI from '../Services/EventsAPI';
 import TruckersAPI from '../Services/TruckersMPAPI';
 
-import LocaleManager from '../Locales/LocaleManager';
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
-var lc = new LocaleManager();
-
-const propTypes = {
-    navigator: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
-};
-
-class MeetupsScreen extends Component
+class MeetupsScreen extends BaseTruckyComponent
 {
     constructor()
     {
@@ -64,24 +53,12 @@ class MeetupsScreen extends Component
         };
     }
 
-    componentDidMount()
-    {
-        AppState.removeEventListener('change', this._handleAppStateChange);
-
-        this.fetchData();
-    }
-
     componentWillUnmount() {
-        AppState.removeEventListener('change', this._handleAppStateChange);
+
+        super.componentWillUnmount();
 
         if (this.state.refreshTimer != null) {
             clearInterval(this.state.refreshTimer);
-        }
-    }
-
-    _handleAppStateChange = (nextAppState) => {
-        if (nextAppState === 'active') {
-            this.fetchData();
         }
     }
 
@@ -110,13 +87,6 @@ class MeetupsScreen extends Component
                 .cloneWithRows(meetups)
         });
 
-        /*var languages = this
-            .state
-            .api
-            .distinctLanguages(meetups);
-
-        this.setState({languages: languages});*/
-
         this.setState({loading: false, showList: true});
     }
 
@@ -132,7 +102,7 @@ class MeetupsScreen extends Component
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={lc.strings.routeMeetupsTitle}
+            centerElement={this.LocaleManager.strings.routeMeetupsTitle}
             rightElement="search"
             onRightElementPress={() => this.openSearchDialog()}/>);
     }
@@ -141,19 +111,6 @@ class MeetupsScreen extends Component
         this
             .fetchData()
             .done();
-    }
-
-    navigateMeetup(url)
-    {
-        Linking
-            .canOpenURL('http://ets2c.com/' + url)
-            .then(supported => {
-                if (supported) {
-                    Linking.openURL('http://ets2c.com/' + url);
-                } else {
-                    console.log('Don\'t know how to open URI: https://truckersmp.com');
-                }
-            });
     }
 
     addMeetupToCalendar(event)
@@ -167,12 +124,12 @@ class MeetupsScreen extends Component
 
                     var eventSettings = {
                         location: event.location,
-                        notes: lc.strings.formatString(lc.strings.eventNotes, event.author, event.server),
-                        startDate: lc.moment(event.eventDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
-                        endDate: lc.moment(event.endDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        notes: this.LocaleManager.strings.formatString(this.LocaleManager.strings.eventNotes, event.author, event.server),
+                        startDate: this.LocaleManager.moment(event.eventDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        endDate: this.LocaleManager.moment(event.endDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
                         alarms: [
                             {
-                                date: lc.moment(event.eventDate)
+                                date: this.LocaleManager.moment(event.eventDate)
                                     .add(-30, 'm')
                                     .local()
                                     .format('YYYY-MM-DDTHH:mm:00.000') + 'Z'
@@ -183,12 +140,12 @@ class MeetupsScreen extends Component
                     //onsole.log(JSON.stringify(eventSettings));
 
                     RNCalendarEvents
-                        .saveEvent(lc.strings.eventTitle, eventSettings)
+                        .saveEvent(this.LocaleManager.strings.eventTitle, eventSettings)
                         .then(id => {
 
                             console.log('Event added to calendar: ' + id.toString());
 
-                            Alert.alert(lc.strings.eventAddedToCalendar);
+                            Alert.alert(this.LocaleManager.strings.eventAddedToCalendar);
                         })
                         .catch(error => {
                             Alert.alert(error);
@@ -198,37 +155,37 @@ class MeetupsScreen extends Component
             .catch(error => {});
     }
 
-    renderRow(rowData, instance) {
+    renderRow(rowData) {
         return (
             <Card>
-                <View style={styles.meetupsRowContainer}>
-                    <View style={styles.serversListDescriptionRow}>
-                        <Text style={styles.meetupsRowTitle}>{rowData.location}</Text>
-                        <Text style={styles.meetupRowTitleTime}>&nbsp;{rowData.time}</Text>
+                <View style={this.StyleManager.styles.meetupsRowContainer}>
+                    <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                        <Text style={this.StyleManager.styles.meetupsRowTitle}>{rowData.location}</Text>
+                        <Text style={this.StyleManager.styles.meetupRowTitleTime}>&nbsp;{rowData.time}</Text>
                     </View>
-                    <View style={styles.serversListDescriptionRow}>
-                        <Icon name="globe" style={styles.serversListGameTimeIcon}/>
-                        <Text style={styles.serversListGameTimeText}>{rowData.server}
-                            &nbsp;-&nbsp;{lc.strings.language}
+                    <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                        <Icon name="globe" style={this.StyleManager.styles.serversListGameTimeIcon}/>
+                        <Text style={this.StyleManager.styles.serversListGameTimeText}>{rowData.server}
+                            &nbsp;-&nbsp;{this.LocaleManager.strings.language}
                             {rowData.language}</Text>
                     </View>
-                    <View style={styles.serversListDescriptionRow}>
-                        <Icon name="users" style={styles.serversListGameTimeIcon}/>
-                        <Text style={styles.serversListGameTimeText}>{rowData.participants}</Text>
+                    <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                        <Icon name="users" style={this.StyleManager.styles.serversListGameTimeIcon}/>
+                        <Text style={this.StyleManager.styles.serversListGameTimeText}>{rowData.participants}</Text>
                     </View>
-                    <View style={styles.serversListDescriptionRow}>
-                        <Icon name="user" style={styles.serversListGameTimeIcon}/>
-                        <Text style={styles.serversListGameTimeText}>{rowData.author}</Text>
+                    <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                        <Icon name="user" style={this.StyleManager.styles.serversListGameTimeIcon}/>
+                        <Text style={this.StyleManager.styles.serversListGameTimeText}>{rowData.author}</Text>
                     </View>
-                    <View style={styles.meetupsRowButtonContainer}>
+                    <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
                         <Button
                             primary
-                            text={lc.strings.info}
-                            onPress={() => instance.navigateMeetup(rowData.url)}/>
+                            text={this.LocaleManager.strings.info}
+                            onPress={() => this.navigateUrl('http://ets2c.com/' + rowData.url)}/>
                         <Button
                             primary
-                            text={lc.strings.addToCalendar}
-                            onPress={() => instance.addMeetupToCalendar(rowData)}/>
+                            text={this.LocaleManager.strings.addToCalendar}
+                            onPress={() => this.addMeetupToCalendar(rowData)}/>
                     </View>
                 </View>
             </Card>
@@ -250,21 +207,6 @@ class MeetupsScreen extends Component
             });
     }
 
-    /*languagesList()
-    {
-        return this
-            .state
-            .languages
-            .map((lang) => {
-                return (< Picker.Item label = {
-                    lang
-                }
-                value = {
-                    lang
-                } />);
-            });
-    }*/
-
     renderDialog()
     {
         return (
@@ -275,20 +217,13 @@ class MeetupsScreen extends Component
                 width={0.9}
                 height={155}
                 onDismissed={() => this.setState({showList: true})}>
-                <View style={styles.meetupSearchFormContainer}>
-                    <Text style={styles.meetupsSearchFormLabel}>Server</Text>
+                <View style={this.StyleManager.styles.meetupSearchFormContainer}>
+                    <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>Server</Text>
                     <Picker
-                        style={styles.meetupsSearchFormField}
+                        style={this.StyleManager.styles.meetupsSearchFormField}
                         selectedValue={this.state.selectedServer}
                         onValueChange={(value) => this.setState({selectedServer: value})}>
                         {this.serversList()}</Picker>
-                    {/*<Text style={styles.meetupsSearchFormLabel}>Language</Text>*/}
-                    {/*<Picker
-                        style={styles.meetupsSearchFormLabel}
-                        selectedValue={this.state.selectedLanguage}
-                        onValueChange={(value) => this.setState({selectedLanguage: value})}>
-                        {this.languagesList()}
-                    </Picker>*/}
                     <Button
                         text="Search"
                         icon="search"
@@ -326,18 +261,18 @@ class MeetupsScreen extends Component
                 {this.renderDialog()}
                 {this.renderToolbar()}
 
-                <View style={styles.meetupsListContainer}>
+                <View style={this.StyleManager.styles.meetupsListContainer}>
                     {this.state.loading && <ActivityIndicator/>}
                     <View
                         style={!this.state.loading && this.state.showList
                         ? {}
-                        : styles.hidden}>
+                        : this.StyleManager.styles.hidden}>
                         <ListView
-                            style={styles.meetupsListList}
+                            style={this.StyleManager.styles.meetupsListList}
                             dataSource={this.state.dataSource}
-                            renderRow={(rowData) => this.renderRow(rowData, this)}
+                            renderRow={this.renderRow.bind(this)}
                             automaticallyAdjustContentInsets={false}
-                            renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
+                            renderSeparator={(sectionId, rowId) => <View key={rowId} style={this.StyleManager.styles.separator}/>}
                             refreshControl={< RefreshControl refreshing = {
                             this.state.loading
                         }

@@ -16,21 +16,10 @@ var {
 
 import {Toolbar, ActionButton, Card} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-import styles from '../Styles';
-import AppSettings from '../AppSettings';
 import TruckersMPApi from '../Services/TruckersMPAPI';
-import routes from '../routes';
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
-import LocaleManager from '../Locales/LocaleManager';
-
-var lc = new LocaleManager();
-
-const propTypes = {
-    navigator: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
-};
-
-class ServersScreen extends Component
+class ServersScreen extends BaseTruckyComponent
 {
     constructor()
     {
@@ -50,13 +39,7 @@ class ServersScreen extends Component
 
     componentDidMount() {
 
-        
-
-        AppState.addEventListener('change', this._handleAppStateChange);
-
-        this
-            .fetchData()
-            .done();
+        super.componentDidMount();
 
         this
             .setTimers()
@@ -65,7 +48,7 @@ class ServersScreen extends Component
 
     async setTimers()
     {
-        this.settings = await AppSettings.getSettings();
+        this.settings = await this.AppSettings.getSettings();
 
         var instance = this;
 
@@ -82,16 +65,11 @@ class ServersScreen extends Component
     }
 
     componentWillUnmount() {
-        AppState.removeEventListener('change', this._handleAppStateChange);
+
+        super.componentWillUnmount();
 
         if (this.state.refreshTimer != null) {
             clearInterval(this.state.refreshTimer);
-        }
-    }
-
-    _handleAppStateChange = (nextAppState) => {
-        if (nextAppState === 'active') {
-            this.fetchData();
         }
     }
 
@@ -146,40 +124,40 @@ class ServersScreen extends Component
             <Card>
                 <View
                     style={rowData.online
-                    ? styles.serversListRowHeaderOnline
-                    : styles.serversListRowHeaderOffline}>
-                    <Text style={styles.serversListRowHeaderText}>{rowData.name}
-                        <Text style={styles.serversListRowHeaderLittleText}>
+                    ? this.StyleManager.styles.serversListRowHeaderOnline
+                    : this.StyleManager.styles.serversListRowHeaderOffline}>
+                    <Text style={this.StyleManager.styles.serversListRowHeaderText}>{rowData.name}
+                        <Text style={this.StyleManager.styles.serversListRowHeaderLittleText}>
                             &nbsp;({rowData.shortname})</Text>
                     </Text>
                     <Text>{rowData.game}</Text>
                 </View>
-                {rowData.online && <View style={styles.serversListStatusContainer}>
-                    <Text style={styles.serversListOnlinePlayers}>{rowData.players}
-                        &nbsp;{lc.strings.playersOnline}
-                        <Text style={styles.serversListServerSize}>&nbsp;/ {rowData.maxplayers}</Text>
+                {rowData.online && <View style={this.StyleManager.styles.serversListStatusContainer}>
+                    <Text style={this.StyleManager.styles.serversListOnlinePlayers}>{rowData.players}
+                        &nbsp;{this.LocaleManager.strings.playersOnline}
+                        <Text style={this.StyleManager.styles.serversListServerSize}>&nbsp;/ {rowData.maxplayers}</Text>
                     </Text>
-                    {rowData.online && <View style={styles.serversListProgressBarContainer}>
+                    {rowData.online && <View style={this.StyleManager.styles.serversListProgressBarContainer}>
                         <ProgressBar progress={fill} color={progressBarColor} width={200}/>
                     </View>
 }
                 </View>
 }
-                <View style={styles.serversListDescriptionRow}>
-                    <Icon name="pause" style={styles.serversListDescriptionIcon}/>
-                    <Text>{rowData.queue} {lc.strings.playersInQueue}</Text>
+                <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                    <Icon name="pause" style={this.StyleManager.styles.serversListDescriptionIcon}/>
+                    <Text>{rowData.queue} {this.LocaleManager.strings.playersInQueue}</Text>
                 </View>
-                <View style={styles.serversListDescriptionRow}>
-                    <Icon name="cloud" style={styles.serversListDescriptionIcon}/>
+                <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                    <Icon name="cloud" style={this.StyleManager.styles.serversListDescriptionIcon}/>
                     <Text>{rowData.online
-                            ? lc.strings.online
-                            : lc.strings.offline}</Text>
+                            ? this.LocaleManager.strings.online
+                            : this.LocaleManager.strings.offline}</Text>
                 </View>
-                <View style={styles.serversListDescriptionRow}>
-                    <Icon name="shield" style={styles.serversListDescriptionIcon}/>
+                <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                    <Icon name="shield" style={this.StyleManager.styles.serversListDescriptionIcon}/>
                     <Text>{rowData.speedlimiter
-                            ? lc.strings.speedLimiterEnabled
-                            : lc.strings.speedLimiterDisabled}</Text>
+                            ? this.LocaleManager.strings.speedLimiterEnabled
+                            : this.LocaleManager.strings.speedLimiterDisabled}</Text>
                 </View>
             </Card>
         );
@@ -190,7 +168,7 @@ class ServersScreen extends Component
             leftElement="arrow-back"
             rightElement="refresh"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={lc.strings.routeServersTitle}
+            centerElement={this.LocaleManager.strings.routeServersTitle}
             onRightElementPress={() => this.fetchData().done()}/>);
     }
 
@@ -199,24 +177,24 @@ class ServersScreen extends Component
         return (
             <Container>
                 {this.renderToolbar()}
-                <View style={styles.serversListMainContainer}>
+                <View style={this.StyleManager.styles.serversListMainContainer}>
                     {this.state.loading && <ActivityIndicator />}
                     <View
                         style={this.state.loading
-                        ? styles.hidden
+                        ? this.StyleManager.styles.hidden
                         : {}}>
-                        <View style={styles.serversListGameTimeContainer}>
-                            <View style={styles.simpleRow}>
-                                <Icon style={styles.serversListGameTimeIcon} name="clock-o"/>
-                                <Text style={styles.serversListGameTimeText}>{this.state.gameTime}</Text>
+                        <View style={this.StyleManager.styles.serversListGameTimeContainer}>
+                            <View style={this.StyleManager.styles.simpleRow}>
+                                <Icon style={this.StyleManager.styles.serversListGameTimeIcon} name="clock-o"/>
+                                <Text style={this.StyleManager.styles.serversListGameTimeText}>{this.state.gameTime}</Text>
                             </View>
                         </View>
                         <ListView
-                            style={styles.list}
+                            style={this.StyleManager.styles.list}
                             dataSource={this.state.dataSource}
-                            renderRow={this.renderRow}
+                            renderRow={this.renderRow.bind(this)}
                             automaticallyAdjustContentInsets={false}
-                            renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
+                            renderSeparator={(sectionId, rowId) => <View key={rowId} style={this.StyleManager.styles.separator}/>}
                             refreshControl={< RefreshControl refreshing = {
                             this.state.loading
                         }
@@ -232,6 +210,6 @@ class ServersScreen extends Component
     }
 }
 
-ServersScreen.propTypes = propTypes;
+//ServersScreen.propTypes = propTypes;
 
 module.exports = ServersScreen;

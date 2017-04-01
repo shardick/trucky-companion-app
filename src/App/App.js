@@ -10,7 +10,7 @@ import {
 
 import styles from '../Styles';
 import {ThemeProvider} from 'react-native-material-ui';
-import RouteManager from '../routes';
+import RM from '../routes';
 import Container from '../Container';
 
 const UIManager = NativeModules.UIManager;
@@ -28,6 +28,14 @@ if (Platform.OS == 'android') {
 }
 
 class App extends Component {
+
+    constructor()
+    {
+        super();
+        
+        this.RouteManager = new RM();
+    }
+
     static configureScene(route) {
         return route.animationType || Navigator.SceneConfigs.FadeAndroid;
     }
@@ -51,7 +59,7 @@ class App extends Component {
     {
         return (<Navigator
             configureScene={App.configureScene}
-            initialRoute={RouteManager.routes.splashScreen}
+            initialRoute={this.RouteManager.routes.splashScreen}
             ref={this.onNavigatorRef}
             renderScene={App.renderScene}/>);
     }

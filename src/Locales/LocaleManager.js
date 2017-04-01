@@ -7,7 +7,6 @@ class LocaleManager
 {
     constructor()
     {
-
         AppSettings
             .getSettings()
             .then((settings) => {

@@ -1,17 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import ReactNative from 'react-native';
 const {View, Text, Image} = ReactNative;
-import RouteManager from '../routes';
-import styles from '../Styles';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
-
-import LocaleManager from '../Locales/LocaleManager';
-
-var lc = new LocaleManager();
 
 import {Drawer} from 'react-native-material-ui';
 
-class AppDrawerLayout extends Component
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+
+class AppDrawerLayout extends BaseTruckyComponent
 {
     constructor()
     {
@@ -30,10 +26,13 @@ class AppDrawerLayout extends Component
     onPress(route)
     {
         this.setState({drawerOpen: false});
-        this
+
+        this.RouteManager.push(route);
+
+        /*this
             .props
             .navigator
-            .push(route);
+            .push(route);*/
     }
 
     render() {
@@ -46,37 +45,37 @@ class AppDrawerLayout extends Component
                         items={[
                         {
                             icon: 'cloud',
-                            value: lc.strings.servers,
+                            value: this.LocaleManager.strings.servers,
                             onPress: this
                                 .onPress
-                                .bind(this, RouteManager.routes.servers)
+                                .bind(this, this.RouteManager.routes.servers)
                         },, {
                             icon: <FAIcon name="calendar" size={22}/>,
-                            value: lc.strings.meetups,
+                            value: this.LocaleManager.strings.meetups,
                             onPress: this
                                 .onPress
-                                .bind(this, RouteManager.routes.meetups)
+                                .bind(this, this.RouteManager.routes.meetups)
                         }, {
                             icon: 'search',
-                            value: lc.strings.searchPlayer,
+                            value: this.LocaleManager.strings.searchPlayer,
                         }, {
                             icon: 'list',
-                            value: lc.strings.rules,
+                            value: this.LocaleManager.strings.rules,
                             onPress: this
                                 .onPress
-                                .bind(this, RouteManager.routes.rules)
+                                .bind(this, this.RouteManager.routes.rules)
                         }, {
                             icon: 'settings',
-                            value: lc.strings.settings,
+                            value: this.LocaleManager.strings.settings,
                             onPress: this
                                 .onPress
-                                .bind(this, RouteManager.routes.settings)
+                                .bind(this, this.RouteManager.routes.settings)
                         }, {
                             icon: 'info',
-                            value: lc.strings.about,
+                            value: this.LocaleManager.strings.about,
                             onPress: this
                                 .onPress
-                                .bind(this, RouteManager.routes.about)
+                                .bind(this, this.RouteManager.routes.about)
                         }
                     ]}/>
                 </Drawer>

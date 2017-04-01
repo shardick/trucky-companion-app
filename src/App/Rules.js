@@ -9,20 +9,10 @@ import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
 import {Toolbar} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-var styles = require('../Styles');
-var AppSettings = require('../AppSettings');
 import TruckersMPApi from '../Services/TruckersMPAPI';
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
-import LocaleManager from '../Locales/LocaleManager';
-
-var lc = new LocaleManager();
-
-const propTypes = {
-    navigator: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
-};
-
-class RulesScreen extends Component
+class RulesScreen extends BaseTruckyComponent
 {
     constructor()
     {
@@ -31,13 +21,6 @@ class RulesScreen extends Component
         this.state = {
             api: new TruckersMPApi()
         };
-    }
-
-    componentDidMount()
-    {
-        this
-            .fetchData()
-            .done();
     }
 
     async fetchData()
@@ -58,7 +41,7 @@ class RulesScreen extends Component
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={lc.strings.routeRulesTitle}/>);
+            centerElement={this.LocaleManager.strings.routeRulesTitle}/>);
     }
 
     render() {
@@ -66,8 +49,8 @@ class RulesScreen extends Component
             <Container>
                 {this.renderToolbar()}
                 {this.state.loading && <ActivityIndicator/>}
-                {!this.state.loading && <ScrollView style={styles.rulesMarkDownContainer}>
-                    <Markdown style={styles.rulesMarkDownSyles}>
+                {!this.state.loading && <ScrollView style={this.StyleManager.styles.rulesMarkDownContainer}>
+                    <Markdown style={this.StyleManager.styles.rulesMarkDownSyles}>
                         {this.state.rules}
                     </Markdown>
                 </ScrollView>

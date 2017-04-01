@@ -14,18 +14,13 @@ import {
     Linking
 } from 'react-native';
 
-import RouteManager from '../routes';
-import AppSettings from '../AppSettings';
 import TruckersMPApi from '../Services/TruckersMPAPI';
 import Container from '../Container';
-import styles from '../Styles';
 import AppDrawerLayout from '../Components/AppDrawerLayout';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import Drawer from 'react-native-drawer'
 
-import LocaleManager from '../Locales/LocaleManager';
-
-var lc = new LocaleManager();
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
 // components
 import {
@@ -38,14 +33,9 @@ import {
     Button
 } from 'react-native-material-ui';
 
-const propTypes = {
-    navigator: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
-};
-
-class Home extends Component {
-    constructor(props) {
-        super(props);
+class Home extends BaseTruckyComponent {
+    constructor() {
+        super();
 
         this.state = {
             selected: [],
@@ -57,8 +47,7 @@ class Home extends Component {
             api: new TruckersMPApi(),
             refreshTimer: null,
             drawerOpen: false,
-            sideMenuIsOpen: false,
-            lc: new LocaleManager()
+            sideMenuIsOpen: false
         };
     }
 
@@ -66,18 +55,12 @@ class Home extends Component {
         return (<Toolbar
             leftElement="menu"
             onLeftElementPress={() => this.setState({sideMenuIsOpen: true})}
-            centerElement={lc.strings.routeHomeTitle}/>);
+            centerElement={this.LocaleManager.strings.routeHomeTitle}/>);
     }
 
     componentDidMount()
     {
-        AppState.addEventListener('change', this._handleAppStateChange);
-
-        this
-            .fetchData()
-            .done();
-
-        var instance = this;
+        super.componentDidMount();
 
         this
             .setTimers()
@@ -86,7 +69,9 @@ class Home extends Component {
 
     async setTimers()
     {
-        this.settings = await AppSettings.getSettings();
+        this.settings = await this
+            .AppSettings
+            .getSettings();
 
         var instance = this;
 
@@ -103,16 +88,10 @@ class Home extends Component {
     }
 
     componentWillUnmount() {
-        AppState.removeEventListener('change', this._handleAppStateChange);
-        clearInterval(this.state.refreshTimer);
-    }
 
-    _handleAppStateChange = (nextAppState) => {
-        if (nextAppState === 'active') {
-            this
-                .fetchData()
-                .done();
-        }
+        super.componentWillUnmount();
+
+        clearInterval(this.state.refreshTimer);
     }
 
     async fetchData()
@@ -152,23 +131,11 @@ class Home extends Component {
         this.setState({gameTime: gametime});
     }
 
-    openTruckersMPWebSite = () => {
-        Linking
-            .canOpenURL('https://truckersmp.com')
-            .then(supported => {
-                if (supported) {
-                    Linking.openURL('https://truckersmp.com');
-                } else {
-                    console.log('Don\'t know how to open URI: https://truckersmp.com');
-                }
-            });
-    };
-
     render() {
         return (
             <Container>
                 <Drawer
-                    style={styles.sideMenu}
+                    style={this.StyleManager.styles.sideMenu}
                     open={this.state.sideMenuIsOpen}
                     content={< AppDrawerLayout navigator = {
                     this.props.navigator
@@ -195,26 +162,26 @@ class Home extends Component {
                         keyboardDismissMode="interactive">
 
                         {this.state.loading && <ActivityIndicator/>}
-                        {(!this.state.loading) && <View style={styles.gameVersionContainer}>
+                        {(!this.state.loading) && <View style={this.StyleManager.styles.gameVersionContainer}>
                             <Image
                                 source={require('../Assets/avatar.png')}
                                 style={this.state.loading
-                                ? styles.hidden
-                                : styles.gameVersionMainImage}/>
-                            <Text style={styles.gameVersionRow}>{lc.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
-                            <Text style={styles.gameVersionRow}>{lc.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
-                            <Text style={styles.gameVersionRow}>{lc.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
-                            <Text style={styles.gameVersionRow}>{lc.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
-                            <Text style={styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {lc.strings.playersOnline}</Text>
-                            <Text style={styles.gameVersionTotalPlayer}>{lc.strings.currentGameTime} {this.state.gameTime}</Text>
-                            <View style={styles.marginTop20}>
+                                ? this.StyleManager.styles.hidden
+                                : this.StyleManager.styles.gameVersionMainImage}/>
+                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
+                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
+                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
+                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
+                            <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
+                            <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime} {this.state.gameTime}</Text>
+                            <View style={this.StyleManager.styles.marginTop20}>
                                 <Button
                                     raised
                                     text='Servers Status'
-                                    onPress={() => this.props.navigator.push(RouteManager.routes.servers)}/>
+                                    onPress={() => this.RouteManager.push(this.RouteManager.routes.servers)}/>
 
-                                <TouchableOpacity onPress={this.openTruckersMPWebSite}>
-                                    <Text style={styles.marginTop20}>Visit TruckersMP Website</Text>
+                                <TouchableOpacity onPress={() => { this.navigateUrl('https://truckersmp.com') }}>
+                                    <Text style={this.StyleManager.styles.marginTop20}>Visit TruckersMP Website</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -226,7 +193,5 @@ class Home extends Component {
         );
     }
 }
-
-Home.propTypes = propTypes;
 
 module.exports = Home;

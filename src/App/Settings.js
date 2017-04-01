@@ -13,33 +13,11 @@ var {
 
 import Container from '../Container';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import {Toolbar} from 'react-native-material-ui';
-
-var styles = require('../Styles');
-var AppSettings = require('../AppSettings');
-
-import LocaleManager from '../Locales/LocaleManager';
-
 import RNRestart from 'react-native-restart';
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
-var lc = new LocaleManager();
-
-const propTypes = {
-    navigator: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
-};
-
-/*styles.imageStyle:{
-    marginLeft:15,
-    marginRight:20,
-    alignSelf:'center',
-    width:20,
-    height:24,
-    justifyContent:'center'
-  };*/
-
-class SettingsScreen extends Component
+class SettingsScreen extends BaseTruckyComponent
 {
     constructor()
     {
@@ -59,7 +37,7 @@ class SettingsScreen extends Component
 
     async loadSettings()
     {
-        var settings = await AppSettings.getSettings();
+        var settings = await this.AppSettings.getSettings();
 
         this.setState({settings: settings});
     }
@@ -68,7 +46,7 @@ class SettingsScreen extends Component
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={lc.strings.routeSettingsTitle}/>);
+            centerElement={this.LocaleManager.strings.routeSettingsTitle}/>);
     }
 
     render()
@@ -79,54 +57,54 @@ class SettingsScreen extends Component
                 <View style={{
                     marginTop: 10
                 }}>
-                    <View style={styles.appSettingsHeader}>
-                        <Text style={styles.appSettingsHeaderText}>{lc.strings.enableAutoRefresh}</Text>
+                    <View style={this.StyleManager.styles.appSettingsHeader}>
+                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.enableAutoRefresh}</Text>
                     </View>
-                    <View style={styles.appSettingsRow}>
-                        <Text style={styles.appSettingsLabel}>{lc.strings.autoRefreshGameTime}</Text>
-                        <View style={styles.appSettingsField}>
+                    <View style={this.StyleManager.styles.appSettingsRow}>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.autoRefreshGameTime}</Text>
+                        <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
-                                onValueChange={(value) => this.updateSetting(AppSettings.keys.autoRefreshGameTime, value)}
+                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.autoRefreshGameTime, value)}
                                 value={this.state.settings.autoRefreshGameTime}/>
                         </View>
                     </View>
-                    <View style={styles.appSettingsRow}>
-                        <Text style={styles.appSettingsLabel}>{lc.strings.autoRefreshServersList}</Text>
-                        <View style={styles.appSettingsField}>
+                    <View style={this.StyleManager.styles.appSettingsRow}>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.autoRefreshServersList}</Text>
+                        <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
-                                onValueChange={(value) => this.updateSetting(AppSettings.keys.autoRefreshServersList, value)}
+                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.autoRefreshServersList, value)}
                                 value={this.state.settings.autoRefreshServersList}/>
                         </View>
                     </View>
-                    <View style={styles.appSettingsHeader}>
-                        <Text style={styles.appSettingsHeaderText}>{lc.strings.refreshServersListEvery}</Text>
+                    <View style={this.StyleManager.styles.appSettingsHeader}>
+                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.refreshServersListEvery}</Text>
                     </View>
-                    <View style={styles.appSettingsRowColumns}>
-                        <View style={styles.appSettingsFieldBelow}>
+                    <View style={this.StyleManager.styles.appSettingsRowColumns}>
+                        <View style={this.StyleManager.styles.appSettingsFieldBelow}>
                             <Picker
-                                itemStyle={styles.appSettingsPicker}
+                                itemStyle={this.StyleManager.styles.appSettingsPicker}
                                 selectedValue={this.state.settings.serverListRefreshInterval}
-                                onValueChange={(value) => this.updateSetting(AppSettings.keys.serverListRefreshInterval, value)}>
-                                <Picker.Item label={lc.strings.seconds10} value="10000"/>
-                                <Picker.Item label={lc.strings.seconds30} value="30000"/>
-                                <Picker.Item label={lc.strings.minute} value="60000"/>
-                                <Picker.Item label={lc.strings.minutes5} value="300000"/>
-                                <Picker.Item label={lc.strings.minutes10} value="30"/>
-                                <Picker.Item label={lc.strings.minutes20} value="30"/>
+                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.serverListRefreshInterval, value)}>
+                                <Picker.Item label={this.LocaleManager.strings.seconds10} value="10000"/>
+                                <Picker.Item label={this.LocaleManager.strings.seconds30} value="30000"/>
+                                <Picker.Item label={this.LocaleManager.strings.minute} value="60000"/>
+                                <Picker.Item label={this.LocaleManager.strings.minutes5} value="300000"/>
+                                <Picker.Item label={this.LocaleManager.strings.minutes10} value="30"/>
+                                <Picker.Item label={this.LocaleManager.strings.minutes20} value="30"/>
                             </Picker>
                         </View>
                     </View>
-                    <View style={styles.appSettingsHeader}>
-                        <Text style={styles.appSettingsHeaderText}>{lc.strings.settingsHeaderLanguage}</Text>
+                    <View style={this.StyleManager.styles.appSettingsHeader}>
+                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.settingsHeaderLanguage}</Text>
                     </View>
-                    <View style={styles.appSettingsRowColumns}>
-                        <View style={styles.appSettingsFieldBelow}>
+                    <View style={this.StyleManager.styles.appSettingsRowColumns}>
+                        <View style={this.StyleManager.styles.appSettingsFieldBelow}>
                             <Picker
-                                itemStyle={styles.appSettingsPicker}
+                                itemStyle={this.StyleManager.styles.appSettingsPicker}
                                 selectedValue={this.state.settings.language}
-                                onValueChange={(value) => this.updateSetting(AppSettings.keys.language, value)}>
-                                <Picker.Item label={lc.strings.english} value="en"/>
-                                <Picker.Item label={lc.strings.italian} value="it"/>
+                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.language, value)}>
+                                <Picker.Item label={this.LocaleManager.strings.english} value="en"/>
+                                <Picker.Item label={this.LocaleManager.strings.italian} value="it"/>
                             </Picker>
                         </View>
                     </View>
@@ -141,7 +119,7 @@ class SettingsScreen extends Component
 
         this.setState({settings: this.state.settings});
 
-        AppSettings
+        this.AppSettings
             .setValue(key, value)
             .then(() => {
 
@@ -153,16 +131,5 @@ class SettingsScreen extends Component
 
     }
 }
-
-const stylesX = StyleSheet.create({
-    imageStyle: {
-        marginLeft: 15,
-        marginRight: 20,
-        alignSelf: 'center',
-        width: 20,
-        height: 24,
-        justifyContent: 'center'
-    }
-});
 
 module.exports = SettingsScreen;

@@ -8,7 +8,25 @@ import SplashScreen from './App/SplashScreen';
 
 class RouteManager
 {
-    static get routes()
+    constructor()
+    {
+    }
+
+    setNavigator(navigator)
+    {
+        this._navigator = navigator;        
+    }
+    push(route)
+    {
+        this._navigator.push(route);
+    }        
+
+    pop()
+    {
+        this._navigator.pop();
+    }
+    
+    get routes()
     {
         return(
         {

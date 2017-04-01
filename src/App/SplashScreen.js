@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
 import {View, Image} from 'react-native';
 
-import styles from '../Styles';
 import {ThemeProvider} from 'react-native-material-ui';
-import RouteManager from '../routes';
 import Container from '../Container';
 
-class SplashScreen extends Component {
+import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+
+class SplashScreen extends BaseTruckyComponent {
 
     componentWillMount() {
 
+        super.componentWillMount();
+
         setTimeout(() => {
-            this
+            /*this
                 .props
                 .navigator
-                .push(RouteManager.routes.home);
+                .push(RouteManager.routes.home);*/
+
+            this.RouteManager.push(this.RouteManager.routes.home);
+            
         }, 2000);
     }
 
@@ -26,7 +31,7 @@ class SplashScreen extends Component {
                     flex: 1,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: styles.uiTheme.palette.primaryColor
+                    backgroundColor: this.StyleManager.styles.uiTheme.palette.primaryColor
                 }}>
                     <Image
                         source={require('../Assets/trucky_banner_white.png')}
