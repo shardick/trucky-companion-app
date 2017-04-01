@@ -23,6 +23,10 @@ import AppDrawerLayout from '../Components/AppDrawerLayout';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import Drawer from 'react-native-drawer'
 
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
+
 // components
 import {
     ActionButton,
@@ -53,7 +57,8 @@ class Home extends Component {
             api: new TruckersMPApi(),
             refreshTimer: null,
             drawerOpen: false,
-            sideMenuIsOpen: false
+            sideMenuIsOpen: false,
+            lc: new LocaleManager()
         };
     }
 
@@ -61,7 +66,7 @@ class Home extends Component {
         return (<Toolbar
             leftElement="menu"
             onLeftElementPress={() => this.setState({sideMenuIsOpen: true})}
-            centerElement={this.props.route.title}/>);
+            centerElement={lc.strings.routeHomeTitle}/>);
     }
 
     componentDidMount()
@@ -160,12 +165,14 @@ class Home extends Component {
     };
 
     render() {
-       return (
+        return (
             <Container>
                 <Drawer
                     style={styles.sideMenu}
                     open={this.state.sideMenuIsOpen}
-                    content={<AppDrawerLayout navigator={this.props.navigator}/>}
+                    content={< AppDrawerLayout navigator = {
+                    this.props.navigator
+                } />}
                     onClose={() => this.setState({sideMenuIsOpen: false})}
                     onOpen={() => this.setState({sideMenuIsOpen: true})}
                     acceptTap={true}
@@ -194,12 +201,12 @@ class Home extends Component {
                                 style={this.state.loading
                                 ? styles.hidden
                                 : styles.gameVersionMainImage}/>
-                            <Text style={styles.gameVersionRow}>Current version: {this.state.gameVersion.name}</Text>
-                            <Text style={styles.gameVersionRow}>Supported ETS game version: {this.state.gameVersion.supported_game_version}</Text>
-                            <Text style={styles.gameVersionRow}>Supported ATS game version: {this.state.gameVersion.supported_ats_game_version}</Text>
-                            <Text style={styles.gameVersionRow}>Last Release date: {this.state.gameVersion.time}</Text>
-                            <Text style={styles.gameVersionTotalPlayer}>{this.state.totalPlayers}&nbsp; players online</Text>
-                            <Text style={styles.gameVersionTotalPlayer}>Current game time: {this.state.gameTime}</Text>
+                            <Text style={styles.gameVersionRow}>{lc.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
+                            <Text style={styles.gameVersionRow}>{lc.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
+                            <Text style={styles.gameVersionRow}>{lc.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
+                            <Text style={styles.gameVersionRow}>{lc.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
+                            <Text style={styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {lc.strings.playersOnline}</Text>
+                            <Text style={styles.gameVersionTotalPlayer}>{lc.strings.currentGameTime} {this.state.gameTime}</Text>
                             <View style={styles.marginTop20}>
                                 <Button
                                     raised

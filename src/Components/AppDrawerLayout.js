@@ -5,6 +5,10 @@ import RouteManager from '../routes';
 import styles from '../Styles';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
+
 import {Drawer} from 'react-native-material-ui';
 
 class AppDrawerLayout extends Component
@@ -42,34 +46,34 @@ class AppDrawerLayout extends Component
                         items={[
                         {
                             icon: 'cloud',
-                            value: 'Servers',
+                            value: lc.strings.servers,
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.servers)
                         },, {
                             icon: <FAIcon name="calendar" size={22}/>,
-                            value: 'Meetups',
+                            value: lc.strings.meetups,
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.meetups)
                         }, {
                             icon: 'search',
-                            value: 'Search Player'
+                            value: lc.strings.searchPlayer,
                         }, {
                             icon: 'list',
-                            value: 'Rules',
+                            value: lc.strings.rules,
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.rules)
                         }, {
                             icon: 'settings',
-                            value: 'Settings',
+                            value: lc.strings.settings,
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.settings)
                         }, {
                             icon: 'info',
-                            value: 'About',
+                            value: lc.strings.about,
                             onPress: this
                                 .onPress
                                 .bind(this, RouteManager.routes.about)

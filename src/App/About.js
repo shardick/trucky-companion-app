@@ -2,8 +2,11 @@ import React, {Component, PropTypes} from 'react';
 var ReactNative = require('react-native');
 var {Text, View, ScrollView, Image, Linking, TouchableHighlight, TouchableOpacity} = ReactNative;
 import Container from '../Container';
-
 import {Toolbar, Button} from 'react-native-material-ui';
+
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
 
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
@@ -43,7 +46,7 @@ class AboutScreen extends Component
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={this.props.route.title}/>);
+            centerElement={lc.strings.routeAboutTitle}/>);
     }
 
 

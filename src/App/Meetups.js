@@ -14,17 +14,20 @@ var {
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
 var AppBottomNavigation = require('../Components/BottomNavigation');
-import {Toolbar, Card, Button} from 'react-native-material-ui';
+import {Toolbar, Card, Button, ActionButton } from 'react-native-material-ui';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import RNCalendarEvents from 'react-native-calendar-events';
-var moment = require('moment');
 
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
 import EventsAPI from '../Services/EventsAPI';
 import TruckersAPI from '../Services/TruckersMPAPI';
+
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
 
 const propTypes = {
     navigator: PropTypes.object.isRequired,
@@ -129,7 +132,7 @@ class MeetupsScreen extends Component
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={this.props.route.title}
+            centerElement={lc.strings.routeMeetupsTitle}
             rightElement="search"
             onRightElementPress={() => this.openSearchDialog()}/>);
     }
@@ -159,28 +162,33 @@ class MeetupsScreen extends Component
             .authorizeEventStore()
             .then(status => {
                 if (status == 'authorized') {
-                    
+
                     //console.log(JSON.stringify(event));
 
                     var eventSettings = {
                         location: event.location,
-                        notes: 'Organized by ' + event.author + ' - server: ' + event.server,
-                        startDate: moment(event.eventDate).format('YYYY-MM-DDTHH:mm:00.000')+'Z',
-                        endDate: moment(event.endDate).format('YYYY-MM-DDTHH:mm:00.000')+'Z',
-                        alarms: [{
-                            date: moment(event.eventDate).add(-30, 'm').format('YYYY-MM-DDTHH:mm:00.000')+'Z'
-                        }]
+                        notes: lc.strings.formatString(lc.strings.eventNotes, event.author, event.server),
+                        startDate: lc.moment(event.eventDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        endDate: lc.moment(event.endDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        alarms: [
+                            {
+                                date: lc.moment(event.eventDate)
+                                    .add(-30, 'm')
+                                    .local()
+                                    .format('YYYY-MM-DDTHH:mm:00.000') + 'Z'
+                            }
+                        ]
                     };
 
                     //onsole.log(JSON.stringify(eventSettings));
 
                     RNCalendarEvents
-                        .saveEvent('TruckersMP Event - Meetup', eventSettings)
+                        .saveEvent(lc.strings.eventTitle, eventSettings)
                         .then(id => {
-                            
-                           console.log('Event added to calendar: ' + id.toString());
 
-                           Alert.alert('Event added to your calendar');
+                            console.log('Event added to calendar: ' + id.toString());
+
+                            Alert.alert(lc.strings.eventAddedToCalendar);
                         })
                         .catch(error => {
                             Alert.alert(error);
@@ -201,7 +209,8 @@ class MeetupsScreen extends Component
                     <View style={styles.serversListDescriptionRow}>
                         <Icon name="globe" style={styles.serversListGameTimeIcon}/>
                         <Text style={styles.serversListGameTimeText}>{rowData.server}
-                            - Lang: {rowData.language}</Text>
+                            &nbsp;-&nbsp;{lc.strings.language}
+                            {rowData.language}</Text>
                     </View>
                     <View style={styles.serversListDescriptionRow}>
                         <Icon name="users" style={styles.serversListGameTimeIcon}/>
@@ -214,11 +223,11 @@ class MeetupsScreen extends Component
                     <View style={styles.meetupsRowButtonContainer}>
                         <Button
                             primary
-                            text="Info"
+                            text={lc.strings.info}
                             onPress={() => instance.navigateMeetup(rowData.url)}/>
                         <Button
                             primary
-                            text="Add to calendar"
+                            text={lc.strings.addToCalendar}
                             onPress={() => instance.addMeetupToCalendar(rowData)}/>
                     </View>
                 </View>
@@ -339,6 +348,7 @@ class MeetupsScreen extends Component
                         } />}/>
                     </View>
                 </View>
+                <ActionButton icon="refresh" onPress={this._onRefresh.bind(this)} /> 
             </Container>
         )
     }

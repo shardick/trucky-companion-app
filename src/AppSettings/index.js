@@ -7,7 +7,7 @@ class AppSettings
     static get keys()
     {
         return {autoRefreshGameTime: 'autoRefreshGameTime', autoRefreshServersList: 'autoRefreshServersList',
-            serverListRefreshInterval: 'serverListRefreshInterval'}
+            serverListRefreshInterval: 'serverListRefreshInterval', language: 'language'}
     }
 
     static get storageKey()
@@ -20,7 +20,8 @@ class AppSettings
         return {
             autoRefreshGameTime: true,
             autoRefreshServersList: false,
-            serverListRefreshInterval: 60000
+            serverListRefreshInterval: 60000,
+            language: 'en'
         };        
     }       
 

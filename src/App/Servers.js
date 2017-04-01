@@ -21,6 +21,10 @@ import AppSettings from '../AppSettings';
 import TruckersMPApi from '../Services/TruckersMPAPI';
 import routes from '../routes';
 
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
+
 const propTypes = {
     navigator: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired
@@ -45,6 +49,8 @@ class ServersScreen extends Component
     }
 
     componentDidMount() {
+
+        
 
         AppState.addEventListener('change', this._handleAppStateChange);
 
@@ -150,7 +156,7 @@ class ServersScreen extends Component
                 </View>
                 {rowData.online && <View style={styles.serversListStatusContainer}>
                     <Text style={styles.serversListOnlinePlayers}>{rowData.players}
-                        &nbsp;truckers
+                        &nbsp;{lc.strings.playersOnline}
                         <Text style={styles.serversListServerSize}>&nbsp;/ {rowData.maxplayers}</Text>
                     </Text>
                     {rowData.online && <View style={styles.serversListProgressBarContainer}>
@@ -161,21 +167,19 @@ class ServersScreen extends Component
 }
                 <View style={styles.serversListDescriptionRow}>
                     <Icon name="pause" style={styles.serversListDescriptionIcon}/>
-                    <Text>{rowData.queue}&nbsp;players in queue</Text>
+                    <Text>{rowData.queue} {lc.strings.playersInQueue}</Text>
                 </View>
                 <View style={styles.serversListDescriptionRow}>
                     <Icon name="cloud" style={styles.serversListDescriptionIcon}/>
-                    <Text>Status</Text>
                     <Text>{rowData.online
-                            ? ' online'
-                            : ' offline'}</Text>
+                            ? lc.strings.online
+                            : lc.strings.offline}</Text>
                 </View>
                 <View style={styles.serversListDescriptionRow}>
                     <Icon name="shield" style={styles.serversListDescriptionIcon}/>
-                    <Text>Speed limiter</Text>
                     <Text>{rowData.speedlimiter
-                            ? ' enabled'
-                            : ' disabled'}</Text>
+                            ? lc.strings.speedLimiterEnabled
+                            : lc.strings.speedLimiterDisabled}</Text>
                 </View>
             </Card>
         );
@@ -186,7 +190,7 @@ class ServersScreen extends Component
             leftElement="arrow-back"
             rightElement="refresh"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={this.props.route.title}
+            centerElement={lc.strings.routeServersTitle}
             onRightElementPress={() => this.fetchData().done()}/>);
     }
 

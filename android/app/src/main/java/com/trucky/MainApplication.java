@@ -3,6 +3,8 @@ package com.trucky;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.avishayil.rnrestart.ReactNativeRestartPackage;
+import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import io.realm.react.RealmReactPackage;
 import com.calendarevents.CalendarEventsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeRestartPackage(),
+            new ReactNativeLocalizationPackage(),
             new RealmReactPackage(),
             new CalendarEventsPackage(),
             new VectorIconsPackage()

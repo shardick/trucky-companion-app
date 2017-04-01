@@ -7,13 +7,15 @@ var {
 } = ReactNative;
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
-
 import {Toolbar} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-
 var styles = require('../Styles');
 var AppSettings = require('../AppSettings');
 import TruckersMPApi from '../Services/TruckersMPAPI';
+
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
 
 const propTypes = {
     navigator: PropTypes.object.isRequired,
@@ -56,7 +58,7 @@ class RulesScreen extends Component
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={this.props.route.title}/>);
+            centerElement={lc.strings.routeRulesTitle}/>);
     }
 
     render() {

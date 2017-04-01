@@ -30,6 +30,8 @@ moment for datetime manipulation
 
 realm-js as database engine
 
+react-native-localization for localizations and localized strings management
+
 Run npm install to install all depencencies
 
 ## Anatomy

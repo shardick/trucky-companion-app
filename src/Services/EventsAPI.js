@@ -1,5 +1,9 @@
 var DomParser = require('react-native-html-parser').DOMParser
-var moment = require('moment');
+
+import LocaleManager from '../Locales/LocaleManager';
+
+var lc = new LocaleManager();
+
 const Realm = require('realm');
 
 const realmName = "Meetup_2";
@@ -75,7 +79,7 @@ class EventsAPI
 
             if (m.eventDate != undefined) {
 
-                m.endDate = moment(m.eventDate)
+                m.endDate = lc.moment(m.eventDate)
                     .add(2, 'h')
                     .toDate();
 
@@ -118,22 +122,22 @@ class EventsAPI
         switch (segments[2]) {
             case 'minutes':
             case 'minute':
-                eventDate = moment().add(timePart, 'm');
+                eventDate = lc.moment().add(timePart, 'm');
                 break;
             case 'hours':
             case 'hour':
-                eventDate = moment().add(timePart, 'h');
+                eventDate = lc.moment().add(timePart, 'h');
                 break;
             case 'days':
             case 'day':
-                eventDate = moment().add(timePart, 'd');
+                eventDate = lc.moment().add(timePart, 'd');
             case 'week':
             case 'weeks':
-                eventDate = moment().add(timePart, 'w');
+                eventDate = lc.moment().add(timePart, 'w');
                 break;
             case 'month':
             case 'months':
-                eventDate = moment().add(timePart, 'M');
+                eventDate = lc.moment().add(timePart, 'M');
                 break;
         }
 
