@@ -4,11 +4,11 @@ import LocaleManager from '../Locales/LocaleManager';
 
 var lc = new LocaleManager();
 
-const Realm = require('realm');
+/*const Realm = require('realm');*/
 
-const realmName = "Meetup_2";
+/*const realmName = "Meetup_2";*/
 
-const realm = new Realm({
+/*const realm = new Realm({
     schema: [
         {
             name: realmName,
@@ -28,7 +28,7 @@ const realm = new Realm({
             }
         }
     ]
-});
+});*/
 
 class EventsAPI
 {
@@ -85,7 +85,7 @@ class EventsAPI
 
                 //console.log(JSON.stringify(m));
 
-                realm.write(() => {
+                /*realm.write(() => {
                     var results = realm.objects(realmName);
                     var storedM = results.filtered('eventID = $0', m.eventID);
 
@@ -94,7 +94,7 @@ class EventsAPI
                     else 
                         realm.create(realmName, m);
                     }
-                );
+                );*/
 
                 meetups.push(m);
             }

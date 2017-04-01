@@ -46,9 +46,6 @@
 		EA39C977EB2D42A6A6780E67 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AE8E455E6A14D46950C6C33 /* SimpleLineIcons.ttf */; };
 		66E4B57D3F7D4D1882B2C946 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338D5E39C2F6461D9CD5E34B /* Zocial.ttf */; };
 		323BE96824B64DD5B3C61BBE /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3893FD36F01949C28087C0A2 /* libRNCalendarEvents.a */; };
-		9C8252BD3B734328BC28071B /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC364E8A4E31415C99816667 /* libRealmReact.a */; };
-		31617C8135574AFDA7C71898 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A6FEA246E54A43947BC77F /* libc++.tbd */; };
-		4E29E1E41022445C83573A12 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 686D902AC22549A7B39AB005 /* libz.tbd */; };
 		299C134DDA8745C68478019F /* libReactNativeLocalization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DF2EF6D30B4603AE8F8B9D /* libReactNativeLocalization.a */; };
 		C103855B8AA2483E8D14040E /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2A4B7CA0C14F918E14C5CB /* libRCTRestart.a */; };
 /* End PBXBuildFile section */
@@ -283,10 +280,6 @@
 		338D5E39C2F6461D9CD5E34B /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		82BBAE680BB4448D9E4B0A64 /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; name = "RNCalendarEvents.xcodeproj"; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		3893FD36F01949C28087C0A2 /* libRNCalendarEvents.a */ = {isa = PBXFileReference; name = "libRNCalendarEvents.a"; path = "libRNCalendarEvents.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		E62345D4771E4C84B64CDC38 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; name = "RealmReact.xcodeproj"; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		FC364E8A4E31415C99816667 /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		89A6FEA246E54A43947BC77F /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
-		686D902AC22549A7B39AB005 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		FCCD4047AB2C4DEF8BCB103C /* ReactNativeLocalization.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeLocalization.xcodeproj"; path = "../node_modules/react-native-localization/ReactNativeLocalization.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		97DF2EF6D30B4603AE8F8B9D /* libReactNativeLocalization.a */ = {isa = PBXFileReference; name = "libReactNativeLocalization.a"; path = "libReactNativeLocalization.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		EDB321FC98C44D2F86297435 /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; name = "RCTRestart.xcodeproj"; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
@@ -319,9 +312,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C7C2669A35D94CB194AF3540 /* libRNVectorIcons.a in Frameworks */,
 				323BE96824B64DD5B3C61BBE /* libRNCalendarEvents.a in Frameworks */,
-				9C8252BD3B734328BC28071B /* libRealmReact.a in Frameworks */,
-				31617C8135574AFDA7C71898 /* libc++.tbd in Frameworks */,
-				4E29E1E41022445C83573A12 /* libz.tbd in Frameworks */,
 				299C134DDA8745C68478019F /* libReactNativeLocalization.a in Frameworks */,
 				C103855B8AA2483E8D14040E /* libRCTRestart.a in Frameworks */,
 			);
@@ -492,7 +482,6 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				C7E565C2F4944B9AA778E95A /* RNVectorIcons.xcodeproj */,
 				82BBAE680BB4448D9E4B0A64 /* RNCalendarEvents.xcodeproj */,
-				E62345D4771E4C84B64CDC38 /* RealmReact.xcodeproj */,
 				FCCD4047AB2C4DEF8BCB103C /* ReactNativeLocalization.xcodeproj */,
 				EDB321FC98C44D2F86297435 /* RCTRestart.xcodeproj */,
 			);
@@ -553,8 +542,6 @@
 		6C4674C248E04889A9DD6037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				89A6FEA246E54A43947BC77F /* libc++.tbd */,
-				686D902AC22549A7B39AB005 /* libz.tbd */,
 			);
 			name = Frameworks;
 			path = "";
@@ -1060,14 +1047,11 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trucky.app/Trucky";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
-					"$(SRCROOT)\..\node_modules\realm\src/**",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
 				);
@@ -1090,14 +1074,11 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trucky.app/Trucky";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
-					"$(SRCROOT)\..\node_modules\realm\src/**",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
 				);
@@ -1123,7 +1104,6 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
-					"$(SRCROOT)\..\node_modules\realm\src/**",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
 				);
@@ -1148,7 +1128,6 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
-					"$(SRCROOT)\..\node_modules\realm\src/**",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
 				);
@@ -1180,14 +1159,11 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
-					"$(SRCROOT)\..\node_modules\realm\src/**",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
 				);
@@ -1219,14 +1195,11 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
-					"$(SRCROOT)\..\node_modules\realm\src/**",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
 				);
@@ -1253,8 +1226,6 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1279,8 +1250,6 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Release;
