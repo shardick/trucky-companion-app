@@ -5,17 +5,19 @@ import AS from '../AppSettings';
 import LC from '../Locales/LocaleManager';
 import SM from '../Styles/StyleManager';
 
-const propTypes = {
-    navigator: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
-};
-
+/**
+ * Base Component class for all Screens
+ * 
+ * @class BaseTruckyComponent
+ * @extends {Component}
+ */
 class BaseTruckyComponent extends Component
 {
     constructor()
     {
         super();
 
+        // setting up common objects
         this.RouteManager = new RM();
         this.AppSettings = AS;
         this.LocaleManager = new LC();
@@ -24,6 +26,7 @@ class BaseTruckyComponent extends Component
 
     componentWillMount()
     {
+        // sets the navigator to RouteManager
         this
             .RouteManager
             .setNavigator(this.props.navigator);
@@ -31,21 +34,36 @@ class BaseTruckyComponent extends Component
 
     componentDidMount()
     {
-        this
-            .RouteManager
-            .setNavigator(this.props.navigator);
+        // event listener for App State change, when application wake up, fetch new data
+
         AppState.addEventListener('change', this._handleAppStateChange.bind(this));
 
+        // auto load data for all Screen when needeed, children classes overrides fetchData
         this
             .fetchData()
             .done();
     }
 
+
+    /**
+     * Generic (and empty) fetch data method. Children classes overrides it
+     * 
+     * 
+     * @memberOf BaseTruckyComponent
+     */
     async fetchData()
     {
         // override with fetchData screen specific
     }
 
+
+    /**
+     * Handle the AppState change
+     * 
+     * @param {any} nextAppState 
+     * 
+     * @memberOf BaseTruckyComponent
+     */
     _handleAppStateChange(nextAppState) {
         if (nextAppState === 'active') {
             this
@@ -58,6 +76,14 @@ class BaseTruckyComponent extends Component
         AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
     }
 
+
+    /**
+     * Helper method to open Internet URL with the browser
+     * 
+     * @param {any} url 
+     * 
+     * @memberOf BaseTruckyComponent
+     */
     navigateUrl(url)
     {
         Linking
@@ -71,7 +97,5 @@ class BaseTruckyComponent extends Component
             });
     }
 }
-
-BaseTruckyComponent.propTypes = propTypes;
 
 module.exports = BaseTruckyComponent;

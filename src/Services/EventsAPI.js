@@ -1,7 +1,5 @@
 var DomParser = require('react-native-html-parser').DOMParser
-
 import LocaleManager from '../Locales/LocaleManager';
-
 var lc = new LocaleManager();
 
 /*const Realm = require('realm');*/
@@ -30,6 +28,12 @@ var lc = new LocaleManager();
     ]
 });*/
 
+
+/**
+ * ETS2c.com wrappers. Parses html from ets2.com and build an array with scheduled events
+ * 
+ * @class EventsAPI
+ */
 class EventsAPI
 {
     constructor()
@@ -169,20 +173,6 @@ class EventsAPI
                 }
             }
 
-        }, this);
-
-        return ret;
-    }
-
-    distinctLanguages(meetups)
-    {
-        var ret = new Array();
-
-        meetups.forEach(function (element) {
-
-            if (ret.indexOf(element.language) == -1) {
-                ret.push(element.language);
-            }
         }, this);
 
         return ret;

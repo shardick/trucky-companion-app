@@ -2,6 +2,12 @@ import LocaleManager from '../Locales/LocaleManager';
 
 var lc = new LocaleManager();
 
+
+/**
+ * TruckersMP API wrapper
+ * 
+ * @class TruckersMPApi
+ */
 class TruckersMPApi
 {
     constructor()
@@ -67,23 +73,9 @@ class TruckersMPApi
      * @memberOf TruckersMPApi
      */
     async game_time_formatted()
-    {
-        //var lc = new LocaleManager();
-
-        //console.warn(lc.strings);
-
-        //console.warn(lc.interfaceLanguage);
-
-        //var momentLocaleName = 'moment/locale/' + lc.momentLocale;
-        //var momentLocale = require(momentLocaleName);
-
-        //console.warn(momentLocale);
-
-        //moment.updateLocale('it', momentLocale);
-        
+    {        
         var gametime = await this.game_time();
         var start = new Date(2015, 9, 25);
-        //return new Date(start.getTime() + ((gametime-3) * 60 * 1000)).customFormat('#DDD# #hhhh#:#mm#');
         return lc.moment(start).add(gametime-3, 'm').format('dddd HH:mm');
     }
 
@@ -130,6 +122,14 @@ class TruckersMPApi
         return json;
     }
 
+
+    /**
+     * Get update info from live server to show latest banner\message from developers in Home Screen
+     * 
+     * @returns 
+     * 
+     * @memberOf TruckersMPApi
+     */
     async getUpdateInfo()
     {
         var URL = this.config.update_package_json;

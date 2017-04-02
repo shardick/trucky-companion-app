@@ -1,5 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
 
+// Main resource objects
 var strings = new LocalizedStrings({
     en: {
         currentGameVersion: 'Current game version: ',

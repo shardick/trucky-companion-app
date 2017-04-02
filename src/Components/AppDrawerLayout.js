@@ -7,6 +7,13 @@ import {Drawer} from 'react-native-material-ui';
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
+
+/**
+ * Component that contains App Drawer interface
+ * 
+ * @class AppDrawerLayout
+ * @extends {BaseTruckyComponent}
+ */
 class AppDrawerLayout extends BaseTruckyComponent
 {
     constructor()
@@ -28,11 +35,6 @@ class AppDrawerLayout extends BaseTruckyComponent
         this.setState({drawerOpen: false});
 
         this.RouteManager.push(route);
-
-        /*this
-            .props
-            .navigator
-            .push(route);*/
     }
 
     render() {

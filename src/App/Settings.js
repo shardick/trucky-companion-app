@@ -37,7 +37,9 @@ class SettingsScreen extends BaseTruckyComponent
 
     async loadSettings()
     {
-        var settings = await this.AppSettings.getSettings();
+        var settings = await this
+            .AppSettings
+            .getSettings();
 
         this.setState({settings: settings});
     }
@@ -115,18 +117,29 @@ class SettingsScreen extends BaseTruckyComponent
 
     updateSetting(key, value)
     {
+        var restartApp = false;
+
+        if (key == 'language' && value != this.state.settings.language) {
+            restartApp = true;
+        }
+
         this.state.settings[key] = value;
 
         this.setState({settings: this.state.settings});
 
-        this.AppSettings
+        this
+            .AppSettings
             .setValue(key, value)
             .then(() => {
 
-                if (key == 'language')
-                {
-                    RNRestart.Restart();
-                }         
+                if (restartApp) {
+                    Alert.alert('Settings changed', 'Restart app to apply changes', [
+                        {
+                            text: 'Restart now',
+                            onPress: () => RNRestart.Restart()
+                        }
+                    ]);
+                }
             });
 
     }

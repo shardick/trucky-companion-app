@@ -7,17 +7,18 @@ import {
     BackAndroid,
     Platform
 } from 'react-native';
-
-import styles from '../Styles';
 import {ThemeProvider} from 'react-native-material-ui';
-import RM from '../routes';
 import Container from '../Container';
 import OneSignal from 'react-native-onesignal';
+import SM from '../Styles/StyleManager';
+import RM from '../routes';
 
 const UIManager = NativeModules.UIManager;
 
+// React Navigator instance to manage navigation 
 var _navigator;
 
+// Support to Android Back button operations
 if (Platform.OS == 'android') {
     BackAndroid.addEventListener('hardwareBackPress', () => {
         if (_navigator && _navigator.getCurrentRoutes().length > 1) {
@@ -28,33 +29,64 @@ if (Platform.OS == 'android') {
     });
 }
 
+
+/**
+ * Main App Component. Contains routing logic, theming and main scene rendering inside navigator
+ * 
+ * @class App
+ * @extends {Component}
+ */
 class App extends Component {
 
     constructor()
     {
         super();
-        
+        this.StyleManager = new SM();
         this.RouteManager = new RM();
     }
 
+    /**
+     * Static method for managing scene rendering
+     * 
+     * @static
+     * @param {any} route 
+     * @returns 
+     * 
+     * @memberOf App
+     */
     static configureScene(route) {
         return route.animationType || Navigator.SceneConfigs.FadeAndroid;
     }
+
+
+    /**
+     * Static method for scene rendering. Accepts route and navigato as parameters. Route is an object from RouteManager.routes, navigator is a React Navigator
+     * 
+     * @static
+     * @param {any} route 
+     * @param {any} navigator 
+     * @returns 
+     * 
+     * @memberOf App
+     */
     static renderScene(route, navigator) {
         _navigator = navigator;
 
         return (
             <Container>
                 <route.Page route={route} navigator={navigator}/>
-                {/*<AppBottomNavigation navigator={navigator} active={route.navigationTab}/>*/}
             </Container>
         );
     }
+
     componentWillMount() {
+
+        // logic to enable animation experiments in React
         if (UIManager.setLayoutAnimationEnabledExperimental) {
             UIManager.setLayoutAnimationEnabledExperimental(true);
         }
 
+        // OneSignal notifications event listeners
         OneSignal.addEventListener('received', this.onReceived);
         OneSignal.addEventListener('opened', this.onOpened);
         OneSignal.addEventListener('registered', this.onRegistered);
@@ -62,6 +94,8 @@ class App extends Component {
     }
 
     componentWillUnmount() {
+
+        // remove event listeners on unmouting
         OneSignal.removeEventListener('received', this.onReceived);
         OneSignal.removeEventListener('opened', this.onOpened);
         OneSignal.removeEventListener('registered', this.onRegistered);
@@ -87,6 +121,15 @@ class App extends Component {
 		/*console.warn('Device info: ', device);*/
     }
 
+
+
+    /**
+     * Main App Navigator
+     * 
+     * @returns 
+     * 
+     * @memberOf App
+     */
     renderNavigator()
     {
         return (<Navigator
@@ -95,9 +138,10 @@ class App extends Component {
             ref={this.onNavigatorRef}
             renderScene={App.renderScene}/>);
     }
+
     render() {
         return (
-            <ThemeProvider uiTheme={styles.uiTheme}>
+            <ThemeProvider uiTheme={this.StyleManager.styles.uiTheme}>
                 {this.renderNavigator()}
             </ThemeProvider>
         );

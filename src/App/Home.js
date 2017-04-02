@@ -33,6 +33,13 @@ import {
     Button
 } from 'react-native-material-ui';
 
+
+/**
+ * First Screen
+ * 
+ * @class Home
+ * @extends {BaseTruckyComponent}
+ */
 class Home extends BaseTruckyComponent {
     constructor() {
         super();
@@ -52,6 +59,13 @@ class Home extends BaseTruckyComponent {
         };
     }
 
+
+    /**
+     * Material UI toolbar rendering
+     * 
+     * 
+     * @memberOf Home
+     */
     renderToolbar = () => {
         return (<Toolbar
             leftElement="menu"
@@ -68,6 +82,13 @@ class Home extends BaseTruckyComponent {
             .done();
     }
 
+
+    /**
+     * Timers for auto update (game time almost)
+     * 
+     * 
+     * @memberOf Home
+     */
     async setTimers()
     {
         this.settings = await this
@@ -95,6 +116,13 @@ class Home extends BaseTruckyComponent {
         clearInterval(this.state.refreshTimer);
     }
 
+
+    /**
+     * Fetch data from services
+     * 
+     * 
+     * @memberOf Home
+     */
     async fetchData()
     {
         this.setState({loading: true});
