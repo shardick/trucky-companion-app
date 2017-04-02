@@ -48,6 +48,7 @@
 		323BE96824B64DD5B3C61BBE /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3893FD36F01949C28087C0A2 /* libRNCalendarEvents.a */; };
 		299C134DDA8745C68478019F /* libReactNativeLocalization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DF2EF6D30B4603AE8F8B9D /* libReactNativeLocalization.a */; };
 		C103855B8AA2483E8D14040E /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2A4B7CA0C14F918E14C5CB /* libRCTRestart.a */; };
+		E61A1ECD4F664F1FB95C05B5 /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E7AB48DD074A8C970BFDCC /* libRCTOneSignal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,8 @@
 		97DF2EF6D30B4603AE8F8B9D /* libReactNativeLocalization.a */ = {isa = PBXFileReference; name = "libReactNativeLocalization.a"; path = "libReactNativeLocalization.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		EDB321FC98C44D2F86297435 /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; name = "RCTRestart.xcodeproj"; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		AA2A4B7CA0C14F918E14C5CB /* libRCTRestart.a */ = {isa = PBXFileReference; name = "libRCTRestart.a"; path = "libRCTRestart.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		2D67531A990D454AB2F35908 /* RCTOneSignal.xcodeproj */ = {isa = PBXFileReference; name = "RCTOneSignal.xcodeproj"; path = "../node_modules/react-native-onesignal/ios/RCTOneSignal.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B7E7AB48DD074A8C970BFDCC /* libRCTOneSignal.a */ = {isa = PBXFileReference; name = "libRCTOneSignal.a"; path = "libRCTOneSignal.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +317,7 @@
 				323BE96824B64DD5B3C61BBE /* libRNCalendarEvents.a in Frameworks */,
 				299C134DDA8745C68478019F /* libReactNativeLocalization.a in Frameworks */,
 				C103855B8AA2483E8D14040E /* libRCTRestart.a in Frameworks */,
+				E61A1ECD4F664F1FB95C05B5 /* libRCTOneSignal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +488,7 @@
 				82BBAE680BB4448D9E4B0A64 /* RNCalendarEvents.xcodeproj */,
 				FCCD4047AB2C4DEF8BCB103C /* ReactNativeLocalization.xcodeproj */,
 				EDB321FC98C44D2F86297435 /* RCTRestart.xcodeproj */,
+				2D67531A990D454AB2F35908 /* RCTOneSignal.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1047,6 +1052,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trucky.app/Trucky";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1054,6 +1060,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios/**",
 				);
 			};
 			name = Debug;
@@ -1074,6 +1081,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trucky.app/Trucky";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1081,6 +1089,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios/**",
 				);
 			};
 			name = Release;
@@ -1106,6 +1115,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios/**",
 				);
 			};
 			name = Debug;
@@ -1130,6 +1140,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios/**",
 				);
 			};
 			name = Release;
@@ -1159,6 +1170,7 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1166,6 +1178,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios/**",
 				);
 			};
 			name = Debug;
@@ -1195,6 +1208,7 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1202,6 +1216,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-calendar-events",
 					"$(SRCROOT)\..\node_modules\react-native-localization",
 					"$(SRCROOT)\..\node_modules\react-native-restart\ios\RCTRestart",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios/**",
 				);
 			};
 			name = Release;
@@ -1226,6 +1241,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1250,6 +1266,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Release;

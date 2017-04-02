@@ -7,7 +7,8 @@ class TruckersMPApi
     constructor()
     {
         this.config = {
-            api_base_url: 'https://api.truckersmp.com/v2/'
+            api_base_url: 'https://api.truckersmp.com/v2/',
+            update_package_json: 'http://update.ets2mp.com/packages.json'
         };
     }
 
@@ -126,6 +127,16 @@ class TruckersMPApi
     async player(id)
     {
         var json = await this.executeRequest('player/' + id);
+        return json;
+    }
+
+    async getUpdateInfo()
+    {
+        var URL = this.config.update_package_json;
+
+        var response = await fetch(URL);
+        var json = await response.json();
+
         return json;
     }
 }

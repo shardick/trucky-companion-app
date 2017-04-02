@@ -47,7 +47,8 @@ class Home extends BaseTruckyComponent {
             api: new TruckersMPApi(),
             refreshTimer: null,
             drawerOpen: false,
-            sideMenuIsOpen: false
+            sideMenuIsOpen: false,
+            updateInfo: {}
         };
     }
 
@@ -118,6 +119,13 @@ class Home extends BaseTruckyComponent {
 
         this.setState({totalPlayers: playersOnline, gameVersion: gameVersion});
 
+        var updateInfo = await this
+            .state
+            .api
+            .getUpdateInfo();
+
+        this.setState({updateInfo: updateInfo});
+
         this.setState({loading: false});
     }
 
@@ -168,6 +176,7 @@ class Home extends BaseTruckyComponent {
                                 style={this.state.loading
                                 ? this.StyleManager.styles.hidden
                                 : this.StyleManager.styles.gameVersionMainImage}/>
+                            <Text style={this.StyleManager.styles.gameVersionNews}>{this.state.updateInfo.NewsTitle}</Text>
                             <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
                             <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
                             <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
@@ -180,7 +189,10 @@ class Home extends BaseTruckyComponent {
                                     text='Servers Status'
                                     onPress={() => this.RouteManager.push(this.RouteManager.routes.servers)}/>
 
-                                <TouchableOpacity onPress={() => { this.navigateUrl('https://truckersmp.com') }}>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                    this.navigateUrl('https://truckersmp.com')
+                                }}>
                                     <Text style={this.StyleManager.styles.marginTop20}>Visit TruckersMP Website</Text>
                                 </TouchableOpacity>
                             </View>

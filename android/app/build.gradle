@@ -95,6 +95,7 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [onesignal_app_id: "96f85e99-028f-4e76-a0f2-0fd64660df8c", onesignal_google_project_number: "586911965268"]
     }
     signingConfigs {
         release {
@@ -135,6 +136,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-onesignal')
     compile project(':react-native-restart')
     compile project(':react-native-localization')
     compile project(':react-native-calendar-events')

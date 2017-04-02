@@ -15,6 +15,7 @@
     "react-native-html-parser": "0.0.4",
     "react-native-localization": "^0.1.29",
     "react-native-material-ui": "^1.8.0",
+    "react-native-onesignal": "^3.0.3",
     "react-native-popup-dialog": "^0.7.22",
     "react-native-progress": "^3.2.0",
     "react-native-restart": "0.0.2",

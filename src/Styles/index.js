@@ -68,6 +68,11 @@ const styles = StyleSheet.create({
   gameVersionRow: {
     marginTop: 10
   },
+  gameVersionNews: {
+    marginTop: 10,
+    fontSize: 20,
+    color: 'red'
+  },
   gameVersionContainer: {
     alignItems: 'center'
   },
