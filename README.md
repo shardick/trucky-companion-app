@@ -28,9 +28,11 @@ react-native-drawer for app drawer
 
 moment for datetime manipulation
 
-realm-js as database engine
-
 react-native-localization for localizations and localized strings management
+
+react-native-restart
+
+react-native-onesignal for push notifications
 
 Run npm install to install all depencencies
 
@@ -65,6 +67,7 @@ Navigation are served by RN component Navigation using routes in RouteManager
         * SplashScreen
     * Assets
     * src/Components
+        * BaseTruckyComponents
         * AppDrawerLayout
         * AppBottomNavigation
         * CustomActivityIndicator
@@ -72,17 +75,14 @@ Navigation are served by RN component Navigation using routes in RouteManager
         * TruckersMPAPI
         * EventsAPI
     * src/AppSettings
+    * Styles
+        * StyleManager
+    * Locales
+        * LocaleManager
+        * resources
 
 ## Compiling and debugging
 Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root folder, in VS Code terminal, run "react-native run android".
 
 ## Build Release
 From VS Code terminal run "release-android.bat", release apk in .-\android\app\build\outputs\apk\app-release.apk
-
-## Screenshots
-
-![Servers status](https://shardick.github.io/TruckersMPApp/screenshots/servers2.png)
-
-![Game version info](https://shardick.github.io/TruckersMPApp/screenshots/main.png)
-
-![Search player](https://shardick.github.io/TruckersMPApp/screenshots/search.png)
