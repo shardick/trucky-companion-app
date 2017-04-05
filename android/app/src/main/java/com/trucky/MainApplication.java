@@ -3,11 +3,11 @@ package com.trucky;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
+import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import com.calendarevents.CalendarEventsPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -28,11 +28,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativeOneSignalPackage(),
+            new VectorIconsPackage(),
             new ReactNativeRestartPackage(),
+            new ReactNativeOneSignalPackage(),
             new ReactNativeLocalizationPackage(),
-            new CalendarEventsPackage(),
-            new VectorIconsPackage()
+            new CalendarEventsPackage()
       );
     }
   };

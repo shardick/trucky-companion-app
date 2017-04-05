@@ -23,7 +23,7 @@
             "type": "node",
             "request": "attach",
             "name": "Collega a processo",
-            "address": "localhost",
+            "address": "127.0.0.1",
             "port": 5858
         }
     ]

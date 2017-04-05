@@ -18,5 +18,5 @@ export default function index() {
         }
     }
 
-    AppRegistry.registerComponent('Trucky', () => Root);
+    AppRegistry.registerComponent('trucky', () => Root);
 }

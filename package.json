@@ -1,5 +1,5 @@
 {
-  "name": "Trucky",
+  "name": "trucky",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -19,7 +19,8 @@
     "react-native-popup-dialog": "^0.7.22",
     "react-native-progress": "^3.2.0",
     "react-native-restart": "0.0.2",
-    "react-native-simple-markdown": "^1.0.60-rc.3"
+    "react-native-simple-markdown": "^1.0.60-rc.3",
+    "react-native-vector-icons": "^4.0.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
