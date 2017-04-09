@@ -18,11 +18,7 @@ class SplashScreen extends BaseTruckyComponent {
 
         this.prepareFirstStart().then(() => {
             setTimeout(() => {
-                /*this
-                    .props
-                    .navigator
-                    .push(RouteManager.routes.home);*/
-
+                
                 this.RouteManager.push(this.RouteManager.routes.home);
                 
             }, 2000);
@@ -38,21 +34,26 @@ class SplashScreen extends BaseTruckyComponent {
      */
     async prepareFirstStart()
     {
+        // load settings
         var settings = await this.AppSettings.getSettings();
 
+        // handling fresh app start
         if (settings.firstStart)
         {
             console.warn('Is First Start');
 
+            // checking if interface language is supported by LocaleManager
             if (this.LocaleManager.interfaceLanguageIsSupported())
             {
                 console.warn('Interface language is supported: setting up');
 
+                // interface language supported, setting up as default language for first start
                 settings.language = this.LocaleManager.normalizeLanguage(this.LocaleManager.interfaceLanguage);
             }
 
             settings.firstStart = false;
 
+            // updating settings
             await this.AppSettings.saveSettings(settings);
 
             console.warn('First start = false updated');
@@ -63,18 +64,10 @@ class SplashScreen extends BaseTruckyComponent {
         return (
             <Container>
                 <View
-                    style={{
-                    flex: 1,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: this.StyleManager.styles.uiTheme.palette.primaryColor
-                }}>
+                    style={this.StyleManager.styles.splashScreen}>
                     <Image
                         source={require('../Assets/trucky_banner_white.png')}
-                        style={{
-                        width: 250,
-                        height: 250
-                    }}/>
+                        style={this.StyleManager.styles.splashScreenImage}/>
                 </View>
             </Container>
         );

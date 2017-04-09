@@ -48,7 +48,13 @@ var strings = new LocalizedStrings({
         italian: 'Italiano',
         eventAddedToCalendar: 'Event added to calendar',
         eventTitle: 'TruckersMP Event - Meetup',
-        eventNotes: 'Organized by {0} - Server: {1}'
+        eventNotes: 'Organized by {0} - Server: {1}',
+        truckersMPWebSite: 'TruckersMP Website',
+        truckersMPForum: 'TruckersMP Forum',
+        truckersMPSteamGroup: 'TruckersMP Steam Group',
+        readMore: 'Read More',
+        newsAndEvents: 'News and events',
+        gameStatus: 'Game Status'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -94,7 +100,13 @@ var strings = new LocalizedStrings({
         italian: 'Italiano',
         settingsHeaderLanguage: 'Lingua',
         settingsHeaderTheme: 'Tema',
-        eventAddedToCalendar: 'Evento aggiunto al calendario'
+        eventAddedToCalendar: 'Evento aggiunto al calendario',
+        truckersMPWebSite: 'Sito TruckersMP ',
+        truckersMPForum: 'Forum TruckersMP',
+        truckersMPSteamGroup: 'TruckersMP su Steam',
+        readMore: 'Leggi tutto',
+        newsAndEvents: 'News e eventi',
+        gameStatus: 'Stato del gioco'
     }
 });
 

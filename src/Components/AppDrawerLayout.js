@@ -3,7 +3,7 @@ import ReactNative from 'react-native';
 const {View, Text, Image} = ReactNative;
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 
-import {Drawer} from 'react-native-material-ui';
+import {Drawer, Avatar} from 'react-native-material-ui';
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -37,13 +37,19 @@ class AppDrawerLayout extends BaseTruckyComponent
         this.RouteManager.push(route);
     }
 
+    visitLink(url)
+    {
+        
+    }
+
     render() {
         return (
                 <Drawer>
                     <View style={{alignItems: 'center', marginTop: 10}}>
-                    <Image source={require('../Assets/trucky_banner.png')} style={{width: 100, height: 100}}/>
+                        <Image source={require('../Assets/trucky_banner.png')} style={{width: 100, height: 100}}/>
                     </View>
                     <Drawer.Section
+                        divider
                         items={[
                         {
                             icon: 'cloud',
@@ -51,7 +57,7 @@ class AppDrawerLayout extends BaseTruckyComponent
                             onPress: this
                                 .onPress
                                 .bind(this, this.RouteManager.routes.servers)
-                        },, {
+                        }, {
                             icon: <FAIcon name="calendar" size={22}/>,
                             value: this.LocaleManager.strings.meetups,
                             onPress: this
@@ -80,6 +86,31 @@ class AppDrawerLayout extends BaseTruckyComponent
                                 .bind(this, this.RouteManager.routes.about)
                         }
                     ]}/>
+                    <Drawer.Section                        
+                        items={[
+                        {
+                            icon: <FAIcon name="globe" size={22}/>,
+                            value: this.LocaleManager.strings.truckersMPWebSite,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.servers)
+                        },
+                        {
+                            icon: <FAIcon name="globe" size={22}/>,
+                            value: this.LocaleManager.strings.truckersMPForum,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.servers)
+                        },
+                        {
+                            icon: <FAIcon name="steam" size={22}/>,
+                            value: this.LocaleManager.strings.truckersMPSteamGroup,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.servers)
+                        }]}
+                        >                        
+                    </Drawer.Section>
                 </Drawer>
         )
     }

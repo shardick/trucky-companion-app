@@ -5,46 +5,49 @@ import RulesScreen from './App/Rules';
 import MeetupsScreen from './App/Meetups';
 import AboutScreen from './App/About';
 import SplashScreen from './App/SplashScreen';
+import NewsFeedScreen from './App/NewsFeed';
 
 class RouteManager
 {
     constructor()
-    {
-    }
+    {}
 
     setNavigator(navigator)
     {
-        this._navigator = navigator;        
+        this._navigator = navigator;
     }
     push(route)
     {
-        this._navigator.push(route);
-    }        
+        this
+            ._navigator
+            .push(route);
+    }
 
     pop()
     {
-        this._navigator.pop();
+        this
+            ._navigator
+            .pop();
     }
-    
+
     get routes()
     {
-        return(
-        {
-            home : {
+        return ({
+            home: {
                 title: 'Trucky Companion App',
                 Page: Home,
                 navigationTab: 'home'
             },
-            servers : {
+            servers: {
                 title: 'TruckersMP Servers',
                 Page: ServersScreen,
                 navigationTab: 'servers'
             },
-            settings : {
+            settings: {
                 title: 'Settings',
                 Page: SettingsScreen
             },
-            rules : {
+            rules: {
                 title: 'TruckersMP Rules',
                 Page: RulesScreen
             },
@@ -59,6 +62,10 @@ class RouteManager
             },
             splashScreen: {
                 Page: SplashScreen
+            },
+            newsFeed: {
+                title: 'News Feed',
+                Page: NewsFeedScreen
             }
         });
     }

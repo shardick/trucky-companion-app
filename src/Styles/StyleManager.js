@@ -3,20 +3,18 @@ import {COLOR} from 'react-native-material-ui';
 
 /**
  * Style manage for the app. Contains a reference to styles object
- * 
+ *
  * @class StyleManager
  */
 class StyleManager
 {
-    constructor()
-    {
+  constructor()
+  {}
 
-    }
-
-    get styles()
-    {
-        return _styles;
-    }
+  get styles()
+  {
+    return _styles;
+  }
 }
 
 const _styles = StyleSheet.create({
@@ -99,16 +97,14 @@ const _styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 20
   },
-  appSettingsHeader:
-  {
+  appSettingsHeader: {
     marginTop: 20,
     marginRight: 10,
-    marginLeft: 10,
+    marginLeft: 10
   },
-  appSettingsHeaderText:
-  {
-    color:'#009688',
-    fontWeight:'500'
+  appSettingsHeaderText: {
+    color: '#009688',
+    fontWeight: '500'
   },
   appSettingsRow: {
     flexDirection: 'row',
@@ -118,7 +114,7 @@ const _styles = StyleSheet.create({
     paddingBottom: 15,
     borderColor: '#d6d5d9',
     borderStyle: 'solid',
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
   appSettingsRowColumns: {
     flexDirection: 'column',
@@ -132,15 +128,14 @@ const _styles = StyleSheet.create({
   },
   appSettingsLabel: {
     marginTop: 4,
-    color:'black',
+    color: 'black'
   },
   appSettingsFieldBelow: {},
   appSettingsField: {
     flex: 1,
     justifyContent: 'flex-end'
   },
-  appSettingsPicker:
-  {
+  appSettingsPicker: {
     fontSize: 14
   },
   rulesMarkDownContainer: {
@@ -246,7 +241,43 @@ const _styles = StyleSheet.create({
   },
   aboutText: {
     marginTop: 10
-  }
+  },
+  splashScreen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: "#A51745"
+  },
+  splashScreenImage:
+  {
+    width: 250,
+    height: 250
+  },
+   newsListMainContainer: {
+    marginTop: 5,
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+   newsListList: {
+    /*marginBottom: 70*/
+  },
+  newsRowContainer: {
+    padding: 10
+  },
+  newsRowTitle: {
+    fontSize: 18
+  },
+  newsDate: {
+    fontSize: 14
+  },
+  newsText: {
+    fontSize: 14
+  },
+  newsRowButtonContainer: {
+    alignSelf: 'flex-end',
+    flexDirection: 'row',
+    flex: 1
+  },
 });
 
 _styles.uiTheme = {

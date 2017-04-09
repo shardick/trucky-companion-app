@@ -33,37 +33,43 @@ import {
     Button
 } from 'react-native-material-ui';
 
+import {TabViewAnimated, TabBar} from 'react-native-tab-view';
+
+import NewsFeedScreen from './NewsFeed';
+import GameStatusScreen from './GameStatus';
 
 /**
  * First Screen
- * 
+ *
  * @class Home
  * @extends {BaseTruckyComponent}
  */
 class Home extends BaseTruckyComponent {
+
     constructor() {
         super();
 
         this.state = {
-            selected: [],
-            searchText: '',
-            toolbarHidden: false,
-            active: 'people',
-            gameVersion: {},
-            loading: true,
-            api: new TruckersMPApi(),
-            refreshTimer: null,
             drawerOpen: false,
-            sideMenuIsOpen: false,
-            updateInfo: {}
+            tabState: {
+                index: 0,
+                routes: [
+                    {
+                        key: '1',
+                        title: this.LocaleManager.strings.newsAndEvents
+                    }, {
+                        key: '2',
+                        title: this.LocaleManager.strings.gameStatus
+                    }
+                ]
+            }
         };
     }
 
-
     /**
      * Material UI toolbar rendering
-     * 
-     * 
+     *
+     *
      * @memberOf Home
      */
     renderToolbar = () => {
@@ -73,99 +79,28 @@ class Home extends BaseTruckyComponent {
             centerElement={this.LocaleManager.strings.routeHomeTitle}/>);
     }
 
-    componentDidMount()
-    {
-        super.componentDidMount();
+    _handleChangeTab = (index) => {
+        this.setState({index});
+    };
 
-        this
-            .setTimers()
-            .done();
-    }
+    _renderHeader = (props) => {
+        return <TabBar
+            tabStyle={{
+            backgroundColor: this.StyleManager.styles.uiTheme.palette.primaryColor
+        }}
+            {...props}/>;
+    };
 
-
-    /**
-     * Timers for auto update (game time almost)
-     * 
-     * 
-     * @memberOf Home
-     */
-    async setTimers()
-    {
-        this.settings = await this
-            .AppSettings
-            .getSettings();
-
-        var instance = this;
-
-        if (this.settings.autoRefreshGameTime) {
-            this.state.refreshTimer = setInterval(function () {
-
-                if (!instance.state.loading) {
-                    instance
-                        .setGameTime()
-                        .done();
-                }
-            }, 10000);
+    _renderScene = ({route}) => {
+        switch (route.key) {
+            case '1':
+                return <NewsFeedScreen/>;
+            case '2':
+                return <GameStatusScreen/>;
+            default:
+                return null;
         }
-    }
-
-    componentWillUnmount() {
-
-        super.componentWillUnmount();
-
-        clearInterval(this.state.refreshTimer);
-    }
-
-
-    /**
-     * Fetch data from services
-     * 
-     * 
-     * @memberOf Home
-     */
-    async fetchData()
-    {
-        this.setState({loading: true});
-
-        var gameVersion = await this
-            .state
-            .api
-            .get_version();
-
-        var servers = await this
-            .state
-            .api
-            .servers();
-
-        var playersOnline = 0;
-
-        for (var i = 0; i < servers.length; i++) {
-            playersOnline += servers[i].players;
-        }
-
-        await this.setGameTime();
-
-        this.setState({totalPlayers: playersOnline, gameVersion: gameVersion});
-
-        var updateInfo = await this
-            .state
-            .api
-            .getUpdateInfo();
-
-        this.setState({updateInfo: updateInfo});
-
-        this.setState({loading: false});
-    }
-
-    async setGameTime()
-    {
-        var gametime = await this
-            .state
-            .api
-            .game_time_formatted();
-
-        this.setState({gameTime: gametime});
-    }
+    };
 
     render() {
         return (
@@ -193,40 +128,12 @@ class Home extends BaseTruckyComponent {
                     }
                 })}>
                     {this.renderToolbar()}
-                    <ScrollView
-                        keyboardShouldPersistTaps="always"
-                        keyboardDismissMode="interactive">
-
-                        {this.state.loading && <ActivityIndicator/>}
-                        {(!this.state.loading) && <View style={this.StyleManager.styles.gameVersionContainer}>
-                            <Image
-                                source={require('../Assets/avatar.png')}
-                                style={this.state.loading
-                                ? this.StyleManager.styles.hidden
-                                : this.StyleManager.styles.gameVersionMainImage}/>
-                            <Text style={this.StyleManager.styles.gameVersionNews}>{this.state.updateInfo.NewsTitle}</Text>
-                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
-                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
-                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
-                            <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
-                            <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
-                            <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime} {this.state.gameTime}</Text>
-                            <View style={this.StyleManager.styles.marginTop20}>
-                                <Button
-                                    raised
-                                    text='Servers Status'
-                                    onPress={() => this.RouteManager.push(this.RouteManager.routes.servers)}/>
-
-                                <TouchableOpacity
-                                    onPress={() => {
-                                    this.navigateUrl('https://truckersmp.com')
-                                }}>
-                                    <Text style={this.StyleManager.styles.marginTop20}>Visit TruckersMP Website</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-}
-                    </ScrollView>
+                    <TabViewAnimated
+                        style={this.StyleManager.styles.simpleFlex}
+                        navigationState={this.state.tabState}
+                        renderScene={this._renderScene}
+                        renderHeader={this._renderHeader}
+                        onRequestChangeTab={this._handleChangeTab}/>
                 </Drawer>
             </Container>
 
