@@ -20,7 +20,7 @@ react-native-progress for progress bar in Servers Screen
 
 react-native-material-ui for interface and theming (BottomNavigation, Drawer Layout, Theme)
 
-react-native-html-parser for html parsing
+react-native-html-parser for html and xml parsing
 
 react-native-popup-dialog for dialogs
 
@@ -33,6 +33,8 @@ react-native-localization for localizations and localized strings management
 react-native-restart
 
 react-native-onesignal for push notifications
+
+react-native-tab-view for tabbed views in home screen
 
 Run npm install to install all depencencies
 
@@ -65,6 +67,8 @@ Navigation are served by RN component Navigation using routes in RouteManager
         * Events
         * About
         * SplashScreen
+        * GameStatus
+        * NewsFeed
     * Assets
     * src/Components
         * BaseTruckyComponents
@@ -74,6 +78,7 @@ Navigation are served by RN component Navigation using routes in RouteManager
     * src/Services
         * TruckersMPAPI
         * EventsAPI
+        * FeedsService
     * src/AppSettings
     * Styles
         * StyleManager
