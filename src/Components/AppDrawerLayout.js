@@ -39,7 +39,7 @@ class AppDrawerLayout extends BaseTruckyComponent
 
     visitLink(url)
     {
-        
+        this.navigateUrl(url);
     }
 
     render() {
@@ -91,23 +91,17 @@ class AppDrawerLayout extends BaseTruckyComponent
                         {
                             icon: <FAIcon name="globe" size={22}/>,
                             value: this.LocaleManager.strings.truckersMPWebSite,
-                            onPress: this
-                                .onPress
-                                .bind(this, this.RouteManager.routes.servers)
+                            onPress: this.visitLink.bind(this, 'https://truckersmp.com/')
                         },
                         {
                             icon: <FAIcon name="globe" size={22}/>,
                             value: this.LocaleManager.strings.truckersMPForum,
-                            onPress: this
-                                .onPress
-                                .bind(this, this.RouteManager.routes.servers)
+                            onPress: this.visitLink.bind(this, 'https://forum.truckersmp.com/')
                         },
                         {
                             icon: <FAIcon name="steam" size={22}/>,
                             value: this.LocaleManager.strings.truckersMPSteamGroup,
-                            onPress: this
-                                .onPress
-                                .bind(this, this.RouteManager.routes.servers)
+                            onPress: this.visitLink.bind(this, 'http://steamcommunity.com/groups/truckersmpofficial')
                         }]}
                         >                        
                     </Drawer.Section>
