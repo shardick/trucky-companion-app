@@ -35,7 +35,8 @@ class FeedsService
                 guid:  element.querySelect('guid')[0].textContent,
             };
 
-            n.newsDate = moment(n.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ');
+            n.newsDate = lc.moment(n.pubDate.split(',')[1]);
+
             news.push(n);
         });
 

@@ -2,12 +2,7 @@ import React, {Component} from 'react';
 import Container from '../Container';
 
 var ReactNative = require('react-native');
-var {
-    Text,
-    View,
-    StyleSheet,
-    Image
-} = ReactNative;
+var {Text, View, StyleSheet, Image} = ReactNative;
 
 import {ActionButton, Button} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
@@ -109,18 +104,18 @@ class GameStatus extends BaseTruckyComponent
             }, 10000);
         }
     }
-    
+
     render()
     {
-         return (
+        return (
             <Container>
                 {this.state.loading && <ActivityIndicator/>}
                 {(!this.state.loading) && <View style={this.StyleManager.styles.gameVersionContainer}>
-                    <Image
+                    {/* <Image
                         source={require('../Assets/avatar.png')}
                         style={this.state.loading
                         ? this.StyleManager.styles.hidden
-                        : this.StyleManager.styles.gameVersionMainImage}/>
+                        : this.StyleManager.styles.gameVersionMainImage}/>*/}
                     <Text style={this.StyleManager.styles.gameVersionNews}>{this.state.updateInfo.NewsTitle}</Text>
                     <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
                     <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
@@ -129,7 +124,7 @@ class GameStatus extends BaseTruckyComponent
                     <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
                     <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime} {this.state.gameTime}</Text>
                 </View>
-                }
+}
             </Container>
         );
     }

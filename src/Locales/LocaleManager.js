@@ -12,7 +12,7 @@ import AppSettings from '../AppSettings';
 class LocaleManager
 {
     constructor()
-    {
+    {       
         AppSettings
             .getSettings()
             .then((settings) => {
@@ -48,11 +48,6 @@ class LocaleManager
             .getInterfaceLanguage();
     }
 
-    get momentLocale()
-    {
-        return this._momentLocale;
-    }
-
     get strings()
     {
         return strings;
@@ -60,7 +55,7 @@ class LocaleManager
 
     moment(param)
     {
-        return moment(param);
+        return moment(param);        
     }
 
     loadMomentLocale()
