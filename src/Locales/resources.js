@@ -54,7 +54,8 @@ var strings = new LocalizedStrings({
         truckersMPSteamGroup: 'TruckersMP Steam Group',
         readMore: 'Read More',
         newsAndEvents: 'News and events',
-        gameStatus: 'Game Status'
+        gameStatus: 'Game Status',
+        newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -106,7 +107,8 @@ var strings = new LocalizedStrings({
         truckersMPSteamGroup: 'TruckersMP su Steam',
         readMore: 'Leggi tutto',
         newsAndEvents: 'News e eventi',
-        gameStatus: 'Stato del gioco'
+        gameStatus: 'Stato del gioco',
+        newTruckersMPGameVersionReleaseNotificationText: 'Nuova versione di TruckersMP rilasciata'
     }
 });
 
