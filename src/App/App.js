@@ -12,6 +12,7 @@ import Container from '../Container';
 import OneSignal from 'react-native-onesignal';
 import SM from '../Styles/StyleManager';
 import RM from '../routes';
+import NotificationManager from  '../Utils/NotificationManager';
 
 const UIManager = NativeModules.UIManager;
 
@@ -43,6 +44,7 @@ class App extends Component {
         super();
         this.StyleManager = new SM();
         this.RouteManager = new RM();
+        this.NotificationManager = new NotificationManager();
     }
 
     /**

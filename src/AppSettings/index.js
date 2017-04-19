@@ -9,7 +9,7 @@ class AppSettings
         return {
             autoRefreshGameTime: 'autoRefreshGameTime', autoRefreshServersList: 'autoRefreshServersList',
             serverListRefreshInterval: 'serverListRefreshInterval', language: 'language',
-            firstStart: 'firstStart'
+            firstStart: 'firstStart', lastVersionNumber: 'lastVersionNumber'
         }
     }
 
@@ -25,7 +25,8 @@ class AppSettings
             autoRefreshServersList: false,
             serverListRefreshInterval: 60000,
             language: 'en',
-            firstStart: true
+            firstStart: true,
+            lastVersionNumber: ''
         };        
     }       
 

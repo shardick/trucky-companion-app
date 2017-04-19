@@ -72,7 +72,7 @@ class GameStatus extends BaseTruckyComponent
 
         this.setState({updateInfo: updateInfo});
 
-        this.setState({loading: false});
+        this.setState({loading: false});   
     }
 
     async setGameTime()
