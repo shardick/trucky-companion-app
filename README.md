@@ -93,10 +93,7 @@ Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root fo
 From VS Code terminal run "release-android.bat", release apk in .-\android\app\build\outputs\apk\app-release.apk
 
 ## Credits
-TruckersMP
-TruckersMP API creators
-ETS2c.com and his creators
+TruckersMP, TruckersMP API creators, ETS2c.com and his creators
 
 ### Translators
-Bulgarian: Hristo Spasov
-French: Kevin Monteil
+Bulgarian: Hristo Spasov, French: Kevin Monteil, Finnish: Jiri Innanen

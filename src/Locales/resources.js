@@ -57,7 +57,8 @@ var strings = new LocalizedStrings({
         gameStatus: 'Game Status',
         newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released',
         french: 'French',
-        bulgarian: 'Bulgarian'
+        bulgarian: 'Bulgarian',
+        finnish: 'Finnish'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -112,9 +113,10 @@ var strings = new LocalizedStrings({
         gameStatus: 'Stato del gioco',
         newTruckersMPGameVersionReleaseNotificationText: 'Nuova versione di TruckersMP rilasciata',
         french: 'Francese',
-        bulgarian: 'Bulgaro'
+        bulgarian: 'Bulgaro',
+        finnish: 'Finlandese'
     },
-    // credits: Hristo Spasov 
+    // credits: Hristo Spasov
     bg: {
         currentGameVersion: 'Текуща версия на играта: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -122,7 +124,7 @@ var strings = new LocalizedStrings({
         routeMeetupsTitle: 'Заглавие на срещата',
         routeSettingsTitle: 'Настройки',
         routeAboutTitle: 'За маршрута',
-        routeRulesTitle: 'Правила по време на маршрута',
+        routeRulesTitle: 'Правила в играта',
         supportedETSVersion: 'Подържана ETS версия: ',
         supportedATSVersion: 'Подържана ATS версия: ',
         lastReleaseDate: 'Последен ъпдейт: ',
@@ -170,7 +172,8 @@ var strings = new LocalizedStrings({
         newsAndEvents: 'Новини и събития',
         gameStatus: 'Статус на играта',
         newTruckersMPGameVersionReleaseNotificationText: 'Нова TruckersMP версия',
-        french: 'Френски'
+        french: 'Френски',
+        finnish: 'Финландски'
     },
     // credits: Kevin Monteil
     fr: {
@@ -228,7 +231,66 @@ var strings = new LocalizedStrings({
         gameStatus: 'État du jeu',
         newTruckersMPGameVersionReleaseNotificationText: 'Nouvelle version de TruckersMP disponible',
         french: 'Francais',
-        bulgarian: 'Bulgarian'
+        bulgarian: 'Bulgare',
+        finnish: 'Finlandais'
+    },
+    fi: {
+        currentGameVersion: 'Nykyinen peliversio ',
+        routeHomeTitle: 'Trucky Companion App',
+        routeServersTitle: 'TruckersMP palvelimet',
+        routeMeetupsTitle: 'Kokoontumiset',
+        routeSettingsTitle: 'Asetukset',
+        routeAboutTitle: 'Tietoja tästä sovelluksesta',
+        routeRulesTitle: 'TruckersMP Säännöt',
+        supportedETSVersion: 'Tuetut ETS versiot: ',
+        supportedATSVersion: 'Tuetut ATS versiot: ',
+        lastReleaseDate: 'Viimeinen julkaisupäivä: ',
+        playersOnline: 'Pelaajia Paikalla',
+        currentGameTime: 'Nykyinen peliaika: ',
+        servers: 'Palvelimet',
+        about: 'Tietoja',
+        meetups: 'Kokoontumiset',
+        searchPlayer: 'Etsi pelaajia',
+        rules: 'Säännöt',
+        settings: 'Asetukset',
+        playersInQueue: 'Pelaajaa Jonossa',
+        online: 'Online',
+        offline: 'Offline',
+        speedLimiterEnabled: 'Nopeusrajoitin käytössä',
+        speedLimiterDisabled: 'Ei nopeusrajoitinta',
+        status: 'Tila',
+        info: 'Info',
+        addToCalendar: 'Lisää kalenteriin',
+        language: 'Kieli: ',
+        enableAutoRefresh: 'Salli automaattinen päivitys',
+        autoRefreshGameTime: 'Automaattinen peliajan päivitys',
+        autoRefreshServersList: 'Automaattinen palvelimien päivitys',
+        refreshServersListEvery: 'Päivitä palvelinlista',
+        seconds10: '10 sekuntia',
+        seconds30: '30 sekuntia',
+        minute: '1 minuutti',
+        minutes2: '2 minuuttia',
+        minutes5: '5 minuuttia',
+        minutes10: '10 minuuttia',
+        minutes20: '20 minuuttia',
+        customizations: 'Kustomointi',
+        settingsHeaderLanguage: 'Kielet',
+        settingsHeaderTheme: 'Teema',
+        english: 'Englanti',
+        italian: 'Italia',
+        eventAddedToCalendar: 'Tapahtuma lisätty kalenteriin',
+        eventTitle: 'TruckersMP tapahtumat',
+        eventNotes: 'Organized by {0} - Server: {1}',
+        truckersMPWebSite: 'TruckersMP verkkosivu',
+        truckersMPForum: 'TruckersMP Forum',
+        truckersMPSteamGroup: 'TruckersMP Steam ryhmä',
+        readMore: 'Lue lisää',
+        newsAndEvents: 'Uutiset & tapahtumat',
+        gameStatus: 'Pelin tila',
+        newTruckersMPGameVersionReleaseNotificationText: 'Uusi TruckersMP versio julkaistu',
+        french: 'Raska',
+        bulgarian: 'Bulgaria',
+        finnish: 'Suomi'
     }
 });
 

@@ -6,7 +6,11 @@ Please send me translations via Facebook or Email, translating only the strings 
 
 For example, first line 
 
-currentGameVersion: 'Current game version: ' becomes in currentGameVersion: '**YOUR TRANSLATION HERE**'
+currentGameVersion: 'Current game version: ' 
+
+becomes 
+
+currentGameVersion: '**YOUR TRANSLATION HERE**'
 
 Here the strings to translate:
 
@@ -63,6 +67,10 @@ readMore: 'Read More',<br/>
 newsAndEvents: 'News and events',<br/>
 gameStatus: 'Game Status',<br/>
 newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released'<br/>
+french: 'French',<br/>
+bulgarian: 'Bulgarian',<br/>
+finnish: 'Finnish'<br/>
+
 
 
 
