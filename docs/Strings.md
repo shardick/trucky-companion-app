@@ -4,6 +4,10 @@ First of all, i want to thank you if you would spend some time to help me transl
 
 Please send me translations via Facebook or Email, translating only the strings inside apostrophe and let the words on the left of double points as is.
 
+For example, first line 
+
+currentGameVersion: 'Current game version: ' becomes in currentGameVersion: '**YOUR TRANSLATION HERE**'
+
 Here the strings to translate:
 
 currentGameVersion: 'Current game version: ',<br/>
