@@ -23,11 +23,15 @@ class LocaleManager
             });
     }
 
+    // http://www.lingoes.net/en/translator/langcode.htm
     get supportedLanguages()
     {
         return [
             'en', 'it',
-            'en-US', 'en-GB', 'it-IT', 'it-CH'
+            'en-US', 'en-GB', 'it-IT', 'it-CH',
+            'fr-FR', 'bg-BG', 'fr-BE', 'fr-CA', 'fr-CH',
+            'fr-LU', 'fr-MC', 'fr', 'bg','en-AU',
+            'en-CA','en-IE','en-JM','en-NZ','en-ZA','en-PH'
         ];
     }
 
@@ -65,6 +69,12 @@ class LocaleManager
         switch (this._momentLocale) {
             case 'it':
                 momentLocaleConfiguration = require('moment/locale/it');
+                break;
+            case 'fr':
+                momentLocaleConfiguration = require('moment/locale/fr');
+                break;
+            case 'bg':
+                momentLocaleConfiguration = require('moment/locale/bg');
                 break;
             default:
 
