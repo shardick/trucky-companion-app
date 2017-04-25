@@ -143,7 +143,7 @@ var strings = new LocalizedStrings({
         spanish: 'Spagnolo',
         dutch: 'Olandese',
 
-         // LABELS FOR SEARCH PLAYER SCREEN
+        // LABELS FOR SEARCH PLAYER SCREEN
         searchBySteamUsername: 'Per username Steam',
         searchBySteamID: 'Per ID Steam',
         searchByTruckersMPID: 'Per ID TruckersMP',

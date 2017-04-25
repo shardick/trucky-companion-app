@@ -139,7 +139,10 @@ const _styles = StyleSheet.create({
     fontSize: 14
   },
   rulesMarkDownContainer: {
-    padding: 20
+    paddingTop: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 95
   },
   serversListMainContainer: {
     marginTop: 5,

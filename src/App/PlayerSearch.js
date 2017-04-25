@@ -22,8 +22,19 @@ import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckersMPAPI from '../Services/TruckersMPAPI';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 
+/**
+ * 
+ * 
+ * @class PlayerSearchScreen
+ * @extends {BaseTruckyComponent}
+ */
 class PlayerSearchScreen extends BaseTruckyComponent
 {
+    /**
+     * Creates an instance of PlayerSearchScreen.
+     * 
+     * @memberOf PlayerSearchScreen
+     */
     constructor()
     {
         super();
@@ -40,6 +51,12 @@ class PlayerSearchScreen extends BaseTruckyComponent
         };
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @memberOf PlayerSearchScreen
+     */
     renderToolbar = () => {
         return (<Toolbar
             leftElement="arrow-back"
@@ -47,6 +64,12 @@ class PlayerSearchScreen extends BaseTruckyComponent
             centerElement={this.LocaleManager.strings.searchPlayer}/>);
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @memberOf PlayerSearchScreen
+     */
     search()
     {
         this.setState({playerLoaded: false});
@@ -77,6 +100,14 @@ class PlayerSearchScreen extends BaseTruckyComponent
         }
     }
 
+    /**
+     * 
+     * 
+     * @param {any} row 
+     * @returns 
+     * 
+     * @memberOf PlayerSearchScreen
+     */
     renderRow(row)
     {
         return(
@@ -88,6 +119,13 @@ class PlayerSearchScreen extends BaseTruckyComponent
         );
     }
 
+    /**
+     * 
+     * 
+     * @returns 
+     * 
+     * @memberOf PlayerSearchScreen
+     */
     render()
     {
         return (
@@ -115,7 +153,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                         text={this.LocaleManager.strings.searchButton}
                         primary
                         raised
-                        onPress={() => this.search()}/>
+                        onPress={() => this.search()} icon="search"/>
                         {this.state.loading && <ActivityIndicator/>}
                     <ScrollView
                     
@@ -156,7 +194,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 ? this.state.playerInfo.truckersMPProfileInfo.groupName
                                 : ''}</Text>
                         <View style={this.StyleManager.styles.playerSearchResultButtonContainer}>
-                            <Button primary raised text={this.LocaleManager.strings.viewTruckersMPProfile} onPress={() => this.navigateUrl('https://truckersmp.com/user/' + this.state.playerInfo.truckersMPProfileInfo.id)} />
+                            <Button icon="open-in-new" primary raised text={this.LocaleManager.strings.viewTruckersMPProfile} onPress={() => this.navigateUrl('https://truckersmp.com/user/' + this.state.playerInfo.truckersMPProfileInfo.id)} />
                         </View>
                         <View style={this.StyleManager.styles.playerSearchResultTitleContainer}>
                             <Text style={this.StyleManager.styles.playerSearchResultTitle}>{this.LocaleManager.strings.steamProfile}</Text>
@@ -183,7 +221,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 ? moment.unix(this.state.playerInfo.steamProfileInfo.timecreated).format('DD/MM/YYYY')
                                 : ''}</Text>
                         <View style={this.StyleManager.styles.playerSearchResultButtonContainer}>
-                            <Button primary raised text={this.LocaleManager.strings.viewSteamProfile} onPress={() => this.navigateUrl(this.state.playerInfo.steamProfileInfo.profileurl)} />
+                            <Button icon="open-in-new" primary raised text={this.LocaleManager.strings.viewSteamProfile} onPress={() => this.navigateUrl(this.state.playerInfo.steamProfileInfo.profileurl)} />
                         </View>
                          <View style={this.StyleManager.styles.playerSearchResultTitleContainer}>
                             <Text style={this.StyleManager.styles.playerSearchResultTitle}>{this.LocaleManager.strings.bans}</Text>

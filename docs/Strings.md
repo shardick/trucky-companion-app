@@ -71,7 +71,29 @@ french: 'French',<br/>
 bulgarian: 'Bulgarian',<br/>
 finnish: 'Finnish',<br/>
 spanish: 'Spanish',<br/>
-dutch: 'Dutch'<br/>
+dutch: 'Dutch',<br/>
+// LABELS FOR SEARCH PLAYER SCREEN<br/>
+searchBySteamUsername: 'By Steam Username',<br/>
+searchBySteamID: 'By Steam ID',<br/>
+searchByTruckersMPID: 'By TruckersMP ID',<br/>
+searchButton: 'Search',<br/>
+searchFieldPlaceholder: 'Specifiy search term',<br/>
+steamProfile: 'Steam profile',<br/>
+truckersMPProfile: 'TruckersMP profile',<br/>
+viewSteamProfile: 'View Steam profile',<br/>
+viewTruckersMPProfile: 'View TruckersMP profile',<br/>
+bans: 'Bans History',<br/>
+noBans: 'No bans',<br/>
+nickName: 'Nickname:',<br/>
+onTruckersMPfrom: 'On TruckersMP from', // On TruckersMP from DATE<br/>
+onSteamFrom: 'On Steam from', // On Steam from DATE<br/>
+role: 'Role:',<br/>
+truckersMPID: 'TruckersMP ID:',<br/>
+realName: 'Real Name:',<br/>
+steamUsername: 'Steam Username:',<br/>
+steamID: 'Steam ID:',<br/>
+issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE<br/>
+expires: 'Expires:' // Expires: DATE<br/>
 
 
 Thank you!

@@ -155,6 +155,15 @@ class TruckersMPApi
         return json;
     }
 
+    /**
+     * Search player by Steam ID, Steam Username or TruckersMP ID based on searchType parameter
+     * 
+     * @param {any} searchTerm 
+     * @param {any} searchType 
+     * @returns 
+     * 
+     * @memberOf TruckersMPApi
+     */
     async searchPlayer(searchTerm, searchType)
     {
         var playerInfo = {
@@ -206,6 +215,14 @@ class TruckersMPApi
         return playerInfo;
     }
 
+    /**
+     * Get Player Bans
+     * 
+     * @param {any} playerID 
+     * @returns 
+     * 
+     * @memberOf TruckersMPApi
+     */
     async bans(playerID)
     {
         /*

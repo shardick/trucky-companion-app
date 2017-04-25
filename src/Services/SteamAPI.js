@@ -1,5 +1,15 @@
+/**
+ *
+ *
+ * @class SteamAPI
+ */
 class SteamAPI
 {
+    /**
+     * Creates an instance of SteamAPI.
+     *
+     * @memberOf SteamAPI
+     */
     constructor()
     {
         this.config = {
@@ -7,6 +17,14 @@ class SteamAPI
         }
     }
 
+    /**
+     * Resolve Steam Vanity Url returning SteamID
+     * 
+     * @param {any} username 
+     * @returns 
+     * 
+     * @memberOf SteamAPI
+     */
     async resolveVanityUrl(username)
     {
         var result = {
@@ -36,10 +54,18 @@ class SteamAPI
         return result;
     }
 
+    /**
+     * Gets Player Summary from Steam
+     * 
+     * @param {any} steamid 
+     * @returns 
+     * 
+     * @memberOf SteamAPI
+     */
     async getPlayerSummaries(steamid)
     {
         /*
-        
+
 {
 	"response": {
 		"players": [
@@ -63,7 +89,7 @@ class SteamAPI
 				"loccityid": 24918
 			}
 		]
-		
+
 	}
 }
         */
