@@ -13,6 +13,7 @@
     "react-native-background-timer": "^1.0.0",
     "react-native-calendar-events": "^1.3.6",
     "react-native-drawer": "^2.3.0",
+    "react-native-firebase-analytics": "^3.0.0",
     "react-native-html-parser": "0.0.4",
     "react-native-localization": "^0.1.29",
     "react-native-material-ui": "^1.8.0",

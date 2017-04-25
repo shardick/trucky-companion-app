@@ -69,9 +69,9 @@ gameStatus: 'Game Status',<br/>
 newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released'<br/>
 french: 'French',<br/>
 bulgarian: 'Bulgarian',<br/>
-finnish: 'Finnish'<br/>
-
-
+finnish: 'Finnish',<br/>
+spanish: 'Spanish',<br/>
+dutch: 'Dutch'<br/>
 
 
 Thank you!

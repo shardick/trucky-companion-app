@@ -6,6 +6,7 @@ import MeetupsScreen from './App/Meetups';
 import AboutScreen from './App/About';
 import SplashScreen from './App/SplashScreen';
 import NewsFeedScreen from './App/NewsFeed';
+import SearchPlayerScreen from './App/PlayerSearch';
 
 class RouteManager
 {
@@ -66,6 +67,10 @@ class RouteManager
             newsFeed: {
                 title: 'News Feed',
                 Page: NewsFeedScreen
+            },
+            searchPlayer: {
+                title: 'Search Player',
+                Page: SearchPlayerScreen
             }
         });
     }

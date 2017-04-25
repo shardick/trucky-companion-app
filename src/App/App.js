@@ -44,7 +44,7 @@ class App extends Component {
         super();
         this.StyleManager = new SM();
         this.RouteManager = new RM();
-        this.NotificationManager = new NotificationManager();
+        //this.NotificationManager = new NotificationManager();
     }
 
     /**

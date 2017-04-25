@@ -92,6 +92,7 @@
 		DDCC1E8EE7794318A7040031 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5673909203454619ADD21E8F /* Ionicons.ttf */; };
 		E09AF942365A4B708C86F06A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D880CDD7E0FC40DB9C8902A1 /* Foundation.ttf */; };
 		EF8E0DC89F3B423A8FC65417 /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCA630503C04C24A584101C /* libRNBackgroundTimer.a */; };
+		3CAE77CF0F2C4617AA2FD17E /* libRNFIRAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFCEA160FD7479B9A944D21 /* libRNFIRAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,6 +379,8 @@
 		DE22FCE25EB04E1FBFD1DF1C /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
 		1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; name = "RNBackgroundTimer.xcodeproj"; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		3BCA630503C04C24A584101C /* libRNBackgroundTimer.a */ = {isa = PBXFileReference; name = "libRNBackgroundTimer.a"; path = "libRNBackgroundTimer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		243E3A117F984BDF88902F38 /* RNFIRAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "RNFIRAnalytics.xcodeproj"; path = "../node_modules/react-native-firebase-analytics/ios/RNFIRAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		AEFCEA160FD7479B9A944D21 /* libRNFIRAnalytics.a */ = {isa = PBXFileReference; name = "libRNFIRAnalytics.a"; path = "libRNFIRAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +413,7 @@
 				81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */,
 				587D69BF99DF45918E091736 /* libRNVectorIcons.a in Frameworks */,
 				EF8E0DC89F3B423A8FC65417 /* libRNBackgroundTimer.a in Frameworks */,
+				3CAE77CF0F2C4617AA2FD17E /* libRNFIRAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +643,7 @@
 				C1E5C011F03248BC8ADE1CEE /* RCTRestart.xcodeproj */,
 				47B92933FE4E41DA8426C925 /* RNVectorIcons.xcodeproj */,
 				1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */,
+				243E3A117F984BDF88902F38 /* RNFIRAnalytics.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1288,12 +1293,14 @@
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
+					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1323,12 +1330,14 @@
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
+					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1359,6 +1368,7 @@
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
+					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1385,6 +1395,7 @@
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
+					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1418,11 +1429,13 @@
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
+					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1462,11 +1475,13 @@
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
+					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1507,6 +1522,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1531,6 +1547,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

@@ -32,7 +32,9 @@ class LocaleManager
             'fr-FR', 'bg-BG', 'fr-BE', 'fr-CA', 'fr-CH',
             'fr-LU', 'fr-MC', 'fr', 'bg','en-AU',
             'en-CA','en-IE','en-JM','en-NZ','en-ZA','en-PH',
-            'fi', 'fi-FI'
+            'fi', 'fi-FI','es', 'es-ES', 'es-AR', 'es-BO','es-CL','es-CO','es-CR','es-DO',	
+            'es-EC','es-GT','es-HN','es-MX','es-NI','es-PA','es-PE','es-PR','es-PY','es-SV','es-UY',	
+            'es-VE', 'nl', 'nl-NL', 'nl-BE'
         ];
     }
 
@@ -79,7 +81,11 @@ class LocaleManager
                 break;
             case 'fi':
                 momentLocaleConfiguration = require('moment/locale/fi');
+             case 'es':
+                momentLocaleConfiguration = require('moment/locale/es');
                 break;
+            case 'nl':
+                momentLocaleConfiguration = require('moment/locale/nl');
             default:
 
                 break;

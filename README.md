@@ -96,4 +96,4 @@ From VS Code terminal run "release-android.bat", release apk in .-\android\app\b
 TruckersMP, TruckersMP API creators, ETS2c.com and his creators
 
 ### Translators
-Bulgarian: Hristo Spasov, French: Kevin Monteil, Finnish: Jiri Innanen
+Bulgarian: Hristo Spasov, French: Kevin Monteil, Finnish: Jiri Innanen, Spanish: Francisco Ramirez, Dutch: Derk Nomden

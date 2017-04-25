@@ -248,17 +248,16 @@ const _styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#A51745"
   },
-  splashScreenImage:
-  {
+  splashScreenImage: {
     width: 250,
     height: 250
   },
-   newsListMainContainer: {
+  newsListMainContainer: {
     marginTop: 5,
     paddingLeft: 5,
     paddingRight: 5
   },
-   newsListList: {
+  newsListList: {
     /*marginBottom: 70*/
   },
   newsRowContainer: {
@@ -278,6 +277,54 @@ const _styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1
   },
+  searchPlayerContainer: {
+    marginTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginBottom: 20
+  },
+  searchTypeLabel: {
+    marginTop: 10,
+    marginBottom: 10
+  },
+  playerSearchResultContainer: {
+    marginTop: 10
+  },
+  containerHidden: {
+    position: 'absolute',
+    top: -200
+  },
+  playerSearchResultTitleContainer: {
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  playerSearchResultTitle: {
+    color: '#009688',
+    fontWeight: '500'
+  },
+  playerSearchResultButtonContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+    marginTop: 10
+  },
+  playerSearchResultImage: {
+    width: 100,
+    height: 100
+  },
+  playerSearchResultCountryFlag: {
+    width: 60,
+    height: 40,
+    marginBottom: 10
+  },
+  playerSearchBanRow:
+  {
+    paddingBottom: 10,
+    marginTop: 10,
+    borderBottomWidth: 1,
+    borderColor: 'grey',
+    borderStyle: 'solid'
+  }
+
 });
 
 _styles.uiTheme = {

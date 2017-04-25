@@ -3,6 +3,7 @@ package com.trucky;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.evollu.react.fa.FIRAnalyticsPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.ocetnik.timer.BackgroundTimerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FIRAnalyticsPackage(),
             new ReactNativePushNotificationPackage(),
             new BackgroundTimerPackage(),
             new VectorIconsPackage(),

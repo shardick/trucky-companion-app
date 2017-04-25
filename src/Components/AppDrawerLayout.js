@@ -63,7 +63,15 @@ class AppDrawerLayout extends BaseTruckyComponent
                             onPress: this
                                 .onPress
                                 .bind(this, this.RouteManager.routes.meetups)
-                        }, {
+                        }, 
+                        {
+                            icon: 'search',
+                            value: this.LocaleManager.strings.searchPlayer,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.searchPlayer)                            
+                        },
+                        {
                             icon: 'list',
                             value: this.LocaleManager.strings.rules,
                             onPress: this
