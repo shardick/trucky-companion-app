@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -82,6 +83,10 @@
 		7B6511F11E9184A100BC5D25 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6511CA1E9184A100BC5D25 /* Zocial.ttf */; };
 		7B6511F21E9184A100BC5D25 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6511CA1E9184A100BC5D25 /* Zocial.ttf */; };
 		7B6512171E9185A400BC5D25 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
+		7BCE77BD1EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
+		7BCE77BE1EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
+		7BCE77BF1EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
+		7BCE77C01EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
 		7F85C29E8B7D43ECB83CBC95 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8CD631C09D4FBFB7F74C83 /* EvilIcons.ttf */; };
 		81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77B628E532047DFB2153386 /* libRCTRestart.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -92,7 +97,6 @@
 		DDCC1E8EE7794318A7040031 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5673909203454619ADD21E8F /* Ionicons.ttf */; };
 		E09AF942365A4B708C86F06A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D880CDD7E0FC40DB9C8902A1 /* Foundation.ttf */; };
 		EF8E0DC89F3B423A8FC65417 /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCA630503C04C24A584101C /* libRNBackgroundTimer.a */; };
-		3CAE77CF0F2C4617AA2FD17E /* libRNFIRAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEFCEA160FD7479B9A944D21 /* libRNFIRAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +317,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		7BE8BE2C1EAFA73800AB4778 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNBackgroundTimer;
+		};
 		832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
@@ -343,10 +354,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = trucky/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = trucky/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundTimer.xcodeproj; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; };
 		1C25D7B592B34B0DA96E0A2F /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* trucky-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "trucky-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* trucky-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "trucky-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EAF3AE71ED47478048AA40 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		3BCA630503C04C24A584101C /* libRNBackgroundTimer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBackgroundTimer.a; sourceTree = "<group>"; };
 		3D775BAC4C4B44D488FABA68 /* libRNCalendarEvents.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCalendarEvents.a; sourceTree = "<group>"; };
 		43C07E06CE4E47DFB55B2C80 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		47B92933FE4E41DA8426C925 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
@@ -366,6 +379,7 @@
 		7B6511C81E9184A100BC5D25 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		7B6511C91E9184A100BC5D25 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		7B6511CA1E9184A100BC5D25 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		7EA38248A82541B78A0D93B3 /* ReactNativeLocalization.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeLocalization.xcodeproj; path = "../node_modules/react-native-localization/ReactNativeLocalization.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8DF0274365F241ED97CB872E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -377,10 +391,6 @@
 		CE8CD631C09D4FBFB7F74C83 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		D880CDD7E0FC40DB9C8902A1 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		DE22FCE25EB04E1FBFD1DF1C /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
-		1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; name = "RNBackgroundTimer.xcodeproj"; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		3BCA630503C04C24A584101C /* libRNBackgroundTimer.a */ = {isa = PBXFileReference; name = "libRNBackgroundTimer.a"; path = "libRNBackgroundTimer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		243E3A117F984BDF88902F38 /* RNFIRAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "RNFIRAnalytics.xcodeproj"; path = "../node_modules/react-native-firebase-analytics/ios/RNFIRAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		AEFCEA160FD7479B9A944D21 /* libRNFIRAnalytics.a */ = {isa = PBXFileReference; name = "libRNFIRAnalytics.a"; path = "libRNFIRAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,7 +423,6 @@
 				81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */,
 				587D69BF99DF45918E091736 /* libRNVectorIcons.a in Frameworks */,
 				EF8E0DC89F3B423A8FC65417 /* libRNBackgroundTimer.a in Frameworks */,
-				3CAE77CF0F2C4617AA2FD17E /* libRNFIRAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +618,7 @@
 		7B6511C01E9184A100BC5D25 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */,
 				7B6511C11E9184A100BC5D25 /* Entypo.ttf */,
 				7B6511C21E9184A100BC5D25 /* EvilIcons.ttf */,
 				7B6511C31E9184A100BC5D25 /* FontAwesome.ttf */,
@@ -621,6 +631,14 @@
 				7B6511CA1E9184A100BC5D25 /* Zocial.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7BE8BE0B1EAFA73800AB4778 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BE8BE2D1EAFA73800AB4778 /* libRNBackgroundTimer.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -643,7 +661,6 @@
 				C1E5C011F03248BC8ADE1CEE /* RCTRestart.xcodeproj */,
 				47B92933FE4E41DA8426C925 /* RNVectorIcons.xcodeproj */,
 				1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */,
-				243E3A117F984BDF88902F38 /* RNFIRAnalytics.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -865,6 +882,10 @@
 				{
 					ProductGroup = 7B5891A71E9451A7005B7A6E /* Products */;
 					ProjectRef = 7EA38248A82541B78A0D93B3 /* ReactNativeLocalization.xcodeproj */;
+				},
+				{
+					ProductGroup = 7BE8BE0B1EAFA73800AB4778 /* Products */;
+					ProjectRef = 1BF1EDEB66DE460B92972DB9 /* RNBackgroundTimer.xcodeproj */;
 				},
 				{
 					ProductGroup = 7B5891AB1E9451A7005B7A6E /* Products */;
@@ -1089,6 +1110,13 @@
 			remoteRef = 7B5891D51E9451A7005B7A6E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7BE8BE2D1EAFA73800AB4778 /* libRNBackgroundTimer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBackgroundTimer.a;
+			remoteRef = 7BE8BE2C1EAFA73800AB4778 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		832341B51AAA6A8300B99B32 /* libRCTText.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1109,6 +1137,7 @@
 				7B6511E81E9184A100BC5D25 /* Octicons.ttf in Resources */,
 				7B6511D81E9184A100BC5D25 /* Foundation.ttf in Resources */,
 				7B6511D01E9184A100BC5D25 /* EvilIcons.ttf in Resources */,
+				7BCE77BE1EAFC38300D09F21 /* Roboto.ttf in Resources */,
 				7B6511EC1E9184A100BC5D25 /* SimpleLineIcons.ttf in Resources */,
 				7B6511E01E9184A100BC5D25 /* MaterialCommunityIcons.ttf in Resources */,
 				7B6511D41E9184A100BC5D25 /* FontAwesome.ttf in Resources */,
@@ -1123,6 +1152,7 @@
 				7B6511E71E9184A100BC5D25 /* Octicons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				7B6511D31E9184A100BC5D25 /* FontAwesome.ttf in Resources */,
+				7BCE77BD1EAFC38300D09F21 /* Roboto.ttf in Resources */,
 				7B6511CF1E9184A100BC5D25 /* EvilIcons.ttf in Resources */,
 				7B6511EF1E9184A100BC5D25 /* Zocial.ttf in Resources */,
 				7B6511EB1E9184A100BC5D25 /* SimpleLineIcons.ttf in Resources */,
@@ -1153,6 +1183,7 @@
 				7B6511E51E9184A100BC5D25 /* MaterialIcons.ttf in Resources */,
 				7B6511E91E9184A100BC5D25 /* Octicons.ttf in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				7BCE77BF1EAFC38300D09F21 /* Roboto.ttf in Resources */,
 				7B6511E11E9184A100BC5D25 /* MaterialCommunityIcons.ttf in Resources */,
 				7B6511D91E9184A100BC5D25 /* Foundation.ttf in Resources */,
 				7B6511DD1E9184A100BC5D25 /* Ionicons.ttf in Resources */,
@@ -1174,6 +1205,7 @@
 				7B6511EA1E9184A100BC5D25 /* Octicons.ttf in Resources */,
 				7B6511DA1E9184A100BC5D25 /* Foundation.ttf in Resources */,
 				7B6511D21E9184A100BC5D25 /* EvilIcons.ttf in Resources */,
+				7BCE77C01EAFC38300D09F21 /* Roboto.ttf in Resources */,
 				7B6511EE1E9184A100BC5D25 /* SimpleLineIcons.ttf in Resources */,
 				7B6511E21E9184A100BC5D25 /* MaterialCommunityIcons.ttf in Resources */,
 				7B6511D61E9184A100BC5D25 /* FontAwesome.ttf in Resources */,
@@ -1292,22 +1324,13 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
-					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
+					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
+					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1329,22 +1352,13 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
-					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
+					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
+					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1367,8 +1381,8 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
-					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
+					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
+					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1394,8 +1408,8 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
-					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
+					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
+					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1428,21 +1442,12 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
-					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
+					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
+					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1474,21 +1479,12 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
-					"$(SRCROOT)\..\node_modules\react-native-firebase-analytics\ios",
+					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
+					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1514,16 +1510,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "trucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1545,16 +1532,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "trucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1634,8 +1612,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Release;
 		};

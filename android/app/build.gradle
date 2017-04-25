@@ -136,8 +136,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-firebase-analytics')
-    compile project(':react-native-push-notification')
     compile project(':react-native-background-timer')
     compile project(':react-native-onesignal')
     compile project(':react-native-restart')

@@ -12,7 +12,7 @@ import Container from '../Container';
 import OneSignal from 'react-native-onesignal';
 import SM from '../Styles/StyleManager';
 import RM from '../routes';
-import NotificationManager from  '../Utils/NotificationManager';
+//import NotificationManager from  '../Utils/NotificationManager';
 
 const UIManager = NativeModules.UIManager;
 
