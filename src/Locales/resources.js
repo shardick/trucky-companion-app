@@ -61,7 +61,7 @@ var strings = new LocalizedStrings({
         finnish: 'Finnish',
         spanish: 'Spanish',
         dutch: 'Dutch',
-
+        polish: 'Polish',
         // LABELS FOR SEARCH PLAYER SCREEN
         searchBySteamUsername: 'By Steam Username',
         searchBySteamID: 'By Steam ID',
@@ -142,7 +142,7 @@ var strings = new LocalizedStrings({
         finnish: 'Finlandese',
         spanish: 'Spagnolo',
         dutch: 'Olandese',
-
+        polish: 'Polacco',
         // LABELS FOR SEARCH PLAYER SCREEN
         searchBySteamUsername: 'Per username Steam',
         searchBySteamID: 'Per ID Steam',
@@ -225,7 +225,8 @@ var strings = new LocalizedStrings({
         french: 'French',
         finnish: 'Finnish',
         spanish: 'Spanish',
-        dutch: 'Dutch'
+        dutch: 'Dutch',
+        polish: 'Polish'
     },
     // credits: Kevin Monteil
     fr: {
@@ -286,7 +287,8 @@ var strings = new LocalizedStrings({
         bulgarian: 'Bulgare',
         finnish: 'Finlandais',
         spanish: 'Espanol',
-        dutch: 'Néerlandais'
+        dutch: 'Néerlandais',
+        polish: 'Polish'
     },
     // Jiri Innanen
     fi: {
@@ -347,7 +349,29 @@ var strings = new LocalizedStrings({
         bulgarian: 'Bulgaria',
         finnish: 'Suomi',
         spanish: 'Espanja',
-        dutch: 'Dutch'
+        dutch: 'Dutch',
+        polish: 'Polish',
+        searchBySteamUsername: 'Hae Steam nimellä',
+        searchBySteamID: 'Hae Steam ID:llä',
+        searchByTruckersMPID: 'Hake TruckersMP ID:llä',
+        searchButton: 'Haku',
+        searchFieldPlaceholder: 'Specifiy search term',
+        steamProfile: 'Steam profiili',
+        truckersMPProfile: 'TruckersMP profiili',
+        viewSteamProfile: 'Näytä Steam profiili',
+        viewTruckersMPProfile: 'Näytä TruckersMP profiili',
+        bans: 'Banni historia',
+        noBans: 'Ei banneja',
+        nickName: 'Nimimerkki:',
+        onTruckersMPfrom: 'TruckersMP profiili luotu', // On TruckersMP from DATE
+        onSteamFrom: 'Steam profiili luotu', // On Steam from DATE
+        role: 'Rooli:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Oikea nimi:',
+        steamUsername: 'Steam käyttäjänimi:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Myöntänyt {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Vanhenee:' // Expires: DATE
     },
     // credits Francisco Ramirez
     es: {
@@ -408,7 +432,29 @@ var strings = new LocalizedStrings({
         bulgarian: 'Búlgaro',
         finnish: 'Finlandés',
         spanish: 'Español',
-        dutch: 'Holandés'
+        dutch: 'Holandés',
+        polish: 'Polish',
+        searchBySteamUsername: 'Por nombre de Steam',
+        searchBySteamID: 'Por Steam ID',
+        searchByTruckersMPID: 'Por TruckersMP ID',
+        searchButton: 'Buscar',
+        searchFieldPlaceholder: 'Especificar termino de búsqueda',
+        steamProfile: 'Perfil de Steam',
+        truckersMPProfile: 'Perfil TruckersMP',
+        viewSteamProfile: 'Ver perfil de Steam',
+        viewTruckersMPProfile: 'Ver perfil TruckersMP',
+        bans: 'Historial de Baneos',
+        noBans: 'Sin baneos',
+        nickName: 'Apodo:',
+        onTruckersMPfrom: 'En TruckersMP desde', // On TruckersMP from DATE
+        onSteamFrom: 'En Steam desde', // On Steam from DATE
+        role: 'Rol:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Nombre Real:',
+        steamUsername: 'Nombre en Steam:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Emitido por {0} el {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Expira:' // Expires: DATE
     },
     // credits Derk Nomden
     nl: {
@@ -468,7 +514,112 @@ var strings = new LocalizedStrings({
         french: 'Frans',
         bulgarian: 'Bulgaars',
         finnish: 'Fins',
-        dutch: 'Dutch'
+        dutch: 'Dutch',
+        searchBySteamUsername: 'Bij Steam gebruikersnaam',
+        searchBySteamID: 'Bij Steam ID',
+        searchByTruckersMPID: 'Bij TruckersMP ID',
+        searchButton: 'Zoek',
+        searchFieldPlaceholder: 'Specifieke zoekterm',
+        steamProfile: 'Steam profiel',
+        truckersMPProfile: 'TruckersMP profiel',
+        viewSteamProfile: 'Bekijk Steam profiel',
+        viewTruckersMPProfile: 'Bekijk TruckersMP profiel',
+        bans: 'Ban geschiedenis',
+        noBans: 'Geen bans',
+        nickName: 'Gebruikersnaam:',
+        onTruckersMPfrom: 'Op TruckersMP sinds', // On TruckersMP from DATE
+        onSteamFrom: 'Op Steam sinds', // On Steam from DATE
+        role: 'Rol:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Echte Name:',
+        steamUsername: 'Steam Gebruikersnaam:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Probleem bij {0} op {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Verlopen:', // Expires: DATE
+        polish: 'Polish'
+    },
+    pl: {
+        currentGameVersion: 'Bieżąca wersja gry: ',
+        routeHomeTitle: 'Trucky Companion App',
+        routeServersTitle: 'Serwery TruckersMP',
+        routeMeetupsTitle: 'Konwoje',
+        routeSettingsTitle: 'Ustawienia',
+        routeAboutTitle: 'O aplikacji',
+        routeRulesTitle: 'Zasady TruckersMP ',
+        supportedETSVersion: 'Wspierana wersja ETS: ',
+        supportedATSVersion: 'Wspierana wersja ATS: ',
+        lastReleaseDate: 'Data ostatniej aktualizacji: ',
+        playersOnline: 'graczy online',
+        currentGameTime: 'Aktualny czas gry: ',
+        servers: 'Serwery',
+        about: 'O aplikacji',
+        meetups: 'Konwoje',
+        searchPlayer: 'Szukaj gracza',
+        rules: 'Zasady',
+        settings: 'Ustawienia',
+        playersInQueue: 'Graczy w kolejce',
+        online: 'Online',
+        offline: 'Offline',
+        speedLimiterEnabled: 'Ogranicznik prędkości jest włączony',
+        speedLimiterDisabled: 'Ogranicznik prędkości jest wyłączony',
+        status: 'Status',
+        info: 'Informacje',
+        addToCalendar: 'Dodaj do kalendarza',
+        language: 'Język: ',
+        enableAutoRefresh: 'Włącz automatyczne odświeżanie',
+        autoRefreshGameTime: 'Automatycznie odśwież czas gry',
+        autoRefreshServersList: 'Automatycznie odśwież listę serwerów',
+        refreshServersListEvery: 'Odświeżaj listę serwerów co',
+        seconds10: '10 sekund',
+        seconds30: '30 sekund',
+        minute: '1 minutę',
+        minutes2: '2 minuty',
+        minutes5: '5 minut',
+        minutes10: '10 minut',
+        minutes20: '20 minut',
+        customizations: 'Modyfikacje',
+        settingsHeaderLanguage: 'Język',
+        settingsHeaderTheme: 'Motyw',
+        english: 'Angielski',
+        italian: 'Włoski',
+        eventAddedToCalendar: 'Zdarzenie dodane do kalendarza',
+        eventTitle: 'Wydarzenie TruckersMP - Konwój',
+        eventNotes: 'Organizowane przez {0} - Serwer: {1}',
+        truckersMPWebSite: 'Strona TruckersMP',
+        truckersMPForum: 'Forum TruckersMP',
+        truckersMPSteamGroup: 'Grupa Steam TruckersMP',
+        readMore: 'Dowiedz się więcej',
+        newsAndEvents: 'Wiadomości i wydarzenia',
+        gameStatus: 'Stan gry',
+        newTruckersMPGameVersionReleaseNotificationText: 'Została wydana nowa wersja TruckersMP',
+        french: 'Francuski',
+        bulgarian: 'Bułgarski',
+        finnish: 'Fiński',
+        spanish: 'Hiszpański',
+        dutch: 'Holenderski',
+        // LABELS FOR SEARCH PLAYER SCREEN
+        searchBySteamUsername: 'Wg nazwy użytkownika Steam',
+        searchBySteamID: 'Wg Steam ID',
+        searchByTruckersMPID: 'Wg TruckersMP ID',
+        searchButton: 'Szukaj',
+        searchFieldPlaceholder: 'Specyficzny termin wyszukiwania',
+        steamProfile: 'Profil Steam',
+        truckersMPProfile: 'Profil TruckersMP',
+        viewSteamProfile: 'Zobacz profil Steam',
+        viewTruckersMPProfile: 'Zobacz profil TruckersMP',
+        bans: 'Historia banów',
+        noBans: 'Brak banów',
+        nickName: 'Nazwa:',
+        onTruckersMPfrom: 'Na TruckersMP od', //Na TruckersMP od dnia
+        onSteamFrom: 'Na Steam od', // Na Steam od dnia
+        role: 'Rola:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Prawdziwe imię:',
+        steamUsername: 'Nazwa użytkownika Steam:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Wydane przez {0} na {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Wygasa:', // Wygasa: Dnia
+        polish: 'Polski'
     }
 });
 

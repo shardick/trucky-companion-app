@@ -1,5 +1,5 @@
 import LocaleManager from '../Locales/LocaleManager';
-import SteamAPI from './SteamAPI';
+import TruckyServices from './TruckyServices';
 
 var lc = new LocaleManager();
 
@@ -175,12 +175,12 @@ class TruckersMPApi
 
         //console.warn(searchType);
 
-        var steamAPI = new SteamAPI();
+        var truckyApi = new TruckyServices();
 
         switch (searchType) {
             case 'steamusername':
 
-                var steamResponse = await steamAPI.resolveVanityUrl(searchTerm);
+                var steamResponse = await truckyApi.resolveVanityUrl(searchTerm);
 
                 if (steamResponse.found) {
                     playerInfo.steamProfileInfo = steamResponse.playerInfo;
@@ -204,7 +204,8 @@ class TruckersMPApi
 
                 if (!apiResponse.error) {
                     playerInfo.truckersMPProfileInfo = apiResponse.response;
-                    playerInfo.steamProfileInfo = await steamAPI.getPlayerSummaries(playerInfo.truckersMPProfileInfo.steamID64);
+                    var steamProfileInfo = await truckyApi.getPlayerSummaries(playerInfo.truckersMPProfileInfo.steamID64);
+                    playerInfo.steamProfileInfo = steamProfileInfo.playerInfo;
                     playerInfo.bans = await this.bans(playerInfo.truckersMPProfileInfo.id);
                     playerInfo.found = true;
                 }

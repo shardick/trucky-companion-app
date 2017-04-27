@@ -1,5 +1,5 @@
 /**
- * DEPRECATED . Use TruckServices instead
+ *
  *
  * @class SteamAPI
  */
@@ -13,7 +13,7 @@ class SteamAPI
     constructor()
     {
         this.config = {
-            steamApiKey: ''
+            steamApiKey: '604CDCBE367081EE2B3D63FF7F2A718E'
         }
     }
 
