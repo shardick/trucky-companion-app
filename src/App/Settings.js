@@ -112,6 +112,7 @@ class SettingsScreen extends BaseTruckyComponent
                                 <Picker.Item label={this.LocaleManager.strings.english} value="en"/>
                                 <Picker.Item label={this.LocaleManager.strings.italian} value="it"/>
                                 <Picker.Item label={this.LocaleManager.strings.spanish} value="es"/>
+                                <Picker.Item label={this.LocaleManager.strings.polish} value="pl"/>
                             </Picker>
                         </View>
                     </View>
