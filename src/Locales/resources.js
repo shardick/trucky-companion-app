@@ -226,7 +226,28 @@ var strings = new LocalizedStrings({
         finnish: 'Finnish',
         spanish: 'Spanish',
         dutch: 'Dutch',
-        polish: 'Polish'
+        polish: 'Polish',
+        searchBySteamUsername: 'Стийм прякор',
+        searchBySteamID: 'По Steam ID',
+        searchByTruckersMPID: 'По TruckersMP ID',
+        searchButton: 'Търси',
+        searchFieldPlaceholder: 'Напишете името на играча...',
+        steamProfile: 'Steam профил',
+        truckersMPProfile: 'TruckersMP Профил',
+        viewSteamProfile: 'Виж Steam профил',
+        viewTruckersMPProfile: 'Виж TruckersMP профил',
+        bans: 'Бан история',
+        noBans: 'Няма банове',
+        nickName: 'прякор:',
+        onTruckersMPfrom: 'В TruckersMP от', // On TruckersMP from DATE
+        onSteamFrom: 'В Steam от', // On Steam from DATE
+        role: 'Роля:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Истинско име:',
+        steamUsername: 'Steam прякор:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Издаден от {0} на {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Изтича:' // Expires: DATE
     },
     // credits: Kevin Monteil
     fr: {
