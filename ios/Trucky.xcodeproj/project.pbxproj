@@ -42,6 +42,11 @@
 		5FA0D5D2B75C40EFB9776EBA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 078C2140940C417D926BC6BD /* Octicons.ttf */; };
 		63DA61ABA0194829BC4BA209 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 679518DDEC5745EBB11DE07B /* Entypo.ttf */; };
 		714883C0400F47AEADBCD57F /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34EAF3AE71ED47478048AA40 /* MaterialCommunityIcons.ttf */; };
+		7B10674E1EB0035600AD3DA6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B10674D1EB0035600AD3DA6 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7B10674F1EB0036000AD3DA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B10672C1EAFFEA600AD3DA6 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7B1067511EB0039B00AD3DA6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1067501EB0039B00AD3DA6 /* NotificationCenter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7B1067531EB0050B00AD3DA6 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1067521EB0050B00AD3DA6 /* JavaScriptCore.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7B1067551EB0059000AD3DA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1067541EB0059000AD3DA6 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7B6511CB1E9184A100BC5D25 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6511C11E9184A100BC5D25 /* Entypo.ttf */; };
 		7B6511CC1E9184A100BC5D25 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6511C11E9184A100BC5D25 /* Entypo.ttf */; };
 		7B6511CD1E9184A100BC5D25 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6511C11E9184A100BC5D25 /* Entypo.ttf */; };
@@ -369,6 +374,11 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		679518DDEC5745EBB11DE07B /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7B10672C1EAFFEA600AD3DA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7B10674D1EB0035600AD3DA6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		7B1067501EB0039B00AD3DA6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		7B1067521EB0050B00AD3DA6 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		7B1067541EB0059000AD3DA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7B6511C11E9184A100BC5D25 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		7B6511C21E9184A100BC5D25 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		7B6511C31E9184A100BC5D25 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -406,6 +416,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1067551EB0059000AD3DA6 /* UIKit.framework in Frameworks */,
+				7B1067531EB0050B00AD3DA6 /* JavaScriptCore.framework in Frameworks */,
+				7B1067511EB0039B00AD3DA6 /* NotificationCenter.framework in Frameworks */,
+				7B10674F1EB0036000AD3DA6 /* Foundation.framework in Frameworks */,
+				7B10674E1EB0035600AD3DA6 /* CoreFoundation.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -575,6 +590,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7B10672B1EAFFEA600AD3DA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B1067541EB0059000AD3DA6 /* UIKit.framework */,
+				7B1067521EB0050B00AD3DA6 /* JavaScriptCore.framework */,
+				7B1067501EB0039B00AD3DA6 /* NotificationCenter.framework */,
+				7B10674D1EB0035600AD3DA6 /* CoreFoundation.framework */,
+				7B10672C1EAFFEA600AD3DA6 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7B5891A51E9451A7005B7A6E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,6 +710,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				7B6511C01E9184A100BC5D25 /* Fonts */,
 				A83A7792FA3241D485F4A743 /* Resources */,
+				7B10672B1EAFFEA600AD3DA6 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -802,7 +830,16 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 7ZM4ULRBLS;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 7ZM4ULRBLS;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1313,6 +1350,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7ZM4ULRBLS;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1345,6 +1383,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7ZM4ULRBLS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
@@ -1374,6 +1413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 7ZM4ULRBLS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
@@ -1402,6 +1442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7ZM4ULRBLS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
@@ -1580,6 +1621,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libReact.a",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1615,6 +1660,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libReact.a",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = NO;
 			};
