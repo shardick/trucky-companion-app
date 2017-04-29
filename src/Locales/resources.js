@@ -703,6 +703,7 @@ var strings = new LocalizedStrings({
         spanish: 'Испанский',
         dutch: 'Голландский',
         polish: 'Польский',
+        russian: 'Русский',
         // LABELS FOR SEARCH PLAYER SCREEN
         searchBySteamUsername: 'По никнейму Steam',
         searchBySteamID: 'По Steam ID',
