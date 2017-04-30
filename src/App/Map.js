@@ -99,6 +99,7 @@ class MapScreen extends BaseTruckyComponent
             filteredPois: ds,
             showFilter: false,
             showSettings: false,
+            showSettingsButton: true,
             mapSettings: {
                 hideHeatMap: true,
                 showDirection: false,
@@ -111,7 +112,7 @@ class MapScreen extends BaseTruckyComponent
 
     openSearchDialog()
     {
-        this.setState({showMap: false, showFilter: true});
+        this.setState({showMap: false, showFilter: true, showSettingsButton: false, showSettings: false});
       /*  this
             .popupDialog
             .show();*/
@@ -122,9 +123,9 @@ class MapScreen extends BaseTruckyComponent
         if (this.state.showMap)
             this.props.navigator.pop();
         else if (this.state.showFilter)
-            this.setState({showMap: true, showFilter: false, showSettings: false});
+            this.setState({showMap: true, showFilter: false, showSettings: false, showSettingsButton: true});
         else if (this.state.showSettings)
-            this.setState({showMap: true, showFilter: false, showSettings: false});
+            this.setState({showMap: true, showFilter: false, showSettings: false, showSettingsButton: true});
     }
 
     renderToolbar = () => {
@@ -357,9 +358,12 @@ class MapScreen extends BaseTruckyComponent
                     source={{
                     uri: "https://ets2map.com/"
                 }}/>
-                {!this.state.showSettings &&
-                <ActionButton icon="settings" onPress={() => this.setState({showMap: false, showFilter: false, showSettings: true})} /> 
+                {this.state.showSettingsButton &&
+                <ActionButton icon="settings" onPress={() => this.setState({showMap: false, showFilter: false, showSettings: true, showSettingsButton: false})} /> 
                 }
+                <View style={{ alignItems: 'center', marginTop: 5, marginBottom: 5}}>
+                    <TouchableOpacity onPress={() => this.navigateUrl('http://ets2map.com')}><Text>Credits: ETS2Map (http://ets2map.com)</Text></TouchableOpacity>
+                </View>
             </Container>
         )
     }

@@ -37,4 +37,5 @@ gulp.task('joinjs', function() {
 
 gulp.task('default', ['sass', 'joinjs'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
+  gulp.watch(['js/*.js'], ['joinjs']);
 });
