@@ -53,6 +53,10 @@ class SettingsScreen extends BaseTruckyComponent
 
     render()
     {
+        let languageItems = this.LocaleManager.availableLanguages.map( (language) => {
+            return <Picker.Item label={language.displayName} value={language.code} />
+        });
+
         return (
             <Container>
                 {this.renderToolbar()}
@@ -105,14 +109,16 @@ class SettingsScreen extends BaseTruckyComponent
                                 itemStyle={this.StyleManager.styles.appSettingsPicker}
                                 selectedValue={this.state.settings.language}
                                 onValueChange={(value) => this.updateSetting(this.AppSettings.keys.language, value)}>
-                                <Picker.Item label={this.LocaleManager.strings.bulgarian} value="bg"/>
+                                {languageItems}
+                                {/*<Picker.Item label={this.LocaleManager.strings.bulgarian} value="bg"/>
                                 <Picker.Item label={this.LocaleManager.strings.dutch} value="nl"/>
-                                <Picker.Item label={this.LocaleManager.strings.french} value="fr"/>  
+                                <Picker.Item label={this.LocaleManager.strings.french} value="fr"/>
+                                <Picker.Item label={this.LocaleManager.strings.german} value="de"/>    
                                 <Picker.Item label={this.LocaleManager.strings.finnish} value="fi"/>  
                                 <Picker.Item label={this.LocaleManager.strings.english} value="en"/>
                                 <Picker.Item label={this.LocaleManager.strings.italian} value="it"/>
                                 <Picker.Item label={this.LocaleManager.strings.spanish} value="es"/>
-                                <Picker.Item label={this.LocaleManager.strings.polish} value="pl"/>
+                                <Picker.Item label={this.LocaleManager.strings.polish} value="pl"/>*/}
                             </Picker>
                         </View>
                     </View>
