@@ -90,8 +90,8 @@ android {
         applicationId "com.trucky"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 103
-        versionName "1.0.3"
+        versionCode 1031
+        versionName "1.0.3.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
