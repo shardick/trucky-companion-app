@@ -315,7 +315,7 @@ var strings = new LocalizedStrings({
         polish: 'Polish',
         german: 'Allemande'
     },
-    // Jiri Innanen
+    // Credits Jiri Innanen
     fi: {
         currentGameVersion: 'Nykyinen peliversio ',
         routeHomeTitle: 'Trucky Companion App',
@@ -563,6 +563,7 @@ var strings = new LocalizedStrings({
         expires: 'Verlopen:', // Expires: DATE
         polish: 'Polish'
     },
+    // credits Piotrek Ślusarz 
     pl: {
         currentGameVersion: 'Bieżąca wersja gry: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -646,6 +647,7 @@ var strings = new LocalizedStrings({
         expires: 'Wygasa:', // Wygasa: Dnia
         polish: 'Polski'
     },
+    // Credits Tobias Groß 
     de: {
         currentGameVersion: 'Derzeitige Spiel Version: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -728,6 +730,7 @@ var strings = new LocalizedStrings({
         issuedBy: 'Ausgestellt durch {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Läuft aus:' // Expires: DATE
     },
+    // Credits ActiV3Drifter (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
     cs: {
         currentGameVersion: 'Aktuální verze hry: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -797,7 +800,7 @@ var strings = new LocalizedStrings({
         truckersMPProfile: 'TruckersMP profil',
         viewSteamProfile: 'Ukázat Steam profil',
         viewTruckersMPProfile: 'Ukázat TruckersMP profil',
-        bans: 'Historie Banů',
+        bans: 'Historie Banů', 
         noBans: 'Žádné bany',
         nickName: 'Přezdívka:',
         onTruckersMPfrom: 'Na TruckersMP od', // On TruckersMP from DATE
@@ -809,6 +812,91 @@ var strings = new LocalizedStrings({
         steamID: 'Steam ID:',
         issuedBy: 'Zabanován {0} v {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Vypršení:' // Expires: DATE
+    },
+     // Credits CJMAXiK (https://truckersmp.com/user/3861)
+    ru: {
+        currentGameVersion: 'Текущая версия игры: ',
+        routeHomeTitle: 'Trucky Companion App',
+        routeServersTitle: 'Сервера TruckersMP',
+        routeMeetupsTitle: 'Конвои',
+        routeSettingsTitle: 'Настройки',
+        routeAboutTitle: 'О приложении',
+        routeRulesTitle: 'Правила TruckersMP',
+        supportedETSVersion: 'Поддерживаемая версия ETS: ',
+        supportedATSVersion: 'Поддерживаемая версия ATS: ',
+        lastReleaseDate: 'Дата релиза: ',
+        playersOnline: 'игрок(ов) в сети',
+        currentGameTime: 'Время в игре: ',
+        servers: 'Сервера',
+        about: 'О приложении',
+        meetups: 'Конвои',
+        searchPlayer: 'Поиск игрока',
+        rules: 'Правила',
+        settings: 'Настройки',
+        playersInQueue: 'игрок(ов) в очереди',
+        online: 'В сети',
+        offline: 'Не в сети',
+        speedLimiterEnabled: 'Ограничение скорости включено',
+        speedLimiterDisabled: 'Ограничение скорости отключено',
+        status: 'Статус',
+        info: 'Информация',
+        addToCalendar: 'Добавить в календарь',
+        language: 'Язык: ',
+        enableAutoRefresh: 'Включить авто-обновление',
+        autoRefreshGameTime: 'Автообновление времени в игре',
+        autoRefreshServersList: 'Автообновление списка серверов',
+        refreshServersListEvery: 'Обновлять список серверов каждые',
+        seconds10: '10 секунд',
+        seconds30: '30 секунд',
+        minute: '1 минуту',
+        minutes2: '2 минуты',
+        minutes5: '5 минут',
+        minutes10: '10 минут',
+        minutes20: '20 минут',
+        customizations: 'Настройки',
+        settingsHeaderLanguage: 'Язык',
+        settingsHeaderTheme: 'Тема',
+        english: 'Английский',
+        italian: 'Итальянский',
+        eventAddedToCalendar: 'Событие добавлено в календарь',
+        eventTitle: 'Событие TruckersMP - Конвой',
+        eventNotes: 'Огранизатор: {0} - Сервер: {1}',
+        truckersMPWebSite: 'Веб-сайт TruckersMP',
+        truckersMPForum: 'Форум TruckersMP',
+        truckersMPSteamGroup: 'Группа Steam TruckersMP',
+        readMore: 'Читать далее',
+        newsAndEvents: 'Новости и события',
+        gameStatus: 'Статус игры',
+        newTruckersMPGameVersionReleaseNotificationText: 'Выпущена новая версия TruckersMP',
+        french: 'Французский',
+        bulgarian: 'Болгарский',
+        finnish: 'Финский',
+        spanish: 'Испанский',
+        dutch: 'Голландский',
+        polish: 'Польский',
+        russian: 'Русский',
+        // LABELS FOR SEARCH PLAYER SCREEN
+        searchBySteamUsername: 'По никнейму Steam',
+        searchBySteamID: 'По Steam ID',
+        searchByTruckersMPID: 'По TruckersMP ID',
+        searchButton: 'Поиск',
+        searchFieldPlaceholder: 'Введите запрос',
+        steamProfile: 'Профиль Steam',
+        truckersMPProfile: 'Профиль TruckersMP',
+        viewSteamProfile: 'Посмотреть профиль Steam',
+        viewTruckersMPProfile: 'Посмотреть профиль TruckersMP',
+        bans: 'История банов',
+        noBans: 'Нет банов',
+        nickName: 'Никнейм:',
+        onTruckersMPfrom: 'В TruckersMP с', // On TruckersMP from DATE
+        onSteamFrom: 'В Steam с', // On Steam from DATE
+        role: 'Роль:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Настоящее имя:',
+        steamUsername: 'Никнейм Steam:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Выдан {0} {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Истекает:' // Expires: DATE
     }
 });
 

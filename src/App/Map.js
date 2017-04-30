@@ -143,6 +143,7 @@ class MapScreen extends BaseTruckyComponent
         switch (message.messageType) {
             case 'mapStart':
                 this.setState({loading: false, showMap: true});
+                this.sendUpdateMapSettings();
                 break;
             case 'debug':
                 console.warn(messageString);
@@ -277,10 +278,16 @@ class MapScreen extends BaseTruckyComponent
 
         this.setState({ mapSettings: this.state.mapSettings});
 
+        this.sendUpdateMapSettings();
+    }
+
+    sendUpdateMapSettings()
+    {
         const {webviewbridge} = this.refs;
 
         webviewbridge.sendToBridge(JSON.stringify({messageType: 'updateSettings', mapSettings: this.state.mapSettings}));
     }
+
 
     renderSettingsView()
     {
