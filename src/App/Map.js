@@ -23,6 +23,7 @@ import ActivityIndicator from '../Components/CustomActivityIndicator';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import TruckersMPAPI from '../Services/TruckersMPAPI';
 import Autocomplete from 'react-native-autocomplete-input';
+import TruckyServices from '../Services/TruckyServices';
 
 const injectScript = `
   (function () {
@@ -154,10 +155,10 @@ class MapScreen extends BaseTruckyComponent
 
     async fetchData()
     {
-        var mapManager = new MapManager();
-        var pois = await mapManager.getPois();
+        var services = new TruckyServices();
+        var pois = await services.pois();
 
-        this.setState({pois: pois});
+        this.setState({pois: pois.pois});
 
         var api = new TruckersMPAPI();
         var servers = await api.servers();

@@ -319,15 +319,23 @@ const _styles = StyleSheet.create({
     height: 40,
     marginBottom: 10
   },
-  playerSearchBanRow:
-  {
+  playerSearchBanRow: {
     paddingBottom: 10,
     marginTop: 10,
     borderBottomWidth: 1,
     borderColor: 'grey',
     borderStyle: 'solid'
+  },
+  playerOnlineStatusContainer: {
+    marginTop: 5,
+    marginBottom: 5
+  },
+  playerOnline: {
+    color: 'green'
+  },
+  playerOffline: {
+    color: 'red'
   }
-
 });
 
 _styles.uiTheme = {

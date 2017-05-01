@@ -65,6 +65,18 @@ class TruckyServices
         var response = await this.executeRequest('/steam/getPlayerSummaries?steamid=' + steamid);
         return response;
     }
+
+    async pois()
+    {
+        var response = await this.executeRequest('/map/pois');
+        return response;
+    }
+
+    async isOnline(playerID)
+    {
+        var response = await this.executeRequest('/map/online?playerID=' + playerID);
+        return response;
+    }
 }
 
 module.exports = TruckyServices;
