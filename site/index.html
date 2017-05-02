@@ -1,93 +1,113 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Trucky Companion App - a must have companion app for real Truckers!" />
 
-    <title>Trucky - The Trucker Companion App</title>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trucky Companion App - a must have companion app for real Truckers!" />
 
-    <!-- Favicons:: Replace with yours -->
-    <link rel="shortcut icon" href="favicon.ico">
+  <title>Trucky - The Trucker Companion App</title>
 
-    <!-- Stylesheets and Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Asap:400,400italic|Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/app.css" />
-    <!--[if lt IE 9]>  
+  <!-- Stylesheets and Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Asap:400,400italic|Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="js/jquery.smartbanner.css" />
+  <!--[if lt IE 9]>  
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
-    <![endif]--> 
-  </head>
+    <![endif]-->
+  <meta name="google-play-app" content="app-id=com.trucky">
+  <meta name="author" content="Francesco 'Shardick' Bramato">
 
-  <body>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" href="favicon.ico">
 
-    <!-- Page Wrapper -->
-    <div class="off-canvas-wrapper">
-      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+</head>
 
-        <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right" data-auto-focus="false">
-          <div class="socialIcons">
-            <a href="https://github.com/shardick/trucky-companion-app"><i class="fa fa-github"></i> View on GitHub</a>
-          </div>
-          <ul class="vertical menu" data-magellan data-threshold="0" data-animation-duration="1200">
-            <li><a href="#section-home">Home</a></li>
-            <li><a href="#section-preview">Preview</a></li>
-            <li class="download"><a href="#section-download">Download App <span class="icon-download float-right"></span></a></li>
-          </ul>
-          <div class="contacts">
-            <p class="smallText">shardick@gmail.com</p>
-          </div>
+<body>
+
+  <!-- Page Wrapper -->
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+      <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-position="right" data-auto-focus="false">
+        <div class="socialIcons">
+          <a href="https://github.com/shardick/trucky-companion-app"><i class="fa fa-github"></i> View on GitHub</a>
         </div>
+        <ul class="vertical menu" data-magellan data-threshold="0" data-animation-duration="1200">
+          <li><a href="#section-home">Home</a></li>
+          <li><a href="#section-preview">Preview</a></li>
+          <li class="download"><a href="#section-download">Download App <span class="icon-download float-right"></span></a></li>
+        </ul>
+        <div class="contacts">
+          <p class="smallText">shardick@gmail.com</p>
+        </div>
+      </div>
 
-        <div class="off-canvas-content" data-off-canvas-content>
+      <div class="off-canvas-content" data-off-canvas-content>
 
-          <header id="section-home" class="heroBlue">
-              
-            <div class="navWrapper">
-              <div class="row navBar">
+        <header id="section-home" class="heroBlue">
 
-                <div class="small-6 columns">
-                  <a href="#section-home"><img id="logo" src="assets/logo.png" alt="Trucky"></a>
-                </div>
+          <div class="navWrapper">
+            <div class="row navBar">
 
-                <div class="small-6 columns hide-for-small">
-                  <div class="menuIcon float-right">
-                    <a data-toggle="offCanvas"><i class="fa fa-bars"></i></a>
-                  </div>
-                </div>
-
+              <div class="small-6 columns">
+                <a href="#section-home"><img id="logo" src="assets/logo.png" alt="Trucky"></a>
               </div>
+
+              <div class="small-6 columns hide-for-small">
+                <div class="menuIcon float-right">
+                  <a data-toggle="offCanvas"><i class="fa fa-bars"></i></a>
+                </div>
+              </div>
+
             </div>
+          </div>
 
-            <div class="introWrapper">
-              <div class="row">
-                <div class="small-11 medium-8 large-8 small-centered columns">
-                  <h1 class="text-center">Trucky<br/>Companion app for real Truckers!</h1>
-                  <div class="dividerCenterWhite"></div>
-                  <p class="lead text-center">Must have app to check TruckersMP servers status and being always in touch with Meetups and news.</p>
+          <div class="introWrapper">
+            <div class="row">
+              <div class="small-11 medium-8 large-8 small-centered columns">
+                <h1 class="text-center">Trucky<br/>Companion app for real Truckers!</h1>
+                <div class="dividerCenterWhite"></div>
+                <p class="lead text-center">Must have app to check TruckersMP servers status and being always in touch with Meetups and news.</p>
 
-                  <div class="marginTop row ctaBtns">
-                    <div class="small-9 medium-10 large-6 small-centered columns">
-                      <div class="row">
-                        <div class="small-12 medium-6 large-6 columns" data-magellan data-threshold="0" data-animation-duration="1200">
-                          <a href="#section-download" class="button buttonWhite wow bounceIn"><i class="fa fa-download download"></i> Download app</a>
-                        </div>
+                <div class="marginTop row ctaBtns">
+                  <div class="small-9 medium-10 large-6 small-centered columns">
+                    <div class="row">
+                      <div class="small-12 medium-6 large-6 columns" data-magellan data-threshold="0" data-animation-duration="1200">
+                        <a href="#section-download" class="button buttonWhite wow bounceIn"><i class="fa fa-download download"></i> Download app</a>
+                      </div>
 
-                        <div class="small-12 medium-6 large-6 columns" data-magellan data-threshold="0" data-animation-duration="1200">
-                          <a href="#section-features" class="button hollowWhite wow bounceIn">View Features</a>
-                        </div>
+                      <div class="small-12 medium-6 large-6 columns" data-magellan data-threshold="0" data-animation-duration="1200">
+                        <a href="#section-features" class="button hollowWhite wow bounceIn">View Features</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-          </header>
-          
-          <!-- Counter & Partners -->
-          <!--<div class="clients"> 
+        </header>
+
+        <!-- Counter & Partners -->
+        <!--<div class="clients"> 
             <div class="row">
 
               <div class="small-12 medium-4 large-3 columns">
@@ -123,60 +143,60 @@
 
             </div>
           </div>-->
-          <!-- .Counter & Partners -->
-          
-          <!-- How it works -->
-          <div id="section-preview" class="bgGray relPosition">
-            <div class="container">
+        <!-- .Counter & Partners -->
 
-              <div class="row">
-                <div class="small-12 medium-10 large-6 large-offset-6 columns">
+        <!-- How it works -->
+        <div id="section-preview" class="bgGray relPosition">
+          <div class="container">
 
-                  <h3>All in your hand</h3>
-                  <div class="divider"></div>
-                  <p>Explore and view informations from TruckersMP.com and ETS2c.com</p>
+            <div class="row">
+              <div class="small-12 medium-10 large-6 large-offset-6 columns">
 
-                  <div class="featuresList clearfix marginTop">
-                    <ul class="row small-up-1 medium-up-2 large-up-2">
-                      <li class="columns wow fadeIn" data-wow-delay="0.5s">
-                        <span class="icon-cloud-download"></span>
-                        <h5>1. Servers status</h5>
-                        <p class="smallText">View servers status in real time, display game clock, check server occupation and queue time</p>
-                      </li>
+                <h3>All in your hand</h3>
+                <div class="divider"></div>
+                <p>Explore and view informations from TruckersMP.com and ETS2c.com</p>
 
-                      <li class="columns wow fadeIn" data-wow-delay="0.75s">
-                        <span class="icon-favorite_outline"></span>
-                        <h5>2. Meetups</h5>
-                        <p class="smallText">View meetups loaded in real time on ETS2c.com, add event to calendar with reminder</p>
-                      </li>
+                <div class="featuresList clearfix marginTop">
+                  <ul class="row small-up-1 medium-up-2 large-up-2">
+                    <li class="columns wow fadeIn" data-wow-delay="0.5s">
+                      <span class="icon-cloud-download"></span>
+                      <h5>1. Servers status</h5>
+                      <p class="smallText">View servers status in real time, display game clock, check server occupation and queue time</p>
+                    </li>
 
-                      <li class="columns wow fadeIn" data-wow-delay="0.95s">
-                        <span class="icon-anchor2"></span>
-                        <h5>3. Search player</h5>
-                        <p class="smallText">Search TruckersMP player info using TruckersMP user id or Steam ID</p>
-                      </li>
+                    <li class="columns wow fadeIn" data-wow-delay="0.75s">
+                      <span class="icon-favorite_outline"></span>
+                      <h5>2. Meetups</h5>
+                      <p class="smallText">View meetups loaded in real time on ETS2c.com, add event to calendar with reminder</p>
+                    </li>
 
-                      <li class="columns wow fadeIn" data-wow-delay="1.05s">
-                        <span class="icon-trending_up"></span>
-                        <h5>4. Localized and themed</h5>
-                        <p class="smallText">Choose a different theme and your language</p>
-                      </li>
-                    </ul>
-                  </div>
+                    <li class="columns wow fadeIn" data-wow-delay="0.95s">
+                      <span class="icon-anchor2"></span>
+                      <h5>3. Search player</h5>
+                      <p class="smallText">Search TruckersMP player info using TruckersMP user id or Steam ID</p>
+                    </li>
 
+                    <li class="columns wow fadeIn" data-wow-delay="1.05s">
+                      <span class="icon-trending_up"></span>
+                      <h5>4. Localized and themed</h5>
+                      <p class="smallText">Choose a different theme and your language</p>
+                    </li>
+                  </ul>
                 </div>
-              </div>
-              
-              <div class="deviceShowcaseLeft wow slideInLeft">
-                <img src="assets/screenshots.png" alt="">
-              </div>
 
+              </div>
             </div>
+
+            <div class="deviceShowcaseLeft wow slideInLeft">
+              <img src="assets/screenshots.png" alt="">
+            </div>
+
           </div>
-          <!-- .How it works -->
-          
-          <!-- Benefits -->
-         <!-- <div id="section-benefits" class="relPosition">
+        </div>
+        <!-- .How it works -->
+
+        <!-- Benefits -->
+        <!-- <div id="section-benefits" class="relPosition">
             <div class="container">
 
               <div class="row">
@@ -218,10 +238,10 @@
               </div>
             </div>
           </div>-->
-          <!-- .Benefits -->
-          
-          <!-- Features -->
-          <!--<div id="section-features" class="relPosition bgDark">
+        <!-- .Benefits -->
+
+        <!-- Features -->
+        <!--<div id="section-features" class="relPosition bgDark">
             <div class="container">
               <div class="row">
 
@@ -278,10 +298,10 @@
               </div>
             </div>
           </div>-->
-          <!-- .Features -->
+        <!-- .Features -->
 
-          <!-- Testimonials -->
-          <!--<div id="section-testimonials" class="relPosition bgGray">
+        <!-- Testimonials -->
+        <!--<div id="section-testimonials" class="relPosition bgGray">
             <div class="container">
               <div class="row">
                 <div class="small-12 medium-10 large-8 small-centered columns">
@@ -291,8 +311,8 @@
                 </div>
               </div>-->
 
-              <!-- Testimonials 3 Column Grid Start -->
-             <!-- <ul class="row marginTop small-up-1 medium-up-2 large-up-3 testimonialsGrid" data-equalizer>
+        <!-- Testimonials 3 Column Grid Start -->
+        <!-- <ul class="row marginTop small-up-1 medium-up-2 large-up-3 testimonialsGrid" data-equalizer>
 
                 <li class="column" data-equalizer-watch>
                   <div>
@@ -388,54 +408,55 @@
               
             </div>
           </div>-->
-          <!-- .Testimonials -->
+        <!-- .Testimonials -->
 
-          <!-- Download Section -->
-          <div id="section-download" class="relPosition heroBlue" style="background-image: url('img/hero-bg2.jpg');background-position: 50% 50%;">
-            <div class="container">
+        <!-- Download Section -->
+        <div id="section-download" class="relPosition heroBlue" style="background-image: url('img/hero-bg2.jpg');background-position: 50% 50%;">
+          <div class="container">
 
-              <div class="row">
-                <div class="small-12 medium-10 large-8 small-centered columns">
-                  <h2 class="text-center">Get Trucky Companion App TODAY!</h2>
-                  <div class="dividerCenterWhite"></div>
-                  <p class="text-center lead">Download from Apple Store or Play Store. Soon available on Windows App Store.</p>
+            <div class="row">
+              <div class="small-12 medium-10 large-8 small-centered columns">
+                <h2 class="text-center">Get Trucky Companion App TODAY!</h2>
+                <div class="dividerCenterWhite"></div>
+                <p class="text-center lead">Download from Apple Store or Play Store. Soon available on Windows App Store.</p>
+              </div>
+            </div>
+
+            <div class="marginTop row ctaBtns">
+              <div class="small-9 medium-10 large-7 small-centered columns">
+                <div class="row">
+
+                  <div class="small-12 medium-4 large-4 columns wow fadeIn" data-wow-delay="0.5s">
+                    <a class="buttonWhite button" href="#"><i class="fa fa-apple"></i> App Store</a>
+                  </div>
+
+                  <div class="small-12 medium-4 large-4 columns wow fadeIn" data-wow-delay="0.75s">
+                    <a class="buttonWhite button" href="https://play.google.com/store/apps/details?id=com.trucky"><i class="fa fa-android"></i> Google Play</a>
+                  </div>
+
                 </div>
               </div>
-
-              <div class="marginTop row ctaBtns">
-                <div class="small-9 medium-10 large-7 small-centered columns">
-                  <div class="row">
-
-                    <div class="small-12 medium-4 large-4 columns wow fadeIn" data-wow-delay="0.5s">
-                      <a class="buttonWhite button" href="#"><i class="fa fa-apple"></i> App Store</a>
-                    </div>
-
-                    <div class="small-12 medium-4 large-4 columns wow fadeIn" data-wow-delay="0.75s">
-                      <a class="buttonWhite button" href="https://play.google.com/store/apps/details?id=com.trucky"><i class="fa fa-android"></i> Google Play</a>
-                    </div>
-                    
-                  </div>
-                </div> 
-              </div>
-
             </div>
-          </div>
-          <!-- .Download Section -->
-          
-          <!-- Footer -->
-          <footer class="bgDark">
-            <div class="container">
-              <div class="row">
-                
-                <div class="small-12 medium-12 large-9 columns">
-                  <div class="row">
-                    
-                    <div class="small-12 medium-6 large-4 columns marginBottom">
-                      <h6>About</h6>
-                      <p class="smallText">Trucky Companion App has been developed as a React Native playground. App creator is not involved in TruckersMP, SCS or ETS2c.com</p>
-                    </div>
 
-                   <!-- <div class="small-12 medium-6 large-4 end columns marginBottom">
+          </div>
+        </div>
+        <!-- .Download Section -->
+
+        <!-- Footer -->
+        <footer class="bgDark">
+          <div class="container">
+            <div class="row">
+
+              <div class="small-12 medium-12 large-9 columns">
+                <div class="row">
+
+                  <div class="small-12 medium-6 large-4 columns marginBottom">
+                    <h6>About</h6>
+                    <p class="smallText">Trucky Companion App has been developed as a React Native playground. App creator is not involved in
+                      TruckersMP, SCS or ETS2c.com</p>
+                  </div>
+
+                  <!-- <div class="small-12 medium-6 large-4 end columns marginBottom">
                       <h6>Stay Updated</h6>
                       <p class="smallText">Voluptatibus distinctio aut nisi doloribus veritatis, eos perspiciatis provident.</p>
 
@@ -454,43 +475,56 @@
 
                     </div>-->
 
-                  </div>
                 </div>
-
-                <div class="small-12 medium-6 large-3 columns end">
-                  <a href="index.html"><img id="logo-footer" src="assets/logo.png" alt="Trucky"></a>
-                  <div class="dividerWhite"></div>
-                  <div class="socialIcons">
-                    <a href="https://github.com/shardick/trucky-companion-app" target="_blank"><i class="fa fa-github"></i> View on GitHub</a>
-    
-                  </div>
-                </div>
-                
               </div>
-            </div>
 
-            <!--<div class="row copyrights">
+              <div class="small-12 medium-6 large-3 columns end">
+                <a href="index.html"><img id="logo-footer" src="assets/logo.png" alt="Trucky"></a>
+                <div class="dividerWhite"></div>
+                <div class="socialIcons">
+                  <a href="https://github.com/shardick/trucky-companion-app" target="_blank"><i class="fa fa-github"></i> View on GitHub</a>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!--<div class="row copyrights">
               <div class="small-12 columns">
                 <p class="noMargin text-center">copyright &copy; 2016 | <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex=2 title="Free for personal and commercial use with attribution. You can’t sell it as-is or create a template out of it and sell it.">License CC BY 4.0</span></a> | Designed &amp; Developed by <a href="http://pixelosaur.com" target="_blank">Pixelosaur</a></p>
               </div>
             </div>-->
-          </footer>
-          <!-- .Footer -->
+        </footer>
+        <!-- .Footer -->
 
-        </div>
       </div>
     </div>
-    <!-- .Page & Off Canvas Wrapper-->
+  </div>
+  <!-- .Page & Off Canvas Wrapper-->
 
-    <!-- Reveal Modal Video -->
-<!--    <div class="large reveal" id="promoVideoModal" data-reveal data-close-on-click="true" data-animation-in="slide-in-up" data-animation-out="slide-out-down">
+  <!-- Reveal Modal Video -->
+  <!--    <div class="large reveal" id="promoVideoModal" data-reveal data-close-on-click="true" data-animation-in="slide-in-up" data-animation-out="slide-out-down">
       <div class="flex-video widescreen vimeo">
         <iframe src="http://player.vimeo.com/video/60122989" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
       </div>
     </div>-->
-    <!-- .Reveal Modal Video -->
+  <!-- .Reveal Modal Video -->
 
-    <script src="js/all.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+  <script src="/js/all.js"></script>
+  <script src="/js/jquery.smartbanner.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-98345439-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
 </html>

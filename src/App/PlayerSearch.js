@@ -173,6 +173,16 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                     : '#'
                             }}/>
                             }
+                            {this.state.playerInfo.onlineStatus &&
+                            <View style={this.StyleManager.styles.playerOnlineStatusContainer}>
+                                {this.state.playerInfo.onlineStatus.isOnline && 
+                                    <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
+                                }
+                                {!this.state.playerInfo.onlineStatus.isOnline && 
+                                    <Text style={this.StyleManager.styles.playerOffline}>{this.LocaleManager.strings.offline}</Text>
+                                }
+                            </View>
+                            }
                             <Image
                                 style={this.StyleManager.styles.playerSearchResultImage}
                                 source={{

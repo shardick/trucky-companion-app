@@ -190,6 +190,7 @@ class TruckersMPApi
                         playerInfo.found = true;
                         playerInfo.truckersMPProfileInfo = apiResponse.response;
                         playerInfo.bans = await this.bans(playerInfo.truckersMPProfileInfo.id);
+                        playerInfo.onlineStatus = await truckyApi.isOnline(playerInfo.truckersMPProfileInfo.id);
                     } else {
                         playerInfo.found = false;
                     }
@@ -207,6 +208,7 @@ class TruckersMPApi
                     var steamProfileInfo = await truckyApi.getPlayerSummaries(playerInfo.truckersMPProfileInfo.steamID64);
                     playerInfo.steamProfileInfo = steamProfileInfo.playerInfo;
                     playerInfo.bans = await this.bans(playerInfo.truckersMPProfileInfo.id);
+                    playerInfo.onlineStatus = await truckyApi.isOnline(playerInfo.truckersMPProfileInfo.id);
                     playerInfo.found = true;
                 }
 

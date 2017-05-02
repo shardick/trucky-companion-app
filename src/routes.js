@@ -7,6 +7,7 @@ import AboutScreen from './App/About';
 import SplashScreen from './App/SplashScreen';
 import NewsFeedScreen from './App/NewsFeed';
 import SearchPlayerScreen from './App/PlayerSearch';
+import MapScreen from './App/Map';
 
 class RouteManager
 {
@@ -71,6 +72,10 @@ class RouteManager
             searchPlayer: {
                 title: 'Search Player',
                 Page: SearchPlayerScreen
+            },
+            map: {
+                title: 'Live Map',
+                Page: MapScreen
             }
         });
     }
