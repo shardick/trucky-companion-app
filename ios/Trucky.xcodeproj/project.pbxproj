@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -37,10 +38,6 @@
 		364A169DDD6C404E87A72E97 /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D775BAC4C4B44D488FABA68 /* libRNCalendarEvents.a */; };
 		587D69BF99DF45918E091736 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C07E06CE4E47DFB55B2C80 /* libRNVectorIcons.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		5F3EC15218064DE7A7DAE4D2 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DF0274365F241ED97CB872E /* SimpleLineIcons.ttf */; };
-		5FA0D5D2B75C40EFB9776EBA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 078C2140940C417D926BC6BD /* Octicons.ttf */; };
-		63DA61ABA0194829BC4BA209 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 679518DDEC5745EBB11DE07B /* Entypo.ttf */; };
-		714883C0400F47AEADBCD57F /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34EAF3AE71ED47478048AA40 /* MaterialCommunityIcons.ttf */; };
 		7B10674E1EB0035600AD3DA6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B10674D1EB0035600AD3DA6 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7B10674F1EB0036000AD3DA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B10672C1EAFFEA600AD3DA6 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7B1067511EB0039B00AD3DA6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1067501EB0039B00AD3DA6 /* NotificationCenter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -91,16 +88,9 @@
 		7BCE77BE1EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
 		7BCE77BF1EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
 		7BCE77C01EAFC38300D09F21 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */; };
-		7F85C29E8B7D43ECB83CBC95 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8CD631C09D4FBFB7F74C83 /* EvilIcons.ttf */; };
 		81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77B628E532047DFB2153386 /* libRCTRestart.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		9C2A475913DB42F982BB6464 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C25D7B592B34B0DA96E0A2F /* MaterialIcons.ttf */; };
-		9F1160B93C6241E6ACE35FA0 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 562AD5FF72024454B6E02885 /* Zocial.ttf */; };
-		A176DBDFBB5D41A496B8E971 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A9A8EC5B8F04110BAAF1B02 /* FontAwesome.ttf */; };
 		B0166F055D8742D3B6CF3301 /* libReactNativeLocalization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EBC0FF3DF8450089FC6EF6 /* libReactNativeLocalization.a */; };
-		DDCC1E8EE7794318A7040031 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5673909203454619ADD21E8F /* Ionicons.ttf */; };
-		E09AF942365A4B708C86F06A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D880CDD7E0FC40DB9C8902A1 /* Foundation.ttf */; };
-		8C5F9B73E16B434E95D926DA /* libReact-Native-Webview-Bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22D6CA33AF34765B805180A /* libReact-Native-Webview-Bridge.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,8 +381,6 @@
 		CE8CD631C09D4FBFB7F74C83 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		D880CDD7E0FC40DB9C8902A1 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		DE22FCE25EB04E1FBFD1DF1C /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
-		B60E4B00217041139556CA31 /* React-Native-Webview-Bridge.xcodeproj */ = {isa = PBXFileReference; name = "React-Native-Webview-Bridge.xcodeproj"; path = "../node_modules/react-native-webview-bridge/ios/React-Native-Webview-Bridge.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		A22D6CA33AF34765B805180A /* libReact-Native-Webview-Bridge.a */ = {isa = PBXFileReference; name = "libReact-Native-Webview-Bridge.a"; path = "libReact-Native-Webview-Bridge.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,7 +417,6 @@
 				01BC802BF0CD4C6AAF7C68BA /* libRCTOneSignal.a in Frameworks */,
 				81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */,
 				587D69BF99DF45918E091736 /* libRNVectorIcons.a in Frameworks */,
-				8C5F9B73E16B434E95D926DA /* libReact-Native-Webview-Bridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +658,6 @@
 				CAC5C692444044A59BDD366B /* RCTOneSignal.xcodeproj */,
 				C1E5C011F03248BC8ADE1CEE /* RCTRestart.xcodeproj */,
 				47B92933FE4E41DA8426C925 /* RNVectorIcons.xcodeproj */,
-				B60E4B00217041139556CA31 /* React-Native-Webview-Bridge.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -818,7 +804,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 7ZM4ULRBLS;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -827,10 +813,12 @@
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7NDPCTW48M;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7NDPCTW48M;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
@@ -1173,16 +1161,6 @@
 				7B6511DF1E9184A100BC5D25 /* MaterialCommunityIcons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				7B6512171E9185A400BC5D25 /* Info.plist in Resources */,
-				63DA61ABA0194829BC4BA209 /* Entypo.ttf in Resources */,
-				7F85C29E8B7D43ECB83CBC95 /* EvilIcons.ttf in Resources */,
-				A176DBDFBB5D41A496B8E971 /* FontAwesome.ttf in Resources */,
-				E09AF942365A4B708C86F06A /* Foundation.ttf in Resources */,
-				DDCC1E8EE7794318A7040031 /* Ionicons.ttf in Resources */,
-				714883C0400F47AEADBCD57F /* MaterialCommunityIcons.ttf in Resources */,
-				9C2A475913DB42F982BB6464 /* MaterialIcons.ttf in Resources */,
-				5FA0D5D2B75C40EFB9776EBA /* Octicons.ttf in Resources */,
-				5F3EC15218064DE7A7DAE4D2 /* SimpleLineIcons.ttf in Resources */,
-				9F1160B93C6241E6ACE35FA0 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1337,14 +1315,12 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)\..\node_modules\react-native-webview-bridge\ios",
+					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1369,14 +1345,12 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)\..\node_modules\react-native-webview-bridge\ios",
+					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1392,7 +1366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 7ZM4ULRBLS;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
@@ -1402,17 +1376,19 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)\..\node_modules\react-native-webview-bridge\ios",
+					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.trucky;
 				PRODUCT_NAME = trucky;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1422,7 +1398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7ZM4ULRBLS;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-calendar-events",
@@ -1432,17 +1408,19 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)\..\node_modules\react-native-webview-bridge\ios",
+					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.trucky;
 				PRODUCT_NAME = trucky;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1468,13 +1446,11 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)\..\node_modules\react-native-webview-bridge\ios",
+					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1508,13 +1484,11 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)\..\node_modules\react-native-webview-bridge\ios",
+					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1540,9 +1514,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "trucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1564,9 +1536,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "trucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1592,8 +1562,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Francesco Bramato (BKF2Z5PG3U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Francesco Bramato (BKF2Z5PG3U)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7NDPCTW48M;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1633,8 +1605,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Francesco Bramato (BKF2Z5PG3U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Francesco Bramato (BKF2Z5PG3U)";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 7NDPCTW48M;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -12,13 +12,14 @@ var {
     TextInput,
     StyleSheet,
     ListView,
-    Switch
+    Switch,
+    WebView
 } = ReactNative;
 import Container from '../Container';
 import {Toolbar, Button, ActionButton} from 'react-native-material-ui';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import MapManager from '../Maps/MapManager';
-import WebViewBridge from 'react-native-webview-bridge';
+//import WebViewBridge from 'react-native-webview-bridge';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import TruckersMPAPI from '../Services/TruckersMPAPI';
@@ -27,11 +28,12 @@ import TruckyServices from '../Services/TruckyServices';
 
 const injectScript = `
   (function () {
-                    if (WebViewBridge) {
+
+                    
                         
-                        WebViewBridge.onMessage = function (messageString) {
+                        document.addEventListener('message', function (e) {
                             
-                            var message = JSON.parse(messageString);
+                            var message = JSON.parse(e.data);
 
                             switch (message.messageType)
                             {
@@ -58,13 +60,13 @@ const injectScript = `
                                     
                                     break;
                             }
-                        };
+                        });
 
                         $('.leftSidebar').hide(); 
                         zoom = 0.6;
                         viewPoi(3474);
-                        WebViewBridge.send(JSON.stringify({ messageType: 'mapStart'}));                    
-                    }
+                        window.postMessage('mapStart');                    
+                    
                   }());
 `;
 
@@ -91,7 +93,7 @@ class MapScreen extends BaseTruckyComponent
         });
 
         this.state = {
-            loading: true,
+            loading: false,
             showMap: false,
             pois: [],
             servers: [],
@@ -138,17 +140,19 @@ class MapScreen extends BaseTruckyComponent
             onRightElementPress={() => this.openSearchDialog()}/>);
     }
 
-    onBridgeMessage(messageString)
+    onBridgeMessage(event)
     {
-        var message = JSON.parse(messageString);        
+        console.warn(JSON.stringify(event.nativeEvent));
+        
+        //var message = JSON.parse(messageString);        
 
-        switch (message.messageType) {
+        switch (event.nativeEvent.data) {
             case 'mapStart':
                 this.setState({loading: false, showMap: true});
                 this.sendUpdateMapSettings();
                 break;
             case 'debug':
-                console.warn(messageString);
+                //console.warn(messageString);
                 break;
         }
     }
@@ -173,7 +177,7 @@ class MapScreen extends BaseTruckyComponent
         var mapManager = new MapManager();
         var serverID = mapManager.getServerID(id);
         const {webviewbridge} = this.refs;
-        webviewbridge.sendToBridge(JSON.stringify({messageType: 'setServer', id: serverID}));
+        webviewbridge.postMessage(JSON.stringify({messageType: 'setServer', id: serverID}));
         this.setState({showMap: true, showFilter: false});
     }
 
@@ -198,7 +202,7 @@ class MapScreen extends BaseTruckyComponent
                 break;
         }
         
-        webviewbridge.sendToBridge(JSON.stringify({messageType: 'viewPoi', id: rowData.index, zoom: zoom}));
+        webviewbridge.postMessage(JSON.stringify({messageType: 'viewPoi', id: rowData.index, zoom: zoom}));
 
         this.setState({showMap: true, showFilter: false});
     }
@@ -287,7 +291,7 @@ class MapScreen extends BaseTruckyComponent
     {
         const {webviewbridge} = this.refs;
 
-        webviewbridge.sendToBridge(JSON.stringify({messageType: 'updateSettings', mapSettings: this.state.mapSettings}));
+        webviewbridge.postMessage(JSON.stringify({messageType: 'updateSettings', mapSettings: this.state.mapSettings}));
     }
 
 
@@ -347,12 +351,12 @@ class MapScreen extends BaseTruckyComponent
                 {this.renderDialog()}
                 {this.renderSettingsView()}
                 {this.state.loading && <ActivityIndicator/>}
-                <WebViewBridge
+                <WebView
                     style={this.state.showMap
                     ? {}
                     : this.StyleManager.styles.hidden}
                     ref="webviewbridge"
-                    onBridgeMessage={this
+                    onMessage={this
                     .onBridgeMessage
                     .bind(this)}
                     injectedJavaScript={injectScript}

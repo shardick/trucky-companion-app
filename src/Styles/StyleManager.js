@@ -108,6 +108,7 @@ const _styles = StyleSheet.create({
   },
   appSettingsRow: {
     flexDirection: 'row',
+    
     marginRight: 10,
     marginLeft: 10,
     marginTop: 10,
@@ -128,12 +129,14 @@ const _styles = StyleSheet.create({
   },
   appSettingsLabel: {
     marginTop: 4,
+    flex: 1,
     color: 'black'
   },
   appSettingsFieldBelow: {},
   appSettingsField: {
     flex: 1,
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
   },
   appSettingsPicker: {
     fontSize: 14
