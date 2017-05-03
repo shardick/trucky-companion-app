@@ -119,6 +119,13 @@ class PlayerSearchScreen extends BaseTruckyComponent
         );
     }
 
+    viewOnMap()
+    {
+        var mapRoute = Object.assign(this.RouteManager.routes.map, { data: this.state.playerInfo.onlineStatus});
+
+        this.props.navigator.push(mapRoute);
+    }
+
     /**
      * 
      * 
@@ -177,7 +184,10 @@ class PlayerSearchScreen extends BaseTruckyComponent
                             {this.state.playerInfo.onlineStatus &&
                             <View style={this.StyleManager.styles.playerOnlineStatusContainer}>
                                 {this.state.playerInfo.onlineStatus.isOnline && 
-                                    <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
+                                    <View style={{ alignItems: 'center'}}>
+                                        <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
+                                        <Button primary raised icon="place" text="View on map" onPress={this.viewOnMap.bind(this)} />
+                                    </View>
                                 }
                                 {!this.state.playerInfo.onlineStatus.isOnline && 
                                     <Text style={this.StyleManager.styles.playerOffline}>{this.LocaleManager.strings.offline}</Text>

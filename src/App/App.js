@@ -76,7 +76,7 @@ class App extends Component {
 
         return (
             <Container>
-                <route.Page route={route} navigator={navigator}/>
+                <route.Page route={route} navigator={navigator} data={route.data}/>
             </Container>
         );
     }

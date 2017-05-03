@@ -270,6 +270,10 @@ class MapManager
                 return 3;
             case 7:
                 return 6;
+            case 10:
+                return 9;
+            case 11:
+                return 10;
         }
     }
 }

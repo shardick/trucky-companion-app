@@ -27,47 +27,58 @@ import Autocomplete from 'react-native-autocomplete-input';
 import TruckyServices from '../Services/TruckyServices';
 
 const injectScript = `
-  (function () {
+$(document).ready(function() {
 
-                    
-                        
-                        document.addEventListener('message', function (e) {
-                            
-                            var message = JSON.parse(e.data);
+        document.addEventListener('message', function (e) {
+    
+        var message = JSON.parse(e.data);
 
-                            switch (message.messageType)
-                            {
-                                case 'viewPoi':
-                                    zoom = message.zoom;
-                                    viewPoi(message.id);
-                                    break;
-                                case 'setServer':
-                                    zoom = 0.6;                                    
-                                    setServer(message.id);
-                                    break;
-                                case 'updateSettings':
+        window.postMessage(JSON.stringify({ messageType: 'debug', message: message}));
 
-                                    var mapSettings = message.mapSettings;
+        switch (message.messageType)
+        {
+            case 'viewPoi':
+                zoom = message.zoom;
+                viewPoi(message.id);
+            break;
+            case 'setServer':
+                zoom = 0.6;                                    
+                setServer(message.id);
+            break;
+            case 'updateSettings':
 
-                                    $('#heatmap').prop('checked', mapSettings.hideHeatMap);
-                                    toggleHeatmap();
-                                    $('#truck_face').prop('checked', mapSettings.showDirection);
-                                    $('#truck_box').prop('checked', mapSettings.showTrucks);
-                                    $('#name_show').prop('checked', mapSettings.showName);
-                                    $('#name_show_id').prop('checked', mapSettings.showID);
+                var mapSettings = message.mapSettings;
 
-                                    WebViewBridge.send(JSON.stringify({ messageType: 'debug', message: JSON.stringify(mapSettings)}));
-                                    
-                                    break;
-                            }
-                        });
+                $('#heatmap').prop('checked', mapSettings.hideHeatMap);
+                toggleHeatmap();
+                $('#truck_face').prop('checked', mapSettings.showDirection);
+                $('#truck_box').prop('checked', mapSettings.showTrucks);
+                $('#name_show').prop('checked', mapSettings.showName);
+                $('#name_show_id').prop('checked', mapSettings.showID);                                   
+                
+            break;
+            case 'viewUser':               
 
-                        $('.leftSidebar').hide(); 
-                        zoom = 0.6;
-                        viewPoi(3474);
-                        window.postMessage('mapStart');                    
-                    
-                  }());
+                setTimeout(function() {
+                    zoom = 1.80;
+                    truckClicked = message.mp_id;                                  
+                }, 2000);
+            break;
+            case 'mapInitialState':
+                zoom = 0.6;
+                viewPoi(3474);
+                break;
+        }
+    });
+
+    $('.leftSidebar').hide(); 
+    $('#truck_face').prop('checked', true);
+
+    setTimeout(function() {
+        window.postMessage(JSON.stringify({messageType: 'mapStart' }));                    
+    }, 1000);    
+
+});
 `;
 
 /**
@@ -93,7 +104,7 @@ class MapScreen extends BaseTruckyComponent
         });
 
         this.state = {
-            loading: false,
+            loading: true,
             showMap: false,
             pois: [],
             servers: [],
@@ -105,10 +116,10 @@ class MapScreen extends BaseTruckyComponent
             showSettingsButton: true,
             mapSettings: {
                 hideHeatMap: true,
-                showDirection: false,
+                showDirection: true,
                 showTrucks: true,
                 showName: false,
-                showID: false
+                showID: true
             }
         }
     }
@@ -142,17 +153,27 @@ class MapScreen extends BaseTruckyComponent
 
     onBridgeMessage(event)
     {
-        console.warn(JSON.stringify(event.nativeEvent));
-        
-        //var message = JSON.parse(messageString);        
+        console.warn(event.nativeEvent.data);        
 
-        switch (event.nativeEvent.data) {
+        var message = JSON.parse(event.nativeEvent.data);        
+
+        switch (message.messageType) {
             case 'mapStart':
                 this.setState({loading: false, showMap: true});
                 this.sendUpdateMapSettings();
+
+                if (this.props.data)
+                {
+                    this.sendMessage('viewUser', { mp_id: this.props.data.playerData.mp_id});                    
+                }
+                else
+                {
+                    this.sendMessage('mapInitialState');
+                }
+
                 break;
             case 'debug':
-                //console.warn(messageString);
+                console.warn(JSON.stringify(message.message));
                 break;
         }
     }
@@ -168,6 +189,14 @@ class MapScreen extends BaseTruckyComponent
         var servers = await api.servers();
 
         this.setState({servers: servers});
+    }
+
+    sendMessage(messageType, messageObject)
+    {
+        const {webviewbridge} = this.refs;
+        var message = Object.assign({messageType: messageType}, messageObject);
+
+        webviewbridge.postMessage(JSON.stringify(message));        
     }
 
     serverSelected(id)
@@ -252,6 +281,7 @@ class MapScreen extends BaseTruckyComponent
         let serversItems = this
             .state
             .servers
+            .filter((s) => s.online)
             .map((s) => {
                 return <Picker.Item
                     key={s.id}
@@ -344,6 +374,8 @@ class MapScreen extends BaseTruckyComponent
     }
 
     render() {
+
+        //console.warn(JSON.stringify(this.props.data));
         //var mapManager = new MapManager();
         return (
             <Container>                
@@ -352,18 +384,12 @@ class MapScreen extends BaseTruckyComponent
                 {this.renderSettingsView()}
                 {this.state.loading && <ActivityIndicator/>}
                 <WebView
-                    style={this.state.showMap
-                    ? {}
-                    : this.StyleManager.styles.hidden}
+                    style={this.state.showMap ? {} : this.StyleManager.styles.hidden}
                     ref="webviewbridge"
-                    onMessage={this
-                    .onBridgeMessage
-                    .bind(this)}
+                    onMessage={this.onBridgeMessage.bind(this)}
                     injectedJavaScript={injectScript}
-                    source={{
-                    uri: "https://ets2map.com/"
-                }}/>
-                {this.state.showSettingsButton &&
+                    source={{ uri: "https://ets2map.com/" }}/>
+                {this.state.showMap &&
                 <ActionButton icon="settings" onPress={() => this.setState({showMap: false, showFilter: false, showSettings: true, showSettingsButton: false})} /> 
                 }
                 <View style={{ alignItems: 'center', marginTop: 5, marginBottom: 5}}>
