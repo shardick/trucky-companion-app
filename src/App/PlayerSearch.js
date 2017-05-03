@@ -131,7 +131,8 @@ class PlayerSearchScreen extends BaseTruckyComponent
         return (
             <Container>
                 {this.renderToolbar()}
-                <ScrollView style={this.StyleManager.styles.searchPlayerContainer}>
+                <View>
+                <View style={this.StyleManager.styles.searchPlayerContainer}>
                     <TextInput
                         onChangeText={(text) => this.setState({searchText: text})}                        
                         placeholder={this.LocaleManager.strings.searchFieldPlaceholder}/>
@@ -246,7 +247,8 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 />                                       
                         }
                     </ScrollView>
-                </ScrollView>
+                </View>
+                </View>
             </Container>
         );
     }

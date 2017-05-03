@@ -1,4 +1,4 @@
-import {StyleSheet, Animated} from 'react-native';
+import {Platform, StyleSheet, Animated} from 'react-native';
 import {COLOR} from 'react-native-material-ui';
 
 /**
@@ -360,4 +360,9 @@ _styles.rulesMarkDownSyles = {
   }
 };
 
+/* ios style overrides */
+if (Platform.OS == 'ios')
+{
+  _styles.searchPlayerContainer.marginTop = 200;
+}
 module.exports = StyleManager;
