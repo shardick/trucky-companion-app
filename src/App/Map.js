@@ -59,10 +59,16 @@ $(document).ready(function() {
             break;
             case 'viewUser':               
 
-                setTimeout(function() {
-                    zoom = 1.80;
-                    truckClicked = message.mp_id;                                  
-                }, 2000);
+                    zoom = 1;
+                    cameraX = message.playerData.x;
+                    cameraY = message.playerData.y;
+
+                    setTimeout(function() {
+                        if (trucks[message.playerData.mp_id])
+                        {
+                            truckClicked = message.playerData.mp_id;
+                        }
+                    }, 1000);
             break;
             case 'mapInitialState':
                 zoom = 0.6;
@@ -160,11 +166,32 @@ class MapScreen extends BaseTruckyComponent
         switch (message.messageType) {
             case 'mapStart':
                 this.setState({loading: false, showMap: true});
-                this.sendUpdateMapSettings();
+
+                var instance = this;
+
+                this.AppSettings.getSettings()
+                    .then( (settings) => {
+                        
+                        //console.warn(settings.mapSettings);
+
+                        if (settings.mapSettings)
+                        {
+                            //console.warn('set mapSettings on state');
+                            instance.setState({mapSettings: settings.mapSettings});
+                        }
+                        else
+                        {
+                            settings.mapSettings = instance.state.mapSettings;
+                            instance.AppSettings.saveSettings(settings);
+                        }
+
+                        //console.warn('sendUpdateSettings on startMap');
+                        this.sendUpdateMapSettings();
+                    });
 
                 if (this.props.data)
                 {
-                    this.sendMessage('viewUser', { mp_id: this.props.data.playerData.mp_id});                    
+                    this.sendMessage('viewUser', { playerData: this.props.data.playerData});                    
                 }
                 else
                 {
@@ -292,14 +319,14 @@ class MapScreen extends BaseTruckyComponent
         return (
             this.state.showFilter &&
                 <View style={this.StyleManager.styles.meetupSearchFormContainer}>
-                    <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>Server</Text>
+                    <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.servers}</Text>
                     <Picker
                         style={this.StyleManager.styles.meetupsSearchFormField}
                         selectedValue={this.state.selectedServer}
                         onValueChange={(value) => this.serverSelected(value)}>
                         {serversItems}
                     </Picker>
-                    <Text ref="autocompleteInput" style={this.StyleManager.styles.meetupsSearchFormLabel}>POIS</Text>
+                    <Text ref="autocompleteInput" style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.places}</Text>
                     <TextInput onChangeText={(text) => this.filterPoi(text)}/>
                     <ListView
                         dataSource={this.state.filteredPois}
@@ -313,6 +340,8 @@ class MapScreen extends BaseTruckyComponent
         this.state.mapSettings[key] = value;
 
         this.setState({ mapSettings: this.state.mapSettings});
+
+        this.AppSettings.setValue(this.AppSettings.keys.mapSettings, this.state.mapSettings);
 
         this.sendUpdateMapSettings();
     }
@@ -331,7 +360,7 @@ class MapScreen extends BaseTruckyComponent
             this.state.showSettings &&
             <View>
                  <View style={this.StyleManager.styles.appSettingsRow}>
-                        <Text style={this.StyleManager.styles.appSettingsLabel}>Hide Heatmap</Text>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.hideHeatMap}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
                                 onValueChange={(value) => this.updateMapSettings('hideHeatMap', value)}
@@ -339,7 +368,7 @@ class MapScreen extends BaseTruckyComponent
                         </View>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRow}>
-                        <Text style={this.StyleManager.styles.appSettingsLabel}>Show direction</Text>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.showDirection}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
                                 onValueChange={(value) => this.updateMapSettings('showDirection', value)}
@@ -347,7 +376,7 @@ class MapScreen extends BaseTruckyComponent
                         </View>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRow}>
-                        <Text style={this.StyleManager.styles.appSettingsLabel}>Show Box</Text>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.showTrucks}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
                                 onValueChange={(value) => this.updateMapSettings('showTrucks', value)}
@@ -355,7 +384,7 @@ class MapScreen extends BaseTruckyComponent
                         </View>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRow}>
-                        <Text style={this.StyleManager.styles.appSettingsLabel}>Show Name</Text>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.showName}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
                                 onValueChange={(value) => this.updateMapSettings('showName', value)}
@@ -363,7 +392,7 @@ class MapScreen extends BaseTruckyComponent
                         </View>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRow}>
-                        <Text style={this.StyleManager.styles.appSettingsLabel}>Show ID</Text>
+                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.showID}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
                                 onValueChange={(value) => this.updateMapSettings('showID', value)}

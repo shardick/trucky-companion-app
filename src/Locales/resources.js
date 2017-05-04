@@ -85,7 +85,17 @@ var strings = new LocalizedStrings({
         issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Expires:', // Expires: DATE,
         german: 'German',
-        liveMapRouteTitle: 'Live Map'
+
+        /* STRINGS ADDED IN VERSION 1.0.4 */
+        liveMapRouteTitle: 'Live Map',
+        checkingOnlineState: 'Checking online state..',
+        viewOnMap: 'View on map',
+        hideHeatMap: 'Hide heatmap',
+        showDirection: 'Show direction',
+        showTrucks: 'Show Trucks',
+        showName: 'Show name',
+        showID: 'Show ID',
+        places: 'Places'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -167,7 +177,17 @@ var strings = new LocalizedStrings({
         steamID: 'ID Steam:',
         issuedBy: 'Emato da {0} il {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Scadenza:', // Expires: DATE
-        german: 'Tedesco'
+        german: 'Tedesco',
+
+        liveMapRouteTitle: 'Live Map',
+        checkingOnlineState: 'Controllo stato..',
+        viewOnMap: 'Segui sulla mappa',
+        hideHeatMap: 'Nascondi mappa densità',
+        showDirection: 'Mostra direzione',
+        showTrucks: 'Mostra camion',
+        showName: 'Mostra i nomi',
+        showID: 'Mostra gli ID',
+        places: 'Luoghi'
     },
     // credits: Hristo Spasov
     bg: {

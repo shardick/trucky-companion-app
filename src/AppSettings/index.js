@@ -7,9 +7,13 @@ class AppSettings
     static get keys()
     {
         return {
-            autoRefreshGameTime: 'autoRefreshGameTime', autoRefreshServersList: 'autoRefreshServersList',
-            serverListRefreshInterval: 'serverListRefreshInterval', language: 'language',
-            firstStart: 'firstStart', lastVersionNumber: 'lastVersionNumber'
+            autoRefreshGameTime: 'autoRefreshGameTime',
+            autoRefreshServersList: 'autoRefreshServersList',
+            serverListRefreshInterval: 'serverListRefreshInterval',
+            language: 'language',
+            firstStart: 'firstStart',
+            lastVersionNumber: 'lastVersionNumber',
+            mapSettings: 'mapSettings'
         }
     }
 
@@ -26,16 +30,22 @@ class AppSettings
             serverListRefreshInterval: 60000,
             language: 'en',
             firstStart: true,
-            lastVersionNumber: ''
-        };        
-    }       
+            lastVersionNumber: '',
+            mapSettings: {
+                hideHeatMap: true,
+                showDirection: true,
+                showTrucks: true,
+                showName: false,
+                showID: true
+            }
+        };
+    }
 
     static async initialize()
     {
         var alreadyInit = await AppSettings.settingsInitialized();
 
-        if (!alreadyInit)
-        {
+        if (!alreadyInit) {
             //await AsyncStorage.setItem(storageKey, JSON.stringify(defaultSettings));
             await AppSettings.saveSettings(AppSettings.defaultSettings);
         }
@@ -56,9 +66,9 @@ class AppSettings
     static async getSettings()
     {
         await AppSettings.initialize();
-        
+
         var settingsString = await AppSettings.getSettingsString();
-        
+
         return JSON.parse(settingsString);
     }
 

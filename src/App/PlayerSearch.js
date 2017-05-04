@@ -20,6 +20,7 @@ import {Toolbar, Button} from 'react-native-material-ui';
 import RNRestart from 'react-native-restart';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckersMPAPI from '../Services/TruckersMPAPI';
+import TruckyAPI from '../Services/TruckyServices';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 
 /**
@@ -45,6 +46,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
             loading: false,
             playerInfo: {},
             playerLoaded: false,
+            checkingOnlineState: true,
             bans:  new ListView.DataSource({
                 rowHasChanged: (r1, r2) => r1 !== r2
             })
@@ -72,11 +74,13 @@ class PlayerSearchScreen extends BaseTruckyComponent
      */
     search()
     {
-        this.setState({playerLoaded: false});
+        this.setState({playerLoaded: false, checkingOnlineState: true});
 
         //console.warn('search');
 
         Keyboard.dismiss();
+
+        var instance = this;
 
         if (this.state.searchText != '') {
             this.setState({loading: true});
@@ -89,10 +93,23 @@ class PlayerSearchScreen extends BaseTruckyComponent
 
                     if (!response.found) {
                         Alert.alert('Player not found');
-                        this.setState({playerLoaded: false});
+                        this.setState({playerLoaded: false});                       
+                        
                     } else {
                         this.setState({playerInfo: response});
                         this.setState({playerLoaded: true});
+
+                        var tapi = new TruckyAPI();
+
+                        tapi.isOnline(response.truckersMPProfileInfo.id)
+                            .then( (onlineStatus) => {
+                                
+                                console.warn(JSON.stringify(onlineStatus));
+                                
+                                instance.state.playerInfo.onlineStatus = onlineStatus;
+
+                                instance.setState({ playerInfo: instance.state.playerInfo, checkingOnlineState: false });
+                            });
                     }
 
                     this.setState({loading: false});
@@ -181,18 +198,23 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                     : '#'
                             }}/>
                             }
-                            {this.state.playerInfo.onlineStatus &&
+                            {this.state.playerInfo.onlineStatus && !this.state.checkingOnlineState &&
                             <View style={this.StyleManager.styles.playerOnlineStatusContainer}>
                                 {this.state.playerInfo.onlineStatus.isOnline && 
                                     <View style={{ alignItems: 'center'}}>
                                         <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
-                                        <Button primary raised icon="place" text="View on map" onPress={this.viewOnMap.bind(this)} />
+                                        <Button primary raised icon="place" text={this.LocaleManager.strings.viewOnMap} onPress={this.viewOnMap.bind(this)} />
                                     </View>
                                 }
                                 {!this.state.playerInfo.onlineStatus.isOnline && 
                                     <Text style={this.StyleManager.styles.playerOffline}>{this.LocaleManager.strings.offline}</Text>
                                 }
                             </View>
+                            }
+                            {this.state.checkingOnlineState &&
+                                <View style={this.StyleManager.styles.playerOnlineStatusContainer}>
+                                    <Text>{this.LocaleManager.strings.checkingOnlineState}</Text>
+                                </View>
                             }
                             <Image
                                 style={this.StyleManager.styles.playerSearchResultImage}
