@@ -746,7 +746,16 @@ var strings = new LocalizedStrings({
         steamUsername: 'Steamname:',
         steamID: 'Steam-ID:',
         issuedBy: 'Ausgestellt durch {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Läuft aus:' // Expires: DATE
+        expires: 'Läuft aus:', // Expires: DATE
+        liveMapRouteTitle: 'Live-Karte',
+        checkingOnlineState: 'Online-Status überprüfen...',
+        viewOnMap: 'Auf Karte anzeigen',
+        hideHeatMap: 'Heatmap verstecken',
+        showDirection: 'Richtung anzeigen',
+        showTrucks: 'LKWs anzeigen',
+        showName: 'Namen anzeigen',
+        showID: 'ID anzeigen',
+        places: 'Orte'
     },
     // Credits ActiV3Drifter (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
     cs: {
