@@ -497,7 +497,16 @@ var strings = new LocalizedStrings({
         steamUsername: 'Nombre en Steam:',
         steamID: 'Steam ID:',
         issuedBy: 'Emitido por {0} el {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Expira:' // Expires: DATE
+        expires: 'Expira:', // Expires: DATE
+        liveMapRouteTitle: 'Mapa en Vivo',
+        checkingOnlineState: 'Revisando estado en linea..',
+        viewOnMap: 'Ver en mapa',
+        hideHeatMap: 'Ocultar mapa de calor',
+        showDirection: 'Mostrar dirección​,
+        showTrucks: 'Mostrar Camiones',
+        showName: 'Mostrar nombre',
+        showID: 'Mostrar ID',
+        places: 'Lugares'
     },
     // credits Derk Nomden
     nl: {
