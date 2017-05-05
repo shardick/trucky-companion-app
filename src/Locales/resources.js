@@ -85,8 +85,7 @@ var strings = new LocalizedStrings({
         issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Expires:', // Expires: DATE,
         german: 'German',
-
-        /* STRINGS ADDED IN VERSION 1.0.4 */
+        /* LABELS ADDED IN VERSION 1.0.4 */
         liveMapRouteTitle: 'Live Map',
         checkingOnlineState: 'Checking online state..',
         viewOnMap: 'View on map',
@@ -178,7 +177,6 @@ var strings = new LocalizedStrings({
         issuedBy: 'Emato da {0} il {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Scadenza:', // Expires: DATE
         german: 'Tedesco',
-
         liveMapRouteTitle: 'Live Map',
         checkingOnlineState: 'Controllo stato..',
         viewOnMap: 'Segui sulla mappa',

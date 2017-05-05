@@ -155,8 +155,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
         return (
             <Container>
                 {this.renderToolbar()}
-                <View>
-                <View style={this.StyleManager.styles.searchPlayerContainer}>
+                <ScrollView style={this.StyleManager.styles.searchPlayerContainer}>
                     <TextInput
                         onChangeText={(text) => this.setState({searchText: text})}                        
                         placeholder={this.LocaleManager.strings.searchFieldPlaceholder}/>
@@ -200,13 +199,13 @@ class PlayerSearchScreen extends BaseTruckyComponent
                             }
                             {this.state.playerInfo.onlineStatus && !this.state.checkingOnlineState &&
                             <View style={this.StyleManager.styles.playerOnlineStatusContainer}>
-                                {this.state.playerInfo.onlineStatus.isOnline && 
+                                {this.state.playerInfo.onlineStatus.online && 
                                     <View style={{ alignItems: 'center'}}>
                                         <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
                                         <Button primary raised icon="place" text={this.LocaleManager.strings.viewOnMap} onPress={this.viewOnMap.bind(this)} />
                                     </View>
                                 }
-                                {!this.state.playerInfo.onlineStatus.isOnline && 
+                                {!this.state.playerInfo.onlineStatus.online && 
                                     <Text style={this.StyleManager.styles.playerOffline}>{this.LocaleManager.strings.offline}</Text>
                                 }
                             </View>
@@ -279,8 +278,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 />                                       
                         }
                     </ScrollView>
-                </View>
-                </View>
+                </ScrollView>
             </Container>
         );
     }

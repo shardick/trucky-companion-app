@@ -27,6 +27,19 @@ import Autocomplete from 'react-native-autocomplete-input';
 import TruckyServices from '../Services/TruckyServices';
 
 const injectScript = `
+var truckSelected = false;
+var truckSelectionInterval;
+
+function setTruckClicked(playerID)
+{
+    if (trucks[playerID])
+    {
+        truckClicked = playerID;
+        truckSelected = true;
+        clearInterval(truckSelectionInterval);
+    }
+}
+
 $(document).ready(function() {
 
         document.addEventListener('message', function (e) {
@@ -60,15 +73,13 @@ $(document).ready(function() {
             case 'viewUser':               
 
                     zoom = 1;
+                    setServer(message.serverID);
                     cameraX = message.playerData.x;
                     cameraY = message.playerData.y;
 
-                    setTimeout(function() {
-                        if (trucks[message.playerData.mp_id])
-                        {
-                            truckClicked = message.playerData.mp_id;
-                        }
-                    }, 1000);
+                    truckSelectionInterval = setInterval(function() {
+                        setTruckClicked(message.playerData.mp_id);
+                    }, 20);
             break;
             case 'mapInitialState':
                 zoom = 0.6;
@@ -191,7 +202,7 @@ class MapScreen extends BaseTruckyComponent
 
                 if (this.props.data)
                 {
-                    this.sendMessage('viewUser', { playerData: this.props.data.playerData});                    
+                    this.sendMessage('viewUser', { playerData: this.props.data, serverID: this.props.data.server });                    
                 }
                 else
                 {

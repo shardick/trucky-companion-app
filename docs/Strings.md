@@ -66,7 +66,7 @@ truckersMPSteamGroup: 'TruckersMP Steam Group',<br/>
 readMore: 'Read More',<br/>
 newsAndEvents: 'News and events',<br/>
 gameStatus: 'Game Status',<br/>
-newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released'<br/>
+newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released',<br/>
 french: 'French',<br/>
 bulgarian: 'Bulgarian',<br/>
 finnish: 'Finnish',<br/>
@@ -93,7 +93,17 @@ realName: 'Real Name:',<br/>
 steamUsername: 'Steam Username:',<br/>
 steamID: 'Steam ID:',<br/>
 issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE<br/>
-expires: 'Expires:' // Expires: DATE<br/>
+expires: 'Expires:', // Expires: DATE<br/>
+/* LABELS ADDED IN VERSION 1.0.4 */<br/>
+liveMapRouteTitle: 'Live Map',<br/>
+checkingOnlineState: 'Checking online state..',<br/> // label showed waiting for online status response
+viewOnMap: 'View on map',<br/>
+hideHeatMap: 'Hide heatmap',<br/> // represents trucks density in a certain area
+showDirection: 'Show direction',<br/>
+showTrucks: 'Show Trucks',<br/>
+showName: 'Show name',<br/>
+showID: 'Show ID',<br/>
+places: 'Places'<br/> // or Locations, or Point of interests
 
 
 Thank you!
