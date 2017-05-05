@@ -96,14 +96,14 @@ issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on D
 expires: 'Expires:', // Expires: DATE<br/>
 /* LABELS ADDED IN VERSION 1.0.4 */<br/>
 liveMapRouteTitle: 'Live Map',<br/>
-checkingOnlineState: 'Checking online state..',<br/> // label showed waiting for online status response
+checkingOnlineState: 'Checking online state..', // label showed waiting for online status response<br/>
 viewOnMap: 'View on map',<br/>
-hideHeatMap: 'Hide heatmap',<br/> // represents trucks density in a certain area
+hideHeatMap: 'Hide heatmap', // represents trucks density in a certain area<br/>
 showDirection: 'Show direction',<br/>
 showTrucks: 'Show Trucks',<br/>
 showName: 'Show name',<br/>
 showID: 'Show ID',<br/>
-places: 'Places'<br/> // or Locations, or Point of interests
+places: 'Places' // or Locations, or Point of interests<br/>
 
 
 Thank you!
