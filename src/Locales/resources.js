@@ -932,7 +932,17 @@ var strings = new LocalizedStrings({
         steamUsername: 'Никнейм Steam:',
         steamID: 'Steam ID:',
         issuedBy: 'Выдан {0} {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Истекает:' // Expires: DATE
+        expires: 'Истекает:', // Expires: DATE
+        /* LABELS ADDED IN VERSION 1.0.4 */
+        liveMapRouteTitle: 'Онлайн-карта',
+        checkingOnlineState: 'Проверка статуса...',
+        viewOnMap: 'Показать на карте',
+        hideHeatMap: 'Отключить тепловую карту',
+        showDirection: 'Показать направление',
+        showTrucks: 'Показать грузовики',
+        showName: 'Показать никнейм',
+        showID: 'Показать ID',
+        places: 'Места'
     }
 });
 
