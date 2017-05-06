@@ -108,7 +108,7 @@ const _styles = StyleSheet.create({
   },
   appSettingsRow: {
     flexDirection: 'row',
-    
+
     marginRight: 10,
     marginLeft: 10,
     marginTop: 10,
@@ -338,6 +338,15 @@ const _styles = StyleSheet.create({
   },
   playerOffline: {
     color: 'red'
+  },
+  mapCredits: {
+    alignItems: 'center',
+    marginTop: 5,
+    marginBottom: 5
+  },
+  mapPoiListItem: {
+    marginBottom: 5,
+    marginTop: 5
   }
 });
 
@@ -361,8 +370,7 @@ _styles.rulesMarkDownSyles = {
 };
 
 /* ios style overrides */
-if (Platform.OS == 'ios')
-{
+if (Platform.OS == 'ios') {
   _styles.searchPlayerContainer.marginTop = 200;
 }
 module.exports = StyleManager;

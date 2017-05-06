@@ -143,43 +143,10 @@ class PlayerSearchScreen extends BaseTruckyComponent
         this.props.navigator.push(mapRoute);
     }
 
-    /**
-     * 
-     * 
-     * @returns 
-     * 
-     * @memberOf PlayerSearchScreen
-     */
-    render()
+    renderSearchResult()
     {
         return (
-            <Container>
-                {this.renderToolbar()}
-                <ScrollView style={this.StyleManager.styles.searchPlayerContainer}>
-                    <TextInput
-                        onChangeText={(text) => this.setState({searchText: text})}                        
-                        placeholder={this.LocaleManager.strings.searchFieldPlaceholder}/>
-                    <Picker
-                        itemStyle={this.StyleManager.styles.appSettingsPicker}
-                        selectedValue={this.state.searchType}
-                        onValueChange={(value) => this.setState({searchType: value})}>
-                        <Picker.Item
-                            label={this.LocaleManager.strings.searchBySteamUsername}
-                            value="steamusername"/>
-                        <Picker.Item
-                            label={this.LocaleManager.strings.searchBySteamID}
-                            value="steamid"/>
-                        <Picker.Item
-                            label={this.LocaleManager.strings.searchByTruckersMPID}
-                            value="truckersmpid"/>
-                    </Picker>
-                    <Button
-                        text={this.LocaleManager.strings.searchButton}
-                        primary
-                        raised
-                        onPress={() => this.search()} icon="search"/>
-                        {this.state.loading && <ActivityIndicator/>}
-                    <ScrollView
+             <ScrollView
                     
                         style={!this.state.playerLoaded
                         ? this.StyleManager.styles.hidden
@@ -202,7 +169,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 {this.state.playerInfo.onlineStatus.online && 
                                     <View style={{ alignItems: 'center'}}>
                                         <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
-                                        <Button primary raised icon="place" text={this.LocaleManager.strings.viewOnMap} onPress={this.viewOnMap.bind(this)} />
+                                        <Button primary icon="place" text={this.LocaleManager.strings.viewOnMap} onPress={this.viewOnMap.bind(this)} />
                                     </View>
                                 }
                                 {!this.state.playerInfo.onlineStatus.online && 
@@ -278,6 +245,47 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 />                                       
                         }
                     </ScrollView>
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @returns 
+     * 
+     * @memberOf PlayerSearchScreen
+     */
+    render()
+    {
+        return (
+            <Container>
+                {this.renderToolbar()}
+                <ScrollView style={this.StyleManager.styles.searchPlayerContainer}>
+                    <TextInput
+                        onChangeText={(text) => this.setState({searchText: text})}                        
+                        placeholder={this.LocaleManager.strings.searchFieldPlaceholder}/>
+                    <Picker
+                        itemStyle={this.StyleManager.styles.appSettingsPicker}
+                        selectedValue={this.state.searchType}
+                        onValueChange={(value) => this.setState({searchType: value})}>
+                        <Picker.Item
+                            label={this.LocaleManager.strings.searchBySteamUsername}
+                            value="steamusername"/>
+                        <Picker.Item
+                            label={this.LocaleManager.strings.searchBySteamID}
+                            value="steamid"/>
+                        <Picker.Item
+                            label={this.LocaleManager.strings.searchByTruckersMPID}
+                            value="truckersmpid"/>
+                    </Picker>
+                    <Button
+                        text={this.LocaleManager.strings.searchButton}
+                        primary
+                        raised
+                        onPress={() => this.search()} icon="search"/>
+                        {this.state.loading && <ActivityIndicator/>}
+                        
+                        {this.renderSearchResult()}
                 </ScrollView>
             </Container>
         );

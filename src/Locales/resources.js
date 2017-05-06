@@ -502,7 +502,7 @@ var strings = new LocalizedStrings({
         checkingOnlineState: 'Revisando estado en linea..',
         viewOnMap: 'Ver en mapa',
         hideHeatMap: 'Ocultar mapa de calor',
-        showDirection: 'Mostrar dirección​,
+        showDirection: 'Mostrar dirección​',
         showTrucks: 'Mostrar Camiones',
         showName: 'Mostrar nombre',
         showID: 'Mostrar ID',
@@ -672,7 +672,16 @@ var strings = new LocalizedStrings({
         steamID: 'Steam ID:',
         issuedBy: 'Wydane przez {0} na {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Wygasa:', // Wygasa: Dnia
-        polish: 'Polski'
+        polish: 'Polski',
+        liveMapRouteTitle: 'Mapa na żywo',
+        checkingOnlineState: 'Sprawdzanie stanu online',
+        viewOnMap: 'Zobacz na mapie',
+        hideHeatMap: 'Ukryj mapę natężenia ruchu',
+        showDirection: 'Pokaż kierunek',
+        showTrucks: 'Pokaż ciężarówki',
+        showName: 'Pokaż nazwę',
+        showID: 'Pokaż ID',
+        places: 'Miejsca'
     },
     // Credits Tobias Groß 
     de: {

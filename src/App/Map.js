@@ -196,6 +196,11 @@ class MapScreen extends BaseTruckyComponent
                             instance.AppSettings.saveSettings(settings);
                         }
 
+                        if (this.props.data)
+                        {
+                            instance.state.showName = true;
+                        }
+                        
                         //console.warn('sendUpdateSettings on startMap');
                         this.sendUpdateMapSettings();
                     });
@@ -306,7 +311,7 @@ class MapScreen extends BaseTruckyComponent
         }
 
         return (
-            <View style={{marginBottom: 5, marginTop: 5}}>
+            <View style={this.StyleManager.styles.mapPoiListItem}>
                 <TouchableOpacity onPress={() => this.poiSelected(rowData)}>
                     <Text>{spacer}{rowData.name}</Text>
                 </TouchableOpacity>
@@ -432,7 +437,7 @@ class MapScreen extends BaseTruckyComponent
                 {this.state.showMap &&
                 <ActionButton icon="settings" onPress={() => this.setState({showMap: false, showFilter: false, showSettings: true, showSettingsButton: false})} /> 
                 }
-                <View style={{ alignItems: 'center', marginTop: 5, marginBottom: 5}}>
+                <View style={this.StyleManager.styles.mapCredits}>
                     <TouchableOpacity onPress={() => this.navigateUrl('http://ets2map.com')}><Text>Credits: ETS2Map (http://ets2map.com)</Text></TouchableOpacity>
                 </View>
             </Container>
