@@ -13,7 +13,8 @@ class AppSettings
             language: 'language',
             firstStart: 'firstStart',
             lastVersionNumber: 'lastVersionNumber',
-            mapSettings: 'mapSettings'
+            mapSettings: 'mapSettings',
+            steamUser: 'steamUser'
         }
     }
 
@@ -37,7 +38,8 @@ class AppSettings
                 showTrucks: true,
                 showName: false,
                 showID: true
-            }
+            },
+            steamUser: null
         };
     }
 

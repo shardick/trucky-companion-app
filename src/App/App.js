@@ -76,7 +76,7 @@ class App extends Component {
 
         return (
             <Container>
-                <route.Page route={route} navigator={navigator} data={route.data}/>
+                <route.Page route={route} navigator={navigator} data={route.data} callback={route.callback} />
             </Container>
         );
     }

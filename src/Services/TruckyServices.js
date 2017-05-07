@@ -1,7 +1,6 @@
-
 /**
- * 
- * 
+ *
+ *
  * @class TruckyServices
  */
 class TruckyServices
@@ -9,7 +8,7 @@ class TruckyServices
 
     /**
      * Creates an instance of TruckyServices.
-     * 
+     *
      * @memberOf TruckyServices
      */
     constructor()
@@ -19,13 +18,12 @@ class TruckyServices
         }
     }
 
-
     /**
-     * 
-     * 
-     * @param {any} url 
-     * @returns 
-     * 
+     *
+     *
+     * @param {any} url
+     * @returns
+     *
      * @memberOf TruckyServices
      */
     async executeRequest(url)
@@ -36,13 +34,12 @@ class TruckyServices
         return json;
     }
 
-
     /**
-     * 
-     * 
-     * @param {any} username 
-     * @returns 
-     * 
+     *
+     *
+     * @param {any} username
+     * @returns
+     *
      * @memberOf TruckyServices
      */
     async resolveVanityUrl(username)
@@ -51,13 +48,12 @@ class TruckyServices
         return response;
     }
 
-
     /**
-     * 
-     * 
-     * @param {any} steamid 
-     * @returns 
-     * 
+     *
+     *
+     * @param {any} steamid
+     * @returns
+     *
      * @memberOf TruckyServices
      */
     async getPlayerSummaries(steamid)
@@ -75,6 +71,12 @@ class TruckyServices
     async isOnline(playerID)
     {
         var response = await this.executeRequest('/map/online?playerID=' + playerID);
+        return response;
+    }
+
+    async getFriends(steamID)
+    {
+        var response = await this.executeRequest('/steam/getFriendsData?steamid=' + steamID);
         return response;
     }
 }

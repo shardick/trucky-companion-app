@@ -8,6 +8,8 @@ import SplashScreen from './App/SplashScreen';
 import NewsFeedScreen from './App/NewsFeed';
 import SearchPlayerScreen from './App/PlayerSearch';
 import MapScreen from './App/Map';
+import SteamAuthScreen from './App/SteamAuth';
+import FriendsListScreen from './App/FriendsList';
 
 class RouteManager
 {
@@ -76,6 +78,14 @@ class RouteManager
             map: {
                 title: 'Live Map',
                 Page: MapScreen
+            },
+            steamAuth: {
+                title: 'Steam authentication',
+                Page: SteamAuthScreen
+            },
+            friends: {
+                title: 'Friends list',
+                Page: FriendsListScreen
             }
         });
     }

@@ -3,7 +3,6 @@ var ReactNative = require('react-native');
 var {
     Text,
     View,
-    Button,
     Alert,
     Switch,
     Picker,
@@ -13,7 +12,7 @@ var {
 
 import Container from '../Container';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Toolbar} from 'react-native-material-ui';
+import {Toolbar, Button} from 'react-native-material-ui';
 import RNRestart from 'react-native-restart';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -51,6 +50,22 @@ class SettingsScreen extends BaseTruckyComponent
             centerElement={this.LocaleManager.strings.routeSettingsTitle}/>);
     }
 
+    goToSteamLogin()
+    {
+        var newRoute = Object.assign(this.RouteManager.routes.steamAuth, { callback: this.loadSettings.bind(this) });
+
+        this.RouteManager.push(newRoute);
+    }
+
+    disconnectSteamAccount()
+    {
+        var instance = this;
+
+        this.AppSettings.setValue('steamUser', null).then( () => {
+            instance.loadSettings();
+        });
+    }
+
     render()
     {
         let languageItems = this.LocaleManager.availableLanguages.map( (language) => {
@@ -63,6 +78,21 @@ class SettingsScreen extends BaseTruckyComponent
                 <View style={{
                     marginTop: 10
                 }}>
+                    <View style={this.StyleManager.styles.appSettingsHeader}>
+                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>Your Steam Profile</Text>
+                    </View>
+                     <View style={this.StyleManager.styles.appSettingsRow}>
+                         {this.state.settings.steamUser &&
+                            <View>
+                                <Text>Connected as {this.state.settings.steamUser.steamDisplayName} ({this.state.settings.steamUser.steamID})</Text>
+                                <Button primary icon="exit-to-app" text="Disconnect" onPress={this.disconnectSteamAccount.bind(this)} />
+                            </View>
+                         }
+                        {!this.state.settings.steamUser &&
+                        <Button primary raised icon="lock" text="Login to Steam" onPress={this.goToSteamLogin.bind(this)} />
+                        }
+                     </View>
+
                     <View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.enableAutoRefresh}</Text>
                     </View>
@@ -110,15 +140,6 @@ class SettingsScreen extends BaseTruckyComponent
                                 selectedValue={this.state.settings.language}
                                 onValueChange={(value) => this.updateSetting(this.AppSettings.keys.language, value)}>
                                 {languageItems}
-                                {/*<Picker.Item label={this.LocaleManager.strings.bulgarian} value="bg"/>
-                                <Picker.Item label={this.LocaleManager.strings.dutch} value="nl"/>
-                                <Picker.Item label={this.LocaleManager.strings.french} value="fr"/>
-                                <Picker.Item label={this.LocaleManager.strings.german} value="de"/>    
-                                <Picker.Item label={this.LocaleManager.strings.finnish} value="fi"/>  
-                                <Picker.Item label={this.LocaleManager.strings.english} value="en"/>
-                                <Picker.Item label={this.LocaleManager.strings.italian} value="it"/>
-                                <Picker.Item label={this.LocaleManager.strings.spanish} value="es"/>
-                                <Picker.Item label={this.LocaleManager.strings.polish} value="pl"/>*/}
                             </Picker>
                         </View>
                     </View>
