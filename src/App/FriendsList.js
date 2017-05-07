@@ -102,7 +102,7 @@ class FriendsListScreen extends BaseTruckyComponent
                         flexDirection: 'column'
                     }}>
                         <Text>{rowData.truckersMPUser.name}
-                            ({rowData.truckersMPUser.id})</Text>
+                            &nbsp;({rowData.truckersMPUser.id})</Text>
                         {rowData.onlineStatus.online && 
                             <View>
                                 <Text style={this.StyleManager.styles.playerOnline}>Online</Text>                            

@@ -62,11 +62,6 @@ class AppDrawerLayout extends BaseTruckyComponent
                     divider
                     items={[
                     {
-                        value: 'Friends',
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.friends)
-                    }, {
                         icon: 'cloud',
                         value: this.LocaleManager.strings.servers,
                         onPress: this
@@ -84,6 +79,12 @@ class AppDrawerLayout extends BaseTruckyComponent
                         onPress: this
                             .onPress
                             .bind(this, this.RouteManager.routes.map)
+                    }, {
+                        icon: 'people',
+                        value: 'Friends',
+                        onPress: this
+                            .onPress
+                            .bind(this, this.RouteManager.routes.friends)
                     }, {
                         icon: 'search',
                         value: this.LocaleManager.strings.searchPlayer,
