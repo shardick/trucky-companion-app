@@ -21,11 +21,15 @@ class FriendsListScreen extends BaseTruckyComponent
     {
         super();
 
-        var ds = new ListView.DataSource({
+        var friendsOnline = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2
+        });
+        var friendsOffline = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
         this.state = {
-            dataSource: ds.cloneWithRows([]),
+            friendsOnline: friendsOnline.cloneWithRows([]),
+            friendsOffline: friendsOnline.cloneWithRows([]),
             loading: true,
             api: new TruckyServices()
         };
@@ -44,15 +48,23 @@ class FriendsListScreen extends BaseTruckyComponent
             .api
             .getFriends(settings.steamUser.steamID);
 
-        var tmpFriends = friends.filter(function (f) {
-            return (f.truckersMPUser);
+        var tmpFriendsOnline = friends.filter(function (f) {
+            return (f.truckersMPUser) && f.onlineStatus && f.onlineStatus.online;
+        });
+
+        var tmpFriendsOffline = friends.filter(function (f) {
+            return (f.truckersMPUser) && f.onlineStatus && !f.onlineStatus.online;
         });
 
         this.setState({
-            dataSource: this
+            friendsOnline: this
                 .state
-                .dataSource
-                .cloneWithRows(tmpFriends)
+                .friendsOnline
+                .cloneWithRows(tmpFriendsOnline),
+            friendsOffline: this
+                .state
+                .friendsOffline
+                .cloneWithRows(tmpFriendsOffline)
         });
 
         this.setState({loading: false});
@@ -60,16 +72,22 @@ class FriendsListScreen extends BaseTruckyComponent
 
     viewOnMap(playerData)
     {
-        var mapRoute = Object.assign(this.RouteManager.routes.map, { data: playerData.onlineStatus});
+        var mapRoute = Object.assign(this.RouteManager.routes.map, {data: playerData.onlineStatus});
 
-        this.props.navigator.push(mapRoute);
+        this
+            .props
+            .navigator
+            .push(mapRoute);
     }
 
     renderToolbar = () => {
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement="Friends list"/>);
+            centerElement="Friends list"
+            rightElement="refresh"
+            onRightElementPress={() => this.fetchData().done()}
+            />);
     }
 
     _onRefresh() {
@@ -78,39 +96,78 @@ class FriendsListScreen extends BaseTruckyComponent
             .done();
     }
 
+    renderFriendsList(list)
+    {
+        return (
+            <ListView
+                dataSource={list}
+                renderRow={this
+                .renderRow
+                .bind(this)}
+                automaticallyAdjustContentInsets={false}
+                renderSeparator={(sectionId, rowId) => <View key={rowId} style={this.StyleManager.styles.separator}/>}
+                refreshControl={< RefreshControl refreshing = {
+                this.state.loading
+            }
+            onRefresh = {
+                this
+                    ._onRefresh
+                    .bind(this)
+            } />}/>
+        );
+    }
+
+    renderPersonaState(status)
+    {
+        switch (status)
+        {
+            case 0:
+                return 'Offline';
+            case 1:
+                return 'Online on Steam';
+            case 2:
+                return 'Busy on Steam';
+            case 3:
+                return 'Away on Steam';
+            case 4:
+                return 'Snoozing on Steam';
+            case 5:
+                return 'Looking for a trade on Steam';
+            case 6:
+                return 'Looking for play on Steam';
+        }
+    }
+
     renderRow(rowData) {
         return (
             <Card>
-                <View
-                    style={{
-                    padding: 10,
-                    flexDirection: 'row'
-                }}>
+                <View style={this.StyleManager.styles.friendsListRow}>
                     <View>
                         <Image
                             source={{
                             uri: rowData.truckersMPUser.avatar
                         }}
-                            style={{
-                            width: 50,
-                            height: 50,
-                            marginRight: 10
-                        }}/>
+                            style={this.StyleManager.styles.friendsListProfileImage}/>
                     </View>
-                    <View
-                        style={{
-                        flexDirection: 'column'
-                    }}>
-                        <Text>{rowData.truckersMPUser.name}
+                    <View style={this.StyleManager.styles.friendsListUsernameContainer}>
+                        <Text style={this.StyleManager.styles.friendListUsername}>{rowData.truckersMPUser.name}
                             &nbsp;({rowData.truckersMPUser.id})</Text>
-                        {rowData.onlineStatus.online && 
-                            <View>
-                                <Text style={this.StyleManager.styles.playerOnline}>Online</Text>                            
-                                <Button primary icon="map" text="View on map" onPress={() => this.viewOnMap(rowData)} />
-                            </View>
+                        {rowData.onlineStatus.online && <View>
+                            <Text style={this.StyleManager.styles.playerOnline}>Online</Text>   
+                            <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
+                            <Button
+                                primary
+                                icon="map"
+                                text="View on map"
+                                onPress={() => this.viewOnMap(rowData)}/>
+                            </View>                         
+                        </View>
                         }
                         {!rowData.onlineStatus.online && <Text style={this.StyleManager.styles.offline}>Offline</Text>}
-                    </View>
+                        {rowData.steamUser.personastate > 0 &&
+                                <Text>{this.renderPersonaState(rowData.steamUser.personastate)}</Text>
+                        }
+                    </View>                    
                 </View>
             </Card>
         )
@@ -121,28 +178,24 @@ class FriendsListScreen extends BaseTruckyComponent
         return (
             <Container>
                 {this.renderToolbar()}
-                <ScrollView style={this.StyleManager.styles.newsListMainContainer}>
+                <ScrollView style={this.StyleManager.styles.friendsListMainContainer}>
                     {this.state.loading && <ActivityIndicator/>}
                     <ScrollView
                         style={this.state.loading
                         ? this.StyleManager.styles.hidden
                         : {}}>
-                        <ListView
-                            style={this.StyleManager.styles.newsListList}
-                            dataSource={this.state.dataSource}
-                            renderRow={this
-                            .renderRow
-                            .bind(this)}
-                            automaticallyAdjustContentInsets={false}
-                            renderSeparator={(sectionId, rowId) => <View key={rowId} style={this.StyleManager.styles.separator}/>}
-                            refreshControl={< RefreshControl refreshing = {
-                            this.state.loading
-                        }
-                        onRefresh = {
-                            this
-                                ._onRefresh
-                                .bind(this)
-                        } />}/>
+
+                        {this.state.friendsOnline.getRowCount() > 0 && <View>
+                            <Text style={this.StyleManager.styles.friendsListSectionTitle}>Online</Text>
+                            {this.renderFriendsList(this.state.friendsOnline)}
+                        </View>
+}
+
+                        {this.state.friendsOffline.getRowCount() > 0 && <View>
+                            <Text style={this.StyleManager.styles.friendsListSectionTitle}>Offline</Text>
+                            {this.renderFriendsList(this.state.friendsOffline)}
+                        </View>
+}
                     </ScrollView>
                 </ScrollView>
             </Container>

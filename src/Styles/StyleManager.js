@@ -347,6 +347,34 @@ const _styles = StyleSheet.create({
   mapPoiListItem: {
     marginBottom: 5,
     marginTop: 5
+  },
+
+  friendsListSectionTitle: {
+    marginTop: 10,
+    marginLeft: 10,
+    marginBottom: 10,
+    color: '#009688',
+    fontWeight: '500'
+  },
+  friendsListMainContainer: {
+    marginTop: 5,
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+  friendsListRow: {
+    padding: 10,
+    flexDirection: 'row'
+  },
+  friendsListProfileImage: {
+    width: 50,
+    height: 50,
+    marginRight: 10
+  },
+  friendListUsername: {
+    fontWeight: '500'
+  },
+  friendsListUsernameContainer: {
+    flexDirection: 'column'
   }
 });
 

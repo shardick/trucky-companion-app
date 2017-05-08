@@ -14,8 +14,8 @@ var {
 
 import {Toolbar, ActionButton, Card, Button} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-import FeedsService from '../Services/FeedsService';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+import TruckyServices from '../Services/TruckyServices';
 
 class NewsFeedScreen extends BaseTruckyComponent
 {
@@ -28,8 +28,7 @@ class NewsFeedScreen extends BaseTruckyComponent
         });
         this.state = {
             dataSource: ds.cloneWithRows([]),
-            loading: true,
-            api: new FeedsService()
+            loading: true
         };
     }
 
@@ -37,10 +36,9 @@ class NewsFeedScreen extends BaseTruckyComponent
     {
         this.setState({loading: true});
 
-        var feed = await this
-            .state
-            .api
-            .getTruckersMPGroupFeed();
+        var api = new TruckyServices();
+
+        var feed = await api.news();
 
         this.setState({
             dataSource: this
@@ -51,16 +49,7 @@ class NewsFeedScreen extends BaseTruckyComponent
 
         this.setState({loading: false});
     }
-
-    /*renderToolbar = () => {
-        return (<Toolbar
-            leftElement="arrow-back"
-            rightElement="refresh"
-            onLeftElementPress={() => this.props.navigator.pop()}
-            centerElement={this.LocaleManager.strings.routeServersTitle}
-            onRightElementPress={() => this.fetchData().done()}/>);
-    }*/
-
+    
     renderRow(rowData) {
         return (
             <Card>

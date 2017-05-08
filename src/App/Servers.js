@@ -16,8 +16,8 @@ var {
 
 import {Toolbar, ActionButton, Card} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-import TruckersMPApi from '../Services/TruckersMPAPI';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+import TruckyServices from '../Services/TruckyServices';
 
 class ServersScreen extends BaseTruckyComponent
 {
@@ -31,7 +31,6 @@ class ServersScreen extends BaseTruckyComponent
         this.state = {
             dataSource: ds.cloneWithRows([]),
             loading: true,
-            api: new TruckersMPApi(),
             gameTime: ''
         };
         this.settings = {};
@@ -76,16 +75,16 @@ class ServersScreen extends BaseTruckyComponent
     async fetchData() {
 
         this.setState({loading: true});
-        var servers = await this
-            .state
-            .api
-            .servers();
+
+        var api = new TruckyServices();
+
+        var servers = await api.servers();
 
         this.setState({
             dataSource: this
                 .state
                 .dataSource
-                .cloneWithRows(servers)
+                .cloneWithRows(servers.servers)
         });
 
         await this.setGameTime();
@@ -95,10 +94,9 @@ class ServersScreen extends BaseTruckyComponent
 
     async setGameTime()
     {
-        var gameTime = await this
-            .state
-            .api
-            .game_time_formatted();
+        var api = new TruckyServices();
+
+        var gameTime = await api.game_time();
 
         this.setState({gameTime: gameTime});
     }
@@ -186,7 +184,7 @@ class ServersScreen extends BaseTruckyComponent
                         <View style={this.StyleManager.styles.serversListGameTimeContainer}>
                             <View style={this.StyleManager.styles.simpleRow}>
                                 <Icon style={this.StyleManager.styles.serversListGameTimeIcon} name="clock-o"/>
-                                <Text style={this.StyleManager.styles.serversListGameTimeText}>{this.state.gameTime}</Text>
+                                <Text style={this.StyleManager.styles.serversListGameTimeText}>{this.LocaleManager.moment(this.state.gameTime.calculated_game_time).format('dddd HH:mm')}</Text>
                             </View>
                         </View>
                         <ListView

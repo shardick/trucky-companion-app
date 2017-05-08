@@ -18,8 +18,7 @@ import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import RNCalendarEvents from 'react-native-calendar-events';
-import EventsAPI from '../Services/EventsAPI';
-import TruckersAPI from '../Services/TruckersMPAPI';
+import TruckyServices from '../Services/TruckyServices';
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -35,8 +34,6 @@ class MeetupsScreen extends BaseTruckyComponent
 
         this.state = {
             dataSource: ds.cloneWithRows([]),
-            api: new EventsAPI(),
-            truckersApi: new TruckersAPI(),
             meetups: [],
             loading: true,
             showDialog: false,
@@ -66,19 +63,15 @@ class MeetupsScreen extends BaseTruckyComponent
     {
         this.setState({loading: true, showList: false});
 
-        var meetups = await this
-            .state
-            .api
-            .events();
+        var api = new TruckyServices();
+
+        var meetups = await api.events();
 
         this.setState({meetups: meetups});
 
-        var servers = await this
-            .state
-            .truckersApi
-            .servers();
+        var servers = await api.servers();
 
-        this.setState({servers: servers});
+        this.setState({servers: servers.servers});
 
         this.setState({
             dataSource: this
@@ -88,6 +81,23 @@ class MeetupsScreen extends BaseTruckyComponent
         });
 
         this.setState({loading: false, showList: true});
+    }
+
+    filterEvents(meetups, server, language)
+    {
+        var ret = new Array();
+
+        meetups.forEach(function (element) {
+
+            if (server != "") {
+                if (element.server.indexOf(server.replace(' ', '')) > -1) {
+                    ret.push(element);
+                }
+            }
+
+        }, this);
+
+        return ret;
     }
 
     openSearchDialog()
@@ -237,10 +247,7 @@ class MeetupsScreen extends BaseTruckyComponent
 
     filterSearch()
     {
-        var searchResults = this
-            .state
-            .api
-            .filterEvents(this.state.meetups, this.state.selectedServer, this.state.selectedLanguage);
+        var searchResults = this.filterEvents(this.state.meetups, this.state.selectedServer, this.state.selectedLanguage);
 
         this.setState({
             dataSource: this

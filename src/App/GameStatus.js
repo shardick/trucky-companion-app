@@ -6,9 +6,8 @@ var {Text, View, StyleSheet, Image} = ReactNative;
 
 import {ActionButton, Button} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
-import FeedsService from '../Services/FeedsService';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
-import TruckersMPApi from '../Services/TruckersMPAPI';
+import TruckyServices from '../Services/TruckyServices';
 
 class GameStatus extends BaseTruckyComponent
 {
@@ -19,7 +18,6 @@ class GameStatus extends BaseTruckyComponent
         this.state = {
             gameVersion: {},
             loading: true,
-            api: new TruckersMPApi(),
             refreshTimer: null,
             updateInfo: {}
         };
@@ -45,30 +43,17 @@ class GameStatus extends BaseTruckyComponent
     {
         this.setState({loading: true});
 
-        var gameVersion = await this
-            .state
-            .api
-            .get_version();
+        var api = new TruckyServices();
 
-        var servers = await this
-            .state
-            .api
-            .servers();
+        var gameVersion = await api.game_version();
 
-        var playersOnline = 0;
-
-        for (var i = 0; i < servers.length; i++) {
-            playersOnline += servers[i].players;
-        }
+        var servers = await api.servers();
 
         await this.setGameTime();
 
-        this.setState({totalPlayers: playersOnline, gameVersion: gameVersion});
+        this.setState({totalPlayers: servers.totalPlayers, gameVersion: gameVersion});
 
-        var updateInfo = await this
-            .state
-            .api
-            .getUpdateInfo();
+        var updateInfo = await api.update_info();
 
         this.setState({updateInfo: updateInfo});
 
@@ -77,10 +62,9 @@ class GameStatus extends BaseTruckyComponent
 
     async setGameTime()
     {
-        var gametime = await this
-            .state
-            .api
-            .game_time_formatted();
+        var api = new TruckyServices();
+
+        var gametime = await api.game_time();
 
         this.setState({gameTime: gametime});
     }
@@ -122,7 +106,7 @@ class GameStatus extends BaseTruckyComponent
                     <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
                     <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
                     <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime} {this.state.gameTime}</Text>
+                    <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime} {this.LocaleManager.moment(this.state.gameTime.calculated_game_time).format('dddd HH:mm')}</Text>
                 </View>
 }
             </Container>

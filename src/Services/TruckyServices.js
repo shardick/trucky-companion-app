@@ -79,6 +79,46 @@ class TruckyServices
         var response = await this.executeRequest('/steam/getFriendsData?steamid=' + steamID);
         return response;
     }
+
+    /* news */
+    async news()
+    {
+        var response = await this.executeRequest('/tmpapi/news');
+        return response;
+    }
+
+    async update_info()
+    {
+        var response = await this.executeRequest('/tmpapi/update_info');
+        return response;
+    }
+
+    /* events */
+    async events()
+    {
+        var response = await this.executeRequest('/events/list');
+        return response;
+    }
+
+    /* tmpapi wrapper */
+    async servers()
+    {
+        var response = await this.executeRequest('/tmpapi/servers');
+        return response;
+    }
+
+    async game_version()
+    {
+        var response = await this.executeRequest('/tmpapi/version');
+        return response;
+    }
+
+    async game_time()
+    {
+        var response = await this.executeRequest('/tmpapi/time');
+        return response;
+    }
+    
 }
 
 module.exports = TruckyServices;
