@@ -151,7 +151,7 @@ class MapScreen extends BaseTruckyComponent
     innerNavigation()
     {
         if (this.state.showMap)
-            this.props.navigator.pop();
+            this.RouteManager.pop();
         else if (this.state.showFilter)
             this.setState({showMap: true, showFilter: false, showSettings: false, showSettingsButton: true});
         else if (this.state.showSettings)

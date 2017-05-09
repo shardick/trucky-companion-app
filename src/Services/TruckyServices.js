@@ -28,7 +28,16 @@ class TruckyServices
      */
     async executeRequest(url)
     {
-        var response = await fetch(this.config.serviceUrl + url);
+        var myHeaders = new Headers();
+        myHeaders.set('user-agent', 'TruckyApp');
+        var myInit = {
+            method: 'GET',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'no-cache'
+        };
+
+        var response = await fetch(this.config.serviceUrl + url, myInit);
         var json = await response.json();
 
         return json;
@@ -118,7 +127,13 @@ class TruckyServices
         var response = await this.executeRequest('/tmpapi/time');
         return response;
     }
-    
+
+    async rules()
+    {
+        var response = await this.executeRequest('/tmpapi/rules');
+        return response.rules;
+    }
+
 }
 
 module.exports = TruckyServices;

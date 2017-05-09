@@ -14,7 +14,6 @@ import {
     Linking
 } from 'react-native';
 
-import TruckersMPApi from '../Services/TruckersMPAPI';
 import Container from '../Container';
 import AppDrawerLayout from '../Components/AppDrawerLayout';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
@@ -65,7 +64,11 @@ class Home extends BaseTruckyComponent {
             }
         };
     }
-
+    
+    closeDrawer()
+    {
+        this.setState({sideMenuIsOpen: true});        
+    }
     /**
      * Material UI toolbar rendering
      *
@@ -75,7 +78,7 @@ class Home extends BaseTruckyComponent {
     renderToolbar = () => {
         return (<Toolbar
             leftElement="menu"
-            onLeftElementPress={() => this.setState({sideMenuIsOpen: true})}
+            onLeftElementPress={() => this.closeDrawer()}
             centerElement={this.LocaleManager.strings.routeHomeTitle}/>);
     }
 
@@ -106,9 +109,10 @@ class Home extends BaseTruckyComponent {
         return (
             <Container>
                 <Drawer
+                    ref={(drawer) => this.drawer = drawer}
                     style={this.StyleManager.styles.sideMenu}
                     open={this.state.sideMenuIsOpen}
-                    content={< AppDrawerLayout navigator = {
+                    content={< AppDrawerLayout page={this} ref={(appdrawer) => this.appdrawer = appdrawer} navigator = {
                     this.props.navigator
                 } />}
                     onClose={() => this.setState({sideMenuIsOpen: false})}

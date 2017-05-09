@@ -19,7 +19,7 @@ const UIManager = NativeModules.UIManager;
 // React Navigator instance to manage navigation 
 var _navigator;
 
-// Support to Android Back button operations
+/*// Support to Android Back button operations
 if (Platform.OS == 'android') {
     BackAndroid.addEventListener('hardwareBackPress', () => {
         if (_navigator && _navigator.getCurrentRoutes().length > 1) {
@@ -28,7 +28,7 @@ if (Platform.OS == 'android') {
         }
         return false;
     });
-}
+}*/
 
 
 /**
@@ -76,7 +76,7 @@ class App extends Component {
 
         return (
             <Container>
-                <route.Page route={route} navigator={navigator} data={route.data} callback={route.callback} />
+                <route.Page ref={(page => route.reference = page )} route={route} navigator={navigator} data={route.data} callback={route.callback} />
             </Container>
         );
     }

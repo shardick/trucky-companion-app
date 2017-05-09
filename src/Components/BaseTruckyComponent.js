@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {AppState, Linking} from 'react-native';
+import {AppState, Linking, Platform, BackAndroid} from 'react-native';
 import RM from '../routes';
 import AS from '../AppSettings';
 import LC from '../Locales/LocaleManager';
@@ -7,7 +7,7 @@ import SM from '../Styles/StyleManager';
 
 /**
  * Base Component class for all Screens
- * 
+ *
  * @class BaseTruckyComponent
  * @extends {Component}
  */
@@ -26,6 +26,19 @@ class BaseTruckyComponent extends Component
 
     componentWillMount()
     {
+        var instance = this;
+
+        // Support to Android Back button operations
+        if (Platform.OS == 'android') {
+            BackAndroid.addEventListener('hardwareBackPress', () => {
+                if (instance.RouteManager.navigator && instance.RouteManager.navigator.getCurrentRoutes().length > 1) {
+                    instance.RouteManager.pop();
+                    return true;
+                }
+                return false;
+            });
+        }
+
         // sets the navigator to RouteManager
         this
             .RouteManager
@@ -38,17 +51,17 @@ class BaseTruckyComponent extends Component
 
         AppState.addEventListener('change', this._handleAppStateChange.bind(this));
 
-        // auto load data for all Screen when needeed, children classes overrides fetchData
+        // auto load data for all Screen when needeed, children classes overrides
+        // fetchData
         this
             .fetchData()
             .done();
     }
 
-
     /**
      * Generic (and empty) fetch data method. Children classes overrides it
-     * 
-     * 
+     *
+     *
      * @memberOf BaseTruckyComponent
      */
     async fetchData()
@@ -56,12 +69,11 @@ class BaseTruckyComponent extends Component
         // override with fetchData screen specific
     }
 
-
     /**
      * Handle the AppState change
-     * 
-     * @param {any} nextAppState 
-     * 
+     *
+     * @param {any} nextAppState
+     *
      * @memberOf BaseTruckyComponent
      */
     _handleAppStateChange(nextAppState) {
@@ -76,12 +88,11 @@ class BaseTruckyComponent extends Component
         AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
     }
 
-
     /**
      * Helper method to open Internet URL with the browser
-     * 
-     * @param {any} url 
-     * 
+     *
+     * @param {any} url
+     *
      * @memberOf BaseTruckyComponent
      */
     navigateUrl(url)
@@ -95,6 +106,11 @@ class BaseTruckyComponent extends Component
                     console.log('Don\'t know how to open URI: ' + url);
                 }
             });
+    }
+
+    onPop()
+    {
+        //console.warn('pop');
     }
 }
 

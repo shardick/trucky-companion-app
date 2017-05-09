@@ -20,6 +20,12 @@ class RouteManager
     {
         this._navigator = navigator;
     }
+
+    get navigator()
+    {
+        return this._navigator;
+    }
+
     push(route)
     {
         this
@@ -29,9 +35,24 @@ class RouteManager
 
     pop()
     {
-        this
+        const routes = this
             ._navigator
-            .pop();
+            .getCurrentRoutes();
+
+        if (routes.length > 1) {
+            route = routes[routes.length - 1];
+
+            //console.warn(JSON.stringify(route));
+            route
+                .reference
+                .onPop();
+
+            if (route.title != "SplashScreen") {
+                this
+                    ._navigator
+                    .pop();
+            }
+        }
     }
 
     get routes()
@@ -39,13 +60,11 @@ class RouteManager
         return ({
             home: {
                 title: 'Trucky Companion App',
-                Page: Home,
-                navigationTab: 'home'
+                Page: Home
             },
             servers: {
                 title: 'TruckersMP Servers',
-                Page: ServersScreen,
-                navigationTab: 'servers'
+                Page: ServersScreen
             },
             settings: {
                 title: 'Settings',
@@ -65,6 +84,7 @@ class RouteManager
                 Page: AboutScreen
             },
             splashScreen: {
+                title: 'SplashScreen',
                 Page: SplashScreen
             },
             newsFeed: {

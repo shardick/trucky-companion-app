@@ -83,7 +83,7 @@ class FriendsListScreen extends BaseTruckyComponent
     renderToolbar = () => {
         return (<Toolbar
             leftElement="arrow-back"
-            onLeftElementPress={() => this.props.navigator.pop()}
+            onLeftElementPress={() => this.RouteManager.pop()}
             centerElement="Friends list"
             rightElement="refresh"
             onRightElementPress={() => this.fetchData().done()}

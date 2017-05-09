@@ -165,7 +165,7 @@ class ServersScreen extends BaseTruckyComponent
         return (<Toolbar
             leftElement="arrow-back"
             rightElement="refresh"
-            onLeftElementPress={() => this.props.navigator.pop()}
+            onLeftElementPress={() => this.RouteManager.pop()}
             centerElement={this.LocaleManager.strings.routeServersTitle}
             onRightElementPress={() => this.fetchData().done()}/>);
     }
