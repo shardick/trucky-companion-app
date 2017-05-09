@@ -134,6 +134,81 @@ class TruckyServices
         return response.rules;
     }
 
+    async player(id)
+    {
+        var response = await this.executeRequest('/tmpapi/player?playerID=' + id);
+        return response;
+    }
+
+    async bans(id)
+    {
+        var response = await this.executeRequest('/tmpapi/bans?playerID=' + id);
+        return response;
+    }
+
+    /**
+     * Search player by Steam ID, Steam Username or TruckersMP ID based on searchType parameter
+     *
+     * @param {any} searchTerm
+     * @param {any} searchType
+     * @returns
+     *
+     * @memberOf TruckersMPApi
+     */
+    async searchPlayer(searchTerm, searchType)
+    {
+        var playerInfo = {
+            found: false,
+            steamProfileInfo: null,
+            truckersMPProfileInfo: null,
+            bans: []
+        };
+
+        //console.warn(searchType);
+
+        switch (searchType) {
+            case 'steamusername':
+
+                var steamResponse = await this.resolveVanityUrl(searchTerm);
+
+                if (steamResponse.found) {
+                    playerInfo.steamProfileInfo = steamResponse.playerInfo;
+                    var apiResponse = await this.player(steamResponse.steamID);
+
+                    if (!apiResponse.error) {
+                        playerInfo.found = true;
+                        playerInfo.truckersMPProfileInfo = apiResponse.response;
+                        playerInfo.bans = await this.bans(playerInfo.truckersMPProfileInfo.id);
+                        // playerInfo.onlineStatus = await
+                        // truckyApi.isOnline(playerInfo.truckersMPProfileInfo.id);
+                    } else {
+                        playerInfo.found = false;
+                    }
+
+                }
+
+                break;
+            case 'steamid':
+            case 'truckersmpid':
+
+                var apiResponse = await this.player(searchTerm);
+
+                if (!apiResponse.error) {
+                    playerInfo.truckersMPProfileInfo = apiResponse.response;
+                    var steamProfileInfo = await this.getPlayerSummaries(playerInfo.truckersMPProfileInfo.steamID64);
+                    playerInfo.steamProfileInfo = steamProfileInfo.playerInfo;
+                    playerInfo.bans = await this.bans(playerInfo.truckersMPProfileInfo.id);
+                    // playerInfo.onlineStatus = await
+                    // truckyApi.isOnline(playerInfo.truckersMPProfileInfo.id);
+                    playerInfo.found = true;
+                }
+
+                break;
+        }
+
+        return playerInfo;
+    }
+
 }
 
 module.exports = TruckyServices;

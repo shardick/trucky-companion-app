@@ -19,8 +19,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Toolbar, Button} from 'react-native-material-ui';
 import RNRestart from 'react-native-restart';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
-import TruckersMPAPI from '../Services/TruckersMPAPI';
-import TruckyAPI from '../Services/TruckyServices';
+import TruckyServices from '../Services/TruckyServices';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 
 /**
@@ -84,7 +83,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
 
         if (this.state.searchText != '') {
             this.setState({loading: true});
-            var api = new TruckersMPAPI();
+            var api = new TruckyServices();
             api
                 .searchPlayer(this.state.searchText, this.state.searchType)
                 .then((response) => {
@@ -99,9 +98,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                         this.setState({playerInfo: response});
                         this.setState({playerLoaded: true});
 
-                        var tapi = new TruckyAPI();
-
-                        tapi.isOnline(response.truckersMPProfileInfo.id)
+                        api.isOnline(response.truckersMPProfileInfo.id)
                             .then( (onlineStatus) => {
                                 
                                 console.warn(JSON.stringify(onlineStatus));
