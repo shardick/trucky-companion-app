@@ -399,6 +399,13 @@ _styles.rulesMarkDownSyles = {
 
 /* ios style overrides */
 if (Platform.OS == 'ios') {
-  _styles.searchPlayerContainer.marginTop = 200;
+  _styles.searchPlayerContainer.paddingTop = 200;
+
+  _styles.searchPlayerTextInput = 
+  { 
+    marginTop: 10,
+    borderWidth: 1,
+    height: 30
+  }
 }
 module.exports = StyleManager;

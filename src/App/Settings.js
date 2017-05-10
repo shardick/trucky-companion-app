@@ -75,7 +75,7 @@ class SettingsScreen extends BaseTruckyComponent
         return (
             <Container>
                 {this.renderToolbar()}
-                <View style={{
+                <ScrollView style={{
                     marginTop: 10
                 }}>
                     <View style={this.StyleManager.styles.appSettingsHeader}>
@@ -143,7 +143,7 @@ class SettingsScreen extends BaseTruckyComponent
                             </Picker>
                         </View>
                     </View>
-                </View>
+                </ScrollView>
             </Container>
         );
     }

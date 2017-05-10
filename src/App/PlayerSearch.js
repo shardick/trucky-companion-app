@@ -257,8 +257,9 @@ class PlayerSearchScreen extends BaseTruckyComponent
         return (
             <Container>
                 {this.renderToolbar()}
-                <ScrollView style={this.StyleManager.styles.searchPlayerContainer}>
+                <View automaticallyAdjustContentInsets={true} style={this.StyleManager.styles.searchPlayerContainer}>
                     <TextInput
+                        style={this.StyleManager.styles.searchPlayerTextInput}
                         onChangeText={(text) => this.setState({searchText: text})}                        
                         placeholder={this.LocaleManager.strings.searchFieldPlaceholder}/>
                     <Picker
@@ -283,7 +284,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                         {this.state.loading && <ActivityIndicator/>}
                         
                         {this.renderSearchResult()}
-                </ScrollView>
+                </View>
             </Container>
         );
     }

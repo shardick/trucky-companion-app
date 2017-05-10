@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Calendar access is used to remind events</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -29,8 +31,6 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-	<!--<key>LSMinimumSystemVersion</key>
-	<string>7.1.0</string>-->
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>LSRequiresIPhoneOS</key>
