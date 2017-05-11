@@ -16,6 +16,10 @@ class TruckyServices
         this.config = {
             serviceUrl: 'https://truckyservices.herokuapp.com'
         }
+
+        if (__DEV__) {
+            this.config.serviceUrl = 'http://10.0.0.4:5000';
+        }
     }
 
     /**
