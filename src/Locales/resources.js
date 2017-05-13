@@ -101,14 +101,14 @@ var strings = new LocalizedStrings({
         busyOnSteam: 'Busy on Steam',
         offlineOnSteam: 'Offline on Steam',
         awayOnSteam: 'Away on Steam',
-        snoozingOnSteam: 'Snoozing on Steam',
+        snoozingOnSteam: 'Snoozing on Steam', // or Sleeping
         lookingForATradeOnSteam: 'Looking for a trade on Steam',
         lookingForPlayOnSteam: 'Looking for play on Steam',
         loginToSteam: 'Login to Steam',
-        disconnect: 'Disconnect',
+        disconnect: 'Disconnect', // Disconnect from Steam button text
         logout: 'Logout',
         steamAuthentication: 'Steam authentication',
-        connectedAs: 'Connected as'
+        connectedAs: 'Connected as' // connected as USERNAME
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -615,9 +615,18 @@ var strings = new LocalizedStrings({
         steamID: 'Steam ID:',
         issuedBy: 'Probleem bij {0} op {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Verlopen:', // Expires: DATE
-        polish: 'Polish'
+        polish: 'Polish',
+        liveMapRouteTitle: 'Live Map',
+        checkingOnlineState: 'Check online status..',
+        viewOnMap: 'Bekijk op de map',
+        hideHeatMap: 'Verstop warmtemap',
+        showDirection: 'Zie richting',
+        showTrucks: 'Laat trucks zien',
+        showName: 'Laat naam zien',
+        showID: 'Laat ID zien',
+        places: 'Plaatsen'
     },
-    // credits Piotrek Ślusarz 
+    // credits Piotrek Ślusarz
     pl: {
         currentGameVersion: 'Bieżąca wersja gry: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -710,7 +719,7 @@ var strings = new LocalizedStrings({
         showID: 'Pokaż ID',
         places: 'Miejsca'
     },
-    // Credits Tobias Groß 
+    // Credits Tobias Groß
     de: {
         currentGameVersion: 'Derzeitige Spiel Version: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -802,7 +811,8 @@ var strings = new LocalizedStrings({
         showID: 'ID anzeigen',
         places: 'Orte'
     },
-    // Credits ActiV3Drifter (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
+    // Credits ActiV3Drifter
+    // (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
     cs: {
         currentGameVersion: 'Aktuální verze hry: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -872,7 +882,7 @@ var strings = new LocalizedStrings({
         truckersMPProfile: 'TruckersMP profil',
         viewSteamProfile: 'Ukázat Steam profil',
         viewTruckersMPProfile: 'Ukázat TruckersMP profil',
-        bans: 'Historie Banů', 
+        bans: 'Historie Banů',
         noBans: 'Žádné bany',
         nickName: 'Přezdívka:',
         onTruckersMPfrom: 'Na TruckersMP od', // On TruckersMP from DATE
@@ -883,9 +893,18 @@ var strings = new LocalizedStrings({
         steamUsername: 'Steam Přezdívka:',
         steamID: 'Steam ID:',
         issuedBy: 'Zabanován {0} v {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Vypršení:' // Expires: DATE
+        expires: 'Vypršení:', // Expires: DATE
+        liveMapRouteTitle: 'Živá mapa',
+        checkingOnlineState: 'Kontrola online stavu..',
+        viewOnMap: 'Zobrazit na mapě',
+        hideHeatMap: 'Schovat heatmap',
+        showDirection: 'Ukázat Směr',
+        showTrucks: 'Ukázat Tahače',
+        showName: 'Ukázat jméno',
+        showID: 'Ukázat ID',
+        places: 'Místa'
     },
-     // Credits CJMAXiK (https://truckersmp.com/user/3861)
+    // Credits CJMAXiK (https://truckersmp.com/user/3861)
     ru: {
         currentGameVersion: 'Текущая версия игры: ',
         routeHomeTitle: 'Trucky Companion App',

@@ -103,7 +103,21 @@ showDirection: 'Show direction',<br/>
 showTrucks: 'Show Trucks',<br/>
 showName: 'Show name',<br/>
 showID: 'Show ID',<br/>
-places: 'Places' // or Locations, or Point of interests<br/>
+places: 'Places', // or Locations, or Point of interests<br/>
+/* LABELS ADDED IN VERSION 1.0.5 */<br/>
+friends: 'Friends',<br/>
+onlineOnSteam: 'Online on Steam',<br/>
+busyOnSteam: 'Busy on Steam',<br/>
+offlineOnSteam: 'Offline on Steam',<br/>
+awayOnSteam: 'Away on Steam',<br/>
+snoozingOnSteam: 'Snoozing on Steam', // or Sleeping<br/>
+lookingForATradeOnSteam: 'Looking for a trade on Steam',<br/>
+lookingForPlayOnSteam: 'Looking for play on Steam',<br/>
+loginToSteam: 'Login to Steam',<br/>
+disconnect: 'Disconnect', // Disconnect from Steam button text<br/>
+logout: 'Logout',<br/>
+steamAuthentication: 'Steam authentication',<br/>
+connectedAs: 'Connected as' // connected as USERNAME<br/>
 
 
 Thank you!

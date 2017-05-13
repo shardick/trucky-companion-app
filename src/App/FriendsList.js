@@ -14,6 +14,7 @@ import {Toolbar, Card, Button} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
+import MapManager from '../Maps/MapManager';
 
 class FriendsListScreen extends BaseTruckyComponent
 {
@@ -39,6 +40,14 @@ class FriendsListScreen extends BaseTruckyComponent
     async fetchData()
     {
         this.setState({loading: true});
+
+        var instance = this;
+
+        this.state.api.servers().then( (servers) => {
+
+            instance.setState({servers: servers.servers});             
+
+        });
 
         var settings = await this
             .AppSettings
@@ -150,6 +159,17 @@ class FriendsListScreen extends BaseTruckyComponent
         }
     }
 
+    getServerName(onlineServerID)
+    {
+        var map = new MapManager();
+        var serverID = map.reserveServerID(onlineServerID);
+        var server = this.state.servers.find( (s) => {
+            return s.id == serverID;
+        });
+
+        return server.shortname;
+    }
+
     renderRow(rowData) {
         return (
             <Card>
@@ -165,7 +185,7 @@ class FriendsListScreen extends BaseTruckyComponent
                         <Text style={this.StyleManager.styles.friendListUsername}>{rowData.truckersMPUser.name}
                             &nbsp;({rowData.truckersMPUser.id})</Text>
                         {rowData.onlineStatus.online && <View>
-                            <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online}</Text>
+                            <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online} - {this.getServerName(rowData.server)}</Text>
                         </View>
 }
                         {!rowData.onlineStatus.online && <Text style={this.StyleManager.styles.offline}>{this.LocaleManager.strings.offline}</Text>}
