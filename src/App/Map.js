@@ -22,7 +22,6 @@ import MapManager from '../Maps/MapManager';
 //import WebViewBridge from 'react-native-webview-bridge';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
-import Autocomplete from 'react-native-autocomplete-input';
 import TruckyServices from '../Services/TruckyServices';
 
 const injectScript = `
@@ -222,14 +221,16 @@ class MapScreen extends BaseTruckyComponent
 
     async fetchData()
     {
+        var instance = this;
+
         var api = new TruckyServices();
-        var pois = await api.pois();
+        api.pois().then( (pois) => {
+            instance.setState({pois: pois.pois});
+        });       
 
-        this.setState({pois: pois.pois});
-
-        var servers = await api.servers();
-
-        this.setState({servers: servers.servers});
+        api.servers().then((servers) => {
+            instance.setState({servers: servers.servers});
+        });        
     }
 
     sendMessage(messageType, messageObject)

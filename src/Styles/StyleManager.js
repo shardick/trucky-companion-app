@@ -97,6 +97,9 @@ const _styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 20
   },
+  gameStatusContainer: {
+    padding: 10
+  },
   appSettingsHeader: {
     marginTop: 20,
     marginRight: 10,

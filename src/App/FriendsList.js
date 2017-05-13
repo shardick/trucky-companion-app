@@ -173,6 +173,7 @@ class FriendsListScreen extends BaseTruckyComponent
 }
                     </View>
                 </View>
+                {rowData.onlineStatus.online &&
                 <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
                     <Button
                         primary
@@ -180,6 +181,7 @@ class FriendsListScreen extends BaseTruckyComponent
                         text={this.LocaleManager.strings.viewOnMap}
                         onPress={() => this.viewOnMap(rowData)}/>
                 </View>
+                }
             </Card>
         )
     }

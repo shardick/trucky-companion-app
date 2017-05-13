@@ -13,7 +13,7 @@ var {
 } = ReactNative;
 import Markdown from 'react-native-simple-markdown'
 import Container from '../Container';
-import {Toolbar, Card, Button, ActionButton } from 'react-native-material-ui';
+import {Toolbar, Card, Button, ActionButton} from 'react-native-material-ui';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
@@ -65,22 +65,25 @@ class MeetupsScreen extends BaseTruckyComponent
 
         var api = new TruckyServices();
 
-        var meetups = await api.events();
+        var instance = this;
 
-        this.setState({meetups: meetups});
+        api
+            .events()
+            .then((meetups) => {
 
-        var servers = await api.servers();
+                instance.setState({
+                    dataSource: this
+                        .state
+                        .dataSource
+                        .cloneWithRows(meetups)
+                });
 
-        this.setState({servers: servers.servers});
+                instance.setState({meetups: meetups, loading: false, showList: true});
+            });
 
-        this.setState({
-            dataSource: this
-                .state
-                .dataSource
-                .cloneWithRows(meetups)
-        });
-
-        this.setState({loading: false, showList: true});
+        api
+            .servers()
+            .then((servers) => this.setState({servers: servers.servers}));
     }
 
     filterEvents(meetups, server, language)
@@ -134,12 +137,25 @@ class MeetupsScreen extends BaseTruckyComponent
 
                     var eventSettings = {
                         location: event.location,
-                        notes: this.LocaleManager.strings.formatString(this.LocaleManager.strings.eventNotes, event.author, event.server),
-                        startDate: this.LocaleManager.moment(event.eventDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
-                        endDate: this.LocaleManager.moment(event.endDate).local().format('YYYY-MM-DDTHH:mm:00.000')+'Z',
+                        notes: this
+                            .LocaleManager
+                            .strings
+                            .formatString(this.LocaleManager.strings.eventNotes, event.author, event.server),
+                        startDate: this
+                            .LocaleManager
+                            .moment(event.eventDate)
+                            .local()
+                            .format('YYYY-MM-DDTHH:mm:00.000') + 'Z',
+                        endDate: this
+                            .LocaleManager
+                            .moment(event.endDate)
+                            .local()
+                            .format('YYYY-MM-DDTHH:mm:00.000') + 'Z',
                         alarms: [
                             {
-                                date: this.LocaleManager.moment(event.eventDate)
+                                date: this
+                                    .LocaleManager
+                                    .moment(event.eventDate)
                                     .add(-30, 'm')
                                     .local()
                                     .format('YYYY-MM-DDTHH:mm:00.000') + 'Z'
@@ -176,8 +192,7 @@ class MeetupsScreen extends BaseTruckyComponent
                     <View style={this.StyleManager.styles.serversListDescriptionRow}>
                         <Icon name="globe" style={this.StyleManager.styles.serversListGameTimeIcon}/>
                         <Text style={this.StyleManager.styles.serversListGameTimeText}>{rowData.server}
-                            &nbsp;-&nbsp;{this.LocaleManager.strings.language}
-                            {rowData.language}</Text>
+                            &nbsp;-&nbsp;{this.LocaleManager.strings.language} {rowData.language}</Text>
                     </View>
                     <View style={this.StyleManager.styles.serversListDescriptionRow}>
                         <Icon name="users" style={this.StyleManager.styles.serversListGameTimeIcon}/>
@@ -277,7 +292,9 @@ class MeetupsScreen extends BaseTruckyComponent
                         <ListView
                             style={this.StyleManager.styles.meetupsListList}
                             dataSource={this.state.dataSource}
-                            renderRow={this.renderRow.bind(this)}
+                            renderRow={this
+                            .renderRow
+                            .bind(this)}
                             automaticallyAdjustContentInsets={false}
                             renderSeparator={(sectionId, rowId) => <View key={rowId} style={this.StyleManager.styles.separator}/>}
                             refreshControl={< RefreshControl refreshing = {
@@ -290,7 +307,11 @@ class MeetupsScreen extends BaseTruckyComponent
                         } />}/>
                     </View>
                 </View>
-                <ActionButton icon="refresh" onPress={this._onRefresh.bind(this)} /> 
+                <ActionButton
+                    icon="refresh"
+                    onPress={this
+                    ._onRefresh
+                    .bind(this)}/>
             </Container>
         )
     }
