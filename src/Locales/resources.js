@@ -94,7 +94,21 @@ var strings = new LocalizedStrings({
         showTrucks: 'Show Trucks',
         showName: 'Show name',
         showID: 'Show ID',
-        places: 'Places'
+        places: 'Places',
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Friends',
+        onlineOnSteam: 'Online on Steam',
+        busyOnSteam: 'Busy on Steam',
+        offlineOnSteam: 'Offline on Steam',
+        awayOnSteam: 'Away on Steam',
+        snoozingOnSteam: 'Snoozing on Steam',
+        lookingForATradeOnSteam: 'Looking for a trade on Steam',
+        lookingForPlayOnSteam: 'Looking for play on Steam',
+        loginToSteam: 'Login to Steam',
+        disconnect: 'Disconnect',
+        logout: 'Logout',
+        steamAuthentication: 'Steam authentication',
+        connectedAs: 'Connected as'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -185,7 +199,20 @@ var strings = new LocalizedStrings({
         showTrucks: 'Mostra camion',
         showName: 'Mostra i nomi',
         showID: 'Mostra gli ID',
-        places: 'Luoghi'
+        places: 'Luoghi',
+        friends: 'Amici',
+        onlineOnSteam: 'Online su Steam',
+        busyOnSteam: 'Occupato su Steam',
+        offlineOnSteam: 'Offline su Steam',
+        awayOnSteam: 'Lontano dal pc',
+        snoozingOnSteam: 'Sta dormendo',
+        lookingForATradeOnSteam: 'Cerca uno scambio su Steam',
+        lookingForPlayOnSteam: 'Cerca giocatori su Steam',
+        loginToSteam: 'Accedi a Steam',
+        disconnect: 'Disconnetti Steam',
+        logout: 'Disconnetti',
+        steamAuthentication: 'Autenticazione Steam',
+        connectedAs: 'Connesso come'
     },
     // credits: Hristo Spasov
     bg: {

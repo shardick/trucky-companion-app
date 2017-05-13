@@ -81,7 +81,7 @@ class AppDrawerLayout extends BaseTruckyComponent
                             .bind(this, this.RouteManager.routes.map)
                     }, {
                         icon: 'people',
-                        value: 'Friends',
+                        value: this.LocaleManager.strings.friends,
                         onPress: this
                             .onPress
                             .bind(this, this.RouteManager.routes.friends)

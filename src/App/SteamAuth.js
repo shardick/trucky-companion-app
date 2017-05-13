@@ -20,7 +20,7 @@ class SteamAuthScreen extends BaseTruckyComponent
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.RouteManager.pop()}
-            centerElement="Steam authentication"
+            centerElement={this.LocaleManager.strings.steamAuthentication}
             />);
     }
 

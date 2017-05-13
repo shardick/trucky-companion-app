@@ -86,17 +86,17 @@ class SettingsScreen extends BaseTruckyComponent
                     marginTop: 10
                 }}>
                     <View style={this.StyleManager.styles.appSettingsHeader}>
-                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>Your Steam Profile</Text>
+                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.steamProfile}</Text>
                     </View>
                      <View style={this.StyleManager.styles.appSettingsRow}>
                          {this.state.settings.steamUser &&
                             <View>
-                                <Text>Connected as {this.state.settings.steamUser.steamDisplayName} ({this.state.settings.steamUser.steamID})</Text>
-                                <Button primary icon="exit-to-app" text="Disconnect" onPress={this.disconnectSteamAccount.bind(this)} />
+                                <Text>{this.LocaleManager.strings.connectedAs} {this.state.settings.steamUser.steamDisplayName} ({this.state.settings.steamUser.steamID})</Text>
+                                <Button primary icon="exit-to-app" text={this.LocaleManager.strings.disconnect} onPress={this.disconnectSteamAccount.bind(this)} />
                             </View>
                          }
                         {!this.state.settings.steamUser &&
-                        <Button primary raised icon="lock" text="Login to Steam" onPress={this.goToSteamLogin.bind(this)} />
+                        <Button primary raised icon="lock" text={this.LocaleManager.strings.loginToSteam} onPress={this.goToSteamLogin.bind(this)} />
                         }
                      </View>
 

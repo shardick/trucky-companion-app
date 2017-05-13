@@ -121,6 +121,7 @@ class GameStatus extends BaseTruckyComponent
                         <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
                         <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
                         <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
+                         <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime}{this.LocaleManager.moment(this.state.gameTime.calculated_game_time).format('dddd HH:mm')}</Text>
                     </View>
                     }
                     

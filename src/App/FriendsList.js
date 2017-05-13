@@ -88,7 +88,7 @@ class FriendsListScreen extends BaseTruckyComponent
         return (<Toolbar
             leftElement="arrow-back"
             onLeftElementPress={() => this.RouteManager.pop()}
-            centerElement="Friends list"
+            centerElement={this.LocaleManager.strings.friends}
             rightElement="refresh"
             onRightElementPress={() => this.fetchData().done()}/>);
     }
@@ -134,19 +134,19 @@ class FriendsListScreen extends BaseTruckyComponent
     {
         switch (status) {
             case 0:
-                return 'Offline';
+                return this.LocaleManager.strings.offlineOnSteam;
             case 1:
-                return 'Online on Steam';
+                return this.LocaleManager.strings.onlineOnSteam;
             case 2:
-                return 'Busy on Steam';
+                return this.LocaleManager.strings.busyOnSteam;
             case 3:
-                return 'Away on Steam';
+                return this.LocaleManager.strings.awayOnSteam;
             case 4:
-                return 'Snoozing on Steam';
+                return this.LocaleManager.strings.snoozingOnSteam;
             case 5:
-                return 'Looking for a trade on Steam';
+                return this.LocaleManager.strings.lookingForATradeOnSteam;
             case 6:
-                return 'Looking for play on Steam';
+                return this.LocaleManager.strings.lookingForPlayOnSteam;
         }
     }
 
@@ -169,7 +169,7 @@ class FriendsListScreen extends BaseTruckyComponent
                         </View>
 }
                         {!rowData.onlineStatus.online && <Text style={this.StyleManager.styles.offline}>{this.LocaleManager.strings.offline}</Text>}
-                        {rowData.steamUser.personastate > 0 && <Text>{this.renderPersonaState(rowData.steamUser.personastate)}</Text>
+                        {!rowData.onlineStatus.online && rowData.steamUser.personastate > 0 && <Text>{this.renderPersonaState(rowData.steamUser.personastate)}</Text>
 }
                     </View>
                 </View>
@@ -198,7 +198,7 @@ class FriendsListScreen extends BaseTruckyComponent
                         <Button
                             primary
                             raised
-                            text="Login to Steam"
+                            text={this.LocaleManager.strings.loginToSteam}
                             onPress={() => this.RouteManager.push(this.RouteManager.routes.steamAuth)}/>
                     </View>
 }
