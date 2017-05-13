@@ -40,7 +40,7 @@ class SteamAuthScreen extends BaseTruckyComponent
                     //Alert.alert('Loggedin as ' + message.user.displayName);
                     
                     //console.warn(instance.props.callback);
-                    instance.props.route.callback().done();
+                    //instance.props.route.callback().done();
 
                     instance.RouteManager.pop();
                 });
@@ -50,7 +50,7 @@ class SteamAuthScreen extends BaseTruckyComponent
 
     render()
     {
-        console.warn(this.props.route.callback);
+        //console.warn(this.props.route.callback);
         return(
             <Container>
                 {this.renderToolbar()}

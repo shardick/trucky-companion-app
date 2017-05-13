@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -90,6 +89,7 @@
 		81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77B628E532047DFB2153386 /* libRCTRestart.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		B0166F055D8742D3B6CF3301 /* libReactNativeLocalization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EBC0FF3DF8450089FC6EF6 /* libReactNativeLocalization.a */; };
+		7640C05069BD4B3C9B8BD0DB /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C328D4269A74BC9BD680FD7 /* libRNDeviceInfo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -380,6 +380,8 @@
 		CE8CD631C09D4FBFB7F74C83 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		D880CDD7E0FC40DB9C8902A1 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		DE22FCE25EB04E1FBFD1DF1C /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
+		2DB5B2477DD54EF1A02A34F8 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; name = "RNDeviceInfo.xcodeproj"; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4C328D4269A74BC9BD680FD7 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; name = "libRNDeviceInfo.a"; path = "libRNDeviceInfo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +418,7 @@
 				01BC802BF0CD4C6AAF7C68BA /* libRCTOneSignal.a in Frameworks */,
 				81865A651F3245F5B6E815DA /* libRCTRestart.a in Frameworks */,
 				587D69BF99DF45918E091736 /* libRNVectorIcons.a in Frameworks */,
+				7640C05069BD4B3C9B8BD0DB /* libRNDeviceInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +660,7 @@
 				CAC5C692444044A59BDD366B /* RCTOneSignal.xcodeproj */,
 				C1E5C011F03248BC8ADE1CEE /* RCTRestart.xcodeproj */,
 				47B92933FE4E41DA8426C925 /* RNVectorIcons.xcodeproj */,
+				2DB5B2477DD54EF1A02A34F8 /* RNDeviceInfo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -794,7 +798,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 830;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1317,11 +1321,15 @@
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\RNDeviceInfo",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1350,11 +1358,15 @@
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\RNDeviceInfo",
 				);
 				INFOPLIST_FILE = truckyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1385,6 +1397,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\RNDeviceInfo",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1420,6 +1433,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\RNDeviceInfo",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1459,10 +1473,14 @@
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\RNDeviceInfo",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1497,10 +1515,14 @@
 					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
 					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
 					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\RNDeviceInfo",
 				);
 				INFOPLIST_FILE = "trucky-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1526,7 +1548,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "trucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1548,7 +1573,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "trucky-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.trucky-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

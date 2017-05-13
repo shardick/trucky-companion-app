@@ -375,6 +375,10 @@ const _styles = StyleSheet.create({
   },
   friendsListUsernameContainer: {
     flexDirection: 'column'
+  },
+  friendsListLoginToSteamContainer: {
+    marginTop: 30,
+    padding: 10
   }
 });
 

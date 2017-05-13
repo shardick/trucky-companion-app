@@ -14,7 +14,8 @@ class AppSettings
             firstStart: 'firstStart',
             lastVersionNumber: 'lastVersionNumber',
             mapSettings: 'mapSettings',
-            steamUser: 'steamUser'
+            steamUser: 'steamUser',
+            deviceID: 'deviceID'
         }
     }
 
@@ -39,7 +40,8 @@ class AppSettings
                 showName: false,
                 showID: true
             },
-            steamUser: null
+            steamUser: null,
+            deviceID: ''
         };
     }
 

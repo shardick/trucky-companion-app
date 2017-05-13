@@ -3,10 +3,12 @@ import {View, Image} from 'react-native';
 import {ThemeProvider} from 'react-native-material-ui';
 import Container from '../Container';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+import TruckyServices from '../Services/TruckyServices';
+var DeviceInfo = require('react-native-device-info');
 
 /**
- * 
- * 
+ *
+ *
  * @class SplashScreen
  * @extends {BaseTruckyComponent}
  */
@@ -16,55 +18,75 @@ class SplashScreen extends BaseTruckyComponent {
 
         super.componentWillMount();
 
-        this.prepareFirstStart().then(() => {
-            setTimeout(() => {
-                
-                this.RouteManager.push(this.RouteManager.routes.home);
-                
-            }, 2000);
-        });
-    }
+        this
+            .prepareFirstStart()
+            .then(() => {
+                setTimeout(() => {
 
+                    this
+                        .RouteManager
+                        .push(this.RouteManager.routes.home);
+
+                }, 2000);
+            });
+    }
 
     /**
      * Prepare app settings for first start.
      * Set default interface language according to device language. If not supported, defualt language is English
-     * 
+     *
      * @memberOf SplashScreen
      */
     async prepareFirstStart()
     {
         // load settings
-        var settings = await this.AppSettings.getSettings();
+        var settings = await this
+            .AppSettings
+            .getSettings();
 
         // handling fresh app start
-        if (settings.firstStart)
-        {
+        if (settings.firstStart) {
             console.warn('Is First Start');
 
             // checking if interface language is supported by LocaleManager
-            if (this.LocaleManager.interfaceLanguageIsSupported())
-            {
+            if (this.LocaleManager.interfaceLanguageIsSupported()) {
                 console.warn('Interface language is supported: setting up');
 
                 // interface language supported, setting up as default language for first start
-                settings.language = this.LocaleManager.normalizeLanguage(this.LocaleManager.interfaceLanguage);
+                settings.language = this
+                    .LocaleManager
+                    .normalizeLanguage(this.LocaleManager.interfaceLanguage);
             }
 
             settings.firstStart = false;
 
             // updating settings
-            await this.AppSettings.saveSettings(settings);
+            await this
+                .AppSettings
+                .saveSettings(settings);
 
             console.warn('First start = false updated');
+        }
+
+        //settings.deviceID = undefined;
+        //console.warn(settings.deviceID);
+
+        if (typeof(settings.deviceID) == 'undefined') {
+            var services = new TruckyServices();
+            services.registerDevice(DeviceInfo);
+
+            settings.deviceID = DeviceInfo.getUniqueID();
+
+            await this
+                .AppSettings
+                .saveSettings(settings);
         }
     }
 
     render() {
         return (
             <Container>
-                <View
-                    style={this.StyleManager.styles.splashScreen}>
+                <View style={this.StyleManager.styles.splashScreen}>
                     <Image
                         source={require('../Assets/trucky_banner_white.png')}
                         style={this.StyleManager.styles.splashScreenImage}/>

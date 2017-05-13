@@ -52,9 +52,16 @@ class SettingsScreen extends BaseTruckyComponent
 
     goToSteamLogin()
     {
-        var newRoute = Object.assign(this.RouteManager.routes.steamAuth, { callback: this.loadSettings.bind(this) });
+        //var newRoute = Object.assign(this.RouteManager.routes.steamAuth, { callback: this.loadSettings.bind(this) });
 
-        this.RouteManager.push(newRoute);
+        this.RouteManager.push(this.RouteManager.routes.steamAuth);
+    }
+
+    onPop()
+    {
+        super.onPop();
+
+        this.loadSettings();
     }
 
     disconnectSteamAccount()
@@ -69,7 +76,7 @@ class SettingsScreen extends BaseTruckyComponent
     render()
     {
         let languageItems = this.LocaleManager.availableLanguages.map( (language) => {
-            return <Picker.Item label={language.displayName} value={language.code} />
+            return <Picker.Item key={language.code} label={language.displayName} value={language.code} />
         });
 
         return (
