@@ -650,7 +650,20 @@ var strings = new LocalizedStrings({
         showTrucks: 'Laat trucks zien',
         showName: 'Laat naam zien',
         showID: 'Laat ID zien',
-        places: 'Plaatsen'
+        places: 'Plaatsen',
+        friends: 'Vrienden',
+        onlineOnSteam: 'Online op Steam',
+        busyOnSteam: 'Druk op Steam',
+        offlineOnSteam: 'Offline op Steam',
+        awayOnSteam: 'Afwezig op Steam',
+        snoozingOnSteam: 'Snoozing on Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Zoekt naar een trade op Steam',
+        lookingForPlayOnSteam: 'Zoekt naar een game op Steam',
+        loginToSteam: 'Login op Steam',
+        disconnect: 'ontkoppeld', // Disconnect from Steam button text
+        logout: 'Log uit',
+        steamAuthentication: 'Steam authenticatie',
+        connectedAs: 'Verbonden als' // connected as USERNAME
     },
     // credits Piotrek Ślusarz
     pl: {
