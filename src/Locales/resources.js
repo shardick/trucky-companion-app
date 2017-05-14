@@ -1062,7 +1062,21 @@ var strings = new LocalizedStrings({
         showTrucks: 'Показать грузовики',
         showName: 'Показать никнейм',
         showID: 'Показать ID',
-        places: 'Места'
+        places: 'Места',
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Друзья',
+        onlineOnSteam: 'В сети в Steam',
+        busyOnSteam: 'Занят в Steam',
+        offlineOnSteam: 'Не в сети Steam',
+        awayOnSteam: 'Не беспокоить в Steam',
+        snoozingOnSteam: 'Спит в Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Хочет обменяться в Steam',
+        lookingForPlayOnSteam: 'Хочет поиграть Steam',
+        loginToSteam: 'Войти в Steam',
+        disconnect: 'Отключиться', // Disconnect from Steam button text
+        logout: 'Выход',
+        steamAuthentication: 'Вход в Steam',
+        connectedAs: 'Подключен как' // connected as USERNAME
     }
 });
 
