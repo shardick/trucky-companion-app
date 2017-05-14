@@ -187,6 +187,12 @@ class LocaleManager
             case 'de':
                 momentLocaleConfiguration = require('moment/locale/de');
                 break;
+            case 'cs':
+                momentLocaleConfiguration = require('moment/locale/cs');
+                break;
+            case 'ru':
+                momentLocaleConfiguration = require('moment/locale/ru');
+                break;
             default:
 
                 break;
