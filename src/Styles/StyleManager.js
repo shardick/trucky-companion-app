@@ -382,6 +382,13 @@ const _styles = StyleSheet.create({
   friendsListLoginToSteamContainer: {
     marginTop: 30,
     padding: 10
+  },
+  friendsListCheckingStateContainer:
+  {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 5,
+    marginBottom: 5
   }
 });
 

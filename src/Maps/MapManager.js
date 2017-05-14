@@ -274,6 +274,10 @@ class MapManager
                 return 9;
             case 11:
                 return 10;
+            case 20:
+                return 20;
+            case 21:
+                return 21;
         }
     }
 
@@ -295,6 +299,10 @@ class MapManager
                 return 10;
             case 10:
                 return 11;
+            case 20:
+                return 20;
+            case 21:
+                return 21;
         }
     }
 }

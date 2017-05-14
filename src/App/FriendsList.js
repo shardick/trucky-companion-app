@@ -15,6 +15,7 @@ import ActivityIndicator from '../Components/CustomActivityIndicator';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
 import MapManager from '../Maps/MapManager';
+import ProgressBar from 'react-native-progress/Bar';
 
 class FriendsListScreen extends BaseTruckyComponent
 {
@@ -31,9 +32,12 @@ class FriendsListScreen extends BaseTruckyComponent
         this.state = {
             friendsOnline: friendsOnline.cloneWithRows([]),
             friendsOffline: friendsOnline.cloneWithRows([]),
+            friends: new Array(),
             loading: true,
             api: new TruckyServices(),
-            steamUserPresent: false
+            steamUserPresent: false,
+            checkingOnlineState: false,
+            friendsChecked: 0
         };
     }
 
@@ -43,11 +47,15 @@ class FriendsListScreen extends BaseTruckyComponent
 
         var instance = this;
 
-        this.state.api.servers().then( (servers) => {
+        this
+            .state
+            .api
+            .servers()
+            .then((servers) => {
 
-            instance.setState({servers: servers.servers});             
+                instance.setState({servers: servers.servers});
 
-        });
+            });
 
         var settings = await this
             .AppSettings
@@ -59,28 +67,87 @@ class FriendsListScreen extends BaseTruckyComponent
                 .api
                 .getFriends(settings.steamUser.steamID);
 
-            var tmpFriendsOnline = friends.filter(function (f) {
-                return (f.truckersMPUser) && f.onlineStatus && f.onlineStatus.online;
-            });
+            this.setState({friends: friends});
 
-            var tmpFriendsOffline = friends.filter(function (f) {
-                return (f.truckersMPUser) && f.onlineStatus && !f.onlineStatus.online;
-            });
+            var tmpFriendsOffline = this.getOfflineFriends(friends);
 
             this.setState({
                 steamUserPresent: true,
-                friendsOnline: this
-                    .state
-                    .friendsOnline
-                    .cloneWithRows(tmpFriendsOnline),
                 friendsOffline: this
                     .state
                     .friendsOffline
-                    .cloneWithRows(tmpFriendsOffline)
+                    .cloneWithRows(tmpFriendsOffline),
+                loading: false,
+                checkingOnlineState: true
             });
-        }
 
-        this.setState({loading: false});
+            var tmpFriendsOnline = new Array();
+
+            var promises = new Array();
+
+            for (var i = 0; i < friends.length; i++) {
+                if (friends[i].truckersMPUser) {
+
+                    var promise = new Promise((resolve, reject) => {
+                        var f = friends[i];
+                        this
+                            .state
+                            .api
+                            .isOnline(friends[i].truckersMPUser.id)
+                            .then(function (onlineStatus) {
+
+                                f.onlineStatus = onlineStatus;
+
+                                tmpFriendsOnline = instance.getOnlineFriends(friends);
+                                tmpFriendsOffline = instance.getOfflineFriends(friends);
+
+                                instance.setState({
+                                    friendsChecked: instance.state.friendsChecked + 1,
+                                    friendsOffline: instance
+                                        .state
+                                        .friendsOffline
+                                        .cloneWithRows(tmpFriendsOffline),
+                                    friendsOnline: instance
+                                        .state
+                                        .friendsOnline
+                                        .cloneWithRows(tmpFriendsOnline)
+                                });
+
+                                resolve();
+                            });
+                    });
+
+                    promises.push(promise);
+                }
+            }
+
+            Promise
+                .all(promises)
+                .then((results) => {
+                    this.setState({checkingOnlineState: false});
+                });
+
+        } else {
+            this.setState({loading: false});
+        }
+    }
+
+    getOfflineFriends(friends)
+    {
+        var tmpFriendsOffline = friends.filter(function (f) {
+            return (f.truckersMPUser) && f.onlineStatus && !f.onlineStatus.online;
+        });
+
+        return tmpFriendsOffline;
+    }
+
+    getOnlineFriends(friends)
+    {
+        var tmpFriendsOffline = friends.filter(function (f) {
+            return (f.truckersMPUser) && f.onlineStatus && f.onlineStatus.online;
+        });
+
+        return tmpFriendsOffline;
     }
 
     viewOnMap(playerData)
@@ -161,15 +228,23 @@ class FriendsListScreen extends BaseTruckyComponent
 
     getServerName(onlineServerID)
     {
+        //console.warn(onlineServerID);
         var map = new MapManager();
         var serverID = map.reserveServerID(onlineServerID);
-        var server = this.state.servers.find( (s) => {
-            return s.id == serverID;
-        });
+        var server = this
+            .state
+            .servers
+            .find((s) => {
+                return s.id == serverID;
+            });
+        //console.warn(server);
 
-        return server.shortname;
-    }
-
+        if (server) 
+            return ' - ' + server.shortname;
+        else 
+            return '';
+        }
+    
     renderRow(rowData) {
         return (
             <Card>
@@ -185,7 +260,7 @@ class FriendsListScreen extends BaseTruckyComponent
                         <Text style={this.StyleManager.styles.friendListUsername}>{rowData.truckersMPUser.name}
                             &nbsp;({rowData.truckersMPUser.id})</Text>
                         {rowData.onlineStatus.online && <View>
-                            <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online} - {this.getServerName(rowData.server)}</Text>
+                            <Text style={this.StyleManager.styles.playerOnline}>{this.LocaleManager.strings.online} {this.getServerName(rowData.onlineStatus.server)}</Text>
                         </View>
 }
                         {!rowData.onlineStatus.online && <Text style={this.StyleManager.styles.offline}>{this.LocaleManager.strings.offline}</Text>}
@@ -193,26 +268,33 @@ class FriendsListScreen extends BaseTruckyComponent
 }
                     </View>
                 </View>
-                {rowData.onlineStatus.online &&
-                <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
+                {rowData.onlineStatus.online && <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
                     <Button
                         primary
                         icon="map"
                         text={this.LocaleManager.strings.viewOnMap}
                         onPress={() => this.viewOnMap(rowData)}/>
                 </View>
-                }
+}
             </Card>
         )
     }
 
     render()
     {
+        var fill = (this.state.friendsChecked / this.state.friends.length);
         return (
             <Container>
                 {this.renderToolbar()}
                 <ScrollView style={this.StyleManager.styles.friendsListMainContainer}>
                     {this.state.loading && <ActivityIndicator/>}
+                    {!this.state.loading && this.state.checkingOnlineState && <View style={this.StyleManager.styles.friendsListCheckingStateContainer}>
+                        <Text>{this.LocaleManager.strings.checkingOnlineState}</Text>
+                        <View>
+                            <ProgressBar progress={fill} color="red" width={200}/>
+                        </View>
+                    </View>
+}
 
                     {!this.state.loading && !this.state.steamUserPresent && <View style={this.StyleManager.styles.friendsListLoginToSteamContainer}>
                         <Button
