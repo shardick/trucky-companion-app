@@ -748,6 +748,7 @@ var strings = new LocalizedStrings({
         issuedBy: 'Wydane przez {0} na {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Wygasa:', // Wygasa: Dnia
         polish: 'Polski',
+		/* LABELS ADDED IN VERSION 1.0.4 */
         liveMapRouteTitle: 'Mapa na żywo',
         checkingOnlineState: 'Sprawdzanie stanu online',
         viewOnMap: 'Zobacz na mapie',
@@ -756,7 +757,21 @@ var strings = new LocalizedStrings({
         showTrucks: 'Pokaż ciężarówki',
         showName: 'Pokaż nazwę',
         showID: 'Pokaż ID',
-        places: 'Miejsca'
+        places: 'Miejsca',
+		/* LABELS ADDED IN VERSION 1.0.5 */
+		friends: 'Znajomi',
+        onlineOnSteam: 'Online na Steam',
+        busyOnSteam: 'Zajęty na Steam',
+        offlineOnSteam: 'Offline na Steam',
+        awayOnSteam: 'Zaraz wracam na Steam',
+        snoozingOnSteam: 'Drzemka na Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Chcę się wyminić na Steam',
+        lookingForPlayOnSteam: 'Chcę pograć na Steam',
+        loginToSteam: 'Zaloguj do Steam',
+        disconnect: 'Rozłącz', // Disconnect from Steam button text
+        logout: 'Wyloguj',
+        steamAuthentication: 'Uwierzytelnianie Steam',
+        connectedAs: 'Połączony jako' // connected as USERNAME
     },
     // Credits Tobias Groß
     de: {
