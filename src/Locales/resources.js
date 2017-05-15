@@ -765,7 +765,7 @@ var strings = new LocalizedStrings({
         offlineOnSteam: 'Offline na Steam',
         awayOnSteam: 'Zaraz wracam na Steam',
         snoozingOnSteam: 'Drzemka na Steam', // or Sleeping
-        lookingForATradeOnSteam: 'Chcę się wyminić na Steam',
+        lookingForATradeOnSteam: 'Chcę się wymienić na Steam',
         lookingForPlayOnSteam: 'Chcę pograć na Steam',
         loginToSteam: 'Zaloguj do Steam',
         disconnect: 'Rozłącz', // Disconnect from Steam button text
