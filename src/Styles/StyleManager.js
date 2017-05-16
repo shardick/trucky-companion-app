@@ -297,7 +297,8 @@ const _styles = StyleSheet.create({
     marginBottom: 10
   },
   playerSearchResultContainer: {
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 190
   },
   containerHidden: {
     position: 'absolute',

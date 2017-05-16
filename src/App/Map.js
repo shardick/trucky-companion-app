@@ -333,7 +333,7 @@ class MapScreen extends BaseTruckyComponent
 
         return (
             this.state.showFilter &&
-                <View style={this.StyleManager.styles.meetupSearchFormContainer}>
+                <View style={this.StyleManager.styles.simpleFlex}>
                     <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.servers}</Text>
                     <Picker
                         style={this.StyleManager.styles.meetupsSearchFormField}
@@ -373,7 +373,7 @@ class MapScreen extends BaseTruckyComponent
     {
         return(
             this.state.showSettings &&
-            <View>
+            <View style={this.StyleManager.styles.simpleFlex}>
                  <View style={this.StyleManager.styles.appSettingsRow}>
                         <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.hideHeatMap}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>

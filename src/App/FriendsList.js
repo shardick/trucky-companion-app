@@ -291,7 +291,7 @@ class FriendsListScreen extends BaseTruckyComponent
                     {!this.state.loading && this.state.checkingOnlineState && <View style={this.StyleManager.styles.friendsListCheckingStateContainer}>
                         <Text>{this.LocaleManager.strings.checkingOnlineState}</Text>
                         <View>
-                            <ProgressBar progress={fill} color="red" width={200}/>
+                            <ProgressBar progress={fill} color={this.StyleManager.styles.uiTheme.palette.primaryColor} width={200}/>
                         </View>
                     </View>
 }
