@@ -418,8 +418,10 @@ if (Platform.OS == 'ios') {
 
   _styles.searchPlayerTextInput = 
   { 
+    padding:2,
     marginTop: 10,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'grey',
     height: 30
   }
 }

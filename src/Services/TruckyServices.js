@@ -18,7 +18,7 @@ class TruckyServices
             serviceUrl: 'https://truckyservices.herokuapp.com'
         }
 
-        if (__DEV__) {
+        if (__DEV__ && Platform.OS == 'android') {
             this.config.serviceUrl = 'http://10.0.0.4:5000';
         }
     }
