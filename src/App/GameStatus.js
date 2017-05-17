@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Container from '../Container';
 
 var ReactNative = require('react-native');
-var {Text, View, StyleSheet, Image} = ReactNative;
+var {Text, View, StyleSheet, Image, TouchableHighlight} = ReactNative;
 
 import {ActionButton, Button} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
@@ -16,10 +16,10 @@ class GameStatus extends BaseTruckyComponent
         super();
 
         this.state = {
-            gameVersion: {},
+            gameVersion: null,
             loading: true,
             refreshTimer: null,
-            updateInfo: {}
+            updateInfo: null
         };
     }
 
@@ -43,19 +43,33 @@ class GameStatus extends BaseTruckyComponent
     {
         this.setState({loading: true});
 
+        var instance = this;
+
         var api = new TruckyServices();
 
-        var gameVersion = await api.game_version();
+        //var gameVersion = await api.game_version();
+        api.game_version().then( (gameVersion) => {
 
-        var servers = await api.servers();
+            instance.setState({ gameVersion: gameVersion});
+        });
+
+        //var servers = await api.servers();
+        api.servers().then( (servers) => {
+
+            instance.setState( { totalPlayers: servers.totalPlayers});
+        });
+
+        //this.setState({totalPlayers: servers.totalPlayers, gameVersion: gameVersion});
+
+        //var updateInfo = await api.update_info();
+
+        api.update_info().then( (updateInfo) => {
+            instance.setState({updateInfo: updateInfo});
+        });
+
+        //this.setState({updateInfo: updateInfo});
 
         await this.setGameTime();
-
-        this.setState({totalPlayers: servers.totalPlayers, gameVersion: gameVersion});
-
-        var updateInfo = await api.update_info();
-
-        this.setState({updateInfo: updateInfo});
 
         this.setState({loading: false});   
     }
@@ -93,22 +107,24 @@ class GameStatus extends BaseTruckyComponent
     {
         return (
             <Container>
-                {this.state.loading && <ActivityIndicator/>}
-                {(!this.state.loading) && <View style={this.StyleManager.styles.gameVersionContainer}>
-                    {/* <Image
-                        source={require('../Assets/avatar.png')}
-                        style={this.state.loading
-                        ? this.StyleManager.styles.hidden
-                        : this.StyleManager.styles.gameVersionMainImage}/>*/}
-                    <Text style={this.StyleManager.styles.gameVersionNews}>{this.state.updateInfo.NewsTitle}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
-                    <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime} {this.LocaleManager.moment(this.state.gameTime.calculated_game_time).format('dddd HH:mm')}</Text>
-                </View>
-}
+                {this.state.loading && <ActivityIndicator/>}                 
+                        {!this.state.loading && this.state.updateInfo &&
+                         <View style={this.StyleManager.styles.gameVersionContainer}>
+                            <Text style={this.StyleManager.styles.gameVersionNews}>{this.state.updateInfo.NewsTitle}</Text>
+                            <Button primary text={this.state.updateInfo.NewsLinkDesc} style={this.StyleManager.styles.gameVersionNews} onPress={ () => this.navigateUrl(this.state.updateInfo.NewsLinkUrl)} />
+                        </View>
+                        }   
+                    {!this.state.loading && this.state.gameVersion &&      
+                    <View style={this.StyleManager.styles.gameVersionContainer}>           
+                        <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.currentGameVersion} {this.state.gameVersion.name}</Text>
+                        <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedETSVersion} {this.state.gameVersion.supported_game_version}</Text>
+                        <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.supportedATSVersion} {this.state.gameVersion.supported_ats_game_version}</Text>
+                        <Text style={this.StyleManager.styles.gameVersionRow}>{this.LocaleManager.strings.lastReleaseDate} {this.state.gameVersion.time}</Text>
+                        <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.state.totalPlayers} {this.LocaleManager.strings.playersOnline}</Text>
+                         <Text style={this.StyleManager.styles.gameVersionTotalPlayer}>{this.LocaleManager.strings.currentGameTime}{this.LocaleManager.moment(this.state.gameTime.calculated_game_time).format('dddd HH:mm')}</Text>
+                    </View>
+                    }
+                    
             </Container>
         );
     }

@@ -94,7 +94,21 @@ var strings = new LocalizedStrings({
         showTrucks: 'Show Trucks',
         showName: 'Show name',
         showID: 'Show ID',
-        places: 'Places'
+        places: 'Places',
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Friends',
+        onlineOnSteam: 'Online on Steam',
+        busyOnSteam: 'Busy on Steam',
+        offlineOnSteam: 'Offline on Steam',
+        awayOnSteam: 'Away on Steam',
+        snoozingOnSteam: 'Snoozing on Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Looking for a trade on Steam',
+        lookingForPlayOnSteam: 'Looking for play on Steam',
+        loginToSteam: 'Login to Steam',
+        disconnect: 'Disconnect', // Disconnect from Steam button text
+        logout: 'Logout',
+        steamAuthentication: 'Steam authentication',
+        connectedAs: 'Connected as' // connected as USERNAME
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -185,7 +199,20 @@ var strings = new LocalizedStrings({
         showTrucks: 'Mostra camion',
         showName: 'Mostra i nomi',
         showID: 'Mostra gli ID',
-        places: 'Luoghi'
+        places: 'Luoghi',
+        friends: 'Amici',
+        onlineOnSteam: 'Online su Steam',
+        busyOnSteam: 'Occupato su Steam',
+        offlineOnSteam: 'Offline su Steam',
+        awayOnSteam: 'Lontano dal pc',
+        snoozingOnSteam: 'Sta dormendo',
+        lookingForATradeOnSteam: 'Cerca uno scambio su Steam',
+        lookingForPlayOnSteam: 'Cerca giocatori su Steam',
+        loginToSteam: 'Accedi a Steam',
+        disconnect: 'Disconnetti Steam',
+        logout: 'Disconnetti',
+        steamAuthentication: 'Autenticazione Steam',
+        connectedAs: 'Connesso come'
     },
     // credits: Hristo Spasov
     bg: {
@@ -414,7 +441,20 @@ var strings = new LocalizedStrings({
         steamUsername: 'Steam käyttäjänimi:',
         steamID: 'Steam ID:',
         issuedBy: 'Myöntänyt {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Vanhenee:' // Expires: DATE
+        expires: 'Vanhenee:', // Expires: DATE
+        friends: 'Kaverit',
+        onlineOnSteam: 'Paikalla Steamissa',
+        busyOnSteam: 'Kiireellinen Steamissa',
+        offlineOnSteam: 'Offline Steamissa',
+        awayOnSteam: 'Ei paikalla Steamissa',
+        snoozingOnSteam: 'Torkkuu Steamissa', // or Sleeping
+        lookingForATradeOnSteam: 'Etsii vaihtoa Streamissa',
+        lookingForPlayOnSteam: 'Etsii peliseuraa Steamissa',
+        loginToSteam: 'Kirjaudu Steamiin',
+        disconnect: 'Katkaise yhteys', // Disconnect from Steam button text
+        logout: 'Kirjaudu ulos',
+        steamAuthentication: 'Steam todennus',
+        connectedAs: 'Kirjautunut käyttäjällä' // connected as USERNAME
     },
     // credits Francisco Ramirez
     es: {
@@ -506,7 +546,20 @@ var strings = new LocalizedStrings({
         showTrucks: 'Mostrar Camiones',
         showName: 'Mostrar nombre',
         showID: 'Mostrar ID',
-        places: 'Lugares'
+        places: 'Lugares',
+        friends: 'Amigos',
+        onlineOnSteam: 'Conectado en Steam',
+        busyOnSteam: 'Ocupado en Steam',
+        offlineOnSteam: 'Desconectado en Steam',
+        awayOnSteam: 'Ausente en Steam',
+        snoozingOnSteam: 'Durmiendo on Steam',
+        lookingForATradeOnSteam: 'Deseando intercambiar en Steam',
+        lookingForPlayOnSteam: 'Deseando Jugar en Steam',
+        loginToSteam: 'Conectar a Steam',
+        disconnect: 'Desconectar',
+        logout: 'Cerrar sesión',
+        steamAuthentication: 'Autentificación de Steam',
+        connectedAs: 'Conectado como'
     },
     // credits Derk Nomden
     nl: {
@@ -588,9 +641,31 @@ var strings = new LocalizedStrings({
         steamID: 'Steam ID:',
         issuedBy: 'Probleem bij {0} op {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Verlopen:', // Expires: DATE
-        polish: 'Polish'
+        polish: 'Polish',
+        liveMapRouteTitle: 'Live Map',
+        checkingOnlineState: 'Check online status..',
+        viewOnMap: 'Bekijk op de map',
+        hideHeatMap: 'Verstop warmtemap',
+        showDirection: 'Zie richting',
+        showTrucks: 'Laat trucks zien',
+        showName: 'Laat naam zien',
+        showID: 'Laat ID zien',
+        places: 'Plaatsen',
+        friends: 'Vrienden',
+        onlineOnSteam: 'Online op Steam',
+        busyOnSteam: 'Druk op Steam',
+        offlineOnSteam: 'Offline op Steam',
+        awayOnSteam: 'Afwezig op Steam',
+        snoozingOnSteam: 'Snoozing on Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Zoekt naar een trade op Steam',
+        lookingForPlayOnSteam: 'Zoekt naar een game op Steam',
+        loginToSteam: 'Login op Steam',
+        disconnect: 'ontkoppeld', // Disconnect from Steam button text
+        logout: 'Log uit',
+        steamAuthentication: 'Steam authenticatie',
+        connectedAs: 'Verbonden als' // connected as USERNAME
     },
-    // credits Piotrek Ślusarz 
+    // credits Piotrek Ślusarz
     pl: {
         currentGameVersion: 'Bieżąca wersja gry: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -673,6 +748,7 @@ var strings = new LocalizedStrings({
         issuedBy: 'Wydane przez {0} na {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Wygasa:', // Wygasa: Dnia
         polish: 'Polski',
+		/* LABELS ADDED IN VERSION 1.0.4 */
         liveMapRouteTitle: 'Mapa na żywo',
         checkingOnlineState: 'Sprawdzanie stanu online',
         viewOnMap: 'Zobacz na mapie',
@@ -681,9 +757,23 @@ var strings = new LocalizedStrings({
         showTrucks: 'Pokaż ciężarówki',
         showName: 'Pokaż nazwę',
         showID: 'Pokaż ID',
-        places: 'Miejsca'
+        places: 'Miejsca',
+		/* LABELS ADDED IN VERSION 1.0.5 */
+		friends: 'Znajomi',
+        onlineOnSteam: 'Online na Steam',
+        busyOnSteam: 'Zajęty na Steam',
+        offlineOnSteam: 'Offline na Steam',
+        awayOnSteam: 'Zaraz wracam na Steam',
+        snoozingOnSteam: 'Drzemka na Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Chcę się wymienić na Steam',
+        lookingForPlayOnSteam: 'Chcę pograć na Steam',
+        loginToSteam: 'Zaloguj do Steam',
+        disconnect: 'Rozłącz', // Disconnect from Steam button text
+        logout: 'Wyloguj',
+        steamAuthentication: 'Uwierzytelnianie Steam',
+        connectedAs: 'Połączony jako' // connected as USERNAME
     },
-    // Credits Tobias Groß 
+    // Credits Tobias Groß
     de: {
         currentGameVersion: 'Derzeitige Spiel Version: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -773,9 +863,23 @@ var strings = new LocalizedStrings({
         showTrucks: 'LKWs anzeigen',
         showName: 'Namen anzeigen',
         showID: 'ID anzeigen',
-        places: 'Orte'
+        places: 'Orte',
+        friends: 'Freunde',
+        onlineOnSteam: 'Online auf Steam',
+        busyOnSteam: 'Beschäftigt auf Steam',
+        offlineOnSteam: 'Offline auf Steam',
+        awayOnSteam: 'Abwesend auf Steam',
+        snoozingOnSteam: 'Am schlafen', // or Sleeping
+        lookingForATradeOnSteam: 'Auf der Suche nach einem Handel auf Steam',
+        lookingForPlayOnSteam: 'Auf der Suche nach einem Spiel auf Steam',
+        loginToSteam: 'Bei Steam anmelden',
+        disconnect: 'Bei Steam abmelden', // Disconnect from Steam button text
+        logout: 'Ausloggen',
+        steamAuthentication: 'Steam Authentifizierung',
+        connectedAs: 'Verbunden als' // connected as USERNAME
     },
-    // Credits ActiV3Drifter (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
+    // Credits ActiV3Drifter
+    // (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
     cs: {
         currentGameVersion: 'Aktuální verze hry: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -845,7 +949,7 @@ var strings = new LocalizedStrings({
         truckersMPProfile: 'TruckersMP profil',
         viewSteamProfile: 'Ukázat Steam profil',
         viewTruckersMPProfile: 'Ukázat TruckersMP profil',
-        bans: 'Historie Banů', 
+        bans: 'Historie Banů',
         noBans: 'Žádné bany',
         nickName: 'Přezdívka:',
         onTruckersMPfrom: 'Na TruckersMP od', // On TruckersMP from DATE
@@ -856,9 +960,31 @@ var strings = new LocalizedStrings({
         steamUsername: 'Steam Přezdívka:',
         steamID: 'Steam ID:',
         issuedBy: 'Zabanován {0} v {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Vypršení:' // Expires: DATE
+        expires: 'Vypršení:', // Expires: DATE
+        liveMapRouteTitle: 'Živá mapa',
+        checkingOnlineState: 'Kontrola online stavu..',
+        viewOnMap: 'Zobrazit na mapě',
+        hideHeatMap: 'Schovat heatmap',
+        showDirection: 'Ukázat Směr',
+        showTrucks: 'Ukázat Tahače',
+        showName: 'Ukázat jméno',
+        showID: 'Ukázat ID',
+        places: 'Místa',
+        friends: 'Přátelé',
+        onlineOnSteam: 'Online na Steamu',
+        busyOnSteam: 'Zaneprázdněn na Steamu',
+        offlineOnSteam: 'Offline na Steamu',
+        awayOnSteam: 'Nepřítomen na Steam',
+        snoozingOnSteam: 'Spí na Steamu', // or Sleeping
+        lookingForATradeOnSteam: 'Chce obchodovat na Steamu',
+        lookingForPlayOnSteam: 'Chce hrát na Steamu',
+        loginToSteam: 'Přihlásit do Steam',
+        disconnect: 'Odpojit', // Disconnect from Steam button text
+        logout: 'Odhlásit',
+        steamAuthentication: 'Steam authentication',
+        connectedAs: 'Přihlášen jako' // connected as USERNAME
     },
-     // Credits CJMAXiK (https://truckersmp.com/user/3861)
+    // Credits CJMAXiK (https://truckersmp.com/user/3861)
     ru: {
         currentGameVersion: 'Текущая версия игры: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -951,7 +1077,21 @@ var strings = new LocalizedStrings({
         showTrucks: 'Показать грузовики',
         showName: 'Показать никнейм',
         showID: 'Показать ID',
-        places: 'Места'
+        places: 'Места',
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Друзья',
+        onlineOnSteam: 'В сети в Steam',
+        busyOnSteam: 'Занят в Steam',
+        offlineOnSteam: 'Не в сети Steam',
+        awayOnSteam: 'Не беспокоить в Steam',
+        snoozingOnSteam: 'Спит в Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Хочет обменяться в Steam',
+        lookingForPlayOnSteam: 'Хочет поиграть Steam',
+        loginToSteam: 'Войти в Steam',
+        disconnect: 'Отключиться', // Disconnect from Steam button text
+        logout: 'Выход',
+        steamAuthentication: 'Вход в Steam',
+        connectedAs: 'Подключен как' // connected as USERNAME
     }
 });
 

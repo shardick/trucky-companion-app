@@ -39,19 +39,19 @@ class RouteManager
             ._navigator
             .getCurrentRoutes();
 
-        if (routes.length > 1) {
-            route = routes[routes.length - 1];
+        if (routes.length > 2) {
+            route = routes[routes.length - 2];
 
-            //console.warn(JSON.stringify(route));
+            //console.warn(route.reference.constructor.name);
             route
                 .reference
                 .onPop();
+        }
 
-            if (route.title != "SplashScreen") {
-                this
-                    ._navigator
-                    .pop();
-            }
+        if (route.title != "SplashScreen") {
+            this
+                ._navigator
+                .pop();
         }
     }
 

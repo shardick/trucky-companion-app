@@ -1,3 +1,4 @@
+import {Platform} from 'react-native';
 /**
  *
  *
@@ -16,6 +17,10 @@ class TruckyServices
         this.config = {
             serviceUrl: 'https://truckyservices.herokuapp.com'
         }
+
+        if (__DEV__) {
+            this.config.serviceUrl = 'http://10.0.0.4:5000';
+        }
     }
 
     /**
@@ -26,16 +31,28 @@ class TruckyServices
      *
      * @memberOf TruckyServices
      */
-    async executeRequest(url)
+    async executeRequest(url, method = "GET", payload)
     {
         var myHeaders = new Headers();
         myHeaders.set('user-agent', 'TruckyApp');
+        myHeaders.set("x-platform", Platform.OS);
+
         var myInit = {
-            method: 'GET',
+            method: method,
             headers: myHeaders,
             mode: 'cors',
-            cache: 'no-cache'
+            cache: 'no-cache',            
         };
+
+        if (myInit.method == "POST")
+        {
+            //console.warn(payload);
+
+            myInit.headers.set( 'Accept', 'application/json, text/plain, */*');
+            myInit.headers.set('Content-Type','application/json');
+
+            myInit.body = JSON.stringify(payload);
+        }
 
         var response = await fetch(this.config.serviceUrl + url, myInit);
         var json = await response.json();
@@ -207,6 +224,26 @@ class TruckyServices
         }
 
         return playerInfo;
+    }
+
+    async registerDevice(deviceInfo)
+    {
+        var payload = {
+            deviceID: deviceInfo.getUniqueID(),
+            manifacturer: deviceInfo.getManufacturer(),
+            brand: deviceInfo.getBrand(),
+            model: deviceInfo.getModel(),
+            systemName: deviceInfo.getSystemName(),
+            systemVersion: deviceInfo.getSystemVersion(),
+            appVersion: deviceInfo.getVersion(),
+            readableAppVersion: deviceInfo.getReadableVersion(),
+            locale: deviceInfo.getDeviceLocale(),
+            country: deviceInfo.getDeviceCountry(),
+            isTablet: deviceInfo.isTablet(),
+            isEmulator: deviceInfo.isEmulator()
+        };
+
+        await this.executeRequest('/device/register', 'POST', payload);
     }
 
 }

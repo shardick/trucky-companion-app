@@ -257,7 +257,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
         return (
             <Container>
                 {this.renderToolbar()}
-                <View automaticallyAdjustContentInsets={true} style={this.StyleManager.styles.searchPlayerContainer}>
+                <View style={this.StyleManager.styles.searchPlayerContainer}>
                     <TextInput
                         style={this.StyleManager.styles.searchPlayerTextInput}
                         onChangeText={(text) => this.setState({searchText: text})}                        

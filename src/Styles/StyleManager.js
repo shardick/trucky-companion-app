@@ -97,6 +97,9 @@ const _styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 20
   },
+  gameStatusContainer: {
+    padding: 10
+  },
   appSettingsHeader: {
     marginTop: 20,
     marginRight: 10,
@@ -294,7 +297,8 @@ const _styles = StyleSheet.create({
     marginBottom: 10
   },
   playerSearchResultContainer: {
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 190
   },
   containerHidden: {
     position: 'absolute',
@@ -375,6 +379,17 @@ const _styles = StyleSheet.create({
   },
   friendsListUsernameContainer: {
     flexDirection: 'column'
+  },
+  friendsListLoginToSteamContainer: {
+    marginTop: 30,
+    padding: 10
+  },
+  friendsListCheckingStateContainer:
+  {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 5,
+    marginBottom: 5
   }
 });
 

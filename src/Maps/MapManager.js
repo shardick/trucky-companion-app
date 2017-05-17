@@ -274,6 +274,35 @@ class MapManager
                 return 9;
             case 11:
                 return 10;
+            case 20:
+                return 20;
+            case 21:
+                return 21;
+        }
+    }
+
+    reserveServerID(mapServerID)
+    {
+        switch(mapServerID)
+        {
+            case 0:
+                return 1;
+            case 1:
+                return 3;
+            case 2:
+                return 4;
+            case 3:
+                return 5;
+            case 6:
+                return 7;
+            case 9:
+                return 10;
+            case 10:
+                return 11;
+            case 20:
+                return 20;
+            case 21:
+                return 21;
         }
     }
 }

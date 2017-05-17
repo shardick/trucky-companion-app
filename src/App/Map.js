@@ -22,7 +22,6 @@ import MapManager from '../Maps/MapManager';
 //import WebViewBridge from 'react-native-webview-bridge';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
-import Autocomplete from 'react-native-autocomplete-input';
 import TruckyServices from '../Services/TruckyServices';
 
 const injectScript = `
@@ -222,14 +221,16 @@ class MapScreen extends BaseTruckyComponent
 
     async fetchData()
     {
+        var instance = this;
+
         var api = new TruckyServices();
-        var pois = await api.pois();
+        api.pois().then( (pois) => {
+            instance.setState({pois: pois.pois});
+        });       
 
-        this.setState({pois: pois.pois});
-
-        var servers = await api.servers();
-
-        this.setState({servers: servers.servers});
+        api.servers().then((servers) => {
+            instance.setState({servers: servers.servers});
+        });        
     }
 
     sendMessage(messageType, messageObject)
@@ -332,7 +333,7 @@ class MapScreen extends BaseTruckyComponent
 
         return (
             this.state.showFilter &&
-                <View style={this.StyleManager.styles.meetupSearchFormContainer}>
+                <View style={this.StyleManager.styles.simpleFlex}>
                     <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.servers}</Text>
                     <Picker
                         style={this.StyleManager.styles.meetupsSearchFormField}
@@ -372,7 +373,7 @@ class MapScreen extends BaseTruckyComponent
     {
         return(
             this.state.showSettings &&
-            <View>
+            <View style={this.StyleManager.styles.simpleFlex}>
                  <View style={this.StyleManager.styles.appSettingsRow}>
                         <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.hideHeatMap}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
