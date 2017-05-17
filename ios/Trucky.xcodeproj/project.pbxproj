@@ -368,6 +368,7 @@
 		7B6511C81E9184A100BC5D25 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		7B6511C91E9184A100BC5D25 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		7B6511CA1E9184A100BC5D25 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		7BC8ABEE1EC4B2E2007E73AF /* trucky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = trucky.entitlements; path = trucky/trucky.entitlements; sourceTree = "<group>"; };
 		7BCE77BC1EAFC38300D09F21 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		7EA38248A82541B78A0D93B3 /* ReactNativeLocalization.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeLocalization.xcodeproj; path = "../node_modules/react-native-localization/ReactNativeLocalization.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -524,6 +525,7 @@
 		13B07FAE1A68108700A75B9A /* trucky */ = {
 			isa = PBXGroup;
 			children = (
+				7BC8ABEE1EC4B2E2007E73AF /* trucky.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -808,6 +810,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -1370,6 +1375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = trucky/trucky.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Francesco Bramato (BKF2Z5PG3U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1382,9 +1388,15 @@
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-restart/ios/RCTRestart",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)..\node_modules\neact-native-background-timerios",
-					"$(SRCROOT)..\node_modules\neact-native-firebase-analyticsios",
-					"$(SRCROOT)..\node_modules\neact-native-webview-bridgeios",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-background-timerios",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-firebase-analyticsios",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-webview-bridgeios",
 				);
 				INFOPLIST_FILE = trucky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1406,6 +1418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = trucky/trucky.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Francesco Bramato (BKF2Z5PG3U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
