@@ -19,6 +19,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import RNCalendarEvents from 'react-native-calendar-events';
 import TruckyServices from '../Services/TruckyServices';
+import AdaptativeModalPicker from '../Components/AdapativePicker';
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -45,7 +46,7 @@ class MeetupsScreen extends BaseTruckyComponent
                 }
             ],
             /*languages: ['Doesn\'t matter'],*/
-            selectedServer: '',
+            selectedServer: 'EU #2',
             selectedLanguage: ''
         };
     }
@@ -219,7 +220,7 @@ class MeetupsScreen extends BaseTruckyComponent
 
     serversList()
     {
-        return this
+       /* return this
             .state
             .servers
             .map((server) => {
@@ -229,7 +230,11 @@ class MeetupsScreen extends BaseTruckyComponent
                 value = {
                     server.shortname
                 } />);
-            });
+            });*/
+
+        return this.state.servers.map( (server) => {
+            return { key: server.shortname, label: server.name + ' - ' + server.shortname + ' (' + server.game + ')' }
+        });
     }
 
     renderDialog()
@@ -243,12 +248,17 @@ class MeetupsScreen extends BaseTruckyComponent
                 height={155}
                 onDismissed={() => this.setState({showList: true})}>
                 <View style={this.StyleManager.styles.meetupSearchFormContainer}>
-                    <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>Server</Text>
-                    <Picker
+                    <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.servers}</Text>
+                    {/*<Picker
                         style={this.StyleManager.styles.meetupsSearchFormField}
                         selectedValue={this.state.selectedServer}
                         onValueChange={(value) => this.setState({selectedServer: value})}>
-                        {this.serversList()}</Picker>
+                        {this.serversList()}</Picker>*/}
+                    <AdaptativeModalPicker 
+                        style={this.StyleManager.styles.meetupsSearchFormField}
+                        selectedValue={this.state.selectedServer} data={this.serversList()} 
+                        onChange={(value) => this.setState({selectedServer: value.key})} 
+                        initialText={this.LocaleManager.strings.servers} />
                     <Button
                         text="Search"
                         icon="search"

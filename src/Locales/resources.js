@@ -143,7 +143,7 @@ var strings = new LocalizedStrings({
         autoRefreshServersList: 'Aggiorna lista stato servers',
         refreshServersListEvery: 'Aggiorna la lista servers ogni',
         seconds10: '10 secondi',
-        seconds30: '30 secondo',
+        seconds30: '30 secondi',
         minute: '1 minuto',
         minutes2: '2 minuti',
         minutes5: '5 minuti',
@@ -188,7 +188,7 @@ var strings = new LocalizedStrings({
         realName: 'Nome reale:',
         steamUsername: 'Username Steam:',
         steamID: 'ID Steam:',
-        issuedBy: 'Emato da {0} il {1}', // complete phrase is: Issued by NICKNAME on DATE
+        issuedBy: 'Emanato da {0} il {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Scadenza:', // Expires: DATE
         german: 'Tedesco',
         liveMapRouteTitle: 'Live Map',

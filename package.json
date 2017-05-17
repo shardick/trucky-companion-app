@@ -15,6 +15,7 @@
     "react-native-drawer": "^2.3.0",
     "react-native-localization": "^0.1.29",
     "react-native-material-ui": "^1.8.0",
+    "react-native-modal-picker": "0.0.16",
     "react-native-onesignal": "^3.0.3",
     "react-native-popup-dialog": "^0.7.22",
     "react-native-progress": "^3.2.0",

@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Toolbar, Button} from 'react-native-material-ui';
 import RNRestart from 'react-native-restart';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+import AdaptativeModalPicker from '../Components/AdapativePicker';
 
 class SettingsScreen extends BaseTruckyComponent
 {
@@ -52,9 +53,12 @@ class SettingsScreen extends BaseTruckyComponent
 
     goToSteamLogin()
     {
-        //var newRoute = Object.assign(this.RouteManager.routes.steamAuth, { callback: this.loadSettings.bind(this) });
+        // var newRoute = Object.assign(this.RouteManager.routes.steamAuth, { callback:
+        // this.loadSettings.bind(this) });
 
-        this.RouteManager.push(this.RouteManager.routes.steamAuth);
+        this
+            .RouteManager
+            .push(this.RouteManager.routes.steamAuth);
     }
 
     onPop()
@@ -68,16 +72,26 @@ class SettingsScreen extends BaseTruckyComponent
     {
         var instance = this;
 
-        this.AppSettings.setValue('steamUser', null).then( () => {
-            instance.loadSettings();
-        });
+        this
+            .AppSettings
+            .setValue('steamUser', null)
+            .then(() => {
+                instance.loadSettings();
+            });
     }
 
     render()
     {
-        let languageItems = this.LocaleManager.availableLanguages.map( (language) => {
+        /* let languageItems = this.LocaleManager.availableLanguages.map( (language) => {
             return <Picker.Item key={language.code} label={language.displayName} value={language.code} />
-        });
+        });*/
+
+        let languageItemsModal = this
+            .LocaleManager
+            .availableLanguages
+            .map((language) => {
+                return {key: language.code, label: language.displayName};
+            });
 
         return (
             <Container>
@@ -88,17 +102,29 @@ class SettingsScreen extends BaseTruckyComponent
                     <View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.steamProfile}</Text>
                     </View>
-                     <View style={this.StyleManager.styles.appSettingsRow}>
-                         {this.state.settings.steamUser &&
-                            <View>
-                                <Text>{this.LocaleManager.strings.connectedAs} {this.state.settings.steamUser.steamDisplayName} ({this.state.settings.steamUser.steamID})</Text>
-                                <Button primary icon="exit-to-app" text={this.LocaleManager.strings.disconnect} onPress={this.disconnectSteamAccount.bind(this)} />
-                            </View>
-                         }
-                        {!this.state.settings.steamUser &&
-                        <Button primary raised icon="lock" text={this.LocaleManager.strings.loginToSteam} onPress={this.goToSteamLogin.bind(this)} />
-                        }
-                     </View>
+                    <View style={this.StyleManager.styles.appSettingsRow}>
+                        {this.state.settings.steamUser && <View>
+                            <Text>{this.LocaleManager.strings.connectedAs} {this.state.settings.steamUser.steamDisplayName}
+                                ({this.state.settings.steamUser.steamID})</Text>
+                            <Button
+                                primary
+                                icon="exit-to-app"
+                                text={this.LocaleManager.strings.disconnect}
+                                onPress={this
+                                .disconnectSteamAccount
+                                .bind(this)}/>
+                        </View>
+}
+                        {!this.state.settings.steamUser && <Button
+                            primary
+                            raised
+                            icon="lock"
+                            text={this.LocaleManager.strings.loginToSteam}
+                            onPress={this
+                            .goToSteamLogin
+                            .bind(this)}/>
+}
+                    </View>
 
                     <View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.enableAutoRefresh}</Text>
@@ -124,7 +150,7 @@ class SettingsScreen extends BaseTruckyComponent
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRowColumns}>
                         <View style={this.StyleManager.styles.appSettingsFieldBelow}>
-                            <Picker
+                            {/*<Picker
                                 itemStyle={this.StyleManager.styles.appSettingsPicker}
                                 selectedValue={this.state.settings.serverListRefreshInterval}
                                 onValueChange={(value) => this.updateSetting(this.AppSettings.keys.serverListRefreshInterval, value)}>
@@ -134,7 +160,33 @@ class SettingsScreen extends BaseTruckyComponent
                                 <Picker.Item label={this.LocaleManager.strings.minutes5} value="300000"/>
                                 <Picker.Item label={this.LocaleManager.strings.minutes10} value="30"/>
                                 <Picker.Item label={this.LocaleManager.strings.minutes20} value="30"/>
-                            </Picker>
+                            </Picker>*/}
+                            <AdaptativeModalPicker
+                                selectedValue={this.state.settings.serverListRefreshInterval}
+                                data={[
+                                {
+                                    label: this.LocaleManager.strings.seconds10,
+                                    key: "10000"
+                                }, {
+                                    label: this.LocaleManager.strings.seconds30,
+                                    key: "30000"
+                                }, {
+                                    label: this.LocaleManager.strings.minute,
+                                    key: "60000"
+                                }, {
+                                    label: this.LocaleManager.strings.minutes5,
+                                    key: "300000"
+                                }, {
+                                    label: this.LocaleManager.strings.minutes10,
+                                    key: "600000"
+                                }, {
+                                    label: this.LocaleManager.strings.minutes20,
+                                    key: "1200000"
+                                }
+                            ]}
+                                onChange={(option) => {
+                                this.updateSetting(this.AppSettings.keys.serverListRefreshInterval, option.key)
+                            }}/>
                         </View>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsHeader}>
@@ -142,12 +194,18 @@ class SettingsScreen extends BaseTruckyComponent
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRowColumns}>
                         <View style={this.StyleManager.styles.appSettingsFieldBelow}>
-                            <Picker
+                            {/*<Picker
                                 itemStyle={this.StyleManager.styles.appSettingsPicker}
                                 selectedValue={this.state.settings.language}
                                 onValueChange={(value) => this.updateSetting(this.AppSettings.keys.language, value)}>
                                 {languageItems}
-                            </Picker>
+                            </Picker>*/}
+                            <AdaptativeModalPicker
+                                selectedValue={this.state.settings.language}
+                                data={languageItemsModal}
+                                onChange={(option) => {
+                                this.updateSetting(this.AppSettings.keys.language, option.key)
+                            }}/>
                         </View>
                     </View>
                 </ScrollView>
