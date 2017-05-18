@@ -254,11 +254,13 @@ class MeetupsScreen extends BaseTruckyComponent
                         selectedValue={this.state.selectedServer}
                         onValueChange={(value) => this.setState({selectedServer: value})}>
                         {this.serversList()}</Picker>*/}
+                     <View style={this.StyleManager.styles.pickerContainer}>
                     <AdaptativeModalPicker 
                         style={this.StyleManager.styles.meetupsSearchFormField}
-                        selectedValue={this.state.selectedServer} data={this.serversList()} 
+                        data={this.serversList()} 
                         onChange={(value) => this.setState({selectedServer: value.key})} 
                         initialText={this.LocaleManager.strings.servers} />
+                    </View>
                     <Button
                         text="Search"
                         icon="search"

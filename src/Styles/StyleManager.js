@@ -132,8 +132,7 @@ const _styles = StyleSheet.create({
   },
   appSettingsLabel: {
     marginTop: 4,
-    flex: 1,
-    color: 'black'
+    flex: 1
   },
   appSettingsFieldBelow: {},
   appSettingsField: {
@@ -390,6 +389,14 @@ const _styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 5,
     marginBottom: 5
+  },
+  pickerContainer: {
+    marginBottom: 10
+  },
+  mapFiltersContainer:
+  {
+    flex: 1,
+    padding: 5    
   }
 });
 

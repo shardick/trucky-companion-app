@@ -111,7 +111,7 @@ class GameStatus extends BaseTruckyComponent
                         {!this.state.loading && this.state.updateInfo &&
                          <View style={this.StyleManager.styles.gameVersionContainer}>
                             <Text style={this.StyleManager.styles.gameVersionNews}>{this.state.updateInfo.NewsTitle}</Text>
-                            <Button primary text={this.state.updateInfo.NewsLinkDesc} style={this.StyleManager.styles.gameVersionNews} onPress={ () => this.navigateUrl(this.state.updateInfo.NewsLinkUrl)} />
+                            <Button primary text={this.state.updateInfo.NewsLinkDesc} onPress={ () => this.navigateUrl(this.state.updateInfo.NewsLinkUrl)} />
                         </View>
                         }   
                     {!this.state.loading && this.state.gameVersion &&      

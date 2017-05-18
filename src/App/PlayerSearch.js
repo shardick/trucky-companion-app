@@ -21,6 +21,7 @@ import RNRestart from 'react-native-restart';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
+import AdaptativeModalPicker from '../Components/AdapativePicker';
 
 /**
  * 
@@ -262,7 +263,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                         style={this.StyleManager.styles.searchPlayerTextInput}
                         onChangeText={(text) => this.setState({searchText: text})}                        
                         placeholder={this.LocaleManager.strings.searchFieldPlaceholder}/>
-                    <Picker
+                   {/* <Picker
                         itemStyle={this.StyleManager.styles.appSettingsPicker}
                         selectedValue={this.state.searchType}
                         onValueChange={(value) => this.setState({searchType: value})}>
@@ -275,7 +276,26 @@ class PlayerSearchScreen extends BaseTruckyComponent
                         <Picker.Item
                             label={this.LocaleManager.strings.searchByTruckersMPID}
                             value="truckersmpid"/>
-                    </Picker>
+                    </Picker>*/}
+                     <View style={this.StyleManager.styles.pickerContainer}>
+                    <AdaptativeModalPicker
+                                selectedValue={this.state.searchType}
+                                data={[
+                                {
+                                    label: this.LocaleManager.strings.searchBySteamUsername,
+                                    key: "steamusername"
+                                }, {
+                                    label: this.LocaleManager.strings.searchBySteamID,
+                                    key: "steamid"
+                                }, {
+                                    label: this.LocaleManager.strings.searchByTruckersMPID,
+                                    key: "truckersmpid"
+                                }
+                            ]}
+                                onChange={(option) => {
+                                this.setState({searchType: option.key})
+                            }}/>
+                        </View>
                     <Button
                         text={this.LocaleManager.strings.searchButton}
                         primary

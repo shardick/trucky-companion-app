@@ -23,6 +23,7 @@ import MapManager from '../Maps/MapManager';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import TruckyServices from '../Services/TruckyServices';
+import AdaptativeModalPicker from '../Components/AdapativePicker';
 
 const injectScript = `
 var truckSelected = false;
@@ -325,22 +326,26 @@ class MapScreen extends BaseTruckyComponent
             .servers
             .filter((s) => s.online)
             .map((s) => {
-                return <Picker.Item
-                    key={s.id}
-                    value={s.id}
-                    label={s.name + ' - ' + s.shortname + ' (' + s.game + ')'}/>
+                return {
+                    key: s.id, label: s.name + ' - ' + s.shortname + ' (' + s.game + ')'
+                };
             });
 
         return (
             this.state.showFilter &&
-                <View style={this.StyleManager.styles.simpleFlex}>
+                <View style={this.StyleManager.styles.mapFiltersContainer}>
                     <Text style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.servers}</Text>
-                    <Picker
+                   {/* <Picker
                         style={this.StyleManager.styles.meetupsSearchFormField}
                         selectedValue={this.state.selectedServer}
                         onValueChange={(value) => this.serverSelected(value)}>
                         {serversItems}
-                    </Picker>
+                    </Picker>*/}
+                     <AdaptativeModalPicker 
+                        data={serversItems} 
+                        onChange={(value) => this.serverSelected(value.key)} 
+                        initialText={this.LocaleManager.strings.servers} />
+
                     <Text ref="autocompleteInput" style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.places}</Text>
                     <TextInput onChangeText={(text) => this.filterPoi(text)}/>
                     <ListView

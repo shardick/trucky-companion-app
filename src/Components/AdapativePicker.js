@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 var ReactNative = require('react-native');
+import {Text, View} from 'react-native';
 import ModalPicker from 'react-native-modal-picker'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class AdaptativePicker extends Component
 {
@@ -8,7 +10,8 @@ class AdaptativePicker extends Component
     {
         super(props);
 
-        //console.warn(this.props.initialText);
+        console.log(props.initialText);
+        console.log(props.selectedValue);
 
         this.state = {
             selectedText: this.props.initialText,
@@ -16,16 +19,21 @@ class AdaptativePicker extends Component
         };
     }
 
+    componentDidMount()
+    {
+        this.getInitValue(this.props);
+    }
+
     getInitValue(props)
     {
-        //console.warn('getInitValue');
+        console.log('getInitValue');
 
         var instance = this;
 
-        //console.warn(props.selectedValue);
+        console.log('props.selectedValue: ' + props.selectedValue);
 
-        if (typeof(props.selectedValue) != 'undefined') { 
-            //console.warn('try to search');
+        if (typeof(props.selectedValue) != 'undefined') {
+            console.log('search for a label with key ' + props.selectedValue);
 
             var option = this
                 .props
@@ -57,15 +65,17 @@ class AdaptativePicker extends Component
 
     render()
     {
-        //console.warn(this.state.selectedText);
+        console.log('render: selectedText ' + this.state.selectedText);
 
         return <ModalPicker
-            style={this.props.style}
+            style={{borderRadius: 10, paddingTop: 5, paddingBottom: 5, borderColor: 'grey', borderWidth: 1, alignItems: 'center' }}
             optionContainer={styles.optionContainer}
             optionTextStyle={styles.optionTextStyle}
             data={this.props.data}
             initValue={this.state.selectedText}
-            onChange={(option) => this.onChange(option)}></ModalPicker>
+            onChange={(option) => this.onChange(option)}>
+                <Text>{this.state.selectedText}</Text>
+        </ModalPicker>
     }
 }
 
@@ -74,7 +84,13 @@ var styles = {
         color: 'black'
     },
     optionContainer: {
-        backgroundColor: 'white'
+        backgroundColor: '#FFFFFF',
+        borderRadius: 0
+    },
+    selectedValueContainer: {
+        paddingTop: 5,
+        paddingBottom: 5,
+        flex: 1
     }
 };
 
