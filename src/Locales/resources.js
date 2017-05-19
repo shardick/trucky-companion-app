@@ -108,7 +108,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Disconnect', // Disconnect from Steam button text
         logout: 'Logout',
         steamAuthentication: 'Steam authentication',
-        connectedAs: 'Connected as' // connected as USERNAME
+        connectedAs: 'Connected as', // connected as USERNAME
+        cancel: 'Cancel'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -212,7 +213,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Disconnetti Steam',
         logout: 'Disconnetti',
         steamAuthentication: 'Autenticazione Steam',
-        connectedAs: 'Connesso come'
+        connectedAs: 'Connesso come',
+        cancel: 'Annulla'
     },
     // credits: Hristo Spasov
     bg: {
@@ -295,7 +297,8 @@ var strings = new LocalizedStrings({
         steamUsername: 'Steam прякор:',
         steamID: 'Steam ID:',
         issuedBy: 'Издаден от {0} на {1}', // complete phrase is: Issued by NICKNAME on DATE
-        expires: 'Изтича:' // Expires: DATE
+        expires: 'Изтича:', // Expires: DATE
+        cancel: 'близо'
     },
     // credits: Kevin Monteil
     fr: {
@@ -358,7 +361,8 @@ var strings = new LocalizedStrings({
         spanish: 'Espanol',
         dutch: 'Néerlandais',
         polish: 'Polish',
-        german: 'Allemande'
+        german: 'Allemande',
+        cancel: 'Anuler'
     },
     // Credits Jiri Innanen
     fi: {
@@ -454,7 +458,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Katkaise yhteys', // Disconnect from Steam button text
         logout: 'Kirjaudu ulos',
         steamAuthentication: 'Steam todennus',
-        connectedAs: 'Kirjautunut käyttäjällä' // connected as USERNAME
+        connectedAs: 'Kirjautunut käyttäjällä', // connected as USERNAME
+        cancel: 'lähellä'
     },
     // credits Francisco Ramirez
     es: {
@@ -559,7 +564,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Desconectar',
         logout: 'Cerrar sesión',
         steamAuthentication: 'Autentificación de Steam',
-        connectedAs: 'Conectado como'
+        connectedAs: 'Conectado como',
+        cancel: 'Cerca'
     },
     // credits Derk Nomden
     nl: {
@@ -663,7 +669,8 @@ var strings = new LocalizedStrings({
         disconnect: 'ontkoppeld', // Disconnect from Steam button text
         logout: 'Log uit',
         steamAuthentication: 'Steam authenticatie',
-        connectedAs: 'Verbonden als' // connected as USERNAME
+        connectedAs: 'Verbonden als', // connected as USERNAME
+        cancel: 'dicht'
     },
     // credits Piotrek Ślusarz
     pl: {
@@ -771,7 +778,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Rozłącz', // Disconnect from Steam button text
         logout: 'Wyloguj',
         steamAuthentication: 'Uwierzytelnianie Steam',
-        connectedAs: 'Połączony jako' // connected as USERNAME
+        connectedAs: 'Połączony jako', // connected as USERNAME
+        cancel: 'blisko'
     },
     // Credits Tobias Groß
     de: {
@@ -876,7 +884,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Bei Steam abmelden', // Disconnect from Steam button text
         logout: 'Ausloggen',
         steamAuthentication: 'Steam Authentifizierung',
-        connectedAs: 'Verbunden als' // connected as USERNAME
+        connectedAs: 'Verbunden als', // connected as USERNAME
+        cancel: 'schließen'
     },
     // Credits ActiV3Drifter
     // (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
@@ -982,7 +991,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Odpojit', // Disconnect from Steam button text
         logout: 'Odhlásit',
         steamAuthentication: 'Steam authentication',
-        connectedAs: 'Přihlášen jako' // connected as USERNAME
+        connectedAs: 'Přihlášen jako', // connected as USERNAME
+        cancel: 'zavřít'
     },
     // Credits CJMAXiK (https://truckersmp.com/user/3861)
     ru: {
@@ -1091,7 +1101,8 @@ var strings = new LocalizedStrings({
         disconnect: 'Отключиться', // Disconnect from Steam button text
         logout: 'Выход',
         steamAuthentication: 'Вход в Steam',
-        connectedAs: 'Подключен как' // connected as USERNAME
+        connectedAs: 'Подключен как', // connected as USERNAME
+        cancel: 'близко'
     }
 });
 

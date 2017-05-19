@@ -3,6 +3,7 @@ var ReactNative = require('react-native');
 import {Text, View, TouchableOpacity} from 'react-native';
 import ModalPicker from 'react-native-modal-picker'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LM from '../Locales/LocaleManager';
 
 class AdaptativePicker extends Component
 {
@@ -12,6 +13,7 @@ class AdaptativePicker extends Component
 
         //console.log(props.initialText); console.log(props.selectedValue);
 
+        this.LocaleManager = new LM();
         this.state = {
             selectedText: this.props.initialText,
             selectedValue: this.props.selectedValue
@@ -89,6 +91,7 @@ class AdaptativePicker extends Component
                     optionTextStyle={styles.optionTextStyle}
                     data={this.props.data}
                     initValue={this.state.selectedText}
+                    cancelText={this.LocaleManager.strings.cancel}
                     onChange={(option) => this.onChange(option)}>
                     <Text>{this.state.selectedText}</Text>
 
