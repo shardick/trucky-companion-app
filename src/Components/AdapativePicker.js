@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 var ReactNative = require('react-native');
-import {Text, View} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 import ModalPicker from 'react-native-modal-picker'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,8 +10,7 @@ class AdaptativePicker extends Component
     {
         super(props);
 
-        //console.log(props.initialText);
-        //console.log(props.selectedValue);
+        //console.log(props.initialText); console.log(props.selectedValue);
 
         this.state = {
             selectedText: this.props.initialText,
@@ -63,19 +62,39 @@ class AdaptativePicker extends Component
             .onChange(option);
     }
 
+    onPress()
+    {
+        this
+            .modalPicker
+            .open();
+    }
+
     render()
     {
         //console.log('render: selectedText ' + this.state.selectedText);
 
-        return <ModalPicker
-            style={{borderRadius: 10, paddingTop: 5, paddingBottom: 5, borderColor: 'grey', borderWidth: 1, alignItems: 'center' }}
-            optionContainer={styles.optionContainer}
-            optionTextStyle={styles.optionTextStyle}
-            data={this.props.data}
-            initValue={this.state.selectedText}
-            onChange={(option) => this.onChange(option)}>
-                <Text>{this.state.selectedText}</Text>
-        </ModalPicker>
+        return (
+            <TouchableOpacity onPress={() => this.onPress()}>
+                <ModalPicker
+                    ref={(ref) => this.modalPicker = ref}
+                    style={{
+                    borderRadius: 10,
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    borderColor: 'grey',
+                    borderWidth: 1,
+                    alignItems: 'center'
+                }}
+                    optionContainer={styles.optionContainer}
+                    optionTextStyle={styles.optionTextStyle}
+                    data={this.props.data}
+                    initValue={this.state.selectedText}
+                    onChange={(option) => this.onChange(option)}>
+                    <Text>{this.state.selectedText}</Text>
+
+                </ModalPicker>
+            </TouchableOpacity>
+        )
     }
 }
 
