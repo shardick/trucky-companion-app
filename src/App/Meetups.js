@@ -134,7 +134,7 @@ class MeetupsScreen extends BaseTruckyComponent
             .then(status => {
                 if (status == 'authorized') {
 
-                    //console.log(JSON.stringify(event));
+                    console.log(JSON.stringify(event));
 
                     var eventSettings = {
                         location: event.location,
@@ -164,7 +164,7 @@ class MeetupsScreen extends BaseTruckyComponent
                         ]
                     };
 
-                    //onsole.log(JSON.stringify(eventSettings));
+                    console.log(JSON.stringify(eventSettings));
 
                     RNCalendarEvents
                         .saveEvent(this.LocaleManager.strings.eventTitle, eventSettings)
@@ -319,11 +319,13 @@ class MeetupsScreen extends BaseTruckyComponent
                         } />}/>
                     </View>
                 </View>
+                {this.state.showList &&
                 <ActionButton
                     icon="refresh"
                     onPress={this
                     ._onRefresh
                     .bind(this)}/>
+                }
             </Container>
         )
     }

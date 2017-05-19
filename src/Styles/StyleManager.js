@@ -397,6 +397,22 @@ const _styles = StyleSheet.create({
   {
     flex: 1,
     padding: 5    
+  },
+  friendsListNoFriends:
+  {
+    padding: 5,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  serversListTotalPlayersOnline:
+  {
+    marginRight: 10
+  },
+  serversListTotalPlayersOnlineIcon:
+  {
+    marginTop: 4,
+    marginRight: 5
   }
 });
 

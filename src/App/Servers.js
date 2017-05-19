@@ -31,7 +31,10 @@ class ServersScreen extends BaseTruckyComponent
         this.state = {
             dataSource: ds.cloneWithRows([]),
             loading: true,
-            gameTime: ''
+            gameTime: '',
+            servers: {
+                totalPlayers: 0
+            }
         };
         this.settings = {};
     }
@@ -54,10 +57,15 @@ class ServersScreen extends BaseTruckyComponent
         if (this.settings.autoRefreshGameTime) {
             this.state.refreshTimer = setInterval(function () {
 
-                if (!instance.state.loading) {
-                    instance
-                        .setGameTime()
-                        .done();
+                if (AppState.currentState == 'active' && instance.getCurrentRoute().title == 'Servers')
+                {
+                    //console.log('time');
+
+                    if (!instance.state.loading) {
+                        instance
+                            .setGameTime()
+                            .done();
+                    }
                 }
             }, 10000);
         }
@@ -80,6 +88,8 @@ class ServersScreen extends BaseTruckyComponent
 
         var servers = await api.servers();
 
+        this.setState({servers: servers });
+        
         this.setState({
             dataSource: this
                 .state
@@ -183,6 +193,8 @@ class ServersScreen extends BaseTruckyComponent
                         : {}}>
                         <View style={this.StyleManager.styles.serversListGameTimeContainer}>
                             <View style={this.StyleManager.styles.simpleRow}>
+                                <Icon style={this.StyleManager.styles.serversListTotalPlayersOnlineIcon} name="user"/>
+                                <Text style={this.StyleManager.styles.serversListTotalPlayersOnline}>{this.state.servers.totalPlayers}</Text>
                                 <Icon style={this.StyleManager.styles.serversListGameTimeIcon} name="clock-o"/>
                                 <Text style={this.StyleManager.styles.serversListGameTimeText}>{this.LocaleManager.moment(this.state.gameTime.calculated_game_time).format('dddd HH:mm')}</Text>
                             </View>

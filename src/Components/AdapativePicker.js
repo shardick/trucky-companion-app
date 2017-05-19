@@ -10,8 +10,8 @@ class AdaptativePicker extends Component
     {
         super(props);
 
-        console.log(props.initialText);
-        console.log(props.selectedValue);
+        //console.log(props.initialText);
+        //console.log(props.selectedValue);
 
         this.state = {
             selectedText: this.props.initialText,
@@ -26,11 +26,11 @@ class AdaptativePicker extends Component
 
     getInitValue(props)
     {
-        console.log('getInitValue');
+        //console.log('getInitValue');
 
         var instance = this;
 
-        console.log('props.selectedValue: ' + props.selectedValue);
+        //console.log('props.selectedValue: ' + props.selectedValue);
 
         if (typeof(props.selectedValue) != 'undefined') {
             console.log('search for a label with key ' + props.selectedValue);
@@ -65,7 +65,7 @@ class AdaptativePicker extends Component
 
     render()
     {
-        console.log('render: selectedText ' + this.state.selectedText);
+        //console.log('render: selectedText ' + this.state.selectedText);
 
         return <ModalPicker
             style={{borderRadius: 10, paddingTop: 5, paddingBottom: 5, borderColor: 'grey', borderWidth: 1, alignItems: 'center' }}

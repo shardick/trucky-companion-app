@@ -112,6 +112,12 @@ class BaseTruckyComponent extends Component
     {
         //console.warn('pop');
     }
+
+    getCurrentRoute()
+    {
+        var routes = this.RouteManager.navigator.getCurrentRoutes();
+        return routes[routes.length-1];
+    }
 }
 
 module.exports = BaseTruckyComponent;

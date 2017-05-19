@@ -10,6 +10,11 @@ import SearchPlayerScreen from './App/PlayerSearch';
 import MapScreen from './App/Map';
 import SteamAuthScreen from './App/SteamAuth';
 import FriendsListScreen from './App/FriendsList';
+import React, {Component, PropTypes} from 'react';
+var ReactNative = require('react-native');
+var {
+    BackAndroid, Platform
+} = ReactNative;
 
 class RouteManager
 {
@@ -43,15 +48,26 @@ class RouteManager
             route = routes[routes.length - 2];
 
             //console.warn(route.reference.constructor.name);
-            route
-                .reference
-                .onPop();
+
+            if (typeof(route.reference) != 'undefined')
+            {
+                route
+                    .reference
+                    .onPop();
+            }
         }
+        else
+            route = routes[0];
 
         if (route.title != "SplashScreen") {
             this
                 ._navigator
                 .pop();
+        }
+        else
+        {
+            if (Platform.OS == 'android')
+                BackAndroid.exitApp();
         }
     }
 
@@ -59,11 +75,11 @@ class RouteManager
     {
         return ({
             home: {
-                title: 'Trucky Companion App',
+                title: 'Home',
                 Page: Home
             },
             servers: {
-                title: 'TruckersMP Servers',
+                title: 'Servers',
                 Page: ServersScreen
             },
             settings: {
@@ -71,7 +87,7 @@ class RouteManager
                 Page: SettingsScreen
             },
             rules: {
-                title: 'TruckersMP Rules',
+                title: 'Rules',
                 Page: RulesScreen
             },
             meetups: {
@@ -80,7 +96,7 @@ class RouteManager
                 navigationTab: 'meetups'
             },
             about: {
-                title: 'About this app',
+                title: 'About',
                 Page: AboutScreen
             },
             splashScreen: {
@@ -88,23 +104,23 @@ class RouteManager
                 Page: SplashScreen
             },
             newsFeed: {
-                title: 'News Feed',
+                title: 'News',
                 Page: NewsFeedScreen
             },
             searchPlayer: {
-                title: 'Search Player',
+                title: 'Search',
                 Page: SearchPlayerScreen
             },
             map: {
-                title: 'Live Map',
+                title: 'Map',
                 Page: MapScreen
             },
             steamAuth: {
-                title: 'Steam authentication',
+                title: 'SteamAuthentication',
                 Page: SteamAuthScreen
             },
             friends: {
-                title: 'Friends list',
+                title: 'Friends',
                 Page: FriendsListScreen
             }
         });

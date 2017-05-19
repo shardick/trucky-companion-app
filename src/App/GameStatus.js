@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Container from '../Container';
 
 var ReactNative = require('react-native');
-var {Text, View, StyleSheet, Image, TouchableHighlight} = ReactNative;
+var {Text, View, StyleSheet, Image, TouchableHighlight, AppState} = ReactNative;
 
 import {ActionButton, Button} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
@@ -94,10 +94,13 @@ class GameStatus extends BaseTruckyComponent
         if (this.settings.autoRefreshGameTime) {
             this.state.refreshTimer = setInterval(function () {
 
-                if (!instance.state.loading) {
-                    instance
-                        .setGameTime()
-                        .done();
+                if (AppState.currentState == 'active' && instance.getCurrentRoute().title == 'Home')
+                {
+                    if (!instance.state.loading) {
+                        instance
+                            .setGameTime()
+                            .done();
+                    }
                 }
             }, 10000);
         }

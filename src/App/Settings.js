@@ -105,7 +105,7 @@ class SettingsScreen extends BaseTruckyComponent
                     <View style={this.StyleManager.styles.appSettingsRow}>
                         {this.state.settings.steamUser && <View>
                             <Text>{this.LocaleManager.strings.connectedAs} {this.state.settings.steamUser.steamDisplayName}
-                                ({this.state.settings.steamUser.steamID})</Text>
+                                &nbsp;({this.state.settings.steamUser.steamID})</Text>
                             <Button
                                 primary
                                 icon="exit-to-app"

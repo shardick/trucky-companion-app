@@ -288,7 +288,7 @@ class FriendsListScreen extends BaseTruckyComponent
                 {this.renderToolbar()}
                 <ScrollView style={this.StyleManager.styles.friendsListMainContainer}>
                     {this.state.loading && <ActivityIndicator/>}
-                    {!this.state.loading && this.state.checkingOnlineState && <View style={this.StyleManager.styles.friendsListCheckingStateContainer}>
+                    {!this.state.loading && this.state.friends.length > 0 && this.state.checkingOnlineState && <View style={this.StyleManager.styles.friendsListCheckingStateContainer}>
                         <Text>{this.LocaleManager.strings.checkingOnlineState}</Text>
                         <View>
                             <ProgressBar progress={fill} color={this.StyleManager.styles.uiTheme.palette.primaryColor} width={200}/>
@@ -304,7 +304,12 @@ class FriendsListScreen extends BaseTruckyComponent
                             onPress={() => this.RouteManager.push(this.RouteManager.routes.steamAuth)}/>
                     </View>
 }
-                    {this.state.steamUserPresent && <ScrollView
+ {!this.state.loading && this.state.steamUserPresent && this.state.friends.length == 0 &&
+    <View style={this.StyleManager.styles.friendsListNoFriends}>
+        <Text>No friends here :(</Text>
+    </View>
+ }
+                    {this.state.steamUserPresent && this.state.friends.length > 0 && <ScrollView
                         style={this.state.loading
                         ? this.StyleManager.styles.hidden
                         : {}}>

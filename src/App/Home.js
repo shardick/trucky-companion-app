@@ -97,9 +97,9 @@ class Home extends BaseTruckyComponent {
     _renderScene = ({route}) => {
         switch (route.key) {
             case '1':
-                return <NewsFeedScreen/>;
+                return <NewsFeedScreen navigator={this.RouteManager.navigator}/>;
             case '2':
-                return <GameStatusScreen/>;
+                return <GameStatusScreen navigator={this.RouteManager.navigator}/>;
             default:
                 return null;
         }
