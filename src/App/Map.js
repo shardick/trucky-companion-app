@@ -347,7 +347,7 @@ class MapScreen extends BaseTruckyComponent
                         initialText={this.LocaleManager.strings.servers} />
 
                     <Text ref="autocompleteInput" style={this.StyleManager.styles.meetupsSearchFormLabel}>{this.LocaleManager.strings.places}</Text>
-                    <TextInput onChangeText={(text) => this.filterPoi(text)}/>
+                    <TextInput style={this.StyleManager.styles.textInput} onChangeText={(text) => this.filterPoi(text)}/>
                     <ListView
                         dataSource={this.state.filteredPois}
                         renderRow={this.renderFilteredPoi.bind(this)}></ListView>

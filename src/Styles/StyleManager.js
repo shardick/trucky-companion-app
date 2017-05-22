@@ -446,6 +446,15 @@ if (Platform.OS == 'ios') {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     height: 30
+  },
+
+  _styles.textInput = 
+  { 
+    padding:2,
+    marginTop: 10,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'grey',
+    height: 30
   }
 }
 module.exports = StyleManager;
