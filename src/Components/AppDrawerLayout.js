@@ -31,7 +31,7 @@ class AppDrawerLayout extends BaseTruckyComponent
 
     onPress(route)
     {
-        this.props.page.closeDrawer();
+        //this.props.page.closeDrawer();
 
         this
             .RouteManager

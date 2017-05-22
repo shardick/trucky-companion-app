@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import {Platform, Alert, NetInfo} from 'react-native';
 /**
  *
  *
@@ -33,31 +33,46 @@ class TruckyServices
      */
     async executeRequest(url, method = "GET", payload)
     {
-        var myHeaders = new Headers();
-        myHeaders.set('user-agent', 'TruckyApp');
-        myHeaders.set("x-platform", Platform.OS);
-
-        var myInit = {
-            method: method,
-            headers: myHeaders,
-            mode: 'cors',
-            cache: 'no-cache',            
-        };
-
-        if (myInit.method == "POST")
+        try
         {
-            //console.warn(payload);
+            var myHeaders = new Headers();
+            myHeaders.set('user-agent', 'TruckyApp');
+            myHeaders.set("x-platform", Platform.OS);
 
-            myInit.headers.set( 'Accept', 'application/json, text/plain, */*');
-            myInit.headers.set('Content-Type','application/json');
+            var myInit = {
+                method: method,
+                headers: myHeaders,
+                mode: 'cors',
+                cache: 'no-cache'
+            };
 
-            myInit.body = JSON.stringify(payload);
+            if (myInit.method == "POST") {
+                //console.warn(payload);
+
+                myInit
+                    .headers
+                    .set('Accept', 'application/json, text/plain, */*');
+                myInit
+                    .headers
+                    .set('Content-Type', 'application/json');
+
+                myInit.body = JSON.stringify(payload);
+            }
+
+            console.log(url);
+
+            var response = await fetch(this.config.serviceUrl + url, myInit);
+            var json = await response.json();
+
+            return json;
+        } catch (error) {
+
+            Alert.alert('Network error');
+
+            console.debug('TruckyServices API request: ' + error.message);
+
+            return null;
         }
-
-        var response = await fetch(this.config.serviceUrl + url, myInit);
-        var json = await response.json();
-
-        return json;
     }
 
     /**

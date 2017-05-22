@@ -52,8 +52,11 @@ class FriendsListScreen extends BaseTruckyComponent
             .api
             .servers()
             .then((servers) => {
-
-                instance.setState({servers: servers.servers});
+                
+                if (servers != null)
+                {
+                    instance.setState({servers: servers.servers});
+                }
 
             });
 
@@ -66,67 +69,72 @@ class FriendsListScreen extends BaseTruckyComponent
                 .state
                 .api
                 .getFriends(settings.steamUser.steamID);
+            
+            if (friends != null)
+            {
+                this.setState({friends: friends});
 
-            this.setState({friends: friends});
+                var tmpFriendsOffline = this.getOfflineFriends(friends);
 
-            var tmpFriendsOffline = this.getOfflineFriends(friends);
-
-            this.setState({
-                steamUserPresent: true,
-                friendsOffline: this
-                    .state
-                    .friendsOffline
-                    .cloneWithRows(tmpFriendsOffline),
-                loading: false,
-                checkingOnlineState: true
-            });
-
-            var tmpFriendsOnline = new Array();
-
-            var promises = new Array();
-
-            for (var i = 0; i < friends.length; i++) {
-                if (friends[i].truckersMPUser) {
-
-                    var promise = new Promise((resolve, reject) => {
-                        var f = friends[i];
-                        this
-                            .state
-                            .api
-                            .isOnline(friends[i].truckersMPUser.id)
-                            .then(function (onlineStatus) {
-
-                                f.onlineStatus = onlineStatus;
-
-                                tmpFriendsOnline = instance.getOnlineFriends(friends);
-                                tmpFriendsOffline = instance.getOfflineFriends(friends);
-
-                                instance.setState({
-                                    friendsChecked: instance.state.friendsChecked + 1,
-                                    friendsOffline: instance
-                                        .state
-                                        .friendsOffline
-                                        .cloneWithRows(tmpFriendsOffline),
-                                    friendsOnline: instance
-                                        .state
-                                        .friendsOnline
-                                        .cloneWithRows(tmpFriendsOnline)
-                                });
-
-                                resolve();
-                            });
-                    });
-
-                    promises.push(promise);
-                }
-            }
-
-            Promise
-                .all(promises)
-                .then((results) => {
-                    this.setState({checkingOnlineState: false});
+                this.setState({
+                    steamUserPresent: true,
+                    friendsOffline: this
+                        .state
+                        .friendsOffline
+                        .cloneWithRows(tmpFriendsOffline),
+                    loading: false,
+                    checkingOnlineState: true
                 });
 
+                var tmpFriendsOnline = new Array();
+
+                var promises = new Array();
+
+                for (var i = 0; i < friends.length; i++) {
+                    if (friends[i].truckersMPUser) {
+
+                        var promise = new Promise((resolve, reject) => {
+                            var f = friends[i];
+                            this
+                                .state
+                                .api
+                                .isOnline(friends[i].truckersMPUser.id)
+                                .then(function (onlineStatus) {
+
+                                    f.onlineStatus = onlineStatus;
+
+                                    tmpFriendsOnline = instance.getOnlineFriends(friends);
+                                    tmpFriendsOffline = instance.getOfflineFriends(friends);
+
+                                    instance.setState({
+                                        friendsChecked: instance.state.friendsChecked + 1,
+                                        friendsOffline: instance
+                                            .state
+                                            .friendsOffline
+                                            .cloneWithRows(tmpFriendsOffline),
+                                        friendsOnline: instance
+                                            .state
+                                            .friendsOnline
+                                            .cloneWithRows(tmpFriendsOnline)
+                                    });
+
+                                    resolve();
+                                });
+                        });
+
+                        promises.push(promise);
+                    }
+                }
+
+                Promise
+                    .all(promises)
+                    .then((results) => {
+                        this.setState({checkingOnlineState: false});
+                    });
+            }
+            else
+                this.setState({loading: false});
+                
         } else {
             this.setState({loading: false});
         }

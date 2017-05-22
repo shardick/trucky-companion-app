@@ -50,13 +50,19 @@ class GameStatus extends BaseTruckyComponent
         //var gameVersion = await api.game_version();
         api.game_version().then( (gameVersion) => {
 
-            instance.setState({ gameVersion: gameVersion});
+            if (gameVersion != null)
+            {
+                instance.setState({ gameVersion: gameVersion});
+            }
         });
 
         //var servers = await api.servers();
         api.servers().then( (servers) => {
 
-            instance.setState( { totalPlayers: servers.totalPlayers});
+            if (servers != null)
+            {
+                instance.setState( { totalPlayers: servers.totalPlayers});
+            }
         });
 
         //this.setState({totalPlayers: servers.totalPlayers, gameVersion: gameVersion});
@@ -64,7 +70,11 @@ class GameStatus extends BaseTruckyComponent
         //var updateInfo = await api.update_info();
 
         api.update_info().then( (updateInfo) => {
-            instance.setState({updateInfo: updateInfo});
+            
+            if (updateInfo != null)
+            {
+                instance.setState({updateInfo: updateInfo});
+            }
         });
 
         //this.setState({updateInfo: updateInfo});
@@ -80,7 +90,10 @@ class GameStatus extends BaseTruckyComponent
 
         var gametime = await api.game_time();
 
-        this.setState({gameTime: gametime});
+        if (gametime != null)
+        {
+            this.setState({gameTime: gametime});
+        }
     }
 
     async setTimers()

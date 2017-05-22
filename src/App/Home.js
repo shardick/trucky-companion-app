@@ -18,6 +18,7 @@ import Container from '../Container';
 import AppDrawerLayout from '../Components/AppDrawerLayout';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import Drawer from 'react-native-drawer'
+var DeviceInfo = require('react-native-device-info');
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -27,7 +28,6 @@ import {
     Avatar,
     ListItem,
     Toolbar,
-    BottomNavigation,
     Icon,
     Button
 } from 'react-native-material-ui';
@@ -64,10 +64,10 @@ class Home extends BaseTruckyComponent {
             }
         };
     }
-    
+
     closeDrawer()
     {
-        this.setState({sideMenuIsOpen: true});        
+        this.setState({sideMenuIsOpen: true});
     }
     /**
      * Material UI toolbar rendering
@@ -77,7 +77,9 @@ class Home extends BaseTruckyComponent {
      */
     renderToolbar = () => {
         return (<Toolbar
-            leftElement="menu"
+            leftElement={DeviceInfo.isTablet()
+            ? ''
+            : 'menu'}
             onLeftElementPress={() => this.closeDrawer()}
             centerElement={this.LocaleManager.strings.routeHomeTitle}/>);
     }
@@ -106,13 +108,24 @@ class Home extends BaseTruckyComponent {
     };
 
     render() {
+
+        var openDrawerOffset = 0.2;
+
+        if (DeviceInfo.isTablet()) 
+            openDrawerOffset = 0.7;
         return (
             <Container>
                 <Drawer
                     ref={(drawer) => this.drawer = drawer}
                     style={this.StyleManager.styles.sideMenu}
                     open={this.state.sideMenuIsOpen}
-                    content={< AppDrawerLayout page={this} ref={(appdrawer) => this.appdrawer = appdrawer} navigator = {
+                    content={< AppDrawerLayout page = {
+                    this
+                }
+                ref = {
+                    (appdrawer) => this.appdrawer = appdrawer
+                }
+                navigator = {
                     this.props.navigator
                 } />}
                     onClose={() => this.setState({sideMenuIsOpen: false})}
@@ -121,7 +134,7 @@ class Home extends BaseTruckyComponent {
                     tapToClose={true}
                     elevation={10}
                     type="overlay"
-                    openDrawerOffset={0.2}
+                    openDrawerOffset={openDrawerOffset}
                     tweenHandler={ratio => ({
                     main: {
                         opacity: 1
@@ -138,7 +151,7 @@ class Home extends BaseTruckyComponent {
                         renderScene={this._renderScene}
                         renderHeader={this._renderHeader}
                         onRequestChangeTab={this._handleChangeTab}/>
-                </Drawer>
+                </Drawer>               
             </Container>
 
         );

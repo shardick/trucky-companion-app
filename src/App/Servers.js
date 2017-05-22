@@ -88,14 +88,17 @@ class ServersScreen extends BaseTruckyComponent
 
         var servers = await api.servers();
 
-        this.setState({servers: servers });
-        
-        this.setState({
-            dataSource: this
-                .state
-                .dataSource
-                .cloneWithRows(servers.servers)
-        });
+        if (servers != null)
+        {
+            this.setState({servers: servers });
+            
+            this.setState({
+                dataSource: this
+                    .state
+                    .dataSource
+                    .cloneWithRows(servers.servers)
+            });
+        }
 
         await this.setGameTime();
 
@@ -108,7 +111,10 @@ class ServersScreen extends BaseTruckyComponent
 
         var gameTime = await api.game_time();
 
-        this.setState({gameTime: gameTime});
+        if (gameTime != null)
+        {
+            this.setState({gameTime: gameTime});
+        }
     }
 
     _onRefresh() {

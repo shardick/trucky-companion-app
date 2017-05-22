@@ -7,33 +7,19 @@ import {
     BackAndroid,
     Platform
 } from 'react-native';
-import {ThemeProvider} from 'react-native-material-ui';
+import {ThemeProvider, Icon} from 'react-native-material-ui';
 import Container from '../Container';
 import OneSignal from 'react-native-onesignal';
 import SM from '../Styles/StyleManager';
 import RM from '../routes';
-//import NotificationManager from  '../Utils/NotificationManager';
+var DeviceInfo = require('react-native-device-info');
+import AppDrawerLayout from '../Components/AppDrawerLayout';
 
 const UIManager = NativeModules.UIManager;
 
-// React Navigator instance to manage navigation 
-var _navigator;
-
-/*// Support to Android Back button operations
-if (Platform.OS == 'android') {
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-        if (_navigator && _navigator.getCurrentRoutes().length > 1) {
-            _navigator.pop();
-            return true;
-        }
-        return false;
-    });
-}*/
-
-
 /**
  * Main App Component. Contains routing logic, theming and main scene rendering inside navigator
- * 
+ *
  * @class App
  * @extends {Component}
  */
@@ -49,35 +35,65 @@ class App extends Component {
 
     /**
      * Static method for managing scene rendering
-     * 
+     *
      * @static
-     * @param {any} route 
-     * @returns 
-     * 
+     * @param {any} route
+     * @returns
+     *
      * @memberOf App
      */
     static configureScene(route) {
         return route.animationType || Navigator.SceneConfigs.FadeAndroid;
     }
 
-
     /**
      * Static method for scene rendering. Accepts route and navigato as parameters. Route is an object from RouteManager.routes, navigator is a React Navigator
-     * 
+     *
      * @static
-     * @param {any} route 
-     * @param {any} navigator 
-     * @returns 
-     * 
+     * @param {any} route
+     * @param {any} navigator
+     * @returns
+     *
      * @memberOf App
      */
     static renderScene(route, navigator) {
-        _navigator = navigator;
-
         return (
             <Container>
-                <route.Page ref={(page => route.reference = page )} route={route} navigator={navigator} data={route.data} callback={route.callback} />
+                {DeviceInfo.isTablet() && route.title == 'SplashScreen' && App.renderRoute(route, navigator)}
+                {DeviceInfo.isTablet() && route.title != 'SplashScreen' && App.renderTabletView(route, navigator)}
+                {!DeviceInfo.isTablet() && App.renderRoute(route, navigator)}
             </Container>
+        );
+    }
+
+    static renderTabletView(route, navigator)
+    {
+        return (
+            <View style={AppStyles.tabletContainer}>
+                <View style={AppStyles.drawerContainer}>
+                    <AppDrawerLayout
+                        page={route.reference}
+                        ref={(appdrawer) => this.appdrawer = appdrawer}
+                        navigator={navigator}/>
+                </View>
+                <View style={AppStyles.tabletRouteContainer}>
+                    {App.renderRoute(route, navigator)}
+                </View>
+            </View>
+        );
+    }
+
+    static renderRoute(route, navigator)
+    {
+        return (
+            <View style={AppStyles.simpleFlex}>
+                <route.Page
+                    ref={(page => route.reference = page)}
+                    route={route}
+                    navigator={navigator}
+                    data={route.data}
+                    callback={route.callback}/>
+            </View>
         );
     }
 
@@ -104,34 +120,24 @@ class App extends Component {
         OneSignal.removeEventListener('ids', this.onIds);
     }
 
-    onReceived(notification) {
-        /*console.warn("Notification received: ", notification);*/
-    }
+    onReceived(notification) {}
 
-    onOpened(openResult) {
-     /* console.warn('Message: ', openResult.notification.payload.body);
-      console.warn('Data: ', openResult.notification.payload.additionalData);
-      console.warn('isActive: ', openResult.notification.isAppInFocus);
-      console.warn('openResult: ', openResult);*/
-    }
+    onOpened(openResult) {}
 
-    onRegistered(notifData) {
-        /*console.warn("Device had been registered for push notifications!", notifData)*/;
-    }
+    onRegistered(notifData) {}
 
-    onIds(device) {
-		/*console.warn('Device info: ', device);*/
-    }
+    onIds(device) {}
 
-
-
-    /**
-     * Main App Navigator
+    /** 
+     * * Main App Navigator
      * 
+     *   
      * @returns 
+     *
      * 
-     * @memberOf App
-     */
+     * @memberOf App 
+     * */
+
     renderNavigator()
     {
         return (<Navigator
@@ -150,4 +156,20 @@ class App extends Component {
     }
 }
 
+var AppStyles = {
+    simpleFlex: {
+        flex: 1
+    },
+    tabletContainer: {
+        flex: 1,
+        flexDirection: 'row'
+    },
+    drawerContainer: {
+        width: 250,
+        flex: 1
+    },
+    tabletRouteContainer: {
+        flex: 3
+    }
+};
 export default App;

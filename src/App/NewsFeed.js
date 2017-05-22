@@ -40,25 +40,32 @@ class NewsFeedScreen extends BaseTruckyComponent
 
         var feed = await api.news();
 
-        this.setState({
-            dataSource: this
-                .state
-                .dataSource
-                .cloneWithRows(feed)
-        });
+        if (feed != null) {
+            this.setState({
+                dataSource: this
+                    .state
+                    .dataSource
+                    .cloneWithRows(feed)
+            });            
+        }
 
         this.setState({loading: false});
     }
-    
+
     renderRow(rowData) {
         return (
             <Card>
                 <View style={this.StyleManager.styles.newsRowContainer}>
                     <Text style={this.StyleManager.styles.newsRowTitle}>{rowData.title}</Text>
-                    <Text style={this.StyleManager.styles.newsDate}>{this.LocaleManager.moment(rowData
-                            .newsDate)
+                    <Text style={this.StyleManager.styles.newsDate}>{this
+                            .LocaleManager
+                            .moment(rowData.newsDate)
                             .format('ddd, DD/MM/YYYY HH:mm')}</Text>
-                    <Text style={this.StyleManager.styles.newsText}>{rowData.description.replace(/(<([^>]+)>)/ig,"").substring(0, 200)} ...</Text>
+                    <Text style={this.StyleManager.styles.newsText}>{rowData
+                            .description
+                            .replace(/(<([^>]+)>)/ig, "")
+                            .substring(0, 200)}
+                        ...</Text>
                     <View style={this.StyleManager.styles.newsRowButtonContainer}>
                         <Button
                             primary
@@ -79,7 +86,7 @@ class NewsFeedScreen extends BaseTruckyComponent
     render()
     {
         return (
-            <Container>             
+            <Container>
 
                 <View style={this.StyleManager.styles.newsListMainContainer}>
                     {this.state.loading && <ActivityIndicator/>}

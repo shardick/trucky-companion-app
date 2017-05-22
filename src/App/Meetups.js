@@ -72,19 +72,32 @@ class MeetupsScreen extends BaseTruckyComponent
             .events()
             .then((meetups) => {
 
-                instance.setState({
-                    dataSource: this
-                        .state
-                        .dataSource
-                        .cloneWithRows(meetups)
-                });
+                if (meetups != null)
+                {
+                    instance.setState({
+                        dataSource: this
+                            .state
+                            .dataSource
+                            .cloneWithRows(meetups)
+                    });
 
-                instance.setState({meetups: meetups, loading: false, showList: true});
+                    instance.setState({meetups: meetups, loading: false, showList: true});
+                }
+                else
+                {
+                    instance.setState({ loading: false });
+                }
             });
 
         api
             .servers()
-            .then((servers) => this.setState({servers: servers.servers}));
+            .then((servers) => {
+                
+                if (servers != null)
+                {
+                    this.setState({servers: servers.servers})
+                }
+            });
     }
 
     filterEvents(meetups, server, language)

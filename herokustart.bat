@@ -1,0 +1,2 @@
+cd herokuapp
+heroku local
