@@ -60,7 +60,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
      * @memberOf PlayerSearchScreen
      */
     renderToolbar = () => {
-        return (<Toolbar
+        return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
             onLeftElementPress={() => this.RouteManager.pop()}
             centerElement={this.LocaleManager.strings.searchPlayer}/>);
@@ -277,6 +277,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                             label={this.LocaleManager.strings.searchByTruckersMPID}
                             value="truckersmpid"/>
                     </Picker>*/}
+                    <View style={this.StyleManager.styles.playerSearchPicker}>
                      <View style={this.StyleManager.styles.pickerContainer}>
                     <AdaptativeModalPicker
                                 selectedValue={this.state.searchType}
@@ -295,6 +296,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                                 onChange={(option) => {
                                 this.setState({searchType: option.key})
                             }}/>
+                        </View>
                         </View>
                     <Button
                         text={this.LocaleManager.strings.searchButton}

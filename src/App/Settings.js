@@ -45,7 +45,7 @@ class SettingsScreen extends BaseTruckyComponent
     }
 
     renderToolbar = () => {
-        return (<Toolbar
+        return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
             onLeftElementPress={() => this.RouteManager.pop()}
             centerElement={this.LocaleManager.strings.routeSettingsTitle}/>);

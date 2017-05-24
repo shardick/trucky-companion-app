@@ -159,7 +159,7 @@ class MapScreen extends BaseTruckyComponent
     }
 
     renderToolbar = () => {
-        return (<Toolbar
+        return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
             onLeftElementPress={this.innerNavigation.bind(this)}
             centerElement={this.LocaleManager.strings.liveMapRouteTitle}

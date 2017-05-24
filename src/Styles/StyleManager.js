@@ -413,6 +413,18 @@ const _styles = StyleSheet.create({
   {
     marginTop: 4,
     marginRight: 5
+  },
+    toolBar: {},
+  playerSearchPicker: {
+
+  },
+  appDrawerLogo: {
+    width: 100,
+    height: 100
+  },
+  appDrawerLogoContainer: {
+    marginTop: 10,
+    alignItems: 'center'
   }
 });
 
@@ -432,7 +444,8 @@ _styles.rulesMarkDownSyles = {
   },
   paragraph: {
     fontSize: 12
-  }
+  },
+
 };
 
 /* ios style overrides */
@@ -446,7 +459,7 @@ if (Platform.OS == 'ios') {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     height: 30
-  },
+  };
 
   _styles.textInput = 
   { 
@@ -455,6 +468,19 @@ if (Platform.OS == 'ios') {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     height: 30
+  };
+
+  _styles.toolBar = {
+    paddingTop: 13
+  };
+
+  _styles.appDrawerLogo.marginTop = 13;
+  
+  _styles.appDrawerLogoContainer.marginTop = 35;
+
+  _styles.playerSearchPicker = {
+    marginTop: 10,
+    marginBottom: 10
   }
 }
 module.exports = StyleManager;

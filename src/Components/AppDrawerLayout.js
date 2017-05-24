@@ -1,9 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactNative from 'react-native';
-const {View, Text, Image} = ReactNative;
+const { View, Text, Image } = ReactNative;
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 
-import {Drawer, Avatar} from 'react-native-material-ui';
+import { Drawer, Avatar } from 'react-native-material-ui';
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -13,10 +13,8 @@ import BaseTruckyComponent from '../Components/BaseTruckyComponent';
  * @class AppDrawerLayout
  * @extends {BaseTruckyComponent}
  */
-class AppDrawerLayout extends BaseTruckyComponent
-{
-    constructor()
-    {
+class AppDrawerLayout extends BaseTruckyComponent {
+    constructor() {
         super();
 
         this.state = {
@@ -24,13 +22,11 @@ class AppDrawerLayout extends BaseTruckyComponent
         };
     }
 
-    componendDidMount()
-    {
-        this.setState({drawerOpen: this.props.drawerOpen});
+    componendDidMount() {
+        this.setState({ drawerOpen: this.props.drawerOpen });
     }
 
-    onPress(route)
-    {
+    onPress(route) {
         //this.props.page.closeDrawer();
 
         this
@@ -38,8 +34,7 @@ class AppDrawerLayout extends BaseTruckyComponent
             .push(route);
     }
 
-    visitLink(url)
-    {
+    visitLink(url) {
         this.navigateUrl(url);
     }
 
@@ -47,92 +42,86 @@ class AppDrawerLayout extends BaseTruckyComponent
         return (
             <Drawer>
                 <View
-                    style={{
-                    alignItems: 'center',
-                    marginTop: 10
-                }}>
+                    style={this.StyleManager.styles.appDrawerLogoContainer}>
                     <Image
                         source={require('../Assets/trucky_banner.png')}
-                        style={{
-                        width: 100,
-                        height: 100
-                    }}/>
+                        style={this.StyleManager.styles.appDrawerLogo} />
                 </View>
                 <Drawer.Section
                     divider
                     items={[
-                    {
-                        icon: 'cloud',
-                        value: this.LocaleManager.strings.servers,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.servers)
-                    }, {
-                        icon: <FAIcon name="calendar" size={22}/>,
-                        value: this.LocaleManager.strings.meetups,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.meetups)
-                    }, {
-                        icon: 'map',
-                        value: this.LocaleManager.strings.liveMapRouteTitle,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.map)
-                    }, {
-                        icon: 'people',
-                        value: this.LocaleManager.strings.friends,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.friends)
-                    }, {
-                        icon: 'search',
-                        value: this.LocaleManager.strings.searchPlayer,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.searchPlayer)
-                    }, {
-                        icon: 'list',
-                        value: this.LocaleManager.strings.rules,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.rules)
-                    }, {
-                        icon: 'settings',
-                        value: this.LocaleManager.strings.settings,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.settings)
-                    }, {
-                        icon: 'info',
-                        value: this.LocaleManager.strings.about,
-                        onPress: this
-                            .onPress
-                            .bind(this, this.RouteManager.routes.about)
-                    }
-                ]}/>
+                        {
+                            icon: 'cloud',
+                            value: this.LocaleManager.strings.servers,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.servers)
+                        }, {
+                            icon: <FAIcon name="calendar" size={22} />,
+                            value: this.LocaleManager.strings.meetups,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.meetups)
+                        }, {
+                            icon: 'map',
+                            value: this.LocaleManager.strings.liveMapRouteTitle,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.map)
+                        }, {
+                            icon: 'people',
+                            value: this.LocaleManager.strings.friends,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.friends)
+                        }, {
+                            icon: 'search',
+                            value: this.LocaleManager.strings.searchPlayer,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.searchPlayer)
+                        }, {
+                            icon: 'list',
+                            value: this.LocaleManager.strings.rules,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.rules)
+                        }, {
+                            icon: 'settings',
+                            value: this.LocaleManager.strings.settings,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.settings)
+                        }, {
+                            icon: 'info',
+                            value: this.LocaleManager.strings.about,
+                            onPress: this
+                                .onPress
+                                .bind(this, this.RouteManager.routes.about)
+                        }
+                    ]} />
                 <Drawer.Section
                     items={[
-                    {
-                        icon: <FAIcon name="globe" size={22}/>,
-                        value: this.LocaleManager.strings.truckersMPWebSite,
-                        onPress: this
-                            .visitLink
-                            .bind(this, 'https://truckersmp.com/')
-                    }, {
-                        icon: <FAIcon name="globe" size={22}/>,
-                        value: this.LocaleManager.strings.truckersMPForum,
-                        onPress: this
-                            .visitLink
-                            .bind(this, 'https://forum.truckersmp.com/')
-                    }, {
-                        icon: <FAIcon name="steam" size={22}/>,
-                        value: this.LocaleManager.strings.truckersMPSteamGroup,
-                        onPress: this
-                            .visitLink
-                            .bind(this, 'http://steamcommunity.com/groups/truckersmpofficial')
-                    }
-                ]}></Drawer.Section>
+                        {
+                            icon: <FAIcon name="globe" size={22} />,
+                            value: this.LocaleManager.strings.truckersMPWebSite,
+                            onPress: this
+                                .visitLink
+                                .bind(this, 'https://truckersmp.com/')
+                        }, {
+                            icon: <FAIcon name="globe" size={22} />,
+                            value: this.LocaleManager.strings.truckersMPForum,
+                            onPress: this
+                                .visitLink
+                                .bind(this, 'https://forum.truckersmp.com/')
+                        }, {
+                            icon: <FAIcon name="steam" size={22} />,
+                            value: this.LocaleManager.strings.truckersMPSteamGroup,
+                            onPress: this
+                                .visitLink
+                                .bind(this, 'http://steamcommunity.com/groups/truckersmpofficial')
+                        }
+                    ]}></Drawer.Section>
             </Drawer>
         )
     }
