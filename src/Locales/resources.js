@@ -755,7 +755,7 @@ var strings = new LocalizedStrings({
         issuedBy: 'Wydane przez {0} na {1}', // complete phrase is: Issued by NICKNAME on DATE
         expires: 'Wygasa:', // Wygasa: Dnia
         polish: 'Polski',
-		/* LABELS ADDED IN VERSION 1.0.4 */
+        /* LABELS ADDED IN VERSION 1.0.4 */
         liveMapRouteTitle: 'Mapa na żywo',
         checkingOnlineState: 'Sprawdzanie stanu online',
         viewOnMap: 'Zobacz na mapie',
@@ -765,8 +765,8 @@ var strings = new LocalizedStrings({
         showName: 'Pokaż nazwę',
         showID: 'Pokaż ID',
         places: 'Miejsca',
-		/* LABELS ADDED IN VERSION 1.0.5 */
-		friends: 'Znajomi',
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Znajomi',
         onlineOnSteam: 'Online na Steam',
         busyOnSteam: 'Zajęty na Steam',
         offlineOnSteam: 'Offline na Steam',
@@ -1103,6 +1103,114 @@ var strings = new LocalizedStrings({
         steamAuthentication: 'Вход в Steam',
         connectedAs: 'Подключен как', // connected as USERNAME
         cancel: 'близко'
+    },
+    // Ru13z - https://forum.truckersmp.com/index.php?/profile/119633-ru13z/
+    pt: {
+        currentGameVersion: 'Versão de jogo: ',
+        routeHomeTitle: 'App Trucky Companion',
+        routeServersTitle: 'Servidores TruckersMP',
+        routeMeetupsTitle: 'Encontros',
+        routeSettingsTitle: 'Opções',
+        routeAboutTitle: 'Sobre esta App',
+        routeRulesTitle: 'Regras TruckersMP',
+        supportedETSVersion: 'Versão ETS2 suportada: ',
+        supportedATSVersion: 'Versão ATS suportada: ',
+        lastReleaseDate: 'Data da última atualização: ',
+        playersOnline: 'Jogadores Online',
+        currentGameTime: 'Hora de jogo atual: ',
+        servers: 'Servidores',
+        about: 'Sobre',
+        meetups: 'Encontros',
+        searchPlayer: 'Pesquisar Jogador',
+        rules: 'Regras',
+        settings: 'Opções',
+        playersInQueue: 'Jogadores em espera',
+        online: 'Online',
+        offline: 'Offline',
+        speedLimiterEnabled: 'Limitador de velocidade ativo',
+        speedLimiterDisabled: 'Limitador de velocidade desativado',
+        status: 'Estado',
+        info: 'Informação',
+        addToCalendar: 'Adicionar ao Calendário',
+        language: 'Linguagem: ',
+        enableAutoRefresh: 'Ativar atualização automática',
+        autoRefreshGameTime: 'Atualizar horário de jogo automaticamente',
+        autoRefreshServersList: 'Atualizar lista de servidores automaticamente',
+        refreshServersListEvery: 'Atualizar lista de servidores a cada',
+        seconds10: '10 segundos',
+        seconds30: '30 segundos',
+        minute: '1 minuto',
+        minutes2: '2 minutos',
+        minutes5: '5 minutos',
+        minutes10: '10 minutos',
+        minutes20: '20 minutos',
+        customizations: 'Personalizações',
+        settingsHeaderLanguage: 'Linguagem',
+        settingsHeaderTheme: 'Tema',
+        english: 'Inglês',
+        italian: 'Italiano',
+        eventAddedToCalendar: 'Evento adicionado ao Calendário',
+        eventTitle: 'Evento TruckersMP - Encontro',
+        eventNotes: 'Organizado por: {0} - Servidor: {1}',
+        truckersMPWebSite: 'Website TruckersMP',
+        truckersMPForum: 'Fórum TruckersMP',
+        truckersMPSteamGroup: 'Grupo Steam TruckersMP',
+        readMore: 'Ler Mais',
+        newsAndEvents: 'Notícias e Eventos',
+        gameStatus: 'Status de jogo',
+        newTruckersMPGameVersionReleaseNotificationText: 'Nova versão TruckersMP disponível',
+        french: 'Francês',
+        bulgarian: 'Búlgaro',
+        finnish: 'Finlandês',
+        spanish: 'Espanhol',
+        dutch: 'Holandês',
+        // LABELS FOR SEARCH PLAYER SCREEN
+        searchBySteamUsername: 'Por username Steam',
+        searchBySteamID: 'Por ID Steam',
+        searchByTruckersMPID: 'Por ID TruckersMP',
+        searchButton: 'Pesquisar',
+        searchFieldPlaceholder: 'Especificar termo de pesquisa',
+        steamProfile: 'Perfil Steam',
+        truckersMPProfile: 'Perfil TruckersMP',
+        viewSteamProfile: 'Ver Perfil Steam',
+        viewTruckersMPProfile: 'Ver Perfil TruckersMP',
+        bans: "Histórico de Ban's",
+        noBans: "Sem Ban's",
+        nickName: 'Nickname:',
+        onTruckersMPfrom: 'No TruckersMP desde', // On TruckersMP from DATE
+        onSteamFrom: 'No Steam desde', // On Steam from DATE
+        role: 'Função:',
+        truckersMPID: 'ID TruckersMP:',
+        realName: 'Nome Real:',
+        steamUsername: 'Utilizador Steam:',
+        steamID: 'ID Steam:',
+        issuedBy: 'Submetido por {0} a {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Expira a:', // Expires: DATE
+        /* LABELS ADDED IN VERSION 1.0.4 */
+        liveMapRouteTitle: 'Mapa em Tempo Real',
+        checkingOnlineState: 'A verificar estado Online...', // label showed waiting for online status response
+        viewOnMap: 'Ver no Mapa',
+        hideHeatMap: 'Ocultar mapa térmico', // represents trucks density in a certain area
+        showDirection: 'Mostrar direção',
+        showTrucks: 'Mostrar Camiões',
+        showName: 'Mostrar Nome',
+        showID: 'Mostrar ID',
+        places: 'Locais', // or Locations ((SAME tr. AS "Locais", or "Zonas")), or Point of interests ((tr. PONTOS DE INTERESSE))
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Amigos',
+        onlineOnSteam: 'Online no Steam',
+        busyOnSteam: 'Ocupado no Steam',
+        offlineOnSteam: 'Offline no Steam',
+        awayOnSteam: 'Ausente no Steam',
+        snoozingOnSteam: 'A dormir no Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Quer trocar no Steam',
+        lookingForPlayOnSteam: 'Quer jogar no Steam',
+        loginToSteam: 'Login no Steam',
+        disconnect: 'Desligar', // Disconnect from Steam button text
+        logout: 'Sair',
+        steamAuthentication: 'Autenticação Steam',
+        connectedAs: 'Ligado como', // connected as USERNAME
+        cancel: 'Perto'
     }
 });
 

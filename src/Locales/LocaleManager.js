@@ -53,6 +53,9 @@ class LocaleManager
                 displayName: 'Polish',
                 code: 'pl'
             }, {
+                displayName: 'Portuguese',
+                code: 'pt'
+            }, {
                 displayName: 'Spanish',
                 code: 'es'
             }, {
@@ -123,7 +126,9 @@ class LocaleManager
             'cs-CZ',
             'cs',
             'ru',
-            'ru-RU'
+            'ru-RU',
+            'pt-PT',
+            'pt-BR',
         ];
     }
 
@@ -192,6 +197,9 @@ class LocaleManager
                 break;
             case 'ru':
                 momentLocaleConfiguration = require('moment/locale/ru');
+                break;
+            case 'pt':
+                momentLocaleConfiguration = require('moment/locale/pt');
                 break;
             default:
 
