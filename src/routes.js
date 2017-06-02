@@ -10,10 +10,13 @@ import SearchPlayerScreen from './App/PlayerSearch';
 import MapScreen from './App/Map';
 import SteamAuthScreen from './App/SteamAuth';
 import FriendsListScreen from './App/FriendsList';
+var DeviceInfo = require('react-native-device-info');
+
 import React, {Component, PropTypes} from 'react';
+
 var ReactNative = require('react-native');
 var {
-    BackAndroid, Platform
+    BackHandler, Platform
 } = ReactNative;
 
 class RouteManager
@@ -31,99 +34,94 @@ class RouteManager
         return this._navigator;
     }
 
-    push(route)
+    navigate(screenName, params, action)
     {
-        this
-            ._navigator
-            .push(route);
+        this._navigator.navigate(screenName, params, action);
     }
 
-    pop()
+    back()
     {
-        const routes = this
-            ._navigator
-            .getCurrentRoutes();
-
-        if (routes.length > 2) {
-            route = routes[routes.length - 2];
-
-            //console.warn(route.reference.constructor.name);
-
-            if (typeof(route.reference) != 'undefined')
-            {
-                route
-                    .reference
-                    .onPop();
-            }
-        }
-        else
-            route = routes[0];
-
-        if (route.title != "SplashScreen") {
-            this
-                ._navigator
-                .pop();
+        if (this._navigator.state.title != 'Home')
+        {
+            this._navigator.goBack();
         }
         else
         {
             if (Platform.OS == 'android')
-                BackAndroid.exitApp();
+                BackHandler.exitApp();            
         }
+    }
+
+    backToRoute(route)
+    {
+        this._navigator.goBack(route);
     }
 
     get routes()
     {
-        return ({
+        var initialRoutes = {};
+
+        if (!DeviceInfo.isTablet())
+        {
+            initialRoutes.splashScreen = {
+                title: 'SplashScreen',
+                screen: SplashScreen
+            }            
+        }
+
+        var allRoutes = 
+        {
             home: {
                 title: 'Home',
-                Page: Home
+                screen: Home
             },
             servers: {
                 title: 'Servers',
-                Page: ServersScreen
+                screen: ServersScreen
             },
             settings: {
                 title: 'Settings',
-                Page: SettingsScreen
+                screen: SettingsScreen
             },
             rules: {
                 title: 'Rules',
-                Page: RulesScreen
+                screen: RulesScreen
             },
             meetups: {
                 title: 'Meetups',
-                Page: MeetupsScreen,
+                screen: MeetupsScreen,
                 navigationTab: 'meetups'
             },
             about: {
                 title: 'About',
-                Page: AboutScreen
-            },
-            splashScreen: {
-                title: 'SplashScreen',
-                Page: SplashScreen
-            },
+                screen: AboutScreen
+            },            
             newsFeed: {
                 title: 'News',
-                Page: NewsFeedScreen
+                screen: NewsFeedScreen
             },
             searchPlayer: {
                 title: 'Search',
-                Page: SearchPlayerScreen
+                screen: SearchPlayerScreen
             },
             map: {
                 title: 'Map',
-                Page: MapScreen
+                screen: MapScreen
             },
             steamAuth: {
                 title: 'SteamAuthentication',
-                Page: SteamAuthScreen
+                screen: SteamAuthScreen
             },
             friends: {
                 title: 'Friends',
-                Page: FriendsListScreen
+                screen: FriendsListScreen
+            },
+            splashScreen: {
+                screen: SplashScreen
             }
-        });
+        };
+
+        return Object.assign(initialRoutes, allRoutes);
     }
 }
 

@@ -107,7 +107,7 @@ class GameStatus extends BaseTruckyComponent
         if (this.settings.autoRefreshGameTime) {
             this.state.refreshTimer = setInterval(function () {
 
-                if (AppState.currentState == 'active' && instance.getCurrentRoute().title == 'Home')
+                if (AppState.currentState == 'active' && instance.getCurrentRoute().routeName == 'home')
                 {
                     if (!instance.state.loading) {
                         instance

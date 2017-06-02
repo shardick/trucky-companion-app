@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Navigator,
-    NativeModules,
-    StatusBar,
-    View,
-    BackAndroid,
-    Platform
-} from 'react-native';
+import {NativeModules, StatusBar, View, BackHandler, Platform} from 'react-native';
 import {ThemeProvider, Icon} from 'react-native-material-ui';
 import Container from '../Container';
 import OneSignal from 'react-native-onesignal';
@@ -14,8 +7,50 @@ import SM from '../Styles/StyleManager';
 import RM from '../routes';
 var DeviceInfo = require('react-native-device-info');
 import AppDrawerLayout from '../Components/AppDrawerLayout';
+import {StackNavigator} from 'react-navigation';
+import TabletScreenContainer from './TabletScreenContainer';
+import SplashScreen from './SplashScreen';
 
 const UIManager = NativeModules.UIManager;
+
+const RouteManager = new RM();
+var Navigator;
+
+var _navigatorInstance;
+
+if (DeviceInfo.isTablet()) {
+    Navigator = StackNavigator({
+        splashScreen: {
+            screen: SplashScreen
+        },
+        tabletScreenContainer: {
+            screen: TabletScreenContainer
+        }
+    }, {headerMode: 'none'});
+} else {
+    Navigator = StackNavigator(RouteManager.routes, {headerMode: 'none'});
+}
+
+// gets the current screen from navigation state
+function getCurrentRouteName(navigationState) {
+    if (!navigationState) {
+        return null;
+    }
+    const route = navigationState.routes[navigationState.index];
+    // dive into nested navigators
+    if (route.routes) {
+        return getCurrentRouteName(route);
+    }
+    return route.routeName;
+}
+
+/*BackHandler.addEventListener('hardwareBackPress', function() {
+ // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+ // Typically you would use the navigator here to go to the last state.
+
+ console.log('backhandler');
+ return false;
+});*/
 
 /**
  * Main App Component. Contains routing logic, theming and main scene rendering inside navigator
@@ -30,10 +65,11 @@ class App extends Component {
         super();
         this.StyleManager = new SM();
         this.RouteManager = new RM();
+
         //this.NotificationManager = new NotificationManager();
     }
 
-    /**
+    /*    /**
      * Static method for managing scene rendering
      *
      * @static
@@ -42,9 +78,9 @@ class App extends Component {
      *
      * @memberOf App
      */
-    static configureScene(route) {
+    /*    static configureScene(route) {
         return route.animationType || Navigator.SceneConfigs.FadeAndroid;
-    }
+    }*/
 
     /**
      * Static method for scene rendering. Accepts route and navigato as parameters. Route is an object from RouteManager.routes, navigator is a React Navigator
@@ -56,7 +92,7 @@ class App extends Component {
      *
      * @memberOf App
      */
-    static renderScene(route, navigator) {
+    /*    static renderScene(route, navigator) {
         return (
             <Container>
                 {DeviceInfo.isTablet() && route.title == 'SplashScreen' && App.renderRoute(route, navigator)}
@@ -64,9 +100,9 @@ class App extends Component {
                 {!DeviceInfo.isTablet() && App.renderRoute(route, navigator)}
             </Container>
         );
-    }
+    }*/
 
-    static renderTabletView(route, navigator)
+    /*    static renderTabletView(route, navigator)
     {
         return (
             <View style={AppStyles.tabletContainer}>
@@ -83,7 +119,7 @@ class App extends Component {
         );
     }
 
-    static renderRoute(route, navigator)
+/*    static renderRoute(route, navigator)
     {
         return (
             <View style={AppStyles.simpleFlex}>
@@ -95,7 +131,7 @@ class App extends Component {
                     callback={route.callback}/>
             </View>
         );
-    }
+    }*/
 
     componentWillMount() {
 
@@ -128,23 +164,32 @@ class App extends Component {
 
     onIds(device) {}
 
-    /** 
+    /**
      * * Main App Navigator
-     * 
-     *   
-     * @returns 
      *
-     * 
-     * @memberOf App 
+     *
+     * @returns
+     *
+     *
+     * @memberOf App
      * */
+
+    setNavigator(navigator)
+    {
+        this._navigator = navigator;
+        _navigatorInstance = navigator;
+    }
 
     renderNavigator()
     {
         return (<Navigator
-            configureScene={App.configureScene}
-            initialRoute={this.RouteManager.routes.splashScreen}
-            ref={this.onNavigatorRef}
-            renderScene={App.renderScene}/>);
+            initialRouteName="splashScreen"
+            ref={this.setNavigator}
+            onNavigationStateChange={(prevState, currentState) => {
+            if (currentState.routes.length == 1) {
+                BackHandler.exitApp();
+            }
+        }}/>);
     }
 
     render() {

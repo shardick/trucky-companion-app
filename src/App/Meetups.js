@@ -128,7 +128,7 @@ class MeetupsScreen extends BaseTruckyComponent
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
-            onLeftElementPress={() => this.RouteManager.pop()}
+            onLeftElementPress={() => this.RouteManager.back()}
             centerElement={this.LocaleManager.strings.routeMeetupsTitle}
             rightElement="search"
             onRightElementPress={() => this.openSearchDialog()}/>);

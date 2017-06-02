@@ -75,6 +75,7 @@ class FriendsListScreen extends BaseTruckyComponent
                 this.setState({friends: friends});
 
                 var tmpFriendsOffline = this.getOfflineFriends(friends);
+                var tmpFriendsOnline = this.getOnlineFriends(friends);
 
                 this.setState({
                     steamUserPresent: true,
@@ -82,11 +83,15 @@ class FriendsListScreen extends BaseTruckyComponent
                         .state
                         .friendsOffline
                         .cloneWithRows(tmpFriendsOffline),
+                    friendsOnline: instance
+                                            .state
+                                            .friendsOnline
+                                            .cloneWithRows(tmpFriendsOnline),
                     loading: false,
                     checkingOnlineState: true
                 });
 
-                var tmpFriendsOnline = new Array();
+                //var tmpFriendsOnline = new Array();
 
                 var promises = new Array();
 
@@ -143,7 +148,7 @@ class FriendsListScreen extends BaseTruckyComponent
     getOfflineFriends(friends)
     {
         var tmpFriendsOffline = friends.filter(function (f) {
-            return (f.truckersMPUser) && f.onlineStatus && !f.onlineStatus.online;
+            return f.truckersMPUser && ((f.steamUser.personastate != 1)); // && (f.onlineStatus && !f.onlineStatus.online))
         });
 
         return tmpFriendsOffline;
@@ -151,11 +156,11 @@ class FriendsListScreen extends BaseTruckyComponent
 
     getOnlineFriends(friends)
     {
-        var tmpFriendsOffline = friends.filter(function (f) {
-            return (f.truckersMPUser) && f.onlineStatus && f.onlineStatus.online;
+        var tmpFriendsOnline = friends.filter(function (f) {
+            return f.truckersMPUser && f.steamUser.gameextrainfo && ((f.steamUser.personastate == 1) || (f.onlineStatus && f.onlineStatus.online));
         });
 
-        return tmpFriendsOffline;
+        return tmpFriendsOnline;
     }
 
     viewOnMap(playerData)
@@ -171,7 +176,7 @@ class FriendsListScreen extends BaseTruckyComponent
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
-            onLeftElementPress={() => this.RouteManager.pop()}
+            onLeftElementPress={() => this.RouteManager.back()}
             centerElement={this.LocaleManager.strings.friends}
             rightElement="refresh"
             onRightElementPress={() => this.fetchData().done()}/>);
@@ -272,8 +277,8 @@ class FriendsListScreen extends BaseTruckyComponent
                         </View>
 }
                         {!rowData.onlineStatus.online && <Text style={this.StyleManager.styles.offline}>{this.LocaleManager.strings.offline}</Text>}
-                        {!rowData.onlineStatus.online && rowData.steamUser.personastate > 0 && <Text>{this.renderPersonaState(rowData.steamUser.personastate)}</Text>
-}
+                        {!rowData.onlineStatus.online && rowData.steamUser.personastate > 0 && <Text>{this.renderPersonaState(rowData.steamUser.personastate)}</Text>}
+                        {rowData.steamUser.gameextrainfo && <Text>{rowData.steamUser.gameextrainfo}</Text>}
                     </View>
                 </View>
                 {rowData.onlineStatus.online && <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
@@ -309,7 +314,7 @@ class FriendsListScreen extends BaseTruckyComponent
                             primary
                             raised
                             text={this.LocaleManager.strings.loginToSteam}
-                            onPress={() => this.RouteManager.push(this.RouteManager.routes.steamAuth)}/>
+                            onPress={() => this.RouteManager.navigate('steamAuth', { returnTo: 'friends' })}/>
                     </View>
 }
  {!this.state.loading && this.state.steamUserPresent && this.state.friends.length == 0 &&

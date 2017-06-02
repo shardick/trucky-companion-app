@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {AppState, Linking, Platform, BackAndroid} from 'react-native';
+import {AppState, Linking, Platform, BackHandler} from 'react-native';
 import RM from '../routes';
 import AS from '../AppSettings';
 import LC from '../Locales/LocaleManager';
@@ -29,20 +29,25 @@ class BaseTruckyComponent extends Component
         var instance = this;
 
         // Support to Android Back button operations
-        if (Platform.OS == 'android') {
-            BackAndroid.addEventListener('hardwareBackPress', () => {
-                if (instance.RouteManager.navigator && instance.RouteManager.navigator.getCurrentRoutes().length > 1) {
-                    instance.RouteManager.pop();
+        /*if (Platform.OS == 'android') {
+            BackHandler.addEventListener('hardwareBackPress', () => {
+                console.warn(instance.getCurrentRoute().routeName);
+                if (instance.RouteManager.navigator && instance.getCurrentRoute().routeName != 'home') {
+                    instance.RouteManager.back();
                     return true;
                 }
-                return false;
+                else
+                {
+                    BackHandler.exitApp();
+                    return true;
+                }
             });
-        }
+        }*/
 
         // sets the navigator to RouteManager
         this
             .RouteManager
-            .setNavigator(this.props.navigator);
+            .setNavigator(this.props.navigation);
     }
 
     componentDidMount()
@@ -85,6 +90,7 @@ class BaseTruckyComponent extends Component
     }
 
     componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress');
         AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
     }
 
@@ -115,8 +121,7 @@ class BaseTruckyComponent extends Component
 
     getCurrentRoute()
     {
-        var routes = this.RouteManager.navigator.getCurrentRoutes();
-        return routes[routes.length-1];
+        return this.RouteManager.navigator.state;
     }
 }
 

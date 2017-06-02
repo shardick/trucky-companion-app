@@ -19,7 +19,7 @@ class SteamAuthScreen extends BaseTruckyComponent
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
-            onLeftElementPress={() => this.RouteManager.pop()}
+            onLeftElementPress={() => this.RouteManager.back()}
             centerElement={this.LocaleManager.strings.steamAuthentication}
             />);
     }
@@ -30,6 +30,10 @@ class SteamAuthScreen extends BaseTruckyComponent
 
         console.warn(event.nativeEvent.data);
 
+        var returnTo = this.RouteManager.navigator.state.params.returnTo;
+
+        //console.warn(returnTo);
+
         var message = JSON.parse(event.nativeEvent.data);
 
         switch (message.messageType)
@@ -37,12 +41,7 @@ class SteamAuthScreen extends BaseTruckyComponent
             case 'userAuth':
                 this.AppSettings.setValue('steamUser', { steamID: message.user.id, steamDisplayName: message.user.displayName })
                 .then(() => {
-                    //Alert.alert('Loggedin as ' + message.user.displayName);
-                    
-                    //console.warn(instance.props.callback);
-                    //instance.props.route.callback().done();
-
-                    instance.RouteManager.pop();
+                    instance.RouteManager.navigate(returnTo);
                 });
                 break;
         }
@@ -51,6 +50,7 @@ class SteamAuthScreen extends BaseTruckyComponent
     render()
     {
         //console.warn(this.props.route.callback);
+        //console.warn(this.props.navigation.state.params.returnTo);
         return(
             <Container>
                 {this.renderToolbar()}

@@ -23,9 +23,19 @@ class SplashScreen extends BaseTruckyComponent {
             .then(() => {
                 setTimeout(() => {
 
-                    this
+                    /*this
                         .RouteManager
-                        .push(this.RouteManager.routes.home);
+                        .push(this.RouteManager.routes.home);*/
+
+                    if (DeviceInfo.isTablet()) {
+                        this
+                            .RouteManager
+                            .navigate('tabletScreenContainer');
+                    } else {
+                        this
+                            .RouteManager
+                            .navigate('home');
+                    }
 
                 }, 2000);
             });
@@ -68,8 +78,7 @@ class SplashScreen extends BaseTruckyComponent {
             console.warn('First start = false updated');
         }
 
-        //settings.deviceID = undefined;
-        //console.warn(settings.deviceID);
+        //settings.deviceID = undefined; console.warn(settings.deviceID);
 
         if (typeof(settings.deviceID) == 'undefined') {
             var services = new TruckyServices();

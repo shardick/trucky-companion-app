@@ -57,7 +57,7 @@ class ServersScreen extends BaseTruckyComponent
         if (this.settings.autoRefreshGameTime) {
             this.state.refreshTimer = setInterval(function () {
 
-                if (AppState.currentState == 'active' && instance.getCurrentRoute().title == 'Servers')
+                if (AppState.currentState == 'active' && instance.getCurrentRoute().routeName == 'servers')
                 {
                     //console.log('time');
 
@@ -181,7 +181,7 @@ class ServersScreen extends BaseTruckyComponent
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
             rightElement="refresh"
-            onLeftElementPress={() => this.RouteManager.pop()}
+            onLeftElementPress={() => this.RouteManager.back()}
             centerElement={this.LocaleManager.strings.routeServersTitle}
             onRightElementPress={() => this.fetchData().done()}/>);
     }

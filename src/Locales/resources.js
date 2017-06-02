@@ -300,7 +300,8 @@ var strings = new LocalizedStrings({
         expires: 'Изтича:', // Expires: DATE
         cancel: 'близо'
     },
-    // credits: Kevin Monteil
+    // credits: Kevin Monteil credits: Caernage
+    // https://forum.truckersmp.com/index.php?/profile/103421-caernage/
     fr: {
         currentGameVersion: 'Version actuelle du jeu: ',
         routeHomeTitle: 'Trucky Companion App',
@@ -362,7 +363,52 @@ var strings = new LocalizedStrings({
         dutch: 'Néerlandais',
         polish: 'Polish',
         german: 'Allemande',
-        cancel: 'Anuler'
+        cancel: 'Annuler',
+        searchBySteamUsername: 'Par Pseudo Steam',
+        searchBySteamID: 'Par Steam ID',
+        searchByTruckersMPID: 'Par TruckersMP ID',
+        searchButton: 'Rechercher',
+        searchFieldPlaceholder: 'Rechercher un joueur en particulier',
+        steamProfile: 'Profil Steam',
+        truckersMPProfile: 'Profil TruckersMP',
+        viewSteamProfile: 'Voir le profil Steam',
+        viewTruckersMPProfile: 'Voir le profil TruckersMP',
+        bans: 'Historique des bannissements',
+        noBans: 'Pas de bannissements',
+        nickName: 'Pseudo:',
+        onTruckersMPfrom: 'Sur TruckersMP depuis', // Sur TruckersMP depuis DATE
+        onSteamFrom: 'Sur Steam depuis', // Sur Steam depuis DATE
+        role: 'Rôle:',
+        truckersMPID: 'TruckersMP ID:',
+        realName: 'Nom Réelle:',
+        steamUsername: 'Pseudo Steam:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Sanctionné par {0} le {1}', // complete phrase is: Sanctionné par NICKNAME le DATE
+        expires: 'Expiration:', // Expiration: DATE
+        /* LABELS ADDED IN VERSION 1.0.4 */
+        liveMapRouteTitle: 'Map en Direct',
+        checkingOnlineState: 'Vérification du Status en ligne...', // label showed waiting for online status response
+        viewOnMap: 'Vue sur la Map',
+        hideHeatMap: 'Cacher la heatmap', // represents trucks density in a certain area
+        showDirection: 'Afficher la direction',
+        showTrucks: 'Afficher les camions',
+        showName: 'Afficher les pseudo',
+        showID: 'Afficher les ID',
+        places: 'Point d\'intérêts', // or Locations, or Point of interests
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: 'Amis',
+        onlineOnSteam: 'En Ligne sur Steam',
+        busyOnSteam: 'Occupé sur Steam',
+        offlineOnSteam: 'Hors-ligne sur Steam',
+        awayOnSteam: 'Absent sur Steam',
+        snoozingOnSteam: 'Non Disponible sur Steam', // or Sleeping
+        lookingForATradeOnSteam: 'Regarder pour negotiation sur Steam',
+        lookingForPlayOnSteam: 'Regarder pour jouer sur Steam',
+        loginToSteam: 'Connectez-Vous à Steam',
+        disconnect: 'Déconnexion', // Disconnect from Steam button text
+        logout: 'Déconnecter',
+        steamAuthentication: 'Authentication de Steam',
+        connectedAs: 'Connecté en tant que' // connected as USERNAME
     },
     // Credits Jiri Innanen
     fi: {
@@ -1211,6 +1257,113 @@ var strings = new LocalizedStrings({
         steamAuthentication: 'Autenticação Steam',
         connectedAs: 'Ligado como', // connected as USERNAME
         cancel: 'Perto'
+    },
+    zh: {
+        currentGameVersion: '当前游戏版本: ',
+        routeHomeTitle: 'Trucky 伴侣',
+        routeServersTitle: '服务器状态',
+        routeMeetupsTitle: '聚会',
+        routeSettingsTitle: '设置',
+        routeAboutTitle: '关于程序',
+        routeRulesTitle: '游戏规则',
+        supportedETSVersion: '支持的ETS2版本: ',
+        supportedATSVersion: '支持的ATS版本: ',
+        lastReleaseDate: '最后发布日期: ',
+        playersOnline: '在线玩家',
+        currentGameTime: '当前游戏时间: ',
+        servers: '服务器',
+        about: '关于',
+        meetups: '聚会',
+        searchPlayer: '搜索好友',
+        rules: '规则',
+        settings: '设置',
+        playersInQueue: '排队状态',
+        online: '在线',
+        offline: '离线',
+        speedLimiterEnabled: '限速器开启',
+        speedLimiterDisabled: '限速器关闭',
+        status: '状态',
+        info: '信息',
+        addToCalendar: '添加到日历',
+        language: '语言: ',
+        enableAutoRefresh: '开启自动刷新',
+        autoRefreshGameTime: '自动刷新游戏时间',
+        autoRefreshServersList: '自动刷新服务器列表',
+        refreshServersListEvery: '自定义刷新服务器列表',
+        seconds10: '10秒',
+        seconds30: '30秒',
+        minute: '1分钟',
+        minutes2: '2分钟',
+        minutes5: '5分钟',
+        minutes10: '10分钟',
+        minutes20: '20分钟',
+        customizations: '自定义',
+        settingsHeaderLanguage: '语言',
+        settingsHeaderTheme: '主题',
+        english: '英语',
+        italian: '意大利语',
+        eventAddedToCalendar: '添加事件到日历',
+        eventTitle: '卡车活动 - 聚会',
+        eventNotes: '活动主持 {0} - 服务器: {1}',
+        truckersMPWebSite: '卡车司机MP官网',
+        truckersMPForum: '卡车司机MP论坛',
+        truckersMPSteamGroup: '卡车司机MPSteam组',
+        readMore: '阅读更多',
+        newsAndEvents: '新闻和事件',
+        gameStatus: '游戏状态',
+        newTruckersMPGameVersionReleaseNotificationText: '新发布的联机版本',
+        french: '法语',
+        bulgarian: '保加利亚语',
+        finnish: '芬兰语',
+        spanish: '西班牙语',
+        dutch: '荷兰语',
+        // LABELS FOR SEARCH PLAYER SCREEN
+        searchBySteamUsername: '按Steam用户名搜索',
+        searchBySteamID: '按 Steam ID搜索',
+        searchByTruckersMPID: '按 卡车司机MP ID搜索',
+        searchButton: '搜索',
+        searchFieldPlaceholder: '搜索指定用户名或ID',
+        steamProfile: 'Steam 信息',
+        truckersMPProfile: '卡车司机MP 信息',
+        viewSteamProfile: '查看 Steam 资料',
+        viewTruckersMPProfile: '查看 卡车司机MP 资料',
+        bans: '封号记录',
+        noBans: '没有封号',
+        nickName: '昵称:',
+        onTruckersMPfrom: '从卡车司机MP 开始', // On TruckersMP from DATE
+        onSteamFrom: '从Steam开始', // On Steam from DATE
+        role: '角色:',
+        truckersMPID: '卡车司机MP ID:',
+        realName: '姓名:',
+        steamUsername: 'Steam 用户名:',
+        steamID: 'Steam ID:',
+        issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE
+        expires: 'Expires:', // Expires: DATE
+        /* LABELS ADDED IN VERSION 1.0.4 */
+        liveMapRouteTitle: '实时地图',
+        checkingOnlineState: '检测在线状态..', // label showed waiting for online status response
+        viewOnMap: '在地图上查看',
+        hideHeatMap: '隐藏热成像图', // represents trucks density in a certain area
+        showDirection: '显示方向',
+        showTrucks: '显示卡车',
+        showName: '显示昵称',
+        showID: '显示 ID',
+        places: '位置', // or Locations, or Point of interests
+        /* LABELS ADDED IN VERSION 1.0.5 */
+        friends: '好友',
+        onlineOnSteam: 'Steam在线',
+        busyOnSteam: 'Steam忙碌',
+        offlineOnSteam: 'Steam离线',
+        awayOnSteam: 'Steam离开',
+        snoozingOnSteam: 'Steam睡觉', // or Sleeping
+        lookingForATradeOnSteam: '想在Steam上交易',
+        lookingForPlayOnSteam: '想在Steam玩游戏',
+        loginToSteam: '登录到Steam',
+        disconnect: '断开连接', // Disconnect from Steam button text
+        logout: '注销',
+        steamAuthentication: 'Steam 认证',
+        connectedAs: '连接状态', // connected as USERNAME
+        cancel: '取消'
     }
 });
 

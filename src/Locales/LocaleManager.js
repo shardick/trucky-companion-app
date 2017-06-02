@@ -29,6 +29,9 @@ class LocaleManager
                 displayName: 'Bulgarian',
                 code: 'bg'
             }, {
+                displayName: 'Chinese (Simplified)',
+                code: 'zh'
+            }, {
                 displayName: 'Czech',
                 code: 'cs'
             }, {
@@ -129,6 +132,12 @@ class LocaleManager
             'ru-RU',
             'pt-PT',
             'pt-BR',
+            'zh', //	Chinese
+            'zh-CN', //Chinese (S)
+            'zh-HK', //Chinese (Hong Kong)
+            'zh-MO', //	Chinese (Macau)
+            'zh-SG', //	Chinese (Singapore)
+            'zh-TW' // Chinese (T)
         ];
     }
 
@@ -200,6 +209,9 @@ class LocaleManager
                 break;
             case 'pt':
                 momentLocaleConfiguration = require('moment/locale/pt');
+                break;
+             case 'zh':
+                momentLocaleConfiguration = require('moment/locale/zh-cn');
                 break;
             default:
 

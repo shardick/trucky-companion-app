@@ -77,9 +77,7 @@ class Home extends BaseTruckyComponent {
      */
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
-            leftElement={DeviceInfo.isTablet()
-            ? ''
-            : 'menu'}
+            leftElement='menu'
             onLeftElementPress={() => this.closeDrawer()}
             centerElement={this.LocaleManager.strings.routeHomeTitle}/>);
     }
@@ -99,9 +97,9 @@ class Home extends BaseTruckyComponent {
     _renderScene = ({route}) => {
         switch (route.key) {
             case '1':
-                return <NewsFeedScreen navigator={this.RouteManager.navigator}/>;
+                return <NewsFeedScreen navigation={this.RouteManager.navigator}/>;
             case '2':
-                return <GameStatusScreen navigator={this.RouteManager.navigator}/>;
+                return <GameStatusScreen navigation={this.RouteManager.navigator}/>;
             default:
                 return null;
         }
@@ -119,14 +117,14 @@ class Home extends BaseTruckyComponent {
                     ref={(drawer) => this.drawer = drawer}
                     style={this.StyleManager.styles.sideMenu}
                     open={this.state.sideMenuIsOpen}
-                    content={< AppDrawerLayout page = {
+                    content={< AppDrawerLayout navigation={this.props.navigation} page = {
                     this
                 }
                 ref = {
                     (appdrawer) => this.appdrawer = appdrawer
                 }
-                navigator = {
-                    this.props.navigator
+                navigation = {
+                    this.props.navigation
                 } />}
                     onClose={() => this.setState({sideMenuIsOpen: false})}
                     onOpen={() => this.setState({sideMenuIsOpen: true})}

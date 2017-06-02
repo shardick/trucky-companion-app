@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import ReactNative from 'react-native';
 const { View, Text, Image } = ReactNative;
 import FAIcon from 'react-native-vector-icons/FontAwesome';
-
 import { Drawer, Avatar } from 'react-native-material-ui';
-
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+import { NavigationActions } from 'react-navigation'
+var DeviceInfo = require('react-native-device-info');
 
 /**
  * Component that contains App Drawer interface
@@ -29,9 +29,16 @@ class AppDrawerLayout extends BaseTruckyComponent {
     onPress(route) {
         //this.props.page.closeDrawer();
 
-        this
-            .RouteManager
-            .push(route);
+       //this.props.navigator.navigate(route);
+
+       if (!DeviceInfo.isTablet())
+       {   
+           this.RouteManager.navigate(route);   
+       }
+       else
+       {
+           this.props.navigate(route);
+       }
     }
 
     visitLink(url) {
@@ -55,49 +62,49 @@ class AppDrawerLayout extends BaseTruckyComponent {
                             value: this.LocaleManager.strings.servers,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.servers)
+                                .bind(this, 'servers')
                         }, {
                             icon: <FAIcon name="calendar" size={22} />,
                             value: this.LocaleManager.strings.meetups,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.meetups)
+                                .bind(this, 'meetups')
                         }, {
                             icon: 'map',
                             value: this.LocaleManager.strings.liveMapRouteTitle,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.map)
+                                .bind(this, 'map')
                         }, {
                             icon: 'people',
                             value: this.LocaleManager.strings.friends,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.friends)
+                                .bind(this, 'friends')
                         }, {
                             icon: 'search',
                             value: this.LocaleManager.strings.searchPlayer,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.searchPlayer)
+                                .bind(this, 'searchPlayer')
                         }, {
                             icon: 'list',
                             value: this.LocaleManager.strings.rules,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.rules)
+                                .bind(this, 'rules')
                         }, {
                             icon: 'settings',
                             value: this.LocaleManager.strings.settings,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.settings)
+                                .bind(this, 'settings')
                         }, {
                             icon: 'info',
                             value: this.LocaleManager.strings.about,
                             onPress: this
                                 .onPress
-                                .bind(this, this.RouteManager.routes.about)
+                                .bind(this, 'about')
                         }
                     ]} />
                 <Drawer.Section

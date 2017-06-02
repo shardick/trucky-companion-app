@@ -47,7 +47,7 @@ class SettingsScreen extends BaseTruckyComponent
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
-            onLeftElementPress={() => this.RouteManager.pop()}
+            onLeftElementPress={() => this.RouteManager.back()}
             centerElement={this.LocaleManager.strings.routeSettingsTitle}/>);
     }
 
@@ -56,9 +56,11 @@ class SettingsScreen extends BaseTruckyComponent
         // var newRoute = Object.assign(this.RouteManager.routes.steamAuth, { callback:
         // this.loadSettings.bind(this) });
 
-        this
+        /*this
             .RouteManager
-            .push(this.RouteManager.routes.steamAuth);
+            .push(this.RouteManager.routes.steamAuth);*/
+
+        this.RouteManager.navigate('steamAuth', { returnTo: 'settings'});
     }
 
     onPop()
@@ -137,7 +139,7 @@ class SettingsScreen extends BaseTruckyComponent
                                 value={this.state.settings.autoRefreshGameTime}/>
                         </View>
                     </View>
-                    <View style={this.StyleManager.styles.appSettingsRow}>
+                    {/*<View style={this.StyleManager.styles.appSettingsRow}>
                         <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.autoRefreshServersList}</Text>
                         <View style={this.StyleManager.styles.appSettingsField}>
                             <Switch
@@ -150,17 +152,6 @@ class SettingsScreen extends BaseTruckyComponent
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRowColumns}>
                         <View style={this.StyleManager.styles.appSettingsFieldBelow}>
-                            {/*<Picker
-                                itemStyle={this.StyleManager.styles.appSettingsPicker}
-                                selectedValue={this.state.settings.serverListRefreshInterval}
-                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.serverListRefreshInterval, value)}>
-                                <Picker.Item label={this.LocaleManager.strings.seconds10} value="10000"/>
-                                <Picker.Item label={this.LocaleManager.strings.seconds30} value="30000"/>
-                                <Picker.Item label={this.LocaleManager.strings.minute} value="60000"/>
-                                <Picker.Item label={this.LocaleManager.strings.minutes5} value="300000"/>
-                                <Picker.Item label={this.LocaleManager.strings.minutes10} value="30"/>
-                                <Picker.Item label={this.LocaleManager.strings.minutes20} value="30"/>
-                            </Picker>*/}
                             <AdaptativeModalPicker
                                 selectedValue={this.state.settings.serverListRefreshInterval}
                                 data={[
@@ -188,18 +179,12 @@ class SettingsScreen extends BaseTruckyComponent
                                 this.updateSetting(this.AppSettings.keys.serverListRefreshInterval, option.key)
                             }}/>
                         </View>
-                    </View>
+                    </View>*/}
                     <View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.settingsHeaderLanguage}</Text>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRowColumns}>
                         <View style={this.StyleManager.styles.appSettingsFieldBelow}>
-                            {/*<Picker
-                                itemStyle={this.StyleManager.styles.appSettingsPicker}
-                                selectedValue={this.state.settings.language}
-                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.language, value)}>
-                                {languageItems}
-                            </Picker>*/}
                             <AdaptativeModalPicker
                                 selectedValue={this.state.settings.language}
                                 data={languageItemsModal}
