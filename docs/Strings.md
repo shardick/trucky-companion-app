@@ -72,7 +72,7 @@ bulgarian: 'Bulgarian',<br/>
 finnish: 'Finnish',<br/>
 spanish: 'Spanish',<br/>
 dutch: 'Dutch',<br/>
-// LABELS FOR SEARCH PLAYER SCREEN<br/>
+/* LABELS FOR SEARCH PLAYER SCREEN */<br/>
 searchBySteamUsername: 'By Steam Username',<br/>
 searchBySteamID: 'By Steam ID',<br/>
 searchByTruckersMPID: 'By TruckersMP ID',<br/>
@@ -117,7 +117,8 @@ loginToSteam: 'Login to Steam',<br/>
 disconnect: 'Disconnect', // Disconnect from Steam button text<br/>
 logout: 'Logout',<br/>
 steamAuthentication: 'Steam authentication',<br/>
-connectedAs: 'Connected as' // connected as USERNAME<br/>
-
+connectedAs: 'Connected as', // connected as USERNAME<br/>
+cancel: 'Cancel'<br/>
+<br/>
 
 Thank you!

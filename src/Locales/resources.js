@@ -1260,7 +1260,7 @@ var strings = new LocalizedStrings({
     },
     zh: {
         currentGameVersion: '当前游戏版本: ',
-        routeHomeTitle: 'Trucky 伴侣',
+        routeHomeTitle: '卡车伴侣',
         routeServersTitle: '服务器状态',
         routeMeetupsTitle: '聚会',
         routeSettingsTitle: '设置',
