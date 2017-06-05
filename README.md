@@ -4,6 +4,8 @@
 
 [![Get it on App Store](/site/assets/appstore.png)](https://itunes.apple.com/ro/app/truckyapp/id1233325424?mt=8)
 
+[![Get it on Amazon App Store](/site/assets/amzstore.png)](https://www.amazon.com/Francesco-Bramato-Trucky/dp/B072Q7K2JL)
+
 ## Why this app?
 
 I'm learning React Native and i'm a trucker (i play Euro Truck Simulator on multiplayer via [TruckersMP mod](https://truckersmp.com/)) so i want to try and learn on a real case using a set of API already built from TruckersMP developers.
