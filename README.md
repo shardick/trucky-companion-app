@@ -1,16 +1,22 @@
 # Trucky Companion App
 
+[![Get it on Google Play](/site/assets/googleplay.png)](https://play.google.com/store/apps/details?id=com.trucky)
+
+[![Get it on App Store](/site/assets/appstore.png)](https://itunes.apple.com/ro/app/truckyapp/id1233325424?mt=8)
+
 ## Why this app?
 
 I'm learning React Native and i'm a trucker (i play Euro Truck Simulator on multiplayer via [TruckersMP mod](https://truckersmp.com/)) so i want to try and learn on a real case using a set of API already built from TruckersMP developers.
 
 Meetups are downloaded from [ETS2 Convoys](http://ets2c.com)
 
+Live MAP and online status check is integrated via webiew from [ETS2 Map](http://ETS2map.com) and its api.
+
 I'm not affiliated in any way with SCS, Euro Truck Simulator 2 or TruckersMP.
 
 ## Dependencies
 
-react-native
+react-native 0.44.2
 
 react-native-vector-icons for icons
 
@@ -19,8 +25,6 @@ react-native-simple-markdown for parsing Rules markdown
 react-native-progress for progress bar in Servers Screen
 
 react-native-material-ui for interface and theming (BottomNavigation, Drawer Layout, Theme)
-
-react-native-html-parser for html and xml parsing
 
 react-native-popup-dialog for dialogs
 
@@ -36,55 +40,13 @@ react-native-onesignal for push notifications
 
 react-native-tab-view for tabbed views in home screen
 
+react-native-modal-picker for cross platform picker (customized and wrapped in AdaptativePicker)
+
+react-native-device-info for device info and device statistcs (saved on Heroku)
+
+react-navigation for inner navigation (as requested by react-native 0.44)
+
 Run npm install to install all depencencies
-
-## Anatomy
-
-index.android.js is entrypoint for Android App, it contains call to src/index.js that includes src/App/App.js . App.js contains main application logic, navigation container and theming.
-
-Services wrapper are in src/App/Services
-
-User preferences are managed via AppSettings in src/AppSettings with AsyncStorage wrapped by async static functions
-
-Routes are served with the static property "routes" contained in RouteManager in src/routes.js
-
-Common components like Drawer and BottomNavigation are wrapped in custom components in src/Components
-
-Images and icons not served by FontAwesome and Material Icons are stored in src/Assets
-
-Navigation are served by RN component Navigation using routes in RouteManager
-
-* index.android
-* index.ios
-    * src/index
-    * src/routes
-    * src/App
-        * App
-        * Home
-        * Servers
-        * Rules
-        * Settings
-        * Events
-        * About
-        * SplashScreen
-        * GameStatus
-        * NewsFeed
-    * Assets
-    * src/Components
-        * BaseTruckyComponents
-        * AppDrawerLayout
-        * AppBottomNavigation
-        * CustomActivityIndicator
-    * src/Services
-        * TruckersMPAPI
-        * EventsAPI
-        * FeedsService
-    * src/AppSettings
-    * Styles
-        * StyleManager
-    * Locales
-        * LocaleManager
-        * resources
 
 ## Compiling and debugging
 Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root folder, in VS Code terminal, run "react-native run android".
@@ -93,7 +55,19 @@ Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root fo
 From VS Code terminal run "release-android.bat", release apk in .-\android\app\build\outputs\apk\app-release.apk
 
 ## Credits
-TruckersMP, TruckersMP API creators, ETS2c.com and his creators
+TruckersMP, TruckersMP API creators, ETS2map.com and ETS2c.com.
 
 ### Translators
-Bulgarian: Hristo Spasov, French: Kevin Monteil, Finnish: Jiri Innanen, Spanish: Francisco Ramirez, Dutch: Derk Nomden
+Bulgarian: Hristo Spasov<br/>
+French: Kevin Monteil and Caernage ([https://forum.truckersmp.com/index.php?/profile/103421-caernage/](https://forum.truckersmp.com/index.php?/profile/103421-caernage/))<br/>
+Finnish: Jiri Innanen<br/>
+Spanish: Francisco Ramirez<br/>
+Dutch: Derk Nomden<br/>
+Polish: Piotrek Ślusarz<br/>
+German: Tobias Groß<br/>
+Czech: ActiV3Drifter ([https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/](https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/))<br/>
+Russian: CJMAXiK ([https://truckersmp.com/user/3861](https://truckersmp.com/user/3861))<br/>
+Portoguese: Ru13z ([https://forum.truckersmp.com/index.php?/profile/119633-ru13z/](https://forum.truckersmp.com/index.php?/profile/119633-ru13z/))<br/>
+Chinese: [Biu] - Luo Shen ([https://forum.truckersmp.com/index.php?/profile/101200-biu-luo-shen/](https://forum.truckersmp.com/index.php?/profile/101200-biu-luo-shen/))<br/>
+
+Thanks guys, you are awesome!
