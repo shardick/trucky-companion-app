@@ -1,8 +1,8 @@
 # Trucky Companion App
 
-[![Get it on Google Play](/site/assets/googleplay.png =392x)](https://play.google.com/store/apps/details?id=com.trucky)
+[![Get it on Google Play](/site/assets/googleplay.png | width=392)](https://play.google.com/store/apps/details?id=com.trucky)
 
-[![Get it on App Store](/site/assets/appstore.png =392x)](https://itunes.apple.com/ro/app/truckyapp/id1233325424?mt=8)
+[![Get it on App Store](/site/assets/appstore.png | width=392)](https://itunes.apple.com/ro/app/truckyapp/id1233325424?mt=8)
 
 ## Why this app?
 
