@@ -77,7 +77,7 @@ class Home extends BaseTruckyComponent {
      */
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
-            leftElement='menu'
+            leftElement={DeviceInfo.isTablet() ? '' : 'menu'}
             onLeftElementPress={() => this.closeDrawer()}
             centerElement={this.LocaleManager.strings.routeHomeTitle}/>);
     }
