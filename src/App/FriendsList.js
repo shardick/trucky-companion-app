@@ -165,12 +165,14 @@ class FriendsListScreen extends BaseTruckyComponent
 
     viewOnMap(playerData)
     {
-        var mapRoute = Object.assign(this.RouteManager.routes.map, {data: playerData.onlineStatus});
+        /*var mapRoute = Object.assign(this.RouteManager.routes.map, {data: playerData.onlineStatus});
 
         this
             .props
             .navigator
-            .push(mapRoute);
+            .push(mapRoute);*/
+        
+        this.RouteManager.navigate('map', { data: playerData.onlineStatus });
     }
 
     renderToolbar = () => {

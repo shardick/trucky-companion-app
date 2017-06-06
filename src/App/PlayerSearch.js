@@ -136,9 +136,11 @@ class PlayerSearchScreen extends BaseTruckyComponent
 
     viewOnMap()
     {
-        var mapRoute = Object.assign(this.RouteManager.routes.map, { data: this.state.playerInfo.onlineStatus});
+        //var mapRoute = Object.assign(this.RouteManager.routes.map, { data: this.state.playerInfo.onlineStatus});
 
-        this.props.navigator.push(mapRoute);
+        //this.props.navigator.push(mapRoute);
+
+        this.RouteManager.navigate('map', { data: this.state.playerInfo.onlineStatus });
     }
 
     renderSearchResult()

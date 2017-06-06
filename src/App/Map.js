@@ -204,9 +204,10 @@ class MapScreen extends BaseTruckyComponent
                         this.sendUpdateMapSettings();
                     });
 
-                if (this.props.data)
+                if (this.props.navigation.state.params && this.props.navigation.state.params.data)
                 {
-                    this.sendMessage('viewUser', { playerData: this.props.data, serverID: this.props.data.server });                    
+                    var playerData = this.props.navigation.state.params.data;
+                    this.sendMessage('viewUser', { playerData: playerData, serverID: playerData.server });                    
                 }
                 else
                 {
