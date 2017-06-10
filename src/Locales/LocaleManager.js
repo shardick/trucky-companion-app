@@ -29,6 +29,9 @@ class LocaleManager
                 displayName: 'Bulgarian',
                 code: 'bg'
             }, {
+                displayName: 'Bengali',
+                code: 'bn'
+            }, {
                 displayName: 'Chinese (Simplified)',
                 code: 'zh'
             }, {
@@ -137,7 +140,8 @@ class LocaleManager
             'zh-HK', //Chinese (Hong Kong)
             'zh-MO', //	Chinese (Macau)
             'zh-SG', //	Chinese (Singapore)
-            'zh-TW' // Chinese (T)
+            'zh-TW', // Chinese (T)
+            'bn'
         ];
     }
 
@@ -210,8 +214,11 @@ class LocaleManager
             case 'pt':
                 momentLocaleConfiguration = require('moment/locale/pt');
                 break;
-             case 'zh':
+            case 'zh':
                 momentLocaleConfiguration = require('moment/locale/zh-cn');
+                break;
+            case 'bn':
+                momentLocaleConfiguration = require('moment/locale/bn');
                 break;
             default:
 

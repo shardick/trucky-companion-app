@@ -105,6 +105,17 @@ class Home extends BaseTruckyComponent {
         }
     };
 
+    renderTabView()
+    {
+        return (
+                    <TabViewAnimated
+                        style={this.StyleManager.styles.simpleFlex}
+                        navigationState={this.state.tabState}
+                        renderScene={this._renderScene}
+                        renderHeader={this._renderHeader}
+                        onRequestChangeTab={this._handleChangeTab}/>
+        );
+    }
     render() {
 
         var openDrawerOffset = 0.2;
@@ -113,6 +124,11 @@ class Home extends BaseTruckyComponent {
             openDrawerOffset = 0.7;
         return (
             <Container>
+                {DeviceInfo.isTablet() && 
+                    this.renderToolbar() &&
+                    this.renderTabView()
+                }
+                {!DeviceInfo.isTablet() && 
                 <Drawer
                     ref={(drawer) => this.drawer = drawer}
                     style={this.StyleManager.styles.sideMenu}
@@ -143,13 +159,9 @@ class Home extends BaseTruckyComponent {
                     }
                 })}>
                     {this.renderToolbar()}
-                    <TabViewAnimated
-                        style={this.StyleManager.styles.simpleFlex}
-                        navigationState={this.state.tabState}
-                        renderScene={this._renderScene}
-                        renderHeader={this._renderHeader}
-                        onRequestChangeTab={this._handleChangeTab}/>
-                </Drawer>               
+                    {this.renderTabView()}
+                </Drawer>  
+                }             
             </Container>
 
         );
