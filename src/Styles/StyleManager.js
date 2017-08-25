@@ -1,5 +1,6 @@
 import {Platform, StyleSheet, Animated} from 'react-native';
 import {COLOR} from 'react-native-material-ui';
+var DeviceInfo = require('react-native-device-info');
 
 /**
  * Style manage for the app. Contains a reference to styles object
@@ -147,7 +148,7 @@ const _styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 20,
     paddingRight: 20,
-    paddingBottom: 95
+    paddingBottom: 130
   },
   serversListMainContainer: {
     marginTop: 5,
@@ -383,8 +384,7 @@ const _styles = StyleSheet.create({
     marginTop: 30,
     padding: 10
   },
-  friendsListCheckingStateContainer:
-  {
+  friendsListCheckingStateContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 5,
@@ -393,31 +393,25 @@ const _styles = StyleSheet.create({
   pickerContainer: {
     marginBottom: 10
   },
-  mapFiltersContainer:
-  {
+  mapFiltersContainer: {
     flex: 1,
-    padding: 5    
+    padding: 5
   },
-  friendsListNoFriends:
-  {
+  friendsListNoFriends: {
     padding: 5,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
-  serversListTotalPlayersOnline:
-  {
+  serversListTotalPlayersOnline: {
     marginRight: 10
   },
-  serversListTotalPlayersOnlineIcon:
-  {
+  serversListTotalPlayersOnlineIcon: {
     marginTop: 4,
     marginRight: 5
   },
-    toolBar: {},
-  playerSearchPicker: {
-
-  },
+  toolBar: {},
+  playerSearchPicker: {},
   appDrawerLogo: {
     width: 100,
     height: 100
@@ -425,7 +419,10 @@ const _styles = StyleSheet.create({
   appDrawerLogoContainer: {
     marginTop: 10,
     alignItems: 'center'
-  }
+  },
+  actionButton: {},
+  friendsListList: {},
+  mapView: {}
 });
 
 _styles.uiTheme = {
@@ -444,26 +441,23 @@ _styles.rulesMarkDownSyles = {
   },
   paragraph: {
     fontSize: 12
-  },
-
+  }
 };
 
 /* ios style overrides */
 if (Platform.OS == 'ios') {
   _styles.searchPlayerContainer.paddingTop = 200;
 
-  _styles.searchPlayerTextInput = 
-  { 
-    padding:2,
+  _styles.searchPlayerTextInput = {
+    padding: 2,
     marginTop: 10,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     height: 30
   };
 
-  _styles.textInput = 
-  { 
-    padding:2,
+  _styles.textInput = {
+    padding: 2,
     marginTop: 10,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
@@ -475,7 +469,7 @@ if (Platform.OS == 'ios') {
   };
 
   _styles.appDrawerLogo.marginTop = 13;
-  
+
   _styles.appDrawerLogoContainer.marginTop = 35;
 
   _styles.playerSearchPicker = {
@@ -483,4 +477,36 @@ if (Platform.OS == 'ios') {
     marginBottom: 10
   }
 }
+
+var bottomBarAdjustment = 70;
+
+if (!DeviceInfo.isTablet()) {
+  _styles.newsListList = {
+    marginBottom: bottomBarAdjustment
+  };
+  _styles.list = {
+    marginBottom: 180
+  };
+  _styles.meetupsListList = {
+    marginBottom: 120
+  };
+  _styles.actionButton = {
+    marginBottom: 50
+  };
+  _styles.friendsListList = {
+    marginBottom: bottomBarAdjustment
+  };
+  _styles.rulesMarkDownContainer = [
+    _styles.rulesMarkDownContainer, { marginBottom: bottomBarAdjustment }
+  ];
+
+  _styles.playerSearchResultContainer = [
+    _styles.playerSearchResultContainer, { marginBottom: 250 }
+  ];
+  _styles.mapView = {
+    marginBottom: bottomBarAdjustment
+  }
+
+}
+
 module.exports = StyleManager;

@@ -24,6 +24,7 @@ import ActivityIndicator from '../Components/CustomActivityIndicator';
 import PopupDialog, {DialogTitle} from 'react-native-popup-dialog';
 import TruckyServices from '../Services/TruckyServices';
 import AdaptativeModalPicker from '../Components/AdapativePicker';
+import BottomNavigation from '../Components/BottomNavigation';
 
 const injectScript = `
 var truckSelected = false;
@@ -440,11 +441,12 @@ class MapScreen extends BaseTruckyComponent
                     injectedJavaScript={injectScript}
                     source={{ uri: "https://ets2map.com/" }}/>
                 {this.state.showMap &&
-                <ActionButton icon="settings" onPress={() => this.setState({showMap: false, showFilter: false, showSettings: true, showSettingsButton: false})} /> 
+                <ActionButton style={{container: this.StyleManager.styles.actionButton}} icon="settings" onPress={() => this.setState({showMap: false, showFilter: false, showSettings: true, showSettingsButton: false})} /> 
                 }
                 <View style={this.StyleManager.styles.mapCredits}>
                     <TouchableOpacity onPress={() => this.navigateUrl('http://ets2map.com')}><Text>Credits: ETS2Map (http://ets2map.com)</Text></TouchableOpacity>
                 </View>
+                 <BottomNavigation navigation={this.props.navigation} active="map" />
             </Container>
         )
     }

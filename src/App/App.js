@@ -182,7 +182,8 @@ class App extends Component {
 
     renderNavigator()
     {
-        return (<Navigator
+        return (
+            <Navigator
             initialRouteName="splashScreen"
             ref={this.setNavigator}
             onNavigationStateChange={(prevState, currentState) => {

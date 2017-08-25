@@ -11,6 +11,7 @@ import {Toolbar} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
+import BottomNavigation from '../Components/BottomNavigation';
 
 class RulesScreen extends BaseTruckyComponent
 {
@@ -52,6 +53,7 @@ class RulesScreen extends BaseTruckyComponent
                     </Markdown>
                 </ScrollView>
                 }
+                <BottomNavigation navigation={this.props.navigation} active="" />
             </Container>
         )
     }

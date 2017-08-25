@@ -4,6 +4,7 @@ var {Text, View, ScrollView, Image, Linking, TouchableHighlight, TouchableOpacit
 import Container from '../Container';
 import {Toolbar, Button} from 'react-native-material-ui';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
+import BottomNavigation from '../Components/BottomNavigation';
 
 /**
  * 
@@ -61,6 +62,7 @@ class AboutScreen extends BaseTruckyComponent
                 <View style={this.StyleManager.styles.aboutCenter} >
                      <Button primary raised text="View on GitHub" onPress={() => { this.navigateUrl('https://github.com/shardick/trucky-companion-app') }} />
                 </View>
+                <BottomNavigation navigation={this.props.navigation} active="" />
             </Container>
         )
     }

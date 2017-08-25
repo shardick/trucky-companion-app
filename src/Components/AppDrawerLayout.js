@@ -57,14 +57,14 @@ class AppDrawerLayout extends BaseTruckyComponent {
                 <Drawer.Section
                     divider
                     items={[
-                        {
+                        /*{
                             icon: 'cloud',
                             value: this.LocaleManager.strings.servers,
                             onPress: this
                                 .onPress
                                 .bind(this, 'servers')
                         }, {
-                            icon: <FAIcon name="calendar" size={22} />,
+                            icon: 'event',
                             value: this.LocaleManager.strings.meetups,
                             onPress: this
                                 .onPress
@@ -81,7 +81,7 @@ class AppDrawerLayout extends BaseTruckyComponent {
                             onPress: this
                                 .onPress
                                 .bind(this, 'friends')
-                        }, {
+                        },*/ {
                             icon: 'search',
                             value: this.LocaleManager.strings.searchPlayer,
                             onPress: this

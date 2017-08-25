@@ -18,6 +18,7 @@ import {Toolbar, ActionButton, Card} from 'react-native-material-ui';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
+import BottomNavigation from '../Components/BottomNavigation';
 
 class ServersScreen extends BaseTruckyComponent
 {
@@ -218,9 +219,10 @@ class ServersScreen extends BaseTruckyComponent
                             this
                                 ._onRefresh
                                 .bind(this)
-                        } />}/>
-                    </View>
+                        } />}/>                        
+                    </View>                    
                 </View>
+                <BottomNavigation navigation={this.props.navigation} active="servers" />
             </Container>
         )
     }

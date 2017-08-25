@@ -16,6 +16,7 @@ import {Toolbar, Button} from 'react-native-material-ui';
 import RNRestart from 'react-native-restart';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import AdaptativeModalPicker from '../Components/AdapativePicker';
+import BottomNavigation from '../Components/BottomNavigation';
 
 class SettingsScreen extends BaseTruckyComponent
 {
@@ -194,6 +195,7 @@ class SettingsScreen extends BaseTruckyComponent
                         </View>
                     </View>
                 </ScrollView>
+                <BottomNavigation navigation={this.props.navigation} active="" />
             </Container>
         );
     }

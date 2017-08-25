@@ -20,6 +20,7 @@ import ActivityIndicator from '../Components/CustomActivityIndicator';
 import RNCalendarEvents from 'react-native-calendar-events';
 import TruckyServices from '../Services/TruckyServices';
 import AdaptativeModalPicker from '../Components/AdapativePicker';
+import BottomNavigation from '../Components/BottomNavigation';
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
@@ -307,7 +308,7 @@ class MeetupsScreen extends BaseTruckyComponent
             <Container>
                 {this.renderDialog()}
                 {this.renderToolbar()}
-
+                <BottomNavigation navigation={this.props.navigation} active="meetups" />
                 <View style={this.StyleManager.styles.meetupsListContainer}>
                     {this.state.loading && <ActivityIndicator/>}
                     <View
@@ -334,11 +335,12 @@ class MeetupsScreen extends BaseTruckyComponent
                 </View>
                 {this.state.showList &&
                 <ActionButton
+                    style={{container: this.StyleManager.styles.actionButton}}
                     icon="refresh"
                     onPress={this
                     ._onRefresh
                     .bind(this)}/>
-                }
+                }                
             </Container>
         )
     }

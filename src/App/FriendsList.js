@@ -16,6 +16,7 @@ import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
 import MapManager from '../Maps/MapManager';
 import ProgressBar from 'react-native-progress/Bar';
+import BottomNavigation from '../Components/BottomNavigation';
 
 class FriendsListScreen extends BaseTruckyComponent
 {
@@ -204,6 +205,7 @@ class FriendsListScreen extends BaseTruckyComponent
     {
         return (
             <ListView
+                style={this.StyleManager.styles.friendsListList}
                 dataSource={list}
                 renderRow={this
                 .renderRow
@@ -350,6 +352,7 @@ class FriendsListScreen extends BaseTruckyComponent
 }
 
                 </ScrollView>
+                <BottomNavigation navigation={this.props.navigation} active="friends" />
             </Container>
         )
     }

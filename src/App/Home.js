@@ -22,6 +22,8 @@ var DeviceInfo = require('react-native-device-info');
 
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
+import BottomNavigation from '../Components/BottomNavigation';
+
 // components
 import {
     ActionButton,
@@ -160,8 +162,9 @@ class Home extends BaseTruckyComponent {
                 })}>
                     {this.renderToolbar()}
                     {this.renderTabView()}
+                    <BottomNavigation navigation={this.props.navigation} active="home" />                    
                 </Drawer>  
-                }             
+                }          
             </Container>
 
         );

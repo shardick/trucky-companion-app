@@ -22,6 +22,7 @@ import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import AdaptativeModalPicker from '../Components/AdapativePicker';
+import BottomNavigation from '../Components/BottomNavigation';
 
 /**
  * 
@@ -309,6 +310,7 @@ class PlayerSearchScreen extends BaseTruckyComponent
                         
                         {this.renderSearchResult()}
                 </View>
+                <BottomNavigation navigation={this.props.navigation} active="" />
             </Container>
         );
     }
