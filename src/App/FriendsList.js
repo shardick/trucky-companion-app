@@ -201,11 +201,11 @@ class FriendsListScreen extends BaseTruckyComponent
             .done();
     }
 
-    renderFriendsList(list)
+    renderFriendsList(list, cssClass)
     {
         return (
             <ListView
-                style={this.StyleManager.styles.friendsListList}
+                style={cssClass}
                 dataSource={list}
                 renderRow={this
                 .renderRow
@@ -345,7 +345,7 @@ class FriendsListScreen extends BaseTruckyComponent
                             .friendsOffline
                             .getRowCount() > 0 && <View>
                                 <Text style={this.StyleManager.styles.friendsListSectionTitle}>{this.LocaleManager.strings.offline}</Text>
-                                {this.renderFriendsList(this.state.friendsOffline)}
+                                {this.renderFriendsList(this.state.friendsOffline, this.StyleManager.styles.friendsListList)}
                             </View>
 }
                     </ScrollView>
