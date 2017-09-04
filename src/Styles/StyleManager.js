@@ -422,7 +422,24 @@ const _styles = StyleSheet.create({
   },
   actionButton: {},
   friendsListList: {},
-  mapView: {}
+  mapView: {},
+  trafficListRowHeaderText: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  trafficListMainContainer: {
+    marginTop: 5,
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+  trafficLocationsList: {
+    padding: 10
+  },
+  trafficListView: {
+    marginBottom: 70
+  },
 });
 
 _styles.uiTheme = {

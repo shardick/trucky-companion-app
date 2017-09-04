@@ -3,6 +3,7 @@ package com.trucky;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.corbt.keepawake.KCKeepAwakePackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new KCKeepAwakePackage(),
             new RNDeviceInfo(),
             new VectorIconsPackage(),
             new ReactNativeRestartPackage(),

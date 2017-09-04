@@ -1,2 +1,2 @@
 cd android
-gradlew assembleRelease
+gradlew assembleRelease --console plain

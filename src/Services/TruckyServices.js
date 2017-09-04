@@ -19,7 +19,7 @@ class TruckyServices
         }
 
         if (__DEV__ && Platform.OS == 'android') {
-            this.config.serviceUrl = 'http://10.0.0.4:5000';
+            this.config.serviceUrl = 'http://192.168.0.3:5000';
         }
     }
 
@@ -124,7 +124,19 @@ class TruckyServices
     /* news */
     async news()
     {
-        var response = await this.executeRequest('/tmpapi/news');
+        var response = await this.executeRequest('/rss/truckersMP');
+        return response;
+    }
+
+    async ets2News()
+    {
+        var response = await this.executeRequest('/rss/ets2');
+        return response;
+    }
+
+    async atsNews()
+    {
+        var response = await this.executeRequest('/rss/ats');
         return response;
     }
 
@@ -137,7 +149,7 @@ class TruckyServices
     /* events */
     async events()
     {
-        var response = await this.executeRequest('/events/list');
+        var response = await this.executeRequest('/v2/events/list');
         return response;
     }
 
@@ -261,6 +273,17 @@ class TruckyServices
         await this.executeRequest('/device/register', 'POST', payload);
     }
 
+    async traffic(server)
+    {
+        var response = await this.executeRequest('/map/traffic?server=' + server);
+        return response;
+    }
+
+    async traffic_servers()
+    {
+        var response = await this.executeRequest('/map/traffic_servers');
+        return response;
+    }
 }
 
 module.exports = TruckyServices;

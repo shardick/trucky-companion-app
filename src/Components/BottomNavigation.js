@@ -46,6 +46,7 @@ class AppBottomNavigation extends BaseTruckyComponent {
                 return <BottomNavigation.Action
                     key={tab.route}
                     icon={tab.icon}
+                    style={ { container: { paddingRight: 10, paddingLeft: 10, maxWidth: 100, minWidth: 60 }}}
                     /*label={tab.label}*/
                     onPress={() => this.RouteManager.navigate(tab.route)}
                 />

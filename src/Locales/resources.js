@@ -109,7 +109,11 @@ var strings = new LocalizedStrings({
         logout: 'Logout',
         steamAuthentication: 'Steam authentication',
         connectedAs: 'Connected as', // connected as USERNAME
-        cancel: 'Cancel'
+        cancel: 'Cancel',
+        traffic: 'Traffic',
+        telemetryIPSettingsHeader: 'Telemetry Server IP',
+        telemetry: 'Telemetry',
+        scsSoftNews: 'SCS Software News'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',

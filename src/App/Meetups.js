@@ -217,11 +217,14 @@ class MeetupsScreen extends BaseTruckyComponent
                         <Icon name="user" style={this.StyleManager.styles.serversListGameTimeIcon}/>
                         <Text style={this.StyleManager.styles.serversListGameTimeText}>{rowData.author}</Text>
                     </View>
+                    <View style={this.StyleManager.styles.serversListDescriptionRow}>                        
+                        <Text style={this.StyleManager.styles.serversListGameTimeText}>source: {rowData.source}</Text>
+                    </View>
                     <View style={this.StyleManager.styles.meetupsRowButtonContainer}>
                         <Button
                             primary
                             text={this.LocaleManager.strings.info}
-                            onPress={() => this.navigateUrl('http://ets2c.com/' + rowData.url)}/>
+                            onPress={() => this.navigateUrl(rowData.fullUrl ? rowData.fullUrl : 'http://ets2c.com/' + rowData.url)}/>
                         <Button
                             primary
                             text={this.LocaleManager.strings.addToCalendar}

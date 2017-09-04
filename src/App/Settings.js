@@ -7,7 +7,8 @@ var {
     Switch,
     Picker,
     ScrollView,
-    StyleSheet
+    StyleSheet,
+    TextInput
 } = ReactNative;
 
 import Container from '../Container';
@@ -140,47 +141,18 @@ class SettingsScreen extends BaseTruckyComponent
                                 value={this.state.settings.autoRefreshGameTime}/>
                         </View>
                     </View>
-                    {/*<View style={this.StyleManager.styles.appSettingsRow}>
-                        <Text style={this.StyleManager.styles.appSettingsLabel}>{this.LocaleManager.strings.autoRefreshServersList}</Text>
-                        <View style={this.StyleManager.styles.appSettingsField}>
-                            <Switch
-                                onValueChange={(value) => this.updateSetting(this.AppSettings.keys.autoRefreshServersList, value)}
-                                value={this.state.settings.autoRefreshServersList}/>
-                        </View>
-                    </View>
+                    
+                    
                     <View style={this.StyleManager.styles.appSettingsHeader}>
-                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.refreshServersListEvery}</Text>
+                        <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.telemetryIPSettingsHeader}</Text>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRowColumns}>
                         <View style={this.StyleManager.styles.appSettingsFieldBelow}>
-                            <AdaptativeModalPicker
-                                selectedValue={this.state.settings.serverListRefreshInterval}
-                                data={[
-                                {
-                                    label: this.LocaleManager.strings.seconds10,
-                                    key: "10000"
-                                }, {
-                                    label: this.LocaleManager.strings.seconds30,
-                                    key: "30000"
-                                }, {
-                                    label: this.LocaleManager.strings.minute,
-                                    key: "60000"
-                                }, {
-                                    label: this.LocaleManager.strings.minutes5,
-                                    key: "300000"
-                                }, {
-                                    label: this.LocaleManager.strings.minutes10,
-                                    key: "600000"
-                                }, {
-                                    label: this.LocaleManager.strings.minutes20,
-                                    key: "1200000"
-                                }
-                            ]}
-                                onChange={(option) => {
-                                this.updateSetting(this.AppSettings.keys.serverListRefreshInterval, option.key)
-                            }}/>
+                            <TextInput value={this.state.settings.telemetryServerIP} 
+                            onChangeText={(text) => this.updateSetting(this.AppSettings.keys.telemetryServerIP, text)} 
+                            placeholder="Insert Telemetry Server IP here" /> 
                         </View>
-                    </View>*/}
+                    </View>
                     <View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.settingsHeaderLanguage}</Text>
                     </View>

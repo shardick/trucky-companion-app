@@ -19,7 +19,7 @@ import AppDrawerLayout from '../Components/AppDrawerLayout';
 import ActivityIndicator from '../Components/CustomActivityIndicator';
 import Drawer from 'react-native-drawer'
 var DeviceInfo = require('react-native-device-info');
-
+import TruckyServices from '../Services/TruckyServices';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 
 import BottomNavigation from '../Components/BottomNavigation';
@@ -85,7 +85,7 @@ class Home extends BaseTruckyComponent {
     }
 
     _handleChangeTab = (index) => {
-        this.setState({index});
+        this.setState({tabState: { index: index, routes: this.state.tabState.routes } });
     };
 
     _renderHeader = (props) => {
@@ -99,13 +99,20 @@ class Home extends BaseTruckyComponent {
     _renderScene = ({route}) => {
         switch (route.key) {
             case '1':
-                return <NewsFeedScreen navigation={this.RouteManager.navigator}/>;
+                
+                return <NewsFeedScreen navigation={this.RouteManager.navigator} feedFunction={this.getNews}/>;
             case '2':
                 return <GameStatusScreen navigation={this.RouteManager.navigator}/>;
             default:
                 return null;
         }
     };
+
+    async getNews()
+    {
+        var api = new TruckyServices();
+        return await api.news();
+    }
 
     renderTabView()
     {
@@ -115,7 +122,7 @@ class Home extends BaseTruckyComponent {
                         navigationState={this.state.tabState}
                         renderScene={this._renderScene}
                         renderHeader={this._renderHeader}
-                        onRequestChangeTab={this._handleChangeTab}/>
+                        onIndexChange={this._handleChangeTab}/>
         );
     }
     render() {

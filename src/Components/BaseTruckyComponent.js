@@ -4,6 +4,7 @@ import RM from '../routes';
 import AS from '../AppSettings';
 import LC from '../Locales/LocaleManager';
 import SM from '../Styles/StyleManager';
+import KeepAwake from 'react-native-keep-awake';
 
 /**
  * Base Component class for all Screens
@@ -52,6 +53,7 @@ class BaseTruckyComponent extends Component
 
     componentDidMount()
     {
+        KeepAwake.deactivate();
         // event listener for App State change, when application wake up, fetch new data
 
         AppState.addEventListener('change', this._handleAppStateChange.bind(this));

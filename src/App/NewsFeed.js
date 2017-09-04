@@ -36,9 +36,11 @@ class NewsFeedScreen extends BaseTruckyComponent
     {
         this.setState({loading: true});
 
-        var api = new TruckyServices();
+        //var api = new TruckyServices();
 
-        var feed = await api.news();
+        //var feed = await api.news();
+
+        var feed = await this.props.feedFunction();
 
         if (feed != null) {
             this.setState({

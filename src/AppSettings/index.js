@@ -15,7 +15,8 @@ class AppSettings
             lastVersionNumber: 'lastVersionNumber',
             mapSettings: 'mapSettings',
             steamUser: 'steamUser',
-            deviceID: 'deviceID'
+            deviceID: 'deviceID',
+            telemetryServerIP: 'telemetryServerIP'
         }
     }
 
@@ -41,7 +42,8 @@ class AppSettings
                 showID: true
             },
             steamUser: null,
-            deviceID: ''
+            deviceID: '',
+            telemetryServerIP: ''
         };
     }
 
