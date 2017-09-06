@@ -11,7 +11,8 @@ var {
     StyleSheet,
     ScrollView,
     RefreshControl,
-    AppState
+    AppState,
+    TouchableOpacity
 } = ReactNative;
 
 import {Toolbar, ActionButton, Card} from 'react-native-material-ui';
@@ -64,26 +65,13 @@ class TrafficScreen extends BaseTruckyComponent
         traffic_servers.forEach(function(element) {
             
             tabRoutes.push({
-                key: element.parameter,
-                title: element.name
+                key: element.url,
+                title: element.game + ' ' + element.short,
+                game: element.game
             })
         }, this);
 
         this.setState({ tabState: { index: 0, routes: tabRoutes }});
-
-        var traffic = await api.traffic('eu2');
-
-        if (traffic != null && traffic.length > 0)
-        {
-            this.setState({traffic_servers: traffic_servers, traffic: traffic });
-            
-            this.setState({
-                dataSource: this
-                    .state
-                    .dataSource
-                    .cloneWithRows(traffic)
-            });
-        }
 
         this.setState({loading: false});
     }
@@ -111,7 +99,7 @@ class TrafficScreen extends BaseTruckyComponent
     _renderScene = ({route}) => {
 
         if (route.key != '-1' && route.key != '-2')
-                return <TrafficListView server={route.key} navigation={this.RouteManager.navigator}/>;
+                return <TrafficListView server={route.key} game={route.game} navigation={this.RouteManager.navigator}/>;
         else
             return null;
         

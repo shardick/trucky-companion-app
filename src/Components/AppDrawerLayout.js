@@ -45,6 +45,101 @@ class AppDrawerLayout extends BaseTruckyComponent {
         this.navigateUrl(url);
     }
 
+    getTabletItems()
+    {
+        return [
+            {
+                icon: 'cloud',
+                value: this.LocaleManager.strings.servers,
+                onPress: this
+                    .onPress
+                    .bind(this, 'servers')
+            }, {
+                icon: 'event',
+                value: this.LocaleManager.strings.meetups,
+                onPress: this
+                    .onPress
+                    .bind(this, 'meetups')
+            }, {
+                icon: 'map',
+                value: this.LocaleManager.strings.liveMapRouteTitle,
+                onPress: this
+                    .onPress
+                    .bind(this, 'map')
+            }, {
+                icon: 'people',
+                value: this.LocaleManager.strings.friends,
+                onPress: this
+                    .onPress
+                    .bind(this, 'friends')
+            }
+        ];
+    }
+
+    getMultiDeviceItems()
+    {
+        return [
+
+            {
+                icon: 'warning',
+                value: this.LocaleManager.strings.traffic,
+                onPress: this
+                    .onPress
+                    .bind(this, 'traffic')
+            },
+            {
+                icon: 'poll',
+                value: this.LocaleManager.strings.telemetry,
+                onPress: this
+                    .onPress
+                    .bind(this, 'telemetry')
+            },
+            {
+                icon: 'announcement',
+                value: this.LocaleManager.strings.scsSoftNews,
+                onPress: this
+                    .onPress
+                    .bind(this, 'scsSoft')
+            },
+            {
+                icon: 'search',
+                value: this.LocaleManager.strings.searchPlayer,
+                onPress: this
+                    .onPress
+                    .bind(this, 'searchPlayer')
+            }, {
+                icon: 'list',
+                value: this.LocaleManager.strings.rules,
+                onPress: this
+                    .onPress
+                    .bind(this, 'rules')
+            }, {
+                icon: 'settings',
+                value: this.LocaleManager.strings.settings,
+                onPress: this
+                    .onPress
+                    .bind(this, 'settings')
+            }, {
+                icon: 'info',
+                value: this.LocaleManager.strings.about,
+                onPress: this
+                    .onPress
+                    .bind(this, 'about')
+            }
+
+        ];
+    }
+
+    getItems()
+    {
+        if (DeviceInfo.isTablet())
+            {
+                return this.getTabletItems().concat(this.getMultiDeviceItems());
+            }
+            else
+                return this.getMultiDeviceItems();
+    }
+
     render() {
         return (
             <Drawer>
@@ -56,79 +151,7 @@ class AppDrawerLayout extends BaseTruckyComponent {
                 </View>
                 <Drawer.Section
                     divider
-                    items={[
-                        /*{
-                            icon: 'cloud',
-                            value: this.LocaleManager.strings.servers,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'servers')
-                        }, {
-                            icon: 'event',
-                            value: this.LocaleManager.strings.meetups,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'meetups')
-                        }, {
-                            icon: 'map',
-                            value: this.LocaleManager.strings.liveMapRouteTitle,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'map')
-                        }, {
-                            icon: 'people',
-                            value: this.LocaleManager.strings.friends,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'friends')
-                        },*/ 
-                        {
-                            icon: 'warning',
-                            value: this.LocaleManager.strings.traffic,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'traffic')
-                        },
-                        {
-                            icon: 'poll',
-                            value: this.LocaleManager.strings.telemetry,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'telemetry')
-                        },
-                        {
-                            icon: 'announcement',
-                            value: this.LocaleManager.strings.scsSoftNews,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'scsSoft')
-                        },
-                        {
-                            icon: 'search',
-                            value: this.LocaleManager.strings.searchPlayer,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'searchPlayer')
-                        }, {
-                            icon: 'list',
-                            value: this.LocaleManager.strings.rules,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'rules')
-                        }, {
-                            icon: 'settings',
-                            value: this.LocaleManager.strings.settings,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'settings')
-                        }, {
-                            icon: 'info',
-                            value: this.LocaleManager.strings.about,
-                            onPress: this
-                                .onPress
-                                .bind(this, 'about')
-                        }
-                    ]} />
+                    items={this.getItems()} />
                 <Drawer.Section
                     items={[
                         {

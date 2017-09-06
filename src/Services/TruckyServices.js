@@ -15,7 +15,7 @@ class TruckyServices
     constructor()
     {
         this.config = {
-            serviceUrl: 'https://truckyservices.herokuapp.com'
+            serviceUrl: 'https://api.truckyapp.com'
         }
 
         if (__DEV__ && Platform.OS == 'android') {
@@ -273,15 +273,15 @@ class TruckyServices
         await this.executeRequest('/device/register', 'POST', payload);
     }
 
-    async traffic(server)
+    async traffic(server, game)
     {
-        var response = await this.executeRequest('/map/traffic?server=' + server);
+        var response = await this.executeRequest('/v2/traffic/data?server=' + server + '&game=' + game);
         return response;
     }
 
     async traffic_servers()
     {
-        var response = await this.executeRequest('/map/traffic_servers');
+        var response = await this.executeRequest('/v2/traffic/servers');
         return response;
     }
 }

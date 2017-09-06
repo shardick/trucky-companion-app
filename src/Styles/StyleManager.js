@@ -438,8 +438,18 @@ const _styles = StyleSheet.create({
     padding: 10
   },
   trafficListView: {
-    marginBottom: 70
+    marginBottom: 95
   },
+  trafficCredits: {
+    alignItems: 'center',
+    marginTop: 5,
+    bottom: 70,
+    position: 'absolute',
+    left: 10
+  },
+  trafficActionButton: {
+    marginBottom: 85
+  }
 });
 
 _styles.uiTheme = {

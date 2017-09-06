@@ -9,7 +9,8 @@ var {
     StyleSheet,
     ScrollView,
     RefreshControl,
-    AppState
+    AppState,
+    TouchableOpacity
 } = ReactNative;
 
 import {Toolbar, ActionButton, Card, Button} from 'react-native-material-ui';
@@ -38,7 +39,7 @@ class TrafficListView extends BaseTruckyComponent
 
         var api = new TruckyServices();
 
-        var traffic = await api.traffic(this.props.server);
+        var traffic = await api.traffic(this.props.server, this.props.game);
 
         //console.log(traffic);
 
@@ -72,8 +73,8 @@ class TrafficListView extends BaseTruckyComponent
             return (
                 <View>
                     <View style={ { flexDirection: 'row'}}>
-                        <Text>{element.label} ({element.type})</Text>
-                        <Text style={ { color: element.color}}> - {element.status} ({element.count})</Text>
+                        <Text>{element.name}</Text>
+                        <Text style={ { color: element.color}}> - {element.severity} ({element.players})</Text>
                     </View>
                 </View>
             );
@@ -97,14 +98,19 @@ class TrafficListView extends BaseTruckyComponent
                         renderRow={this.renderRow.bind(this)}
                         automaticallyAdjustContentInsets={false}
                         renderSeparator={(sectionId, rowId) => <View key={rowId} style={this.StyleManager.styles.separator}/>}
-                    />                        
-                </View>
+                    />
+                    <View style={this.StyleManager.styles.trafficCredits}>
+                        <TouchableOpacity onPress={() => this.navigateUrl('https://traffic.krashnz.com/')}><Text>Traffic provided by https://traffic.krashnz.com/</Text></TouchableOpacity>
+                    </View>                        
+                </View>                
+                {!this.state.loading &&
                 <ActionButton
-                    style={{container: this.StyleManager.styles.actionButton}}
+                    style={{container: this.StyleManager.styles.trafficActionButton}}
                     icon="refresh"
                     onPress={this
                     ._onRefresh
                     .bind(this)}/>
+                }
             </View>
         );
     }
