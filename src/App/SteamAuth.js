@@ -57,7 +57,7 @@ class SteamAuthScreen extends BaseTruckyComponent
                 <WebView
                     onMessage={this.onBridgeMessage.bind(this)}
                     startInLoadingState={true}
-                    source={{ uri: "https://truckyservices.herokuapp.com/steam/auth" }}
+                    source={{ uri: "https://api.truckyapp.com/steam/auth" }}
                 />
             </Container>
         )

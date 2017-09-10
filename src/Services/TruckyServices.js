@@ -85,8 +85,8 @@ class TruckyServices
      */
     async resolveVanityUrl(username)
     {
-        var response = await this.executeRequest('/steam/resolveVanityUrl?username=' + username);
-        return response;
+        var response = await this.executeRequest('/v2/steam/resolveVanityUrl?username=' + username);
+        return response.response;
     }
 
     /**
@@ -99,95 +99,95 @@ class TruckyServices
      */
     async getPlayerSummaries(steamid)
     {
-        var response = await this.executeRequest('/steam/getPlayerSummaries?steamid=' + steamid);
-        return response;
+        var response = await this.executeRequest('/v2/steam/getPlayerSummaries?steamid=' + steamid);
+        return response.response;
     }
 
     async pois()
     {
-        var response = await this.executeRequest('/map/pois');
-        return response;
+        var response = await this.executeRequest('/v2/map/pois');
+        return response.response;
     }
 
     async isOnline(playerID)
     {
-        var response = await this.executeRequest('/map/online?playerID=' + playerID);
-        return response;
+        var response = await this.executeRequest('/v2/map/online?playerID=' + playerID);
+        return response.response;
     }
 
     async getFriends(steamID)
     {
-        var response = await this.executeRequest('/steam/getFriendsData?steamid=' + steamID);
-        return response;
+        var response = await this.executeRequest('/v2/steam/getFriendsData?steamid=' + steamID);
+        return response.response;
     }
 
     /* news */
     async news()
     {
-        var response = await this.executeRequest('/rss/truckersMP');
-        return response;
+        var response = await this.executeRequest('/v2/rss/truckersMP');
+        return response.response;
     }
 
     async ets2News()
     {
-        var response = await this.executeRequest('/rss/ets2');
-        return response;
+        var response = await this.executeRequest('/v2/rss/ets2');
+        return response.response;
     }
 
     async atsNews()
     {
-        var response = await this.executeRequest('/rss/ats');
-        return response;
+        var response = await this.executeRequest('/v2/rss/ats');
+        return response.response;
     }
 
     async update_info()
     {
-        var response = await this.executeRequest('/tmpapi/update_info');
-        return response;
+        var response = await this.executeRequest('/v2/truckersmp/update_info');
+        return response.response;
     }
 
     /* events */
     async events()
     {
-        var response = await this.executeRequest('/v2/events/list');
-        return response;
+        var response = await this.executeRequest('/v2/events');
+        return response.response;
     }
 
     /* tmpapi wrapper */
     async servers()
     {
-        var response = await this.executeRequest('/tmpapi/servers');
-        return response;
+        var response = await this.executeRequest('/v2/truckersmp/servers');
+        return response.response;
     }
 
     async game_version()
     {
-        var response = await this.executeRequest('/tmpapi/version');
-        return response;
+        var response = await this.executeRequest('/v2/truckersmp/version');
+        return response.response;
     }
 
     async game_time()
     {
-        var response = await this.executeRequest('/tmpapi/time');
-        return response;
+        var response = await this.executeRequest('/v2/truckersmp/time');
+        return response.response;
     }
 
     async rules()
     {
-        var response = await this.executeRequest('/tmpapi/rules');
-        return response.rules;
+        var response = await this.executeRequest('/v2/truckersmp/rules');
+        return response.response;
     }
 
     async player(id)
     {
-        var response = await this.executeRequest('/tmpapi/player?playerID=' + id);
-        return response;
+        var response = await this.executeRequest('/v2/truckersmp/player?playerID=' + id);
+        return response.response;
     }
 
     async bans(id)
     {
-        var response = await this.executeRequest('/tmpapi/bans?playerID=' + id);
-        return response;
+        var response = await this.executeRequest('/v2/truckersmp/bans?playerID=' + id);
+        return response.response;
     }
 
     /**
@@ -275,14 +275,14 @@ class TruckyServices
 
     async traffic(server, game)
     {
-        var response = await this.executeRequest('/v2/traffic/data?server=' + server + '&game=' + game);
-        return response;
+        var response = await this.executeRequest('/v2/traffic?server=' + server + '&game=' + game);
+        return response.response;
     }
 
     async traffic_servers()
     {
         var response = await this.executeRequest('/v2/traffic/servers');
-        return response;
+        return response.response;
     }
 }
 
