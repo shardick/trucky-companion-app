@@ -19,14 +19,14 @@ class TruckyServices
         }
 
         if (__DEV__ && Platform.OS == 'android') {
-            this.config.serviceUrl = 'http://192.168.0.3:5000';
+            this.config.serviceUrl = 'http://10.0.0.4:5000';
         }
     }
 
     /**
      *
      *
-     * @param {any} url
+     * @param {string} url
      * @returns
      *
      * @memberOf TruckyServices
@@ -78,7 +78,7 @@ class TruckyServices
     /**
      *
      *
-     * @param {any} username
+     * @param {string} username
      * @returns
      *
      * @memberOf TruckyServices

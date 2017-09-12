@@ -14,111 +14,122 @@ currentGameVersion: '**YOUR TRANSLATION HERE**'
 
 Here the strings to translate:
 
-currentGameVersion: 'Current game version: ',<br/>
-routeHomeTitle: 'Trucky Companion App',<br/>
-routeServersTitle: 'TruckersMP Servers',<br/>
-routeMeetupsTitle: 'Meetups',<br/>
-routeSettingsTitle: 'Settings',<br/>
-routeAboutTitle: 'About this app',<br/>
-routeRulesTitle: 'TruckersMP Rules',<br/>
-supportedETSVersion: 'Supported ETS version: ',<br/>
-supportedATSVersion: 'Supported ATS version: ',<br/>
-lastReleaseDate: 'Last Release date: ',<br/>
-playersOnline: 'players online',<br/>
-currentGameTime: 'Current game time: ',<br/>
-servers: 'Servers',<br/>
-about: 'About',<br/>
-meetups: 'Meetups',<br/>
-searchPlayer: 'Search Player',<br/>
-rules: 'Rules',<br/>
-settings: 'Settings', <br/>
-playersInQueue: 'players in queue',<br/>
-online: 'Online',<br/>
-offline: 'Offline',<br/>
-speedLimiterEnabled: 'Speed limiter enabled',<br/>
-speedLimiterDisabled: 'Speed limiter disabled',<br/>
-status: 'Status',<br/>
-info: 'Info',<br/>
-addToCalendar: 'Add to calendar',<br/>
-language: 'Language: ',<br/>
-enableAutoRefresh: 'Enable auto refresh',<br/>
-autoRefreshGameTime: 'Auto refresh game time',<br/>
-autoRefreshServersList: 'Auto refersh servers list',<br/>
-refreshServersListEvery: 'Refresh servers list every',<br/>
-seconds10: '10 seconds',<br/>
-seconds30: '30 seconds',<br/>
-minute: '1 minute',<br/>
-minutes2: '2 minutes',<br/>
-minutes5: '5 minutes',<br/>
-minutes10: '10 minutes',<br/>
-minutes20: '20 minutes',<br/>
-customizations: 'Customizations',<br/>
-settingsHeaderLanguage: 'Language',<br/>
-settingsHeaderTheme: 'Theme',<br/>
-english: 'English',<br/>
-italian: 'Italiano',<br/>
-eventAddedToCalendar: 'Event added to calendar',<br/>
-eventTitle: 'TruckersMP Event - Meetup',<br/>
-eventNotes: 'Organized by {0} - Server: {1}',<br/>
-truckersMPWebSite: 'TruckersMP Website',<br/>
-truckersMPForum: 'TruckersMP Forum',<br/>
-truckersMPSteamGroup: 'TruckersMP Steam Group',<br/>
-readMore: 'Read More',<br/>
-newsAndEvents: 'News and events',<br/>
-gameStatus: 'Game Status',<br/>
-newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released',<br/>
-french: 'French',<br/>
-bulgarian: 'Bulgarian',<br/>
-finnish: 'Finnish',<br/>
-spanish: 'Spanish',<br/>
-dutch: 'Dutch',<br/>
-/* LABELS FOR SEARCH PLAYER SCREEN */<br/>
-searchBySteamUsername: 'By Steam Username',<br/>
-searchBySteamID: 'By Steam ID',<br/>
-searchByTruckersMPID: 'By TruckersMP ID',<br/>
-searchButton: 'Search',<br/>
-searchFieldPlaceholder: 'Specifiy search term',<br/>
-steamProfile: 'Steam profile',<br/>
-truckersMPProfile: 'TruckersMP profile',<br/>
-viewSteamProfile: 'View Steam profile',<br/>
-viewTruckersMPProfile: 'View TruckersMP profile',<br/>
-bans: 'Bans History',<br/>
-noBans: 'No bans',<br/>
-nickName: 'Nickname:',<br/>
-onTruckersMPfrom: 'On TruckersMP from', // On TruckersMP from DATE<br/>
-onSteamFrom: 'On Steam from', // On Steam from DATE<br/>
-role: 'Role:',<br/>
-truckersMPID: 'TruckersMP ID:',<br/>
-realName: 'Real Name:',<br/>
-steamUsername: 'Steam Username:',<br/>
-steamID: 'Steam ID:',<br/>
-issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE<br/>
-expires: 'Expires:', // Expires: DATE<br/>
-/* LABELS ADDED IN VERSION 1.0.4 */<br/>
-liveMapRouteTitle: 'Live Map',<br/>
-checkingOnlineState: 'Checking online state..', // label showed waiting for online status response<br/>
-viewOnMap: 'View on map',<br/>
-hideHeatMap: 'Hide heatmap', // represents trucks density in a certain area<br/>
-showDirection: 'Show direction',<br/>
-showTrucks: 'Show Trucks',<br/>
-showName: 'Show name',<br/>
-showID: 'Show ID',<br/>
-places: 'Places', // or Locations, or Point of interests<br/>
-/* LABELS ADDED IN VERSION 1.0.5 */<br/>
-friends: 'Friends',<br/>
-onlineOnSteam: 'Online on Steam',<br/>
-busyOnSteam: 'Busy on Steam',<br/>
-offlineOnSteam: 'Offline on Steam',<br/>
-awayOnSteam: 'Away on Steam',<br/>
-snoozingOnSteam: 'Snoozing on Steam', // or Sleeping<br/>
-lookingForATradeOnSteam: 'Looking for a trade on Steam',<br/>
-lookingForPlayOnSteam: 'Looking for play on Steam',<br/>
-loginToSteam: 'Login to Steam',<br/>
-disconnect: 'Disconnect', // Disconnect from Steam button text<br/>
-logout: 'Logout',<br/>
-steamAuthentication: 'Steam authentication',<br/>
-connectedAs: 'Connected as', // connected as USERNAME<br/>
-cancel: 'Cancel'<br/>
-<br/>
+```json
+currentGameVersion: 'Current game version: ', 
+routeHomeTitle: 'Trucky Companion App', 
+routeServersTitle: 'TruckersMP Servers', 
+routeMeetupsTitle: 'Meetups', 
+routeSettingsTitle: 'Settings', 
+routeAboutTitle: 'About this app', 
+routeRulesTitle: 'TruckersMP Rules', 
+supportedETSVersion: 'Supported ETS version: ', 
+supportedATSVersion: 'Supported ATS version: ', 
+lastReleaseDate: 'Last Release date: ', 
+playersOnline: 'players online', 
+currentGameTime: 'Current game time: ', 
+servers: 'Servers', 
+about: 'About', 
+meetups: 'Meetups', 
+searchPlayer: 'Search Player', 
+rules: 'Rules', 
+settings: 'Settings',  
+playersInQueue: 'players in queue', 
+online: 'Online', 
+offline: 'Offline', 
+speedLimiterEnabled: 'Speed limiter enabled', 
+speedLimiterDisabled: 'Speed limiter disabled', 
+status: 'Status', 
+info: 'Info', 
+addToCalendar: 'Add to calendar', 
+language: 'Language: ', 
+enableAutoRefresh: 'Enable auto refresh', 
+autoRefreshGameTime: 'Auto refresh game time', 
+autoRefreshServersList: 'Auto refersh servers list', 
+refreshServersListEvery: 'Refresh servers list every', 
+seconds10: '10 seconds', 
+seconds30: '30 seconds', 
+minute: '1 minute', 
+minutes2: '2 minutes', 
+minutes5: '5 minutes', 
+minutes10: '10 minutes', 
+minutes20: '20 minutes', 
+customizations: 'Customizations', 
+settingsHeaderLanguage: 'Language', 
+settingsHeaderTheme: 'Theme', 
+english: 'English', 
+italian: 'Italiano', 
+eventAddedToCalendar: 'Event added to calendar', 
+eventTitle: 'TruckersMP Event - Meetup', 
+eventNotes: 'Organized by {0} - Server: {1}', 
+truckersMPWebSite: 'TruckersMP Website', 
+truckersMPForum: 'TruckersMP Forum', 
+truckersMPSteamGroup: 'TruckersMP Steam Group', 
+readMore: 'Read More', 
+newsAndEvents: 'News and events', 
+gameStatus: 'Game Status', 
+newTruckersMPGameVersionReleaseNotificationText: 'New TruckersMP version released', 
+french: 'French', 
+bulgarian: 'Bulgarian', 
+finnish: 'Finnish', 
+spanish: 'Spanish', 
+dutch: 'Dutch', 
+/* LABELS FOR SEARCH PLAYER SCREEN */ 
+searchBySteamUsername: 'By Steam Username', 
+searchBySteamID: 'By Steam ID', 
+searchByTruckersMPID: 'By TruckersMP ID', 
+searchButton: 'Search', 
+searchFieldPlaceholder: 'Specifiy search term', 
+steamProfile: 'Steam profile', 
+truckersMPProfile: 'TruckersMP profile', 
+viewSteamProfile: 'View Steam profile', 
+viewTruckersMPProfile: 'View TruckersMP profile', 
+bans: 'Bans History', 
+noBans: 'No bans', 
+nickName: 'Nickname:', 
+onTruckersMPfrom: 'On TruckersMP from', // On TruckersMP from DATE 
+onSteamFrom: 'On Steam from', // On Steam from DATE 
+role: 'Role:', 
+truckersMPID: 'TruckersMP ID:', 
+realName: 'Real Name:', 
+steamUsername: 'Steam Username:', 
+steamID: 'Steam ID:', 
+issuedBy: 'Issued by {0} on {1}', // complete phrase is: Issued by NICKNAME on DATE 
+expires: 'Expires:', // Expires: DATE 
+/* LABELS ADDED IN VERSION 1.0.4 */ 
+liveMapRouteTitle: 'Live Map', 
+checkingOnlineState: 'Checking online state..', // label showed waiting for online status response 
+viewOnMap: 'View on map', 
+hideHeatMap: 'Hide heatmap', // represents trucks density in a certain area 
+showDirection: 'Show direction', 
+showTrucks: 'Show Trucks', 
+showName: 'Show name', 
+showID: 'Show ID', 
+places: 'Places', // or Locations, or Point of interests 
+/* LABELS ADDED IN VERSION 1.0.5 */ 
+friends: 'Friends', 
+onlineOnSteam: 'Online on Steam', 
+busyOnSteam: 'Busy on Steam', 
+offlineOnSteam: 'Offline on Steam', 
+awayOnSteam: 'Away on Steam', 
+snoozingOnSteam: 'Snoozing on Steam', // or Sleeping 
+lookingForATradeOnSteam: 'Looking for a trade on Steam', 
+lookingForPlayOnSteam: 'Looking for play on Steam', 
+loginToSteam: 'Login to Steam', 
+disconnect: 'Disconnect', // Disconnect from Steam button text 
+logout: 'Logout', 
+steamAuthentication: 'Steam authentication', 
+connectedAs: 'Connected as', // connected as USERNAME 
+cancel: 'Cancel', 
+/* LABELS ADDED IN 1.5.0 */ 
+traffic: 'Traffic', 
+telemetryIPSettingsHeader: 'Telemetry Server IP', 
+telemetry: 'Telemetry', 
+scsSoftNews: 'SCS Software News', 
+carsForPlayersEnabled: 'Cars enabled', 
+carsForPlayersDisabled: 'Cars disabled', 
+collisionsEnabled: 'Collisions enabled', 
+collisionsDisabled: 'Collissions disabled' 
+```
+ 
 
 Thank you!

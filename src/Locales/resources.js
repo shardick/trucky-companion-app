@@ -114,7 +114,11 @@ var strings = new LocalizedStrings({
         traffic: 'Traffic',
         telemetryIPSettingsHeader: 'Telemetry Server IP',
         telemetry: 'Telemetry',
-        scsSoftNews: 'SCS Software News'
+        scsSoftNews: 'SCS Software News',
+        carsForPlayersEnabled: 'Cars enabled',
+        carsForPlayersDisabled: 'Cars disabled',
+        collisionsEnabled: 'Collisions enabled',
+        collisionsDisabled: 'Collissions disabled'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',
@@ -223,7 +227,11 @@ var strings = new LocalizedStrings({
         traffic: 'Traffico',
         telemetryIPSettingsHeader: 'IP Server Telemetria',
         telemetry: 'Telemetria',
-        scsSoftNews: 'News SCS Software'
+        scsSoftNews: 'News SCS Software',
+        carsForPlayersEnabled: 'Auto abilitate',
+        carsForPlayersDisabled: 'Auto disabilitate',
+        collisionsEnabled: 'Collisioni abilitate',
+        collisionsDisabled: 'Collissioni disabilitate'
     },
     // credits: Hristo Spasov
     bg: {
@@ -312,6 +320,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'Телеметричен сървър IP',
         telemetry: 'телеметрия',
         scsSoftNews: 'SCS Софтуерни новини',
+        carsForPlayersEnabled: 'Автомобилите са активирани',
+        carsForPlayersDisabled: 'Автомобилите са забранени',
+        collisionsDisabled: 'Сблъсъците са забранени',
+        collisionsEnabled: 'Сблъсъците са разрешени',
     },
     // credits: Kevin Monteil credits: Caernage
     // https://forum.truckersmp.com/index.php?/profile/103421-caernage/
@@ -426,6 +438,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'IP du serveur de télémétrie',
         telemetry: 'Télémétrie',
         scsSoftNews: 'SCS Software News',
+        carsForPlayersDisabled: 'Voitures désactivées',
+        carsForPlayersEnabled: 'Voitures activées',
+        collisionsEnabled: 'Collisions activées',
+        collisionsDisabled: 'Collations désactivées',
     },
     // Credits Jiri Innanen
     fi: {
@@ -527,6 +543,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'Telemetria-palvelin IP',
         telemetry: 'telemetria',
         scsSoftNews: 'SCS-ohjelmistotietoja',
+        carsForPlayersDisabled: 'Autot on poistettu käytöstä',
+        collisionsEnabled: 'Törmäykset ovat käytössä',
+        collisionsDisabled: 'Collisiitit poistettu käytöstä',
+        carsForPlayersEnabled: 'Autot ovat käytössä',
     },
     // credits Francisco Ramirez
     es: {
@@ -637,6 +657,10 @@ var strings = new LocalizedStrings({
         telemetry: 'Telemetría',
         scsSoftNews: 'Noticias de Software SCS',
         traffic: 'Tráfico',
+        collisionsDisabled: 'Colisiones inhabilitadas',
+        carsForPlayersEnabled: 'Coches habilitados',
+        carsForPlayersDisabled: 'Coches deshabilitados',
+        collisionsEnabled: 'Colisiones habilitadas',
     },
     // credits Derk Nomden
     nl: {
@@ -746,6 +770,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'Telemetrie Server IP',
         scsSoftNews: 'SCS Software News',
         telemetry: 'Telemetrie',
+        carsForPlayersEnabled: 'Auto\'s ingeschakeld',
+        carsForPlayersDisabled: 'Auto\'s uitgeschakeld',
+        collisionsEnabled: 'Botsingen ingeschakeld',
+        collisionsDisabled: 'Collissies uitgeschakeld',
     },
     // credits Piotrek Ślusarz
     pl: {
@@ -859,6 +887,10 @@ var strings = new LocalizedStrings({
         telemetry: 'Telemetria',
         traffic: 'ruch drogowy',
         scsSoftNews: 'SCS Software News',
+        carsForPlayersEnabled: 'Włączone samochody',
+        collisionsEnabled: 'Połączenia zostały włączone',
+        collisionsDisabled: 'Wyłączono laminowanie',
+        carsForPlayersDisabled: 'Samochody są wyłączone',
     },
     // Credits Tobias Groß
     de: {
@@ -969,6 +1001,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'Telemetrieserver IP',
         telemetry: 'Telemetrie',
         scsSoftNews: 'SCS Software News',
+        collisionsDisabled: 'Kollisionen deaktiviert',
+        collisionsEnabled: 'Kollisionen aktiviert',
+        carsForPlayersDisabled: 'Autos deaktiviert',
+        carsForPlayersEnabled: 'Autos aktiviert',
     },
     // Credits ActiV3Drifter
     // (https://forum.truckersmp.com/index.php?/profile/93979-activ3drifter/)
@@ -1080,6 +1116,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'IP telemetrie serveru',
         telemetry: 'Telemetrie',
         scsSoftNews: 'SCS Software News',
+        carsForPlayersDisabled: 'Auta vypnutá',
+        carsForPlayersEnabled: 'Automobily povoleny',
+        collisionsDisabled: 'Kolize jsou zakázány',
+        collisionsEnabled: 'Kolize byly povoleny',
     },
     // Credits CJMAXiK (https://truckersmp.com/user/3861)
     ru: {
@@ -1194,6 +1234,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'IP-адрес Telemetry',
         scsSoftNews: 'Новости программного обеспечения SCS',
         telemetry: 'телеметрия',
+        carsForPlayersEnabled: 'Включены автомобили',
+        carsForPlayersDisabled: 'Автостоянка',
+        collisionsEnabled: 'Разрешены конфликты',
+        collisionsDisabled: 'Коллизии отключены',
     },
     // Ru13z - https://forum.truckersmp.com/index.php?/profile/119633-ru13z/
     pt: {
@@ -1306,6 +1350,10 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'IP do servidor de telemetria',
         traffic: 'Tráfego',
         scsSoftNews: 'Notícias do software SCS',
+        collisionsDisabled: 'Colações desativadas',
+        carsForPlayersDisabled: 'Carros desabilitados',
+        carsForPlayersEnabled: 'Carros habilitados',
+        collisionsEnabled: 'Colisões habilitadas',
     },
     zh: {
         currentGameVersion: '当前游戏版本: ',
@@ -1417,6 +1465,10 @@ var strings = new LocalizedStrings({
         telemetry: '遥测',
         scsSoftNews: 'SCS软件新闻',
         traffic: '交通',
+        carsForPlayersDisabled: '汽车禁用',
+        carsForPlayersEnabled: '启用汽车',
+        collisionsEnabled: '碰撞启用',
+        collisionsDisabled: '禁用关闭',
     },
     bn: {
         currentGameVersion: 'চলতি গেম সংস্করণ ',
@@ -1527,7 +1579,11 @@ var strings = new LocalizedStrings({
         telemetryIPSettingsHeader: 'টেলিম্যাট্রি সার্ভার আইপি',
         telemetry: 'টেলিমেট্রি',
         traffic: 'ট্রাফিক',
-        scsSoftNews: 'এসসিএস সফটওয়্যার সংবাদ'
+        scsSoftNews: 'এসসিএস সফটওয়্যার সংবাদ',
+        collisionsEnabled: 'সংঘর্ষ সক্রিয়',
+        collisionsDisabled: 'সংঘর্ষ নিষ্ক্রিয়',
+        carsForPlayersDisabled: 'গাড়ি অক্ষম',
+        carsForPlayersEnabled: 'কারগুলি সক্রিয'
     }
 });
 

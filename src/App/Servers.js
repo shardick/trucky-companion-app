@@ -174,6 +174,18 @@ class ServersScreen extends BaseTruckyComponent
                             ? this.LocaleManager.strings.speedLimiterEnabled
                             : this.LocaleManager.strings.speedLimiterDisabled}</Text>
                 </View>
+                <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                    <Icon name="car" style={this.StyleManager.styles.serversListDescriptionIcon}/>
+                    <Text>{rowData.carsforplayers
+                            ? this.LocaleManager.strings.carsForPlayersEnabled
+                            : this.LocaleManager.strings.carsForPlayersDisabled}</Text>
+                </View>
+                <View style={this.StyleManager.styles.serversListDescriptionRow}>
+                    <Icon name="bomb" style={this.StyleManager.styles.serversListDescriptionIcon}/>
+                    <Text>{rowData.carsforplayers
+                            ? this.LocaleManager.strings.collisionsEnabled
+                            : this.LocaleManager.strings.collisionsDisabled}</Text>
+                </View>
             </Card>
         );
     }
