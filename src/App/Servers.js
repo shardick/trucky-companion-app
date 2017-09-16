@@ -68,7 +68,7 @@ class ServersScreen extends BaseTruckyComponent
                             .done();
                     }
                 }
-            }, 10000);
+            }, 60000);
         }
     }
 

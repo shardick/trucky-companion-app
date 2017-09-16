@@ -115,7 +115,7 @@ class GameStatus extends BaseTruckyComponent
                             .done();
                     }
                 }
-            }, 10000);
+            }, 60000);
         }
     }
 

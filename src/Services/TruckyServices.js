@@ -65,13 +65,17 @@ class TruckyServices
             var json = await response.json();
 
             return json;
+
         } catch (error) {
 
             Alert.alert('Network error');
 
             console.debug('TruckyServices API request: ' + error.message);
 
-            return null;
+            return {
+                error: true,
+                response: null
+            };
         }
     }
 
