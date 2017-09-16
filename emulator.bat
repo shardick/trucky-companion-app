@@ -1,0 +1,1 @@
+emulator -avd Android_Accelerated_x86

@@ -87,13 +87,13 @@ class AppDrawerLayout extends BaseTruckyComponent {
                     .onPress
                     .bind(this, 'traffic')
             },
-            {
+            /*{
                 icon: 'poll',
                 value: this.LocaleManager.strings.telemetry,
                 onPress: this
                     .onPress
                     .bind(this, 'telemetry')
-            },
+            },*/
             {
                 icon: 'announcement',
                 value: this.LocaleManager.strings.scsSoftNews,
