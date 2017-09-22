@@ -1,6 +1,7 @@
 {
   "name": "trucky",
   "version": "1.1.0",
+  "description": "Trucky - the TruckersMP Companion app",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -35,5 +36,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "repository": {
+    "url": "https://github.com/shardick/trucky-companion-app"
   }
 }

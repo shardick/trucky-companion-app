@@ -1,10 +1,10 @@
 # Trucky Companion App
 
-[![Get it on Google Play](/site/assets/google.png)](https://play.google.com/store/apps/details?id=com.trucky)
+[![Get it on Google Play](https://truckyapp.com/assets/google.png)](https://play.google.com/store/apps/details?id=com.trucky)
 
-[![Get it on App Store](/site/assets/appstore.png)](https://itunes.apple.com/ro/app/truckyapp/id1233325424?mt=8)
+[![Get it on App Store](https://truckyapp.com/assets/appstore.png)](https://itunes.apple.com/ro/app/truckyapp/id1233325424?mt=8)
 
-[![Get it on Amazon App Store](/site/assets/amzstore.png)](https://www.amazon.com/Francesco-Bramato-Trucky/dp/B072Q7K2JL)
+[![Get it on Amazon App Store](https://truckyapp.com/assets/amzstore.png)](https://www.amazon.com/Francesco-Bramato-Trucky/dp/B072Q7K2JL)
 
 ## Why this app?
 
@@ -18,37 +18,32 @@ I'm not affiliated in any way with SCS, Euro Truck Simulator 2 or TruckersMP.
 
 ## Dependencies
 
-react-native 0.44.2
+- [moment](https://github.com/moment/moment): Parse, validate, manipulate, and display dates
+- [react](https://github.com/facebook/react): React is a JavaScript library for building user interfaces.
+- [react-native](https://github.com/facebook/react-native): A framework for building native apps using React
+- [react-native-calendar-events](https://github.com/wmcmahan/react-native-calendar-events): React Native module for IOS Calendar Events
+- [react-native-device-info](https://github.com/rebeccahughes/react-native-device-info): Get device information using react-native
+- [react-native-drawer](https://github.com/rt2zz/react-native-drawer): React Native Drawer
+- [react-native-keep-awake](https://github.com/corbt/react-native-keep-awake): Keep the screen from going to sleep. iOS and Android.
+- [react-native-localization](https://github.com/stefalda/ReactNativeLocalization): Simple module to localize the ReactNative interface
+- [react-native-material-bottom-navigation](https://github.com/timomeh/react-native-material-bottom-navigation): JS Implementation of the Material Design Guidelines&#39; Bottom Navigation for react-native
+- [react-native-material-ui](https://github.com/xotahal/react-native-material-ui): React Native Material Design Components
+- [react-native-modal-picker](https://github.com/d-a-n/react-native-modal-picker): [![npm version](https://badge.fury.io/js/react-native-modal-picker.svg)](https://badge.fury.io/js/react-native-modal-picker)
+- [react-native-onesignal](https://github.com/geektimecoil/react-native-onesignal): React Native OneSignal Component
+- [react-native-popup-dialog](https://github.com/jacklam718/react-native-popup-dialog): React Native Popup Dialog for IOS &amp; Android.
+- [react-native-progress](https://github.com/oblador/react-native-progress): Progress indicators and spinners for React Native using ReactART
+- [react-native-restart](https://github.com/avishayil/react-native-restart): React Native Restart Component
+- [react-native-simple-markdown](https://github.com/CharlesMangwa/react-native-simple-markdown): Render Markdown in React Native with native components (iOS &amp; Android)
+- [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view): Tab view component for React Native
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons): Customizable Icons for React Native with support for NavBar/TabBar/ToolbarAndroid, image source and full styling.
+- [react-navigation](https://github.com/react-community/react-navigation): React Navigation
 
-react-native-vector-icons for icons
+## Dev Dependencies
 
-react-native-simple-markdown for parsing Rules markdown
-
-react-native-progress for progress bar in Servers Screen
-
-react-native-material-ui for interface and theming (BottomNavigation, Drawer Layout, Theme)
-
-react-native-popup-dialog for dialogs
-
-react-native-drawer for app drawer
-
-moment for datetime manipulation
-
-react-native-localization for localizations and localized strings management
-
-react-native-restart
-
-react-native-onesignal for push notifications
-
-react-native-tab-view for tabbed views in home screen
-
-react-native-modal-picker for cross platform picker (customized and wrapped in AdaptativePicker)
-
-react-native-device-info for device info and device statistcs (saved on Heroku)
-
-react-navigation for inner navigation (as requested by react-native 0.44)
-
-Run npm install to install all depencencies
+- [babel-jest](https://github.com/facebook/jest): Jest plugin to use babel for transformation.
+- [babel-preset-react-native](https://github.com/facebook/react-native/tree/master/babel-preset): Babel preset for React Native applications
+- [jest](https://github.com/facebook/jest): Delightful JavaScript Testing.
+- [react-test-renderer](https://github.com/facebook/react): React package for snapshot testing.
 
 ## Compiling and debugging
 Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root folder, in VS Code terminal, run "react-native run android".
@@ -57,7 +52,7 @@ Open AVD Manager and start an emulator, eg Android_Accelerated_X86. From root fo
 From VS Code terminal run "release-android.bat", release apk in .-\android\app\build\outputs\apk\app-release.apk
 
 ## Credits
-TruckersMP, TruckersMP API creators, ETS2map.com and ETS2c.com.
+[TruckersMP](https://truckersmp.com/), TruckersMP API creators, ETS2map.com, ETS2c.com, [truckers.events](http://truckers.events), [Krashnz](https://krashnz.com/) 
 
 ### Translators
 Bulgarian: Hristo Spasov<br/>
@@ -71,5 +66,6 @@ Czech: ActiV3Drifter ([https://forum.truckersmp.com/index.php?/profile/93979-act
 Russian: CJMAXiK ([https://truckersmp.com/user/3861](https://truckersmp.com/user/3861))<br/>
 Portoguese: Ru13z ([https://forum.truckersmp.com/index.php?/profile/119633-ru13z/](https://forum.truckersmp.com/index.php?/profile/119633-ru13z/))<br/>
 Chinese: [Biu] - Luo Shen ([https://forum.truckersmp.com/index.php?/profile/101200-biu-luo-shen/](https://forum.truckersmp.com/index.php?/profile/101200-biu-luo-shen/))<br/>
+Turkish: [TSRVTC] ismail [TR] ([https://forum.truckersmp.com/index.php?/profile/114287-tsrvtc-ismail-tr/](https://forum.truckersmp.com/index.php?/profile/114287-tsrvtc-ismail-tr/))
 
 Thanks guys, you are awesome!
