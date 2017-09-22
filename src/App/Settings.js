@@ -143,7 +143,7 @@ class SettingsScreen extends BaseTruckyComponent
                     </View>
                     
                     
-                    <View style={this.StyleManager.styles.appSettingsHeader}>
+                    {/*<View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.telemetryIPSettingsHeader}</Text>
                     </View>
                     <View style={this.StyleManager.styles.appSettingsRowColumns}>
@@ -152,7 +152,7 @@ class SettingsScreen extends BaseTruckyComponent
                             onChangeText={(text) => this.updateSetting(this.AppSettings.keys.telemetryServerIP, text)} 
                             placeholder="Insert Telemetry Server IP here" /> 
                         </View>
-                    </View>
+                    </View>*/}
                     <View style={this.StyleManager.styles.appSettingsHeader}>
                         <Text style={this.StyleManager.styles.appSettingsHeaderText}>{this.LocaleManager.strings.settingsHeaderLanguage}</Text>
                     </View>

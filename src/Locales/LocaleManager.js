@@ -61,12 +61,15 @@ class LocaleManager
             }, {
                 displayName: 'Portuguese',
                 code: 'pt'
-            }, {
-                displayName: 'Spanish',
-                code: 'es'
+            },{
+                displayName: 'Turkish',
+                code: 'tr'
             }, {
                 displayName: 'Russian',
                 code: 'ru'
+            },{
+                displayName: 'Spanish',
+                code: 'es'
             }
         ];
     }
@@ -141,7 +144,9 @@ class LocaleManager
             'zh-MO', //	Chinese (Macau)
             'zh-SG', //	Chinese (Singapore)
             'zh-TW', // Chinese (T)
-            'bn'
+            'bn',
+            'tr-TR',
+            'tr'
         ];
     }
 
@@ -219,6 +224,9 @@ class LocaleManager
                 break;
             case 'bn':
                 momentLocaleConfiguration = require('moment/locale/bn');
+                break;
+            case 'tr':
+                momentLocaleConfiguration = require('moment/locale/tr');
                 break;
             default:
 

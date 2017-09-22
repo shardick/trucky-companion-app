@@ -15,7 +15,7 @@
     "react-native-drawer": "^2.5.0",
     "react-native-keep-awake": "^2.0.5",
     "react-native-localization": "^0.1.32",
-    "react-native-material-bottom-navigation": "^0.5.1",
+    "react-native-material-bottom-navigation": "^0.5.2",
     "react-native-material-ui": "^1.13.0",
     "react-native-modal-picker": "0.0.16",
     "react-native-onesignal": "^3.0.5",
@@ -24,7 +24,7 @@
     "react-native-restart": "0.0.3",
     "react-native-simple-markdown": "^1.0.60-rc.3",
     "react-native-tab-view": "0.0.69",
-    "react-native-vector-icons": "^4.3.0",
+    "react-native-vector-icons": "^4.4.0",
     "react-navigation": "^1.0.0-beta.11"
   },
   "devDependencies": {
