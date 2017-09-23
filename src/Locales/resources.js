@@ -1588,7 +1588,7 @@ var strings = new LocalizedStrings({
     tr: {
         currentGameVersion: 'Şuan ki oyun sürümü: ', 
         routeHomeTitle: 'Trucky Companion Eklentisi', 
-        routeServersTitle: 'TruckersMP Sunucuları', 
+        routeServersTitle: 'TruckersMP Sunucular', 
         routeMeetupsTitle: 'Buluşmalar', 
         routeSettingsTitle: 'Ayarlar', 
         routeAboutTitle: 'Eklenti hakkında', 
@@ -1598,7 +1598,7 @@ var strings = new LocalizedStrings({
         lastReleaseDate: 'En son çıkan sürüm tarihi: ', 
         playersOnline: 'Kişi aktif', 
         currentGameTime: 'Oyun saati: ', 
-        servers: 'Sunucuları', 
+        servers: 'Sunucular', 
         about: 'Hakkında', 
         meetups: 'Buluşmalar', 
         searchPlayer: 'Oyuncu Ara', 
@@ -1670,7 +1670,7 @@ var strings = new LocalizedStrings({
         liveMapRouteTitle: 'Canlı Harita', 
         checkingOnlineState: 'Güncel Durum Denetleniyor..', // label showed waiting for online status response 
         viewOnMap: 'Mapda görüntüle', 
-        hideHeatMap: 'Hide hea', // represents trucks density in a certain area 
+        hideHeatMap: 'Hide heatmap', // represents trucks density in a certain area 
         showDirection: 'Show direction', 
         showTrucks: 'Çekiciyi Görüntüle', 
         showName: 'İsmi Görüntüle', 
