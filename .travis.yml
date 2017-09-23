@@ -33,10 +33,12 @@ matrix:
         - travis_retry sudo apt-get install -y -qq yarn
       install:
         - yarn
+        - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+        - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
       android:
         components:
           - build-tools-23.0.1
-          - build-tools-25
+          - build-tools-25.0.0
           - build-tools-25.0.1
           - build-tools-25.0.2
           - build-tools-25.0.3
@@ -48,8 +50,9 @@ matrix:
           - extra-google-google_play_services
           - extra-google-m2repository
           - addon-google_apis-google-16
-          - android-sdk-license-.+
-          - google-gdk-license-.+
+          - 'android-sdk-preview-license-.+'
+          - 'android-sdk-license-.+'
+          - 'google-gdk-license-.+'
       script:
         - cd android && ./gradlew assembleDebug && ./gradlew assembleRelease
 #    - language: objective-c
