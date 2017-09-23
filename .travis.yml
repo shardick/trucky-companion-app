@@ -33,8 +33,6 @@ matrix:
         - travis_retry sudo apt-get install -y -qq yarn
       install:
         - yarn
-        - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
-        - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
       android:
         components:
           - build-tools-23.0.1
