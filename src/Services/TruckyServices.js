@@ -288,6 +288,24 @@ class TruckyServices
         var response = await this.executeRequest('/v2/traffic/servers');
         return response.response;
     }
+
+    async wot_gallery_editorsPick(page)
+    {
+        var response = await this.executeRequest('/v2/wot/gallery/editorsPick?page=' + page);
+        return response.response;
+    }
+
+    async wot_gallery_newest(page)
+    {
+        var response = await this.executeRequest('/v2/wot/gallery/newest?page=' + page);
+        return response.response;
+    }
+
+    async wot_gallery_bestRated(page)
+    {
+        var response = await this.executeRequest('/v2/wot/gallery/bestRated?page=' + page);
+        return response.response;
+    }
 }
 
 module.exports = TruckyServices;

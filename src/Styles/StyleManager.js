@@ -449,6 +449,32 @@ const _styles = StyleSheet.create({
   },
   trafficActionButton: {
     marginBottom: 85
+  },
+  wotGalleryList: {
+    padding: 10
+  },
+  wotGalleryIcon: {
+    marginRight: 5
+  },
+  wotGalleryStatsIcon: {
+    marginRight: 5,
+    marginTop: 3
+  },
+  wotGalleryProfileIcon: {
+    marginRight: 5,
+    marginTop: 5
+  },
+  wotGalleryProfileText: {
+    marginTop: 5
+  },
+  wotGalleryIconText: {
+    marginRight: 10
+  },
+  wotGalleryImage: {
+    height: 200
+  },
+  wotGalleryListList: {
+
   }
 });
 
@@ -532,7 +558,10 @@ if (!DeviceInfo.isTablet()) {
   ];
   _styles.mapView = {
     marginBottom: bottomBarAdjustment
-  }
+  };
+  _styles.wotGalleryListList = {
+    marginBottom: bottomBarAdjustment
+  };
 
 }
 

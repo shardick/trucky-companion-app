@@ -102,6 +102,13 @@ class AppDrawerLayout extends BaseTruckyComponent {
                     .bind(this, 'scsSoft')
             },
             {
+                icon: <FAIcon name="picture-o" size={22} />,
+                value: this.LocaleManager.strings.wotGallery,
+                onPress: this
+                    .onPress
+                    .bind(this, 'wotGallery')
+            },
+            {
                 icon: 'search',
                 value: this.LocaleManager.strings.searchPlayer,
                 onPress: this

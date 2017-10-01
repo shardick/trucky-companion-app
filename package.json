@@ -11,7 +11,7 @@
     "moment": "^2.18.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.48.3",
-    "react-native-calendar-events": "1.4.2",
+    "react-native-calendar-events": "1.4.3",
     "react-native-device-info": "^0.11.0",
     "react-native-drawer": "^2.5.0",
     "react-native-keep-awake": "^2.0.5",
@@ -20,19 +20,21 @@
     "react-native-material-ui": "^1.13.0",
     "react-native-modal-picker": "0.0.16",
     "react-native-onesignal": "^3.0.5",
+    "react-native-paginated-listview": "^1.0.2",
     "react-native-popup-dialog": "^0.9.35",
     "react-native-progress": "^3.4.0",
     "react-native-restart": "0.0.3",
     "react-native-simple-markdown": "^1.0.60-rc.3",
     "react-native-tab-view": "0.0.69",
     "react-native-vector-icons": "^4.4.0",
-    "react-navigation": "^1.0.0-beta.11"
+    "react-navigation": "^1.0.0-beta.13"
   },
   "devDependencies": {
     "babel-jest": "21.0.0",
     "babel-preset-react-native": "3.0.2",
     "jest": "21.0.0",
-    "react-test-renderer": "~15.6.1"
+    "react-test-renderer": "~15.6.1",
+    "rnpm-plugin-windows": "^0.2.7"
   },
   "jest": {
     "preset": "react-native"

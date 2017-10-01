@@ -13,6 +13,7 @@ import FriendsListScreen from './App/FriendsList';
 import TrafficScreen from './App/TrafficScreen';
 import TelemetryScreen from './App/TelemetryScreen';
 import SCSSoftNewsScreen from './App/SCSSoftNews';
+import WOTGalleryScreen from './App/WOTGalleryScreen';
 var DeviceInfo = require('react-native-device-info');
 
 import React, { Component, PropTypes } from 'react';
@@ -121,6 +122,10 @@ class RouteManager {
                 scsSoft: {
                     title: 'SCSSoft News',
                     screen: SCSSoftNewsScreen
+                },
+                wotGallery: {
+                    title: 'WOT Gallery',
+                    screen: WOTGalleryScreen
                 },
                 splashScreen: {
                     screen: SplashScreen

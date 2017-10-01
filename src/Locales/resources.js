@@ -118,7 +118,12 @@ var strings = new LocalizedStrings({
         carsForPlayersEnabled: 'Cars enabled',
         carsForPlayersDisabled: 'Cars disabled',
         collisionsEnabled: 'Collisions enabled',
-        collisionsDisabled: 'Collissions disabled'
+        collisionsDisabled: 'Collissions disabled',
+        /* LABELS ADDED ON 1.6.0 */
+        wotGallery: 'World of Trucks Gallery',
+        wotGalleryEditorsPick: 'Editor\'s Pick',
+        wotGalleryNewest: 'Newest',
+        wotGalleryBestRated: 'Best Rated'
     },
     it: {
         currentGameVersion: 'Versione corrente: ',

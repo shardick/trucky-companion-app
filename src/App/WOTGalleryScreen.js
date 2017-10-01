@@ -11,8 +11,7 @@ var {
     StyleSheet,
     ScrollView,
     RefreshControl,
-    AppState,
-    TouchableOpacity
+    AppState
 } = ReactNative;
 
 import {Toolbar, ActionButton, Card} from 'react-native-material-ui';
@@ -21,9 +20,9 @@ import BaseTruckyComponent from '../Components/BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
 import BottomNavigation from '../Components/BottomNavigation';
 import {TabViewAnimated, TabBar} from 'react-native-tab-view';
-import TrafficListView from '../Components/TrafficListView';
+import WOTGallery from '../Components/WOTGallery';
 
-class TrafficScreen extends BaseTruckyComponent
+class WOTGalleryScreen extends BaseTruckyComponent
 {
     constructor()
     {
@@ -38,8 +37,9 @@ class TrafficScreen extends BaseTruckyComponent
             tabState: {
                 index: 0,
                 routes: [
-                    { key: '-1', title: 'Europe #2'},
-                    { key: '-2', title: 'Europe #1'}
+                    { key: 'newest', title: this.LocaleManager.strings.wotGalleryNewest},
+                    { key: 'bestRated', title: this.LocaleManager.strings.wotGalleryBestRated},
+                    { key: 'editorsPick', title: this.LocaleManager.strings.wotGalleryEditorsPick}
                 ],
                 loaded: false
             }
@@ -52,38 +52,14 @@ class TrafficScreen extends BaseTruckyComponent
         super.componentDidMount();
     }
 
-    async fetchData() {
-
-        this.setState({loading: true});
-
-        var api = new TruckyServices();
-
-        var traffic_servers = await api.traffic_servers();
-
-        var tabRoutes = [];
-
-        if (traffic_servers != null && traffic_servers)
-        {
-            traffic_servers.forEach(function(element) {
-                
-                tabRoutes.push({
-                    key: element.url,
-                    title: element.game + ' ' + element.short,
-                    game: element.game
-                })
-            }, this);
-            
-            this.setState({ tabState: { index: 0, routes: tabRoutes }});
-        }
-
-        this.setState({loading: false});
+    async fetchData() {       
     }
 
     renderToolbar = () => {
         return (<Toolbar style={ {container: this.StyleManager.styles.toolBar}}
             leftElement="arrow-back"
             onLeftElementPress={() => this.RouteManager.back()}
-            centerElement={this.LocaleManager.strings.traffic}
+            centerElement={this.LocaleManager.strings.wotGallery}
             />);
     }
 
@@ -101,10 +77,7 @@ class TrafficScreen extends BaseTruckyComponent
 
     _renderScene = ({route}) => {
 
-        if (route.key != '-1' && route.key != '-2')
-                return <TrafficListView server={route.key} game={route.game} navigation={this.RouteManager.navigator}/>;
-        else
-            return null;
+        return <WOTGallery galleryType={route.key} />
         
     };
 
@@ -133,4 +106,4 @@ class TrafficScreen extends BaseTruckyComponent
     }
 }
 
-module.exports = TrafficScreen;
+module.exports = WOTGalleryScreen;
