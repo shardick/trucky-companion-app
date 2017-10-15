@@ -55,6 +55,9 @@ class LocaleManager
             }, {
                 displayName: 'Italian',
                 code: 'it'
+            },  {
+                displayName: 'Korean',
+                code: 'ko'
             }, {
                 displayName: 'Polish',
                 code: 'pl'
@@ -64,6 +67,9 @@ class LocaleManager
             },{
                 displayName: 'Turkish',
                 code: 'tr'
+            }, , {
+                displayName: 'Romanian',
+                code: 'ro'
             }, {
                 displayName: 'Russian',
                 code: 'ru'
@@ -146,7 +152,11 @@ class LocaleManager
             'zh-TW', // Chinese (T)
             'bn',
             'tr-TR',
-            'tr'
+            'tr',
+            'ko',
+            'ko-KR',
+            'ro',
+            'ro-RO'
         ];
     }
 
@@ -227,6 +237,12 @@ class LocaleManager
                 break;
             case 'tr':
                 momentLocaleConfiguration = require('moment/locale/tr');
+                break;
+            case 'ko':
+                momentLocaleConfiguration = require('moment/locale/ko');
+                break;
+            case 'ro':
+                momentLocaleConfiguration = require('moment/locale/ro');
                 break;
             default:
 

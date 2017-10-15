@@ -10,7 +10,7 @@ var {
     ScrollView,
     RefreshControl,
     AppState,
-    TouchableHighlight,
+    TouchableOpacity,
     Image
 } = ReactNative;
 
@@ -82,12 +82,10 @@ class WOTGallery extends BaseTruckyComponent
 
     renderRow(rowData) {        
         return (
-            <Card>
-                <TouchableHighlight onPress={() => this.navigateUrl(rowData.imageDetailUrl)}>
+            <Card>                
                     <View style={this.StyleManager.styles.wotGalleryList}>
                         {this.renderGalleryItem(rowData, this)}
                     </View>
-                </TouchableHighlight>
             </Card>
         );
     }
@@ -119,13 +117,17 @@ class WOTGallery extends BaseTruckyComponent
 
     renderGalleryItem(item, container) {
         return (<View>
-                <Image resizeMode="cover"
-                    style={this.StyleManager.styles.wotGalleryImage}
-                    source={{uri: item.imageUrl}}
-                    />
+                <TouchableOpacity onPress={() => this.navigateUrl(item.imageDetailUrl)}>
+                    <Image resizeMode="cover"
+                        style={this.StyleManager.styles.wotGalleryImage}
+                        source={{uri: item.imageUrl}}
+                        />
+                </TouchableOpacity>
                 <View style={this.StyleManager.styles.simpleRow}>
                     <FAIcon style={this.StyleManager.styles.wotGalleryProfileIcon} name="user" />
-                    <Text>{item.author}</Text>
+                    <TouchableOpacity onPress={() => this.navigateUrl(item.authorUrl)}>
+                        <Text style={this.StyleManager.styles.link}>{item.author}</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={this.StyleManager.styles.simpleRow}>
                     <FAIcon style={this.StyleManager.styles.wotGalleryStatsIcon} name="eye" />

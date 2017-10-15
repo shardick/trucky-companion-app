@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactNative from 'react-native';
-const { View, Text, Image } = ReactNative;
+const { View, Text, Image, ScrollView } = ReactNative;
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import { Drawer, Avatar } from 'react-native-material-ui';
 import BaseTruckyComponent from '../Components/BaseTruckyComponent';

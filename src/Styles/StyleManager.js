@@ -245,8 +245,8 @@ const _styles = StyleSheet.create({
     alignItems: 'center'
   },
   aboutImage: {
-    width: 200,
-    height: 200
+    width: 100,
+    height: 100
   },
   aboutText: {
     marginTop: 10
@@ -497,6 +497,10 @@ _styles.rulesMarkDownSyles = {
   }
 };
 
+_styles.link = {
+  color: _styles.uiTheme.palette.primaryColor
+}
+
 /* ios style overrides */
 if (Platform.OS == 'ios') {
   _styles.searchPlayerContainer.paddingTop = 200;
@@ -532,6 +536,10 @@ if (Platform.OS == 'ios') {
 }
 
 var bottomBarAdjustment = 70;
+
+_styles.bottomBarAdjustment = {
+  marginBottom: bottomBarAdjustment
+};
 
 if (!DeviceInfo.isTablet()) {
   _styles.newsListList = {
