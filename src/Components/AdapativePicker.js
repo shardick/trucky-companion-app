@@ -1,9 +1,10 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 var ReactNative = require('react-native');
 import {Text, View, TouchableOpacity} from 'react-native';
 import ModalPicker from 'react-native-modal-picker'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LM from '../Locales/LocaleManager';
+import PropTypes from 'prop-types';
 
 class AdaptativePicker extends Component
 {

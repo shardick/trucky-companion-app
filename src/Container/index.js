@@ -1,6 +1,7 @@
 import { View, StyleSheet } from 'react-native';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import SM from '../Styles/StyleManager';
+import PropTypes from 'prop-types';
 
 const propTypes = {
     children: PropTypes.node,

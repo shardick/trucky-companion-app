@@ -19,7 +19,6 @@ import ActivityIndicator from './CustomActivityIndicator';
 import BaseTruckyComponent from './BaseTruckyComponent';
 import TruckyServices from '../Services/TruckyServices';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
-import PaginatedListView from 'react-native-paginated-listview'
 
 class WOTGallery extends BaseTruckyComponent
 {
